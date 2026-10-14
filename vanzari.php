@@ -145,10 +145,10 @@ $textt = '';
 if ($users_filter !== null) {
     if ($users_filter === 'Utilaje' && $subcateg_filter !== null) {
 		// Filter by category and subcateg for Utilaje
-		$query_vanzare = sprintf("SELECT * FROM masini WHERE cat = '%s' AND subcateg = '%s' ORDER BY pret ASC", $users_filter, $subcateg_filter);
+		$query_vanzare = sprintf("SELECT * FROM masini WHERE stare_anunt = 1 AND cat = '%s' AND subcateg = '%s' ORDER BY pret ASC", $users_filter, $subcateg_filter);
 	} else {
 		// Filter by category only
-		$query_vanzare = sprintf("SELECT * FROM masini WHERE cat = '%s' ORDER BY pret ASC", $users_filter);
+		$query_vanzare = sprintf("SELECT * FROM masini WHERE stare_anunt = 1 AND cat = '%s' ORDER BY pret ASC", $users_filter);
 	}
 }
 elseif(isset($_GET['txtsrc']) && (!empty($_GET['txtsrc']))){
@@ -321,57 +321,6 @@ if ($totalRows_vanzare > 0) {
                         "priceCurrency" => "EUR",
                         "availability" => "InStock",
                         "url" => $car_url,
-                        "priceValidUntil" => date('Y-m-d', strtotime('+180 days')),
-                        "shippingDetails" => [
-                            "@type" => "OfferShippingDetails",
-                            "shippingRate" => [
-                                "@type" => "MonetaryAmount",
-                                "value" => "0",
-                                "currency" => "EUR",
-                                "name" => "La cerere - preț în funcție de distanță"
-                            ],
-                            "shippingDestination" => [
-                                [
-                                    "@type" => "DefinedRegion",
-                                    "addressLocality" => "Iași",
-                                    "addressRegion" => "Iași",
-                                    "addressCountry" => "RO",
-                                    "name" => "Livrare disponibilă în Iași"
-                                ],
-                                [
-                                    "@type" => "DefinedRegion",
-                                    "addressCountry" => "RO",
-                                    "name" => "Livrare disponibilă la cerere în toată România"
-                                ]
-                            ],
-                            "deliveryTime" => [
-                                "@type" => "ShippingDeliveryTime",
-                                "handlingTime" => [
-                                    "@type" => "QuantitativeValue",
-                                    "minValue" => 1,
-                                    "maxValue" => 30,
-                                    "unitCode" => "DAY"
-                                ],
-                                "transitTime" => [
-                                    "@type" => "QuantitativeValue",
-                                    "minValue" => 1,
-                                    "maxValue" => 30,
-                                    "unitCode" => "DAY"
-                                ]
-                            ],
-                            "shippingSettingsLink" => BASE_PATH . "contact.php"
-                        ],
-                        "hasMerchantReturnPolicy" => [
-                            "@type" => "MerchantReturnPolicy",
-                            "applicableCountry" => "RO",
-                            "returnPolicyCategory" => "MerchantReturnNotPermitted",
-                            "additionalProperty" => [
-                                "@type" => "PropertyValue",
-                                "name" => "Politică de garanție",
-                                "value" => "Toate vehiculele beneficiază de garanție extinsă de 12 luni în scris, din data livrării conform termenilor și condițiilor."
-                            ],
-                            "customerRemorseReturnWindow" => "P0D"
-                        ],
                         "seller" => [
                             "@id" => JSONLD_BASE_URL . "#organization"
                         ]
@@ -399,67 +348,9 @@ if ($totalRows_vanzare > 0) {
                         "availability" => "InStock",
                         "itemCondition" => "UsedCondition",
                         "url" => $car_url,
-                        "priceValidUntil" => date('Y-m-d', strtotime('+180 days')),
-                        "shippingDetails" => [
-                            "@type" => "OfferShippingDetails",
-                            "shippingRate" => [
-                                "@type" => "MonetaryAmount",
-                                "value" => "0",
-                                "currency" => "EUR",
-                                "name" => "La cerere - preț în funcție de distanță"
-                            ],
-                            "shippingDestination" => [
-                                [
-                                    "@type" => "DefinedRegion",
-                                    "addressLocality" => "Iași",
-                                    "addressRegion" => "Iași",
-                                    "addressCountry" => "RO",
-                                    "name" => "Livrare disponibilă în Iași"
-                                ],
-                                [
-                                    "@type" => "DefinedRegion",
-                                    "addressCountry" => "RO",
-                                    "name" => "Livrare disponibilă la cerere în toată România"
-                                ]
-                            ],
-                            "deliveryTime" => [
-                                "@type" => "ShippingDeliveryTime",
-                                "handlingTime" => [
-                                    "@type" => "QuantitativeValue",
-                                    "minValue" => 1,
-                                    "maxValue" => 30,
-                                    "unitCode" => "DAY"
-                                ],
-                                "transitTime" => [
-                                    "@type" => "QuantitativeValue",
-                                    "minValue" => 1,
-                                    "maxValue" => 30,
-                                    "unitCode" => "DAY"
-                                ]
-                            ],
-                            "shippingSettingsLink" => BASE_PATH . "contact.php"
-                        ],
-                        "hasMerchantReturnPolicy" => [
-                            "@type" => "MerchantReturnPolicy",
-                            "applicableCountry" => "RO",
-                            "returnPolicyCategory" => "MerchantReturnNotPermitted",
-                            "additionalProperty" => [
-                                "@type" => "PropertyValue",
-                                "name" => "Politică de garanție",
-                                "value" => "Toate vehiculele beneficiază de garanție extinsă de 12 luni în scris, din data livrării conform termenilor și condițiilor."
-                            ],
-                            "customerRemorseReturnWindow" => "P0D"
-                        ],
                         "seller" => [
                             "@id" => JSONLD_BASE_URL . "#organization"
                         ]
-                    ],
-                    "aggregateRating" => [
-                        "@type" => "AggregateRating",
-                        "ratingValue" => "4.3",
-                        "bestRating" => "5",
-                        "worstRating" => "0",
-                        "ratingCount" => 31
                     ]
                 ];
             }

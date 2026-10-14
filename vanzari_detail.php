@@ -40,9 +40,10 @@ $startRow_vanzare = $pageNum_vanzare * $maxRows_vanzare;
 
 $colname_vanzare = "-1";
 $id = (int) ($_GET['id'] ?? 0);
-if ($id <= 0) { 
-    http_response_code(404); 
-    exit(); 
+if ($id <= 0) {
+    $http_status = 404;
+    include './404.php';
+    exit();
 }
 
 $colname_vanzare = $id;
@@ -54,16 +55,19 @@ $query_limit_vanzare = sprintf("%s LIMIT %d, %d", $query_vanzare, $startRow_vanz
 $vanzare = $connection->query($query_limit_vanzare) or die($connection->error);
 //var_dump($vanzare);exit;
 if (mysqli_num_rows($vanzare) == 0) {
-    // Car listing not found - log the missing ID for analysis
-    $missing_id = mysqli_real_escape_string($connection, $_GET['id']);
-    error_log("Missing car ID requested: " . $missing_id . " from " . $_SERVER['HTTP_REFERER'] ?? 'direct');
-    
-    // Redirect to main listings with message (301 tells Google content permanently moved)
-    http_response_code(301);
-    header("Location: " . BASE_PATH . "vanzari.php?message=expired");
+    // Mașina nu mai există: 410 Gone, ca Google s-o scoată repede din index
+    error_log("Missing car ID requested: " . $id . " from " . (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'direct'));
+    $http_status = 410;
+    include './404.php';
     exit();
 }
 $row_vanzare = $vanzare->fetch_assoc();
+
+// Mașină dezactivată / vândută: pagina rămâne pentru vizitatori, dar nu se indexează
+$is_sold = ((string)$row_vanzare['stare_anunt'] !== '1');
+if ($is_sold) {
+    $robots_meta = 'noindex,follow';
+}
 
 // Try to get additional data from for_csv table (if exists)
 $row_for_csv = null;
@@ -456,59 +460,8 @@ $structured_data["offers"] = [
     "price" => (float)$row_vanzare['pret'],
     "priceCurrency" => $currency,
     "itemCondition" => "UsedCondition",
-    "availability" => "InStock",
+    "availability" => $is_sold ? "https://schema.org/SoldOut" : "https://schema.org/InStock",
     "url" => $car_url,
-    "priceValidUntil" => date('Y-m-d', strtotime('+180 days')),
-    "shippingDetails" => [
-        "@type" => "OfferShippingDetails",
-        "shippingRate" => [
-            "@type" => "MonetaryAmount",
-            "value" => "0",
-            "currency" => "EUR",
-            "name" => "La cerere - preț în funcție de distanță"
-        ],
-        "shippingDestination" => [
-            [
-                "@type" => "DefinedRegion",
-                "addressLocality" => "Iași",
-                "addressRegion" => "Iași",
-                "addressCountry" => "RO",
-                "name" => "Livrare disponibilă în Iași"
-            ],
-            [
-                "@type" => "DefinedRegion",
-                "addressCountry" => "RO",
-                "name" => "Livrare disponibilă la cerere în toată România"
-            ]
-        ],
-        "deliveryTime" => [
-            "@type" => "ShippingDeliveryTime",
-            "handlingTime" => [
-                "@type" => "QuantitativeValue",
-                "minValue" => 1,
-                "maxValue" => 30,
-                "unitCode" => "DAY"
-            ],
-            "transitTime" => [
-                "@type" => "QuantitativeValue",
-                "minValue" => 1,
-                "maxValue" => 30,
-                "unitCode" => "DAY"
-            ]
-        ],
-        "shippingSettingsLink" => BASE_PATH . "contact.php"
-    ],
-    "hasMerchantReturnPolicy" => [
-        "@type" => "MerchantReturnPolicy",
-        "applicableCountry" => "RO",
-        "returnPolicyCategory" => "MerchantReturnNotPermitted",
-        "additionalProperty" => [
-            "@type" => "PropertyValue",
-            "name" => "Politică de garanție",
-            "value" => "Toate vehiculele beneficiază de garanție extinsă de 12 luni în scris, din data livrării conform termenilor și condițiilor."
-        ],
-        "customerRemorseReturnWindow" => "P0D"
-    ],
     "seller" => [
         "@id" => "https://autolandromania.ro/#organization"  // CONECTARE cu Organization prin @id
     ],
@@ -1203,6 +1156,10 @@ include './themes/automotive/template_parts/header.php';
                         <div class="car-price-cta-box">
                             <!-- Preț Section -->
                             <div class="car-price-section">
+                                <?php if ($is_sold): ?>
+                                    <div class="alert alert-warning"><strong>Această mașină a fost vândută.</strong>
+                                        Vedeți <a href="<?php echo BASE_PATH; ?>vanzari.php?users=<?php echo urlencode($row_vanzare['cat']); ?>">alte mașini din aceeași categorie</a>.</div>
+                                <?php endif; ?>
                                 <?php if (!(strcmp("0", $row_vanzare['pret_vechi']))): ?>
                                     <div class="car-price-main">
                                         <?php echo number_format($row_vanzare['pret'], 0, ',', '.'); ?> <span class="car-price-currency">€</span>

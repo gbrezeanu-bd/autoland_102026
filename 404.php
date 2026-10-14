@@ -6,8 +6,9 @@
 // Get config file
 include_once './includes/config.php';
 
-// Setează header-ul HTTP 404
-http_response_code(404);
+// 404 implicit; vanzari_detail.php setează 410 pentru mașinile șterse
+$http_status = isset($http_status) ? (int)$http_status : 404;
+http_response_code($http_status);
 
 $page_title = "Pagină Inexistentă (404) | AUTOLAND Iași";
 $page_subtitle = 'Dealer auto expert în mașini rulate verificate tehnic';
