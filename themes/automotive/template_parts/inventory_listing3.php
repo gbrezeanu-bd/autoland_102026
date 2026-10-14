@@ -37,7 +37,7 @@
                                     <?php
                                 }
                                 ?>
-                                <a class="inventory" href="vanzari_detail.php?id=<?php echo $row_vanzare['id']; ?>&pic=<?php echo getCarFirstPicture($row_vanzare['id'], $connection)['file']; ?>">
+                                <a class="inventory" href="<?php echo BASE_PATH; ?>vanzari_detail.php?id=<?php echo (int)$row_vanzare['id']; ?>">
                                     <div class="title"><?php echo $row_vanzare['marca'] . ' ' . $row_vanzare['tip']; ?></div>
                                     <div class="price"><b>Preţ:</b><br>
                                         <?php
