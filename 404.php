@@ -48,7 +48,7 @@ include './themes/automotive/template_parts/header.php';
                         </p>
                         
                         <div style="margin: 40px 0;">
-                            <a href="/" style="display: inline-block; padding: 15px 40px; background: #d32f2f; color: white; text-decoration: none; border-radius: 5px; font-size: 18px; font-weight: bold;">
+                            <a href="<?php echo BASE_PATH; ?>" style="display: inline-block; padding: 15px 40px; background: #d32f2f; color: white; text-decoration: none; border-radius: 5px; font-size: 18px; font-weight: bold;">
                                 🏠 Înapoi la Homepage
                             </a>
                         </div>
@@ -56,10 +56,10 @@ include './themes/automotive/template_parts/header.php';
                         <div style="margin-top: 50px; padding-top: 30px; border-top: 1px solid #e0e0e0;">
                             <h3 style="margin-bottom: 20px;">Linkuri Utile:</h3>
                             <ul style="list-style: none; padding: 0;">
-                                <li style="margin: 10px 0;"><a href="/lista_oferta.php" style="color: #d32f2f; text-decoration: none; font-size: 16px;">📋 Vezi Ofertele Noastre</a></li>
-                                <li style="margin: 10px 0;"><a href="/ghid-masini-second-hand" style="color: #d32f2f; text-decoration: none; font-size: 16px;">📖 Ghid Mașini Second Hand</a></li>
-                                <li style="margin: 10px 0;"><a href="/import-masini-la-comanda" style="color: #d32f2f; text-decoration: none; font-size: 16px;">🚗 Import Mașini la Comandă</a></li>
-                                <li style="margin: 10px 0;"><a href="/contact.php" style="color: #d32f2f; text-decoration: none; font-size: 16px;">📞 Contactează-ne</a></li>
+                                <li style="margin: 10px 0;"><a href="<?php echo BASE_PATH; ?>lista_oferta.php" style="color: #d32f2f; text-decoration: none; font-size: 16px;">📋 Vezi Ofertele Noastre</a></li>
+                                <li style="margin: 10px 0;"><a href="<?php echo BASE_PATH; ?>articole/ghid-masini-second-hand" style="color: #d32f2f; text-decoration: none; font-size: 16px;">📖 Ghid Mașini Second Hand</a></li>
+                                <li style="margin: 10px 0;"><a href="<?php echo BASE_PATH; ?>articole/ghid-complet-leasing-finantare-auto-2026" style="color: #d32f2f; text-decoration: none; font-size: 16px;">💶 Ghid Leasing și Finanțare Auto</a></li>
+                                <li style="margin: 10px 0;"><a href="<?php echo BASE_PATH; ?>contact.php" style="color: #d32f2f; text-decoration: none; font-size: 16px;">📞 Contactează-ne</a></li>
                             </ul>
                         </div>
                     </div>

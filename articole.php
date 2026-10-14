@@ -54,7 +54,6 @@ if ($articles_result && $articles_result->num_rows > 0) {
 // Set header scripts pentru SEO
 $header_scripts = '';
 $header_scripts .= '<link rel="canonical" href="' . htmlspecialchars($canonical_url) . '" />' . "\n";
-$header_scripts .= '<meta name="robots" content="index, follow" />' . "\n";
 
 // Open Graph Meta Tags
 $header_scripts .= '<meta property="og:type" content="website" />' . "\n";

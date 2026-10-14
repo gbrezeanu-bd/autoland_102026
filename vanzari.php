@@ -271,135 +271,6 @@ require_once './includes/meta_tags.php';
 $marca_filter = isset($_GET['users']) && !empty($_GET['users']) ? urldecode($_GET['users']) : null;
 setListingsPageMeta($marca_filter);
 
-// Add JSON-LD structured data for car listings (ItemList + Product schemas)
-require_once './includes/json_ld_schemas.php';
-
-// Build ItemList schema with all cars on current page + Product schemas for first 5 cars
-// Use a separate query to avoid interfering with the main result set
-$item_list_elements = [];
-$product_schemas = []; // For rich snippets - first 5 cars
-$position = 1;
-$max_products_for_rich_snippets = 5; // Limit to first 5 for performance
-
-if ($totalRows_vanzare > 0) {
-    // Execute the same query again specifically for JSON-LD
-    $vanzare_jsonld = $connection->query($query_limit_vanzare);
-    
-    if ($vanzare_jsonld && $vanzare_jsonld->num_rows > 0) {
-        while ($car = $vanzare_jsonld->fetch_assoc()) {
-            $car_url = BASE_PATH . "vanzari_detail.php?id=" . $car['id'];
-            $car_name = trim($car['marca'] . " " . $car['tip']);
-            
-            // Get first picture for image
-            $car_picture = getCarFirstPicture($car['id'], $connection);
-            $car_image = !empty($car_picture['file']) 
-                ? BASE_PATH . "foto/" . $car_picture['file'] 
-                : BASE_PATH . "themes/automotive/images/logo_Autoland.png";
-            
-            // Build description
-            $car_description = $car_name;
-            if (!empty($car['an'])) {
-                $car_description .= ", an " . $car['an'];
-            }
-            if (!empty($car['combustibil']) && $car['combustibil'] != 'fara') {
-                $car_description .= ", " . $car['combustibil'];
-            }
-            $car_description .= ". Disponibil la Autoland România - dealer autorizat cu garanție.";
-            
-            // ItemList element (for all cars)
-            $item_list_elements[] = [
-                "@type" => "ListItem",
-                "position" => $position++,
-                "item" => [
-                    "@type" => "Car",
-                    "@id" => $car_url,
-                    "name" => $car_name,
-                    "url" => $car_url,
-                    "image" => $car_image,
-                    "brand" => [
-                        "@type" => "Brand",
-                        "name" => trim($car['marca'])
-                    ],
-                    "model" => trim($car['tip']),
-                    "vehicleModelDate" => !empty($car['an']) ? (int)$car['an'] : null,
-                    "offers" => [
-                        "@type" => "Offer",
-                        "price" => (float)$car['pret'],
-                        "priceCurrency" => "EUR",
-                        "availability" => "InStock",
-                        "url" => $car_url,
-                        "seller" => [
-                            "@id" => JSONLD_BASE_URL . "#organization"
-                        ]
-                    ]
-                ]
-            ];
-            
-            // Product schema for first 5 cars (for rich snippets)
-            if (count($product_schemas) < $max_products_for_rich_snippets) {
-                $product_schemas[] = [
-                    "@context" => "https://schema.org",
-                    "@type" => "Product",
-                    "@id" => $car_url . "#product",
-                    "name" => $car_name,
-                    "description" => $car_description,
-                    "image" => $car_image,
-                    "brand" => [
-                        "@type" => "Brand",
-                        "name" => trim($car['marca'])
-                    ],
-                    "offers" => [
-                        "@type" => "Offer",
-                        "price" => (float)$car['pret'],
-                        "priceCurrency" => "EUR",
-                        "availability" => "InStock",
-                        "itemCondition" => "UsedCondition",
-                        "url" => $car_url,
-                        "seller" => [
-                            "@id" => JSONLD_BASE_URL . "#organization"
-                        ]
-                    ]
-                ];
-            }
-        }
-        // Free the JSON-LD result set
-        mysqli_free_result($vanzare_jsonld);
-    }
-}
-
-// Create the ItemList schema
-$item_list_schema = [
-    "@context" => "https://schema.org",
-    "@type" => "ItemList",
-    "name" => "Stoc Auto Second Hand",
-    "description" => "Lista completă de autovehicule second hand disponibile la Autoland România",
-    "numberOfItems" => count($item_list_elements),
-    "itemListElement" => $item_list_elements
-];
-
-// Add breadcrumbs
-$breadcrumb_name = 'Stoc Auto';
-if (isset($_GET['marca']) && !empty($_GET['marca'])) {
-    $breadcrumb_name = 'Stoc ' . urldecode($_GET['marca']);
-}
-$breadcrumbs = [
-    ['name' => 'Acasă', 'url' => BASE_PATH],
-    ['name' => $breadcrumb_name, 'url' => BASE_PATH . 'vanzari.php']
-];
-
-$canonical_url = BASE_PATH . 'vanzari.php';
-// Combine all schemas: ItemList + Product schemas (first 5) + Breadcrumb + Organization + WebPage
-$vanzari_schemas = array_merge(
-    [$item_list_schema],           // ItemList for all cars
-    $product_schemas,              // Product schemas for first 5 cars (rich snippets)
-    [
-        getBreadcrumbSchema($breadcrumbs),
-        getOrganizationSchema(),
-        getWebPageSchema($canonical_url, $page_title, $meta_description ?? '')
-    ]
-);
-$header_scripts .= getJsonLdString($vanzari_schemas);
-
 // Set optimized page title based on category or origin filter (direct in file for easier maintenance)
 $page_subtitle = '';
 
@@ -425,10 +296,71 @@ if ($origin && $origin != 'fara') {
     }
 }
 
+// Paginile 2+ au titlu propriu (altfel toate paginile unei categorii au același titlu)
+if ($pageNum_vanzare > 0) {
+    $title_parts[count($title_parts) - 1] .= " – Pagina " . ($pageNum_vanzare + 1);
+}
+
 $title_parts[] = "Second Hand Iași";
 $title_parts[] = "Autoland România";
 
 $page_title = implode(" | ", $title_parts);
+
+// Add JSON-LD structured data for car listings: doar ItemList (URL-urile mașinilor) + BreadcrumbList.
+// Schema Product completă rămâne doar pe paginile de mașini (vanzari_detail.php).
+require_once './includes/json_ld_schemas.php';
+
+$item_list_elements = [];
+$position = $startRow_vanzare + 1;
+
+if ($totalRows_vanzare > 0) {
+    // Execute the same query again specifically for JSON-LD
+    $vanzare_jsonld = $connection->query($query_limit_vanzare);
+    if ($vanzare_jsonld) {
+        while ($car = $vanzare_jsonld->fetch_assoc()) {
+            $item_list_elements[] = [
+                "@type" => "ListItem",
+                "position" => $position++,
+                "name" => trim($car['marca'] . " " . $car['tip']),
+                "url" => BASE_PATH . "vanzari_detail.php?id=" . (int)$car['id']
+            ];
+        }
+        mysqli_free_result($vanzare_jsonld);
+    }
+}
+
+// Create the ItemList schema
+$item_list_schema = [
+    "@context" => "https://schema.org",
+    "@type" => "ItemList",
+    "name" => "Stoc Auto Second Hand",
+    "description" => "Lista completă de autovehicule second hand disponibile la Autoland România",
+    "numberOfItems" => count($item_list_elements),
+    "itemListElement" => $item_list_elements
+];
+
+// Add breadcrumbs
+$breadcrumb_name = 'Stoc Auto';
+if (isset($_GET['marca']) && !empty($_GET['marca'])) {
+    $breadcrumb_name = 'Stoc ' . urldecode($_GET['marca']);
+}
+$breadcrumbs = [
+    ['name' => 'Acasă', 'url' => BASE_PATH],
+    ['name' => $breadcrumb_name, 'url' => BASE_PATH . 'vanzari.php']
+];
+
+$canonical_url = BASE_PATH . 'vanzari.php';
+// Combine all schemas: ItemList + Breadcrumb + Organization + WebPage
+$vanzari_schemas = array_merge(
+    [$item_list_schema],           // ItemList for all cars
+    [
+        getBreadcrumbSchema($breadcrumbs),
+        getOrganizationSchema(),
+        getWebPageSchema($canonical_url, $page_title, $meta_description ?? '')
+    ]
+);
+$header_scripts .= getJsonLdString($vanzari_schemas);
+
 
 include './themes/automotive/template_parts/header.php';
 

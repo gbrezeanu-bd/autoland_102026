@@ -151,7 +151,7 @@ $header_scripts .= '<link rel="canonical" href="' . htmlspecialchars($canonical_
 
 // 2. Additional Meta Tags
 $header_scripts .= '<meta name="author" content="' . htmlspecialchars($article['autor'] ?? 'AUTOLAND România') . '" />' . "\n";
-$header_scripts .= '<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />' . "\n";
+$robots_meta = 'index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1'; // afișat o singură dată, în header.php
 if (!empty($article['categorie'])) {
     $header_scripts .= '<meta name="article:section" content="' . htmlspecialchars($article['categorie']) . '" />' . "\n";
 }

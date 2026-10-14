@@ -152,8 +152,10 @@
                         break;
                     }
                 }
-                // Adaugă brand doar dacă nu există deja
-                echo htmlspecialchars($page_title) . ($has_brand ? '' : ' | Autoland România');
+                // Adaugă brand doar dacă nu există deja. Paginile de mașini nu îl folosesc
+                // ($title_no_brand): titlul e lung, iar Google afișează oricum numele site-ului separat.
+                $skip_brand = $has_brand || !empty($title_no_brand);
+                echo htmlspecialchars($page_title) . ($skip_brand ? '' : ' | Autoland România');
             }
         ?></title>
         <!-- <meta name="robots" content="index,follow" /> -->

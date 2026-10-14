@@ -541,3 +541,82 @@ function sendSMTPEmail($to, $subject, $body) {
         return ['status' => 'error', 'error' => $err];
     }
 }
+
+/**
+ * Remove generic sales phrases (rate, leasing, avans 0, garantie...) from the admin "tip" text.
+ * Car-specific details (L2H2, 7 locuri, 4x4, automat, motor) are kept.
+ */
+function clean_car_tip($tip) {
+    $t = ' ' . trim((string)$tip) . ' ';
+    $patterns = array(
+        '/\bsecond[ -]?hand\b/iu',
+        '/\b(in|cu)\s+(leasing|rate)(\s+(sau|si)\s+(leasing|rate))?\b/iu',
+        '/\bavans\s*(zero|0|z\w*)?\b/iu',
+        '/\bfara\s+avans\b/iu',
+        '/\bgarantie(\s*(12\s*luni|1\s*an|\d+\s*luni))?\b/iu',
+        '/\bgar(an|a)?\s*$/iu',
+        '/\brate\s+auto\b/iu',
+        '/\bavan?s?\s*$/iu',
+        '/\b(leasing|rate|credit|finantare|ieftin[a]?)\b/iu',
+        '/\bpersoan[ae]\s+(fizic[ae]|juridic[ae])\b/iu',
+    );
+    $t = preg_replace($patterns, ' ', $t);
+    // leftover connectors and separators
+    $t = preg_replace('/\b(sau|si)\b(?=[\s,\-–]*($|[,\-–]))/iu', ' ', $t);
+    $t = preg_replace('/\s*,\s*(,\s*)+/u', ', ', $t);
+    $t = preg_replace('/\s+-\s+(-\s+)+/u', ' - ', $t);
+    $t = preg_replace('/(\s*[,\-–]\s*)+$/u', '', $t);
+    $t = preg_replace('/^(\s*[,\-–]\s*)+/u', '', $t);
+    $t = preg_replace('/\s*-\s*,\s*/u', ' - ', $t);
+    $t = preg_replace('/\s*,\s*-\s*/u', ' - ', $t);
+    $t = preg_replace('/\s{2,}/u', ' ', $t);
+    return trim($t, " ,-–");
+}
+
+/**
+ * Page title for a car: "Marca Tip [automat] [diesel] [7 locuri] An – Second Hand Iași"
+ *
+ * @param array $car   row from masini (marca, tip, an, cat, subcateg)
+ * @param array|null $csv row from for_csv (combustibil, transmisie, nr_locuri)
+ */
+function car_page_title(array $car, $csv = null) {
+    $is_utilaje = (isset($car['cat']) && $car['cat'] === 'Utilaje');
+    $tip = clean_car_tip(isset($car['tip']) ? $car['tip'] : '');
+    $marca = trim(isset($car['marca']) ? $car['marca'] : '');
+
+    // Utilaje: tip conține deja marca + model
+    $name = $is_utilaje ? $tip : trim($marca . ' ' . $tip);
+    if ($name === '') {
+        $name = trim($marca . ' ' . (isset($csv['model']) ? $csv['model'] : ''));
+    }
+    $lower = mb_strtolower($name, 'UTF-8');
+
+    $extra = array();
+    if (!$is_utilaje && $csv) {
+        // Transmisie automată (manuala e implicită)
+        $is_electric = (!empty($csv['combustibil']) && stripos($csv['combustibil'], 'electric') !== false) || strpos($lower, 'electr') !== false;
+        if (!$is_electric && !empty($csv['transmisie']) && stripos($csv['transmisie'], 'autom') === 0
+            && !preg_match('/autom|dsg|tiptronic|cvt/u', $lower)) {
+            $extra[] = 'automat';
+        }
+        // Combustibil, doar dacă nu apare deja
+        $fuel_words = '/diesel|motorina|benzina|hybrid|hibrid|electric|gpl|\bphev\b|\bev\b/u';
+        if (!empty($csv['combustibil']) && !preg_match($fuel_words, $lower)) {
+            $map = array('motorina' => 'diesel', 'benzina' => 'benzina', 'hybrid' => 'hybrid', 'hibrid' => 'hybrid', 'electric' => 'electric', 'gpl' => 'GPL');
+            $fuel = mb_strtolower(trim($csv['combustibil']), 'UTF-8');
+            foreach ($map as $k => $v) {
+                if (strpos($fuel, $k) !== false) { $extra[] = $v; break; }
+            }
+        }
+        // 6+ locuri (se caută: „7 locuri”, „vivaro 6 locuri”)
+        if (!empty($csv['nr_locuri']) && (int)$csv['nr_locuri'] >= 6 && strpos($lower, 'locuri') === false) {
+            $extra[] = (int)$csv['nr_locuri'] . ' locuri';
+        }
+    }
+    if (!empty($car['an']) && strpos($name, (string)$car['an']) === false) {
+        $extra[] = (int)$car['an'];
+    }
+
+    $suffix = $is_utilaje ? ' – Utilaje Second Hand Iași' : ' – Second Hand Iași';
+    return trim($name . ($extra ? ' ' . implode(' ', $extra) : '')) . $suffix;
+}

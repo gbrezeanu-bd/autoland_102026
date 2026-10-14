@@ -47,10 +47,11 @@ function setListingsPageMeta($marca = null) {
 /**
  * Set meta tags for car detail page
  */
-function setCarDetailMeta($car_name, $year, $price, $image_url = null, $db_keywords = null) {
+function setCarDetailMeta($car_name, $year, $price, $image_url = null, $db_keywords = null, $km = null) {
     global $meta_description, $meta_keywords, $og_type, $og_image;
     
-    $meta_description = "{$car_name} din {$year} la {$price} EUR. Mașină second hand verificată tehnic cu garanție 12 luni în scris. Disponibil la AutoLand România, Iași. Finanțare și înmatriculări disponibile. Contactează-ne pentru mai multe detalii.";
+    $km_text = $km ? ", " . number_format($km, 0, ',', '.') . " km," : "";
+    $meta_description = "{$car_name} din {$year}{$km_text} la {$price} EUR. Mașină second hand verificată tehnic cu garanție 12 luni în scris. Disponibil la AutoLand România, Iași. Finanțare și înmatriculări disponibile. Contactează-ne pentru mai multe detalii.";
     
     // Use keywords from database if available, otherwise generate default ones
     if (!empty($db_keywords)) {

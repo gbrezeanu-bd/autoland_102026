@@ -340,7 +340,8 @@ $car_price_formatted = number_format($row_vanzare['pret'], 0, ',', '.');
 $car_price = !empty($row_vanzare['pret']) ? (float)$row_vanzare['pret'] : null;
 $car_main_image = !empty($car_pictures) && !empty($car_pictures[0]['file']) ? BASE_PATH . "foto/" . $car_pictures[0]['file'] : null;
 $car_keywords = !empty($row_vanzare['keywords']) ? $row_vanzare['keywords'] : null;
-setCarDetailMeta($car_name_meta, $car_year, $car_price_formatted, $car_main_image, $car_keywords);
+$car_km = !empty($row_for_csv['kilometraj']) ? (int)$row_for_csv['kilometraj'] : null;
+setCarDetailMeta($car_name_meta, $car_year, $car_price_formatted, $car_main_image, $car_keywords, $car_km);
 
 // Set optimized page title (direct in file for easier maintenance)
 $title_parts = [$car_name_meta];
@@ -355,13 +356,9 @@ if ($car_price) {
 // Images should always have price in alt text even if removed from page title
 $image_alt_base = implode(" - ", $title_parts);
 
-// Check length - if too long, remove price from page title only
-$suffix = $is_utilaje ? " | Utilaje - Autoland România" : " | Second Hand - Autoland România";
-$temp_title = implode(" - ", $title_parts) . $suffix;
-if (mb_strlen($temp_title, 'UTF-8') > 60) {
-    array_pop($title_parts); // Remove price if title too long (only for page title)
-}
-$page_title = implode(" - ", $title_parts) . $suffix;
+// Titlu: marcă + tip fără textul de vânzare + automat/combustibil/locuri + an (vezi car_page_title)
+$page_title = car_page_title($row_vanzare, $row_for_csv);
+$title_no_brand = true;
 
 // Build comprehensive structured data following Google's Product + Car schema
 // Using Product wrapper with itemOffered Car for better SEO (like AutoScout24)
@@ -692,7 +689,6 @@ if ($is_valid && !empty($structured_data['name']) && !empty($structured_data['br
     require_once './includes/json_ld_schemas.php';
     
     // Create connected schemas: Product + WebPage + Organization + BreadcrumbList
-    $page_title = $car_name . " - Second Hand - Autoland România";
     $page_description = $description;
     $webpage_schema = getWebPageSchema($car_url, $page_title, $page_description);
     
