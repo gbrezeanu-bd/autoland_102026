@@ -15,7 +15,7 @@ include_once './includes/config.php';
 // try to get content
 $query_text = "SELECT id, leasing FROM texte WHERE id = 1";
 
-$result = $connection->query($query_text) or die($connection->error);
+$result = $connection->query($query_text) or db_fail($connection);
 $row = $result->fetch_assoc();
 
 $page_title = "Leasing/Credit Auto Iași | Finanțare cu Avans 0% | Autoland România";

@@ -8,7 +8,7 @@ $_GET['prov_enienta'] = "";
 <?php
 // Get all unique makes directly from the masini table
 $query_makes = "SELECT DISTINCT(marca) FROM masini ORDER BY marca ASC";
-$makes_result = $connection->query($query_makes) or die($connection->error);
+$makes_result = $connection->query($query_makes) or db_fail($connection);
 ?>
 <!-- Removed old JavaScript code -->
 
@@ -194,14 +194,14 @@ for ($i = 15; $i >= 0; $i--)
 <?php
 // Preia cursul valutar curent (cel mai recent)
 $query_curs_valutar_curent = "SELECT * FROM curs_valutar ORDER BY date DESC LIMIT 1";
-$curs_valutar_curent = $connection->query($query_curs_valutar_curent) or die($connection->error);
+$curs_valutar_curent = $connection->query($query_curs_valutar_curent) or db_fail($connection);
 $current_exchange = mysqli_fetch_assoc($curs_valutar_curent);
 
 // Preia cursul valutar anterior (de la o dată DIFERITĂ, nu doar al doilea rând)
 // Compară cu ultima zi anterioară distinctă
 $current_date = $current_exchange['date'];
 $query_curs_valutar_anterior = "SELECT * FROM curs_valutar WHERE date < '$current_date' ORDER BY date DESC LIMIT 1";
-$curs_valutar_anterior = $connection->query($query_curs_valutar_anterior) or die($connection->error);
+$curs_valutar_anterior = $connection->query($query_curs_valutar_anterior) or db_fail($connection);
 $past_exchange = mysqli_fetch_assoc($curs_valutar_anterior);
 
 // Calculează diferențele doar dacă există curs anterior

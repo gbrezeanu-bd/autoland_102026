@@ -1,16 +1,16 @@
 <!-- Inventory Box Search START Here -->
 <?php
 $query_Recordset1 = "SELECT DISTINCT(den) FROM zone ORDER BY den ASC";
-$Recordset1 = $connection->query($query_Recordset1) or die($connection->error);
+$Recordset1 = $connection->query($query_Recordset1) or db_fail($connection);
 $row_Recordset1 = mysqli_fetch_assoc($Recordset1);
 $totalRows_Recordset1 = mysqli_num_rows($Recordset1);
 
 $query_curs_valutar_curent = "SELECT * FROM curs_valutar ORDER BY date DESC LIMIT 1";
-$curs_valutar_curent = $connection->query($query_curs_valutar_curent) or die($connection->error());
+$curs_valutar_curent = $connection->query($query_curs_valutar_curent) or db_fail($connection);
 $row_curs_valutar_curent = mysqli_fetch_assoc($curs_valutar_curent);
 
 $query_curs_valutar_anterior = "SELECT * FROM curs_valutar ORDER BY date DESC LIMIT 1,1";
-$curs_valutar_anterior = $connection->query($query_curs_valutar_anterior) or die($connection->error);
+$curs_valutar_anterior = $connection->query($query_curs_valutar_anterior) or db_fail($connection);
 $row_curs_valutar_anterior = mysqli_fetch_assoc($curs_valutar_anterior);
 
 $_GET['combustibil'] = "";
@@ -26,7 +26,7 @@ $_GET['users'] = "";
         <div class="select-wrapper clearfix">
             <div class="col-md-12 about_team margin-bottom-10">
                 <div class="my-dropdown">
-                    <input name="txtsrc" id="txtsrc" class="full-width" type="search" value="<?php echo (isset($_GET['txtsrc']) ? $_GET['txtsrc'] : ''); ?>" placeholder="Cuvant cheie">
+                    <input name="txtsrc" id="txtsrc" class="full-width" type="search" value="<?php echo (isset($_GET['txtsrc']) && is_string($_GET['txtsrc']) ? htmlspecialchars($_GET['txtsrc']) : ''); ?>" placeholder="Cuvant cheie">
                 </div>
             </div>
         </div>
@@ -204,11 +204,11 @@ $_GET['users'] = "";
 <!-- Curs Valutar START Here -->
 <?php
 $query_curs_valutar_curent = "SELECT * FROM curs_valutar ORDER BY date DESC LIMIT 1";
-$curs_valutar_curent = $connection->query($query_curs_valutar_curent) or die($connection->error);
+$curs_valutar_curent = $connection->query($query_curs_valutar_curent) or db_fail($connection);
 $current_exchange = mysqli_fetch_assoc($curs_valutar_curent);
 
 $query_curs_valutar_anterior = "SELECT * FROM curs_valutar ORDER BY date DESC LIMIT 1,1";
-$curs_valutar_anterior = $connection->query($query_curs_valutar_anterior) or die($connection->error);
+$curs_valutar_anterior = $connection->query($query_curs_valutar_anterior) or db_fail($connection);
 $past_exchange = mysqli_fetch_assoc($curs_valutar_anterior);
 
 $diferenta_EUR = round(floatval($current_exchange['EUR']) - floatval($past_exchange['EUR']), 4);

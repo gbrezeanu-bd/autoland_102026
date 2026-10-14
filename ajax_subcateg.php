@@ -4,11 +4,11 @@ require_once('./includes/config.php');
 
 $colname_Recordset1 = "-1";
 if (isset($_GET['q'])) {
-  $colname_Recordset1 = (get_magic_quotes_gpc()) ? $_GET['q'] : addslashes($_GET['q']);
+  $colname_Recordset1 = $connection->real_escape_string($_GET['q']);
 }
 
 $query_Recordset1 = sprintf("SELECT * FROM `search_subcateg` WHERE categorie = '%s' ORDER BY subcateg ASC", $colname_Recordset1);
-$Recordset1 = $connection->query($query_Recordset1) or die($connection->error);
+$Recordset1 = $connection->query($query_Recordset1) or db_fail($connection);
 $row_Recordset1 = mysqli_fetch_assoc($Recordset1);
 $totalRows_Recordset1 = mysqli_num_rows($Recordset1);
 

@@ -30,6 +30,19 @@ function check_min_requirements() {
 }
 
 /**
+ * Stop on a failed query without showing the SQL error to visitors
+ *
+ * @param mysqli $connection
+ */
+function db_fail($connection) {
+    error_log("SQL error in " . $_SERVER['SCRIPT_NAME'] . ": " . $connection->error);
+    if (!headers_sent()) {
+        http_response_code(500);
+    }
+    exit('Eroare temporară. Vă rugăm să reîncercați.');
+}
+
+/**
  * Get the picturs array for a carID
  * 
  * @param integer $carID
@@ -39,7 +52,7 @@ function check_min_requirements() {
 function getCarPictures($carID, $connection) {
 
     $query_picture_string = sprintf("SELECT * FROM fotov WHERE oferta = %s ORDER BY nota ASC", $carID);
-    $query_picture = $connection->query($query_picture_string) or die($connection->error);
+    $query_picture = $connection->query($query_picture_string) or db_fail($connection);
 
     $pictures = array();
     while ($row = mysqli_fetch_assoc($query_picture)) {
@@ -75,7 +88,7 @@ function getCarFirstPicture($carID, $connection) {
 function getCarVideos($carID, $connection) {
 
     $query_video_string = sprintf("SELECT * FROM fotov_video WHERE oferta = %s ORDER BY nota ASC", $carID);
-    $query_video = $connection->query($query_video_string) or die($connection->error);
+    $query_video = $connection->query($query_video_string) or db_fail($connection);
 
     $videos = array();
     while ($row = mysqli_fetch_assoc($query_video)) {
@@ -123,7 +136,7 @@ function paginateQuery($connection, $query, $resultItemsPerPage = NULL, $pagerCl
 
     // try to execute te query in order to validate it
     // and get the number of results
-    $result = $connection->query($query) or die($connection->error);
+    $result = $connection->query($query) or db_fail($connection);
     $result_count = $result->num_rows;
 
     if ($result_count == 0) {
@@ -313,7 +326,7 @@ function paginateQuery($connection, $query, $resultItemsPerPage = NULL, $pagerCl
     $paginatedQuery = rtrim($query) . " LIMIT {$resultItemsPerPage} OFFSET " . (($currentPage - 1) * $resultItemsPerPage);
 
     //$paginatedQuery = sprintf(rtrim($query) . ' LIMIT %d OFFSET %d', $resultItemsPerPage, (($currentPage - 1) * $resultItemsPerPage));
-    $paginatedResult = $connection->query($paginatedQuery) or die($connection->error);
+    $paginatedResult = $connection->query($paginatedQuery) or db_fail($connection);
 
 
     // prepare the paginated result if array is wanted

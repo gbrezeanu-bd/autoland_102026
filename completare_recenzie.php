@@ -13,9 +13,9 @@ include_once './includes/config.php';
 
 // verify hash
 $hash = filter_var($_REQUEST['hash'], FILTER_SANITIZE_STRING);
-$hashSQL = sprintf("SELECT * FROM recenzii2 WHERE hash='%s'", $hash);
+$hashSQL = sprintf("SELECT * FROM recenzii2 WHERE hash='%s'", $connection->real_escape_string($hash));
 
-$hashQuery = $connection->query($hashSQL) or die($connection->error);
+$hashQuery = $connection->query($hashSQL) or db_fail($connection);
 $hashResult = mysqli_fetch_assoc($hashQuery);
 //$hashCount= mysqli_num_rows($hashResult);
 
@@ -30,13 +30,14 @@ if (is_null($hashResult)) {
 if(isset($_POST['hash']) && (isset($_POST['prenume'])) && (isset($_POST['nume'])) && (isset($_POST['continut_recenzie']))){
     // update recenzie in baza de date
     $sqlUpdateStr="UPDATE recenzii2 SET prenume='%s', nume='%s', recenzie='%s', data_recenzie='%s' WHERE hash='%s'";
-    $sqlUpdate= sprintf($sqlUpdateStr, $_POST['prenume'],$_POST['nume'],$_POST['continut_recenzie'],$_POST['data_recenzie'], $hash);
+    $esc = function ($key) use ($connection) { return $connection->real_escape_string(isset($_POST[$key]) ? (string)$_POST[$key] : ""); };
+    $sqlUpdate= sprintf($sqlUpdateStr, $esc("prenume"), $esc("nume"), $esc("continut_recenzie"), $esc("data_recenzie"), $connection->real_escape_string($hash));
     
-    $connection->query($sqlUpdate) or die($connection->error);
+    $connection->query($sqlUpdate) or db_fail($connection);
     
     
     // stergem hash-ul din baza de date, ca sa nu permitem repost
-    $connection->query(sprintf("UPDATE recenzii2 SET hash='' WHERE hash='%s'", $hash)) or die ($connection->error);
+    $connection->query(sprintf("UPDATE recenzii2 SET hash='' WHERE hash='%s'", $connection->real_escape_string($hash))) or db_fail($connection);
     // trimitem mail catre admin
     
     $to=$email_address;
@@ -54,7 +55,7 @@ if(isset($_POST['hash']) && (isset($_POST['prenume'])) && (isset($_POST['nume'])
 // /////////////////////////////////////////////////////////////////////////////
 // try to get content
 //$query_text = "SELECT id, home FROM texte WHERE id = 1";
-//$result = $connection->query($query_text) or die($connection->error);
+//$result = $connection->query($query_text) or db_fail($connection);
 //$row = $result->fetch_assoc();
 
 $page_title = "Completare recenzie";

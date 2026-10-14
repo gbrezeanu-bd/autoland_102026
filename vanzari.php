@@ -74,7 +74,7 @@ if (isset($_GET['marca']) && !empty($_GET['marca']))
   
   // Now using marca directly as a string with quotes for SQL
   $query_selector_marca = "SELECT * FROM `masini` WHERE marca LIKE '" . $colname_selector_marca . "'";
-  $selector_marca = $connection->query($query_selector_marca) or die($connection->error);
+  $selector_marca = $connection->query($query_selector_marca) or db_fail($connection);
   $row_selector_marca = mysqli_fetch_assoc($selector_marca);
   $totalRows_selector_marca = mysqli_num_rows($selector_marca);
 }
@@ -86,18 +86,19 @@ if (isset($_GET['marca']) && !empty($_GET['marca']))
 
 
 $maxRows_vanzare 		= 10;
-$pageNum_vanzare 		= (isset($_GET['pageNum_vanzare'])) ? $_GET['pageNum_vanzare'] : 0;
+$pageNum_vanzare 		= (isset($_GET['pageNum_vanzare'])) ? max(0, (int)$_GET['pageNum_vanzare']) : 0;
 $startRow_vanzare 		= $pageNum_vanzare * $maxRows_vanzare;
 
 
 // Category logic has been removed
-$col_an_vanzare = "1995";
-if (isset($_GET['an']) && !empty($_GET['an'])) {
-  $col_an_vanzare = $connection->real_escape_string($_GET['an']);
+// an și pret intră în SQL fără ghilimele, deci trebuie să fie numere
+$col_an_vanzare = 1995;
+if (isset($_GET['an']) && (int)$_GET['an'] > 0) {
+  $col_an_vanzare = (int)$_GET['an'];
 }
-$col_pret_vanzare = "14000000";
-if (isset($_GET['pret']) && !empty($_GET['pret'])) {
-  $col_pret_vanzare = $connection->real_escape_string($_GET['pret']);
+$col_pret_vanzare = 14000000;
+if (isset($_GET['pret']) && (int)$_GET['pret'] > 0) {
+  $col_pret_vanzare = (int)$_GET['pret'];
 }
 $col_marca_vanzare = "%";
 if (isset($_GET['marca']) && !empty($_GET['marca'])) {
@@ -151,13 +152,13 @@ if ($users_filter !== null) {
 		$query_vanzare = sprintf("SELECT * FROM masini WHERE stare_anunt = 1 AND cat = '%s' ORDER BY pret ASC", $users_filter);
 	}
 }
-elseif(isset($_GET['txtsrc']) && (!empty($_GET['txtsrc']))){
+elseif(isset($_GET['txtsrc']) && is_string($_GET['txtsrc']) && $_GET['txtsrc'] !== ''){
 	if (!strcmp("#S10", substr($_GET['txtsrc'], 0, 4)))
-		{	
-			$textt = substr($_GET['txtsrc'], 4, 10);
-			$query_vanzare 	= 'SELECT * FROM masini WHERE stare_anunt LIKE 1 AND id LIKE '.$textt.' ORDER BY pret';
+		{
+			$textt = (int)substr($_GET['txtsrc'], 4, 10);
+			$query_vanzare 	= 'SELECT * FROM masini WHERE stare_anunt LIKE 1 AND id = '.$textt.' ORDER BY pret';
 		}
-	else 
+	else
 	{
 	$textt = $_GET['txtsrc'];
 	$words = explode(' ',$textt);
@@ -165,6 +166,7 @@ elseif(isset($_GET['txtsrc']) && (!empty($_GET['txtsrc']))){
 	$fields = array('marca', 'tip');
 	$whereText = array();
 	foreach ($words as $word) {
+		$word = $connection->real_escape_string($word);
 		$whereSubText = array();
 		foreach ($fields as $field) {
 			$whereSubText[] = ' ('.$field.' LIKE "%'.$word.'%") ';
@@ -202,15 +204,12 @@ else
 }
 
 $query_limit_vanzare 	= $query_vanzare . " LIMIT " . $startRow_vanzare . ", " . $maxRows_vanzare;
-$vanzare 		= $connection->query($query_limit_vanzare) or die("<pre>Error: " . $connection->error . "\n\nQuery: " . htmlspecialchars($query_limit_vanzare) . "</pre>");
+$vanzare 		= $connection->query($query_limit_vanzare) or db_fail($connection);
 $row_vanzare 		= mysqli_fetch_assoc($vanzare);
 
-if (isset($_GET['totalRows_vanzare'])) {
-  $totalRows_vanzare = $_GET['totalRows_vanzare'];
-} else {
-  $all_vanzare = $connection->query($query_vanzare);
-  $totalRows_vanzare = mysqli_num_rows($all_vanzare);
-}
+// totalRows_vanzare din URL nu mai e folosit: se calculează mereu
+$all_vanzare = $connection->query($query_vanzare);
+$totalRows_vanzare = $all_vanzare ? mysqli_num_rows($all_vanzare) : 0;
 $totalPages_vanzare = ceil($totalRows_vanzare/$maxRows_vanzare)-1;
 
 $queryString_vanzare = "";

@@ -52,7 +52,7 @@ $query_vanzare = sprintf("SELECT * FROM masini WHERE id = %d", $colname_vanzare)
 $query_limit_vanzare = sprintf("%s LIMIT %d, %d", $query_vanzare, $startRow_vanzare, $maxRows_vanzare);
 //var_dump($query_limit_vanzare);exit;
 
-$vanzare = $connection->query($query_limit_vanzare) or die($connection->error);
+$vanzare = $connection->query($query_limit_vanzare) or db_fail($connection);
 //var_dump($vanzare);exit;
 if (mysqli_num_rows($vanzare) == 0) {
     // Mașina nu mai există: 410 Gone, ca Google s-o scoată repede din index
@@ -93,7 +93,7 @@ if ($row_vanzare['prov_enienta'] == 'Romania') {
 
 // get images associated with this car
 $query_assoc = sprintf("SELECT * FROM fotov WHERE oferta = %d ORDER BY nota ASC", $row_vanzare['id']);
-$assoc = $connection->query($query_assoc) or die($connection->error);
+$assoc = $connection->query($query_assoc) or db_fail($connection);
 $totalRows_assoc = mysqli_num_rows($assoc);
 
 

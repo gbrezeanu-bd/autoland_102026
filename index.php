@@ -6,7 +6,7 @@ include_once './includes/config.php';
 // try to get content
 $query_text = "SELECT id, home FROM texte WHERE id = 1";
 
-$result = $connection->query($query_text) or die($connection->error);
+$result = $connection->query($query_text) or db_fail($connection);
 $row = $result->fetch_assoc();
 
 // $page_title = "Încă din 2007: experiența noastră - garanția mașinii tale de vis.";
@@ -17,7 +17,7 @@ $content = is_null($row) ? "Content is missing" : $row['home'];
 
 
 $query_marci     = "SELECT * FROM `search` ORDER BY categorie, marca ASC";
-$marci           = $connection->query($query_marci) or die($connection->error);
+$marci           = $connection->query($query_marci) or db_fail($connection);
 $row_marci       = mysqli_fetch_assoc($marci);
 $totalRows_marci = mysqli_num_rows($marci);
 

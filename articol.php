@@ -18,7 +18,7 @@ $slug_safe = $connection->real_escape_string($slug);
 
 // Query pentru preluare articol după slug (cu toate câmpurile SEO)
 $query_article = "SELECT * FROM articole WHERE slug = '$slug_safe' AND status = 'published' LIMIT 1";
-$result = $connection->query($query_article) or die($connection->error);
+$result = $connection->query($query_article) or db_fail($connection);
 
 // Verifică dacă articolul există
 if ($result->num_rows == 0) {

@@ -6,7 +6,7 @@ include_once './includes/config.php';
 // try to get content
 $query_text = "SELECT * FROM recenzii2 WHERE status = '1' ORDER BY `data_recenzie` DESC";
 
-$result = $connection->query($query_text) or die($connection->error);
+$result = $connection->query($query_text) or db_fail($connection);
 $result_number=$result->num_rows;
 //$row = mysqli_fetch_assoc($result);
 
