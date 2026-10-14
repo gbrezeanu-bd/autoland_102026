@@ -1,0 +1,4084 @@
+/* scustomizer-base.css - Stiluri de bază (fără media queries) */
+/* Generat automat din scustomizer.css */
+
+/* Custom CSS Stylesheet */
+
+
+/* TOC Responsive Grid */
+
+
+
+.toc-item:hover {
+    background: #0891b2 !important;
+    color: white !important;
+    transform: translateX(3px);
+    border-color: #0891b2 !important;
+}
+
+a,
+a:hover,
+.firstcharacter,
+.list-info span.text-red,
+.car-block-wrap h4 a,
+.welcome-wrap h4,
+.small-block:hover h4,
+.small-block:hover a i,
+.recent-vehicles h5,
+footer a,
+footer a:hover,
+.copyright-wrap a:hover,
+.flip .card .back i.button_icon:hover:before,
+.about-us h3,
+.blog-container h3,
+.blog-post h3,
+.side-content h3,
+.services h3,
+.list_faq ul li.active a,
+.list_faq ul li a:hover,
+.right_faq .side-widget h3,
+.side-content .side-blog strong,
+.side-content .list ul li:last-child a,
+.side-content .list ul li span,
+.main_pricing h3 b,
+.layout-3 .main_pricing .inside span.amt,
+.layout-4 .main_pricing .inside span.amt,
+.layout-3 .main_pricing .inside span.sub1,
+.layout-4 .main_pricing .inside span.sub1,
+#features ul li .fa-li,
+.left_inventory h2,
+.side-content .list h3,
+.side-content .financing_calculator h3,
+.left_inventory h2,
+.side-content .list h3,
+.side-content .financing_calculator h3,
+.featured-service h2,
+.featured-service h2 strong,
+.detail-service h2,
+.detail-service h2 strong,
+.find_team h2,
+.find_team h2,
+.find_team h2,
+.our_inventory h4,
+.our_inventory span,
+.year_wrapper span,
+.right_site_job .project_details ul li i,
+.read-more a,
+.comment-data .comment-author a,
+.find_map h2,
+.information_head h3,
+.address ul li span.compayWeb_color,
+.porche .car-detail .option-tick-list ul li:before,
+.detail-service .details h5:before,
+.services .right-content ul li:before,
+.alternate-font,
+.left_inventory h3,
+.no_footer .logo-footer a span {
+    color: rgb(0, 85, 168);
+}
+
+.pagination>li>a:hover,
+.pagination>li>span:hover,
+.pagination>li>a:focus,
+.pagination>li>span:focus,
+.progressbar .progress .progress-bar-danger,
+.bottom-header .navbar-default .navbar-nav>.active>a,
+.bottom-header .navbar-default .navbar-nav>.active>a:hover,
+.bottom-header .navbar-default .navbar-nav>.active>a:focus,
+.bottom-header .navbar-default .navbar-nav>li>a:hover,
+header .nav .open>a,
+header .nav .open>a:hover,
+header .nav .open>a:focus,
+header .navbar-default .navbar-nav>.open>a,
+header .navbar-default .navbar-nav>.open>a:hover,
+header .navbar-default .navbar-nav>.open>a:focus,
+.dropdown-menu>li>a:hover,
+.dropdown-menu>li>a:focus,
+.dropdown-menu>.active>a,
+.dropdown-menu>.active>a:hover,
+.dropdown-menu>.active>a:focus,
+.navbar-default .navbar-nav .open .dropdown-menu>.active>a,
+.navbar-default .navbar-nav .open .dropdown-menu>.active>a:hover,
+.car-block:hover .car-block-bottom,
+.controls .left-arrow:hover,
+.controls .right-arrow:hover,
+.back_to_top:hover,
+.flip .card .back,
+.description-accordion .panel-title a:after,
+.layout-3 .pricing-header,
+.layout-4 .pricing-header,
+.porche .porche-header,
+.featured-service .featured:hover,
+.featured-service .featured .caption,
+.flexslider2 .flex-direction-nav li a:hover,
+.arrow1 a:hover,
+.arrow2 a:hover,
+.arrow3 a:hover,
+.default-btn,
+.default-btn:hover,
+.default-btn:focus,
+.form-element input[type=submit],
+footer form input[type=submit],
+footer form input[type=submit]:active,
+.side-content form input[type=submit],
+.side-content form input[type=submit]:hover,
+input[type="reset"],
+input[type="reset"]:hover,
+input[type="submit"],
+input[type="button"],
+input[type="submit"]:hover,
+input[type="button"]:hover,
+.btn-inventory,
+.btn-inventory:hover,
+.porche-footer input[type="submit"],
+.porche-footer input[type="button"],
+.porche-footer input[type="submit"]:active,
+.porche-footer input[type="button"]:active,
+.leave-comments form input[type=submit],
+.leave-comments form input[type=submit]:active,
+.choose-list ul li:before {
+    background: rgb(0, 85, 168);
+    background-color: rgb(0, 85, 168);
+}
+
+.blog-content .post-entry blockquote {
+    border-left-color: rgb(0, 85, 168);
+}
+
+footer form input[type=submit],
+.btn-inventory,
+input[type="reset"],
+.form-element input[type=submit],
+.default-btn,
+.form-element .default-btn,
+.side-content form input[type=submit],
+input[type="submit"],
+input[type="button"],
+.porche-footer input[type="submit"],
+.porche-footer input[type="button"],
+.leave-comments form input[type=submit] {
+    text-shadow: none;
+}
+
+footer form input[type=submit]:hover,
+.btn-inventory:hover,
+input[type="reset"]:hover,
+.form-element input[type=submit]:hover,
+.default-btn:hover,
+.form-element .default-btn:hover,
+.side-content form input[type=submit]:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+.porche-footer input[type="submit"]:active,
+.porche-footer input[type="button"]:active,
+.leave-comments form input[type=submit]:active {
+    text-shadow: none;
+}
+
+.arrow3 a:hover {
+    background-image: url(../automotive/images/arrow.png);
+    background-repeat: no-repeat;
+    background-position: -20px 8px;
+}
+
+body {
+    background: linear-gradient(135deg, #0f2b3d 0%, #1d4556 40%, #0e3547 100%);
+    background-attachment: fixed;
+}
+
+
+/* Elimină limitarea la 84% și mărește lățimea */
+
+header {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.border-box {
+    width: 95% !important;
+}
+
+.boxed_layout header.header-separated .toolbar-wrapper .container,
+.boxed_layout header.header-separated .bottom-header-wrapper .container {
+    width: 95% !important;
+    max-width: 1600px !important;
+}
+
+
+/* Container mai larg pentru mai mult spațiu */
+
+
+
+
+
+/* body > * { box-shadow: 12px 3px 15px 0px rgba(0,0,0,0.3), -12px 3px 15px 0px rgba(0,0,0,0.3), inset -10px 0px 10px -10px rgba(0,0,0,0.3); padding: 0 10px; } */
+
+
+/* body > * { box-shadow: 12px 0 15px -4px rgba(0,0,0,0.3), -12px 0 8px -4px rgba(0,0,0,0.3), inset -10px 0px 10px -10px rgba(0,0,0,0.3); } 
+
+header { transition-duration: 0; box-shadow: 0 -12px 15px -4px rgba(0,0,0,0.3) !important; }
+                
+body, .message-shadow, header.affix { width: 85%; }
+
+body .container { width: 100%; }*/
+
+section.content,
+.car-block-wrap,
+.welcome-wrap {
+    background: #FFF;
+}
+
+.breadcrumb li,
+.breadcrumb li a {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgb(39, 168, 0);
+}
+
+.margin-top-60 {
+    margin-top: 60px !important;
+}
+
+.content-nav ul li.next1:before {
+    content: "\f054";
+    left: 15px;
+    right: auto;
+}
+
+
+/* Add file/document icon for Descriere button */
+
+.content-nav ul li.descriere:before {
+    content: "\f15c";
+    /* fa-file-text-o - document icon */
+}
+
+
+/* Change request icon to email/envelope icon */
+
+.content-nav ul li.request:before {
+    content: "\f0e0";
+    /* fa-envelope - email icon */
+}
+
+
+/* Add star/gift icon for custom offer button */
+
+.content-nav ul li.oferta:before {
+    content: "\f005";
+    /* fa-star - star icon for special offer */
+}
+
+.car-info .table>tbody>tr>td:first-child {
+    width: 35%;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: left;
+}
+
+.car-info .table>tbody>tr>td {
+    border-top: none;
+    padding: 0 0 14px 4px;
+    line-height: normal;
+    letter-spacing: -0.5px;
+    word-spacing: 2px;
+}
+
+.prev1 a.disabled,
+.next1 a.disabled {
+    color: gray;
+    pointer-events: none;
+}
+
+.inventory .title {
+    padding-bottom: 25px;
+    max-width: 470px;
+    overflow-wrap: break-word;
+    text-overflow: ellipsis;
+}
+
+div.inventory .options-primary {
+    width: 200px;
+}
+
+div.inventory .options-secondary {
+    font-size: 12px;
+    line-height: 20px;
+    color: #3d3d3d;
+    font-weight: 700;
+    width: 400px;
+}
+
+div.with-sidebar div.inventory .options-primary {
+    width: 200px;
+}
+
+div.with-sidebar div.inventory .options-secondary {
+    width: 200px;
+    left: 200px;
+}
+
+div.with-sidebar .options-secondary li:nth-of-type(1n+4),
+div.with-sidebar .options-secondary ul li:nth-of-type(1n+4) {
+    display: none;
+}
+
+div.inventory .options-secondary div {
+    display: none;
+}
+
+div.inventory .options-secondary ul li:nth-of-type(1n+7) {
+    display: none;
+}
+
+
+/*avoid bad codding missing ul for li's */
+
+div.inventory .options-secondary li:nth-of-type(1n+7) {
+    display: none;
+}
+
+a.inventory .preview {
+    object-fit: cover !important;
+    width: 200px;
+    height: 150px;
+}
+
+
+/*Modal GDPR personalization*/
+
+#bs-gdpr-cookies-modal {
+    z-index: 99999 !important;
+}
+
+#bs-gdpr-cookies-modal .modal-dialog {
+    max-width: 600px;
+    margin: 1.75rem auto;
+}
+
+#bs-gdpr-cookies-modal .modal-content {
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+#bs-gdpr-cookies-modal .modal-body {
+    padding: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+#bs-gdpr-cookies-modal .modal-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #e5e5e5;
+}
+
+#bs-gdpr-cookies-modal label {
+    margin: 0;
+    position: relative;
+}
+
+#bs-gdpr-cookies-modal li {
+    list-style: none;
+}
+
+
+/* Fix modal backdrop z-index */
+
+.modal-backdrop {
+    z-index: 99998 !important;
+}
+
+
+/* Desktop specific adjustments */
+
+
+.copyright-wrap {
+    /* Default styles - uncomment below for custom footer:
+	padding: 18px 0 20px 11px;
+	background-color: #FFF;
+        background-image: url(../images/logo_autoland_footer.png);
+	color: #999999;
+	font-size: 13px;
+    */
+    display: block;
+    /* Ensure element renders */
+}
+
+
+/* Modern professional gradient - optimized for excellent contrast with white logo and text */
+
+.dynamic-image-17 {
+    background: linear-gradient(135deg, #1a7567 0%, #248679 25%, #2d9a92 50%, #3199a8 75%, #015f87 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Add subtle pattern overlay for texture */
+
+.dynamic-image-17:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url(../images/patterns/subtle_dots.png);
+    opacity: 0.03;
+    pointer-events: none;
+}
+
+
+/* Logo positioned over banner - HIDDEN for test - moved to header */
+
+.dynamic-image-17:after {
+    content: '';
+    position: absolute;
+    bottom: 25px;
+    left: 40px;
+    width: 180px;
+    height: 90px;
+    background: url(../images/logo_Autoland.png) no-repeat center;
+    background-size: contain;
+    opacity: 0;
+    pointer-events: none;
+    filter: brightness(1.3) contrast(1.2) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+    z-index: 1;
+    display: none;
+}
+
+.boxed_layout #secondary-banner {
+    min-height: 60px;
+    height: auto;
+    background-position: left bottom;
+}
+
+
+/* Secondary banner - now positioned below header, not overlapping */
+
+#secondary-banner {
+    min-height: 60px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+#secondary-banner .container {
+    width: 100%;
+}
+
+
+/* Align text to the right - no logo overlap anymore */
+
+#secondary-banner h1 {
+    font-size: 28px;
+    padding-top: 4px;
+    padding-right: 40px;
+    text-align: right;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    margin-bottom: 3px;
+    line-height: 1.2;
+    margin-top: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+#secondary-banner h2 {
+    font-size: 22px;
+    padding-top: 3px;
+    padding-right: 40px;
+    text-align: right;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    margin-bottom: 3px;
+    line-height: 1.25;
+    margin-top: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+
+/* Adjust padding on desktop for better right alignment */
+
+
+#secondary-banner h4 {
+    text-align: right;
+    padding-right: 40px;
+    font-size: 15px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    font-weight: 400;
+    margin-top: 2px;
+}
+
+
+/* Responsive adjustments for banner */
+
+
+/* Tablet and small laptop specific improvements (768px - 1200px) */
+
+
+
+/* Medium tablets (768px - 991px) */
+
+
+
+/* Larger tablets (992px - 1200px) */
+
+
+#informatii form input[type="text"] {
+    width: 100%;
+}
+
+#informatii form textarea {
+    width: 100%;
+}
+
+.with-sidebar form input[type="text"] {
+    width: 100%;
+}
+
+.with-sidebar form textarea {
+    width: 100%;
+    height: 100%;
+}
+
+.g-recaptcha iframe {
+    height: 78px;
+}
+
+em#hiddenRecaptcha-error {
+    display: none;
+}
+
+.boxed_layout header .bottom-header .navbar-default .navbar-nav>li>a {
+    font-size: 13px;
+    padding: 38px 10px 20px !important;
+}
+
+
+/* Additional tablet optimizations for better spacing */
+
+
+
+/* Specific fixes for 1024px tablets (iPad landscape) */
+
+
+input[type="text"],
+input[type="tel"],
+textarea,
+select,
+div.styled,
+input[type="file"],
+input[type="email"],
+select.form-control,
+textarea.form-control {
+    width: 100%;
+    background: none;
+    background-color: #F7F7F7;
+}
+
+form.cerere-oferta .form-control {
+    background-color: #f7f7f7;
+}
+
+
+/* Responsive logo sizing in banner - slightly larger */
+
+
+
+
+
+
+
+
+
+
+/* ============================================
+   MODERN MENU IMPROVEMENTS
+   ============================================ */
+
+
+/* Main header container - now relative positioning, not absolute */
+
+header.header-separated {
+    background: transparent !important;
+    position: relative !important;
+    z-index: 1000;
+    width: 100% !important;
+    top: 0 !important;
+    box-shadow: none;
+    margin: 0;
+}
+
+
+/* Boxed layout adjustments - header container */
+
+.boxed_layout header.header-separated {
+    width: 100% !important;
+    max-width: 100%;
+}
+
+.boxed_layout header.header-separated.affix {
+    width: 100% !important;
+    left: 0 !important;
+}
+
+
+/* Boxed layout - constrain content width, not wrapper */
+
+.boxed_layout header.header-separated .toolbar-wrapper,
+.boxed_layout header.header-separated .bottom-header-wrapper {
+    margin: 0;
+}
+
+.boxed_layout header.header-separated .toolbar-wrapper .container,
+.boxed_layout header.header-separated .bottom-header-wrapper .container {
+    max-width: 1170px;
+    width: 84%;
+    margin: 0;
+}
+
+
+/* Ensure boxed layout header brand has proper padding */
+
+.boxed_layout header.header-separated .bottom-header .navbar-brand {
+    padding-left: 0px !important;
+}
+
+
+/* When header is fixed on scroll */
+
+header.header-separated.affix {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
+    z-index: 9999;
+}
+
+
+/* Hide toolbar when header is affixed to save space */
+
+header.header-separated.affix .toolbar-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    border: none;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+header.header-separated.affix .toolbar-standalone {
+    padding: 0;
+    min-height: 0;
+}
+
+
+/* Ensure body content doesn't jump when header becomes fixed */
+
+body.header-affixed {
+    padding-top: 0;
+}
+
+
+/* Toolbar wrapper - full width background container */
+
+.toolbar-wrapper {
+    background: linear-gradient(90deg, rgba(15, 40, 50, 1) 0%, rgba(20, 50, 60, 1) 100%) !important;
+    width: 100% !important;
+    position: relative;
+    border-bottom: 1px solid rgba(47, 213, 177, 0.2);
+    overflow-x: hidden;
+}
+
+
+/* Toolbar - standalone dark section with contact info */
+
+.toolbar-standalone {
+    background: transparent !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    padding: 8px 0;
+    min-height: 36px;
+    border: none;
+    position: relative;
+    z-index: 1001;
+}
+
+
+/* Bottom header wrapper - full width background container */
+
+.bottom-header-wrapper {
+    background: linear-gradient(180deg, rgba(20, 60, 70, 1) 0%, rgba(15, 45, 60, 1) 100%) !important;
+    width: 100% !important;
+    position: relative;
+    border-bottom: 2px solid rgba(47, 213, 177, 0.3);
+    overflow-x: hidden;
+}
+
+
+/* Bottom header with logo and menu */
+
+.bottom-header {
+    background: transparent !important;
+    position: relative !important;
+    z-index: 1000;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+
+/* Compact bottom header when affixed */
+
+header.header-separated.affix .bottom-header-wrapper {
+    border-bottom: 1px solid rgba(47, 213, 177, 0.2);
+}
+
+header.header-separated.affix .bottom-header {
+    border: none;
+}
+
+
+/* Ensure navbar brand (logo) is visible - CENTERED on desktop */
+
+header.header-separated .bottom-header .navbar-brand {
+    position: relative;
+    z-index: 1002;
+    padding: 15px 20px !important;
+    min-width: auto;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 0;
+}
+
+
+/* Logo container with flexbox - SAME LINE alignment */
+
+header.header-separated .bottom-header .navbar-brand .logo {
+    display: flex !important;
+    align-items: center !important;
+    position: relative;
+    overflow: visible;
+    gap: 0;
+    height: auto;
+    justify-content: flex-start;
+}
+
+header.header-separated .bottom-header .navbar-brand .logo .primary_text {
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    white-space: nowrap !important;
+    overflow: visible !important;
+    display: inline-block !important;
+    line-height: 1 !important;
+    font-size: 42px !important;
+    vertical-align: middle !important;
+}
+
+
+/* Logo as IMG element - SAME LINE with text - ALIGNED */
+
+header.header-separated .bottom-header .navbar-brand .logo .brand-logo {
+    width: 160px;
+    height: auto;
+    max-height: 100px;
+    margin-right: 16px;
+    margin-bottom: -4px;
+    object-fit: contain;
+    filter: brightness(1.28) contrast(1.13) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.32));
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+/* Ensure enough space for logo on medium screens */
+
+
+
+
+/* Desktop layout: Logo on top, menu below centered */
+
+
+
+/* Extra spacing reduction for medium screens to fit all on one line */
+
+
+
+
+
+/* Mobile - vertical menu (one item per line) */
+
+
+
+/* Legacy toolbar support (fallback) */
+
+.toolbar {
+    background: linear-gradient(90deg, rgba(15, 40, 50, 1) 0%, rgba(20, 50, 60, 1) 100%) !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    padding: 8px 0;
+    min-height: 36px;
+}
+
+
+/* Ensure toolbar shadow is hidden */
+
+.toolbar_shadow {
+    display: none !important;
+}
+
+
+/* Header shadow also hidden */
+
+.header_shadow {
+    display: none !important;
+}
+
+
+/* Modern company info layout - responsive */
+
+.toolbar .company_info,
+.toolbar-standalone .company_info {
+    display: flex !important;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 18px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    visibility: visible !important;
+}
+
+.toolbar .company_info li {
+    display: flex !important;
+    align-items: center;
+    margin: 0 !important;
+    padding: 3px 0;
+}
+
+.toolbar .company_info li a {
+    color: #e8e8e8 !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+    opacity: 1 !important;
+    visibility: visible !important;
+    white-space: nowrap;
+}
+
+.toolbar .company_info li a:hover {
+    color: #2fd5b1 !important;
+    transform: translateY(-1px);
+}
+
+.toolbar .company_info li i {
+    font-size: 13px;
+    color: #2fd5b1;
+}
+
+.toolbar .company_info li .contact-text {
+    white-space: nowrap;
+}
+
+
+/* Responsive toolbar adjustments */
+
+
+
+
+
+
+
+
+
+/* Modern menu styling - smooth animations and better UX */
+
+header .bottom-header .navbar-default .navbar-nav>li>a {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.3px;
+}
+
+
+/* Modern hover effect with bottom border animation */
+
+header .bottom-header .navbar-default .navbar-nav>li>a:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #2fd5b1, #0867bb);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(-50%);
+}
+
+header .bottom-header .navbar-default .navbar-nav>li>a:hover:before,
+header .bottom-header .navbar-default .navbar-nav>.active>a:before {
+    width: 80%;
+}
+
+
+/* Smoother active state */
+
+.bottom-header .navbar-default .navbar-nav>.active>a,
+.bottom-header .navbar-default .navbar-nav>.active>a:hover,
+.bottom-header .navbar-default .navbar-nav>.active>a:focus {
+    background: linear-gradient(135deg, rgba(47, 213, 177, 0.15), rgba(8, 103, 187, 0.15)) !important;
+    color: #fff !important;
+    border-radius: 4px;
+}
+
+
+/* Modern hover effect on menu items */
+
+header .bottom-header .navbar-default .navbar-nav>li>a:hover {
+    background: linear-gradient(135deg, rgba(47, 213, 177, 0.1), rgba(8, 103, 187, 0.1)) !important;
+    border-radius: 4px;
+}
+
+
+/* Open dropdown styling */
+
+header .nav .open>a,
+header .nav .open>a:hover,
+header .nav .open>a:focus,
+header .navbar-default .navbar-nav>.open>a,
+header .navbar-default .navbar-nav>.open>a:hover,
+header .navbar-default .navbar-nav>.open>a:focus {
+    background: linear-gradient(135deg, rgba(47, 213, 177, 0.2), rgba(8, 103, 187, 0.2)) !important;
+    color: #fff !important;
+    border-radius: 4px;
+}
+
+
+/* Modern dropdown styling */
+
+header .navbar-nav.pull-right>li>.dropdown-menu,
+header .navbar-nav>li>.dropdown-menu {
+    background: rgba(15, 45, 65, 0.97) !important;
+    backdrop-filter: blur(10px);
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    margin-top: 10px;
+    padding: 8px 0;
+    animation: dropdownSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes dropdownSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Modern dropdown items */
+
+header .navbar-nav>li>.dropdown-menu>li>a {
+    transition: all 0.2s ease;
+    border-radius: 4px;
+    margin: 2px 8px;
+    padding: 10px 16px !important;
+}
+
+header .navbar-nav>li>.dropdown-menu>li>a:hover {
+    background: linear-gradient(90deg, rgba(47, 213, 177, 0.2), rgba(8, 103, 187, 0.2)) !important;
+    transform: translateX(5px);
+    padding-left: 20px !important;
+}
+
+
+/* Active dropdown item */
+
+.dropdown-menu>.active>a,
+.dropdown-menu>.active>a:hover,
+.dropdown-menu>.active>a:focus {
+    background: linear-gradient(90deg, rgba(47, 213, 177, 0.3), rgba(8, 103, 187, 0.3)) !important;
+}
+
+
+/* Modern caret icon */
+
+header .navbar-default .navbar-nav>.dropdown>a .caret,
+header .navbar-default .navbar-nav .dropdown a .caret {
+    display: inline-block !important;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+header .navbar-default .navbar-nav>.open>a .caret {
+    transform: rotate(180deg);
+}
+
+
+/* Sticky header improvements */
+
+header.affix {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+header.affix .bottom-header .navbar-default .navbar-nav>li>a {
+    padding: 28px 10px 21px 10px !important;
+}
+
+
+/* Mobile menu button - modern hamburger */
+
+header .navbar-default .navbar-toggle {
+    border: 2px solid rgba(255, 255, 255, 0.4) !important;
+    border-radius: 8px;
+    padding: 6px 9px !important;
+    margin-top: 0;
+    margin-right: 0;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+header .navbar-default .navbar-toggle:hover,
+header .navbar-default .navbar-toggle:focus,
+header .navbar-default .navbar-toggle:active {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    border-color: rgba(255, 255, 255, 0.7) !important;
+}
+
+header .navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff !important;
+    height: 3px !important;
+    width: 24px !important;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    display: block !important;
+    margin: 4px 0 !important;
+}
+
+header .navbar-default .navbar-toggle .icon-bar:first-child {
+    margin-top: 0 !important;
+}
+
+header .navbar-default .navbar-toggle .icon-bar:last-child {
+    margin-bottom: 0 !important;
+}
+
+
+/* Ecrane medii - meniu hamburger cu padding corect */
+
+
+
+/* ============================================================================
+   RESPONSIVE HEADER & NAVIGATION - Organized from Desktop to Mobile
+   ============================================================================ */
+
+
+/* ==================== LARGE TABLETS & SMALL DESKTOPS (max 1200px) ==================== */
+
+
+
+/* ==================== DESKTOP LARGE (min 1201px) - Logo mare și vizibil ==================== */
+
+
+
+/* ==================== MEDIUM TABLETS (max 1100px) ==================== */
+
+
+
+/* ==================== SMALL TABLETS (max 1024px) ==================== */
+
+
+
+/* ==================== TABLETS (max 991px) ==================== */
+
+
+
+/* ==================== MOBILE (max 767px) ==================== */
+
+
+
+/* ==================== SMALL MOBILE (max 600px) ==================== */
+
+
+
+/* ==================== EXTRA SMALL MOBILE (max 450px) ==================== */
+
+
+
+/* ==================== MINIMUM MOBILE (max 380px) ==================== */
+
+
+
+/* Additional modern touches */
+
+
+/* Smooth scroll behavior for better UX */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Better focus states for accessibility */
+
+header .bottom-header .navbar-default .navbar-nav>li>a:focus {
+    outline: 2px solid rgba(47, 213, 177, 0.5);
+    outline-offset: 2px;
+}
+
+
+/* Hover lift effect on menu items - disabled on tablets/mobile for better touch experience */
+
+header .bottom-header .navbar-default .navbar-nav>li {
+    transition: transform 0.2s ease;
+}
+
+
+
+/* Tablet-specific navigation improvements */
+
+
+
+/* Small laptop optimizations (1200px - 1366px) */
+
+
+
+/* Mobile/Responsive fixes for content navigation buttons */
+
+
+
+
+/* Additional mobile improvements for very small screens */
+
+
+
+/* Desktop: Larger H2 for inventory heading */
+
+
+
+/* Reduce spacing at top of detail page */
+
+.inner-page.inventory-listing {
+    margin-top: 30px !important;
+}
+
+
+/* Responsive images for car detail slider */
+
+.listing-slider .flexslider#home-slider-canvas img {
+    width: 100% !important;
+    height: 456px !important;
+    object-fit: cover !important;
+    object-position: center !important;
+}
+
+
+/* FlexSlider Navigation Arrows - Smart hover zones */
+
+.listing-slider {
+    position: relative;
+}
+
+
+/* Create invisible hover zones on left and right */
+
+.listing-slider::before,
+.listing-slider::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 25%;
+    z-index: 5;
+    pointer-events: auto;
+}
+
+.listing-slider::before {
+    left: 0;
+}
+
+.listing-slider::after {
+    right: 0;
+}
+
+
+/* Hide arrows by default */
+
+.listing-slider .flex-direction-nav a {
+    opacity: 0 !important;
+    transition: opacity 0.3s ease !important;
+    z-index: 10 !important;
+}
+
+
+/* Show prev arrow when hovering left zone */
+
+.listing-slider:hover .flex-direction-nav .flex-prev {
+    opacity: 0 !important;
+}
+
+.listing-slider .flex-direction-nav .flex-prev:hover {
+    opacity: 1 !important;
+}
+
+
+/* Show next arrow when hovering right zone */
+
+.listing-slider:hover .flex-direction-nav .flex-next {
+    opacity: 0 !important;
+}
+
+.listing-slider .flex-direction-nav .flex-next:hover {
+    opacity: 1 !important;
+}
+
+
+/* Make hover areas larger */
+
+.listing-slider .flex-direction-nav .flex-prev,
+.listing-slider .flex-direction-nav .flex-next {
+    width: 80px !important;
+    height: 100% !important;
+    top: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.listing-slider .flex-direction-nav .flex-prev {
+    left: 0 !important;
+    justify-content: flex-start !important;
+    padding-left: 10px !important;
+}
+
+.listing-slider .flex-direction-nav .flex-next {
+    right: 0 !important;
+    justify-content: flex-end !important;
+    padding-right: 10px !important;
+}
+
+
+/* Hide text labels completely */
+
+.listing-slider .flex-direction-nav a {
+    font-size: 0 !important;
+    text-indent: -9999px !important;
+    overflow: hidden !important;
+    color: transparent !important;
+}
+
+
+/* Style arrows as gray circles */
+
+.listing-slider .flex-direction-nav a:before {
+    width: 50px !important;
+    height: 50px !important;
+    background: rgba(128, 128, 128, 0.8) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 20px !important;
+    color: white !important;
+    text-shadow: none !important;
+    line-height: 50px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+    transition: all 0.3s ease !important;
+    text-indent: 0 !important;
+}
+
+.listing-slider .flex-direction-nav a:hover:before {
+    background: rgba(100, 100, 100, 0.95) !important;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4) !important;
+    transform: scale(1.1) !important;
+}
+
+
+/* Fancybox 3.x Custom Styling */
+
+
+/* Fix z-index for Fancybox to appear above header */
+
+.fancybox-container {
+    z-index: 10001 !important;
+}
+
+.fancybox-bg {
+    z-index: 10000 !important;
+    background: rgba(0, 0, 0, 0.85) !important;
+}
+
+
+/* Fancybox layering - ensure proper z-index hierarchy */
+
+.fancybox-stage {
+    z-index: 10010 !important;
+}
+
+.fancybox-slide {
+    z-index: 10011 !important;
+}
+
+.fancybox-content {
+    opacity: 1 !important;
+    z-index: 10012 !important;
+}
+
+.fancybox-image {
+    opacity: 1 !important;
+}
+
+
+/* Force zoom cursor to always show */
+
+.fancybox-slide--current .fancybox-content,
+.fancybox-slide--current .fancybox-image,
+.fancybox-content,
+.fancybox-image {
+    cursor: zoom-in !important;
+}
+
+.fancybox-can-zoomOut .fancybox-content,
+.fancybox-can-zoomOut .fancybox-image {
+    cursor: zoom-out !important;
+}
+
+.fancybox-is-zoomable .fancybox-content,
+.fancybox-is-zoomable .fancybox-image {
+    cursor: zoom-in !important;
+}
+
+
+/* Ensure zoom works - make content AND image clickable */
+
+.fancybox-content {
+    pointer-events: auto !important;
+}
+
+.fancybox-image {
+    pointer-events: auto !important;
+}
+
+
+/* When zoomed, allow dragging - more specific selectors */
+
+.fancybox-can-zoomOut .fancybox-content,
+.fancybox-can-pan .fancybox-content,
+.fancybox-can-drag .fancybox-content {
+    cursor: move !important;
+    cursor: grab !important;
+}
+
+.fancybox-can-zoomOut .fancybox-content:active,
+.fancybox-can-pan .fancybox-content:active,
+.fancybox-can-drag .fancybox-content:active {
+    cursor: grabbing !important;
+}
+
+
+/* When zoomed - update cursor dynamically */
+
+.fancybox-container.fancybox-show-caption.fancybox-can-pan .fancybox-content {
+    cursor: grab !important;
+}
+
+.fancybox-container.fancybox-show-caption.fancybox-can-pan .fancybox-content:active {
+    cursor: grabbing !important;
+}
+
+
+/* Enhanced navigation arrows for Fancybox 3 - Fixed visibility */
+
+.fancybox-navigation button {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.fancybox-button--arrow_left,
+.fancybox-button--arrow_right {
+    width: 56px !important;
+    height: 56px !important;
+    background: #ffffff !important;
+    border-radius: 50% !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    margin: 0 !important;
+    border: 2px solid rgba(0, 0, 0, 0.1) !important;
+    position: absolute !important;
+    z-index: 10050 !important;
+    pointer-events: all !important;
+    cursor: pointer !important;
+}
+
+
+/* Position arrows closer to image - Desktop optimized */
+
+.fancybox-button--arrow_left {
+    left: calc(50% - 550px) !important;
+    right: auto !important;
+}
+
+.fancybox-button--arrow_right {
+    right: calc(50% - 550px) !important;
+    left: auto !important;
+}
+
+
+/* On medium screens, adjust position */
+
+
+
+/* On smaller screens, position closer to edges */
+
+
+
+/* Navigation container - full width */
+
+.fancybox-navigation {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none !important;
+    z-index: 10050 !important;
+}
+
+.fancybox-navigation button {
+    pointer-events: all !important;
+    cursor: pointer !important;
+    z-index: 10051 !important;
+}
+
+.fancybox-button--arrow_left:hover,
+.fancybox-button--arrow_right:hover {
+    background: rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+.fancybox-button--arrow_left svg,
+.fancybox-button--arrow_right svg {
+    filter: none !important;
+    color: #1a1a1a !important;
+    width: 32px !important;
+    height: 32px !important;
+    fill: #1a1a1a !important;
+    stroke: none !important;
+}
+
+.fancybox-button--arrow_left div,
+.fancybox-button--arrow_right div {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+
+/* Close button styling - aligned with toolbar */
+
+.fancybox-button--close {
+    width: 44px !important;
+    height: 44px !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+    position: relative !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+}
+
+.fancybox-button--close:hover {
+    background: rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+.fancybox-button--close svg {
+    color: #333 !important;
+    filter: none !important;
+}
+
+
+/* Toolbar buttons - aligned horizontally and positioned on image */
+
+.fancybox-toolbar {
+    position: absolute !important;
+    top: 10px !important;
+    right: 10px !important;
+    left: auto !important;
+    padding: 0 !important;
+    display: flex !important;
+    gap: 8px !important;
+    align-items: center !important;
+    flex-direction: row !important;
+    z-index: 10052 !important;
+}
+
+.fancybox-button {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 50% !important;
+    padding: 0 !important;
+    transition: all 0.3s ease !important;
+    width: 44px !important;
+    height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+    margin: 0 !important;
+}
+
+.fancybox-button:hover {
+    background: rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+
+/* Make sure SVG icons are visible */
+
+.fancybox-button svg {
+    width: 24px !important;
+    height: 24px !important;
+    fill: #333 !important;
+    color: #333 !important;
+}
+
+
+/* Custom Zoom In/Out buttons styling */
+
+.fancybox-button--zoom-in,
+.fancybox-button--zoom-out {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+.fancybox-button--zoom-in:hover,
+.fancybox-button--zoom-out:hover {
+    background: rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+.fancybox-button--zoom-in svg,
+.fancybox-button--zoom-out svg {
+    width: 24px !important;
+    height: 24px !important;
+    fill: #333 !important;
+}
+
+
+/* Make zoom button more visible and functional - CENTERED ICON */
+
+.fancybox-button--zoom {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    pointer-events: auto !important;
+    width: 44px !important;
+    height: 44px !important;
+}
+
+.fancybox-button--zoom:hover {
+    background: rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+.fancybox-button--zoom svg {
+    fill: #333 !important;
+    color: #333 !important;
+    width: 24px !important;
+    height: 24px !important;
+    display: block !important;
+    margin: auto !important;
+}
+
+
+/* Mobile and touch optimizations for Fancybox 3 */
+
+
+
+/* Tablet specific adjustments */
+
+
+.listing-slider .flexslider#home-slider-thumbs img {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 119px;
+    max-height: 119px;
+    object-fit: cover !important;
+}
+
+.listing-slider .flexslider#home-slider-thumbs li {
+    margin: 0 5px 0 0 !important;
+    padding: 0 !important;
+}
+
+.listing-slider .flexslider#home-slider-thumbs li:last-child {
+    margin-right: 0 !important;
+}
+
+
+/* Reduce spacing at top of right sidebar */
+
+.right-content .side-content .efficiency-rating {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 20px !important;
+}
+
+.right-content .side-content .car-info {
+    margin-bottom: 20px !important;
+}
+
+
+/* Sidebar navigation buttons - vertical layout in detail page */
+
+.right-content .side-content .content-nav {
+    margin-top: 5px;
+}
+
+.right-content .side-content .content-nav .row {
+    margin: 0;
+}
+
+.right-content .side-content .content-nav ul {
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none;
+}
+
+.right-content .side-content .content-nav ul li.gradient_button {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    margin-bottom: 8px !important;
+    background: linear-gradient(to bottom, #f9f9f9 0%, #eeeeee 100%) !important;
+    border: 1px solid #dddddd !important;
+    border-radius: 4px !important;
+    min-height: auto !important;
+    padding: 0 !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+    margin-left: 0 !important;
+    float: none !important;
+    width: 100%;
+}
+
+.right-content .side-content .content-nav ul li.gradient_button:hover {
+    background: linear-gradient(to bottom, #ffffff 0%, #f5f5f5 100%) !important;
+    border-color: #ccc !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.right-content .side-content .content-nav ul li.gradient_button:last-child {
+    margin-bottom: 0;
+}
+
+.right-content .side-content .content-nav ul li.gradient_button a {
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: 10px 15px 10px 45px !important;
+    text-decoration: none !important;
+    color: #333 !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    transition: color 0.3s ease !important;
+    text-align: left !important;
+    background: none !important;
+    border: none !important;
+}
+
+.right-content .side-content .content-nav ul li.gradient_button a:hover {
+    color: #c7081b !important;
+}
+
+.right-content .side-content .content-nav ul li.gradient_button a.disabled {
+    color: #999 !important;
+    cursor: not-allowed !important;
+    opacity: 0.6 !important;
+}
+
+
+/* Icon alignment */
+
+.right-content .side-content .content-nav ul li.gradient_button::before {
+    position: absolute !important;
+    left: 15px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    font-family: 'FontAwesome' !important;
+    font-size: 16px !important;
+    color: #0979b2 !important;
+    opacity: 0.85 !important;
+    transition: all 0.3s ease !important;
+}
+
+.right-content .side-content .content-nav ul li.gradient_button:hover::before {
+    color: #02949e !important;
+    opacity: 1 !important;
+}
+
+.right-content .side-content .content-nav ul li.prev1::before {
+    content: "\f053" !important;
+}
+
+.right-content .side-content .content-nav ul li.next1::before {
+    content: "\f054" !important;
+}
+
+.right-content .side-content .content-nav ul li.descriere::before {
+    content: "\f036" !important;
+}
+
+.right-content .side-content .content-nav ul li.request::before {
+    content: "\f0e0" !important;
+}
+
+.right-content .side-content .content-nav ul li.oferta::before {
+    content: "\f005" !important;
+}
+
+
+/* Price styling in car info table */
+
+.car-info .table>tbody>tr>td strong {
+    display: block;
+    margin-top: 5px;
+}
+
+
+/* Responsive adjustments for sidebar buttons */
+
+
+
+
+/* Responsive image adjustments for tablets and mobile */
+
+
+
+
+/* Mobile layout reorganization - poze, tabel, descriere */
+
+
+
+/* Hide placeholder on desktop */
+
+
+
+/* Additional styling for better responsiveness */
+
+
+
+/* ========================================================
+   MOBILE & TABLET SIDEBAR OPTIMIZATION
+   Reorder sidebar elements for better UX on small screens
+   ======================================================== */
+
+
+/* Hide mobile search toggle button on desktop */
+
+.mobile-search-toggle {
+    display: none;
+}
+
+
+/* TBI Bank Toggle Button - hidden on desktop */
+
+.tbi-toggle-button {
+    display: none;
+}
+
+
+/* Floating Search Button - appears on scroll on mobile */
+
+.floating-search-btn {
+    position: fixed !important;
+    bottom: 25px !important;
+    right: 25px !important;
+    z-index: 999999 !important;
+    background: linear-gradient(135deg, rgb(0, 85, 168), rgb(0, 105, 200)) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 50px !important;
+    padding: 15px 25px !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    box-shadow: 0 6px 20px rgba(0, 85, 168, 0.5) !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(100px) !important;
+    pointer-events: none !important;
+    display: block !important;
+}
+
+.floating-search-btn .icon {
+    font-size: 20px !important;
+    margin-right: 8px !important;
+    display: inline-block !important;
+}
+
+.floating-search-btn .text {
+    display: inline-block !important;
+}
+
+.floating-search-btn.visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+}
+
+.floating-search-btn:hover {
+    transform: translateY(-3px) scale(1.05) !important;
+    box-shadow: 0 8px 25px rgba(0, 85, 168, 0.6) !important;
+}
+
+.floating-search-btn:active {
+    transform: translateY(-1px) scale(1.02) !important;
+}
+
+
+/* ========================================================
+   MOBILE & TABLET OPTIMIZATION (under 992px)
+   Compact layout with sidebar first, no extra spacing
+   ======================================================== */
+
+
+
+/* Mobile only (under 768px) */
+
+
+
+/* Very small phones (under 480px) */
+
+
+
+/* Extra small phones (under 380px) - ultra compact */
+
+
+
+/* Tiny phones (under 340px) - minimal */
+
+
+
+/* ========================================
+   WhatsApp Button - Classic Official Design
+   Standalone button outside of navigation list
+   ======================================== */
+
+
+/* Container for WhatsApp button */
+
+.whatsapp-classic-button {
+    margin: 20px 0;
+    text-align: center;
+}
+
+
+/* WhatsApp Button - Official Style */
+
+.whatsapp-classic-button .whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    background: #25D366;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+
+/* WhatsApp icon styling */
+
+.whatsapp-classic-button .whatsapp-btn svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+    flex-shrink: 0;
+}
+
+
+/* Hover effect - exact WhatsApp style */
+
+.whatsapp-classic-button .whatsapp-btn:hover {
+    background: #20BA5A;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.6);
+    transform: translateY(-2px);
+    color: white;
+    text-decoration: none;
+}
+
+
+/* Active/Click effect */
+
+.whatsapp-classic-button .whatsapp-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(37, 211, 102, 0.4);
+}
+
+
+/* Focus state for accessibility */
+
+.whatsapp-classic-button .whatsapp-btn:focus {
+    outline: 3px solid rgba(37, 211, 102, 0.3);
+    outline-offset: 2px;
+}
+
+
+/* Tablet */
+
+
+
+/* Mobile - standard phones (577px - 767px) */
+
+
+
+/* Small phones (421px - 576px) */
+
+
+
+/* Very small phones (≤420px) */
+
+
+
+/* ========================================
+   Contact Form - Modern Design
+   vanzari_detail.php Form Styling
+   ======================================== */
+
+
+/* Contact CTA Text Alignment */
+
+.contact-cta-wrapper {
+    max-width: 800px;
+    margin: 0 0 30px 0;
+    padding: 0 40px;
+}
+
+
+/* Form Title Alignment */
+
+.margin-top-50 {
+    max-width: 800px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+
+/* Modern Form Container */
+
+#informatii {
+    max-width: 800px;
+    padding: 35px 40px;
+    margin: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+#frmInteresat .form-field {
+    margin-bottom: 20px;
+}
+
+#frmInteresat input[type="text"],
+#frmInteresat input[type="tel"],
+#frmInteresat input[type="email"],
+#frmInteresat select,
+#frmInteresat textarea {
+    width: 100%;
+    padding: 13px 18px;
+    border: 1px solid #dfe3e8;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #2c3e50;
+    background: #f8f9fa;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: inherit;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+#frmInteresat input[type="text"]:hover,
+#frmInteresat input[type="tel"]:hover,
+#frmInteresat input[type="email"]:hover,
+#frmInteresat select:hover,
+#frmInteresat textarea:hover {
+    background: #ffffff;
+    border-color: #c5cdd5;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+#frmInteresat input[type="text"]:focus,
+#frmInteresat input[type="tel"]:focus,
+#frmInteresat input[type="email"]:focus,
+#frmInteresat select:focus,
+#frmInteresat textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.12), 0 3px 8px rgba(0, 0, 0, 0.08);
+    transform: translateY(-1px);
+}
+
+#frmInteresat select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23007bff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 18px;
+    padding-right: 45px;
+    cursor: pointer;
+}
+
+#frmInteresat select.placeholder-selected {
+    color: #95a5a6;
+}
+
+#frmInteresat textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+}
+
+#frmInteresat input::placeholder,
+#frmInteresat textarea::placeholder {
+    color: #95a5a6;
+}
+
+#frmInteresat #submit_btn {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    padding: 15px 32px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    box-shadow: 0 4px 14px rgba(0, 123, 255, 0.3);
+    width: 100%;
+    margin-top: 5px;
+}
+
+#frmInteresat #submit_btn:hover {
+    background: linear-gradient(135deg, #0056b3 0%, #003d82 100%);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+#frmInteresat #submit_btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.25);
+}
+
+#frmInteresat .recaptcha-wrapper {
+    margin-bottom: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#frmInteresat .recaptcha-wrapper>div {
+    display: inline-block;
+}
+
+
+/* Result message styling */
+
+#frmInteresat #result {
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: 1.5;
+    display: none;
+}
+
+#frmInteresat #result.success {
+    background: #d4edda;
+    color: #155724;
+    border: 2px solid #c3e6cb;
+    display: block;
+}
+
+#frmInteresat #result.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 2px solid #f5c6cb;
+    display: block;
+}
+
+
+/* Error state for inputs */
+
+#frmInteresat input.error,
+#frmInteresat select.error,
+#frmInteresat textarea.error {
+    border-color: #dc3545;
+}
+
+#frmInteresat label.error {
+    color: #dc3545;
+    font-size: 13px;
+    margin-top: 5px;
+    display: block;
+}
+
+
+/* Responsive Design */
+
+
+
+
+/* Alignment for form title */
+
+.col-lg-12.col-md-12.col-sm-12.col-xs-12.margin-top-50 {
+    max-width: 600px;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+}
+
+
+/* Ensure form title and container align with CTA text */
+
+.col-lg-12.col-md-12.col-sm-12.col-xs-12.margin-top-50 h4 {
+    margin-left: 0;
+}
+
+
+/* Responsive adjustments */
+
+
+
+
+/* ============================================================================
+   STILURI ARTICOLE SEO - articol.php - ÎMBUNĂTĂȚITE pentru VIZIBILITATE
+   ============================================================================ */
+
+
+/* Fix pentru overlap-uri */
+
+.with-sidebar .content-wrap {
+    position: relative;
+    z-index: 1;
+}
+
+.article-content * {
+    position: relative;
+}
+
+
+/* Article Container */
+
+.article-content {
+    background: #fff !important;
+    background-color: #fff !important;
+    padding: 0px 10px 10px 20px;
+    /* Redus padding-top de la 40px la 20px */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    margin-top: 0 !important;
+    /* Elimină orice margin-top */
+    position: relative;
+    clear: both;
+    z-index: 1;
+}
+
+
+/* Article Header - ELIMINĂ FUNDAL GRI */
+
+.article-header {
+    margin-bottom: 35px;
+    margin-top: 0 !important;
+    /* Elimină margin-top */
+    padding-top: 0 !important;
+    /* Elimină padding-top */
+    padding-bottom: 25px;
+    border-bottom: 2px solid #e2e8f0;
+    position: relative;
+    clear: both;
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+article .article-header,
+.article-content .article-header,
+.article-content header {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+
+/* Article Title - H1 - ELIMINĂ FUNDAL GRI */
+
+.article-title {
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    color: #1f2937 !important;
+    margin-top: 0 !important;
+    margin-bottom: 20px !important;
+    padding-top: 0 !important;
+    /* Elimină padding-top */
+    line-height: 1.4 !important;
+    letter-spacing: -0.02em;
+    padding: 0 !important;
+    display: block;
+    width: 100%;
+    position: relative;
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+article h1.article-title,
+.article-content h1,
+.article-header h1 {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+
+/* Article Meta Bar - sub titlu - ELIMINĂ FUNDAL GRI */
+
+.article-meta-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 14px;
+    color: #64748b;
+    margin: 0;
+    padding: 15px 0 0 0;
+    border-top: 1px solid #f1f5f9;
+    position: relative;
+    clear: both;
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+.article-header .article-meta-bar,
+article .article-meta-bar {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+.article-meta-bar span {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.article-meta-bar i {
+    margin-right: 6px;
+    color: #0891b2;
+    font-size: 16px;
+}
+
+
+/* Featured Image */
+
+.article-featured-image {
+    margin: 35px 0 40px 0;
+    clear: both;
+    position: relative;
+}
+
+.article-featured-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Article Excerpt */
+
+.article-excerpt {
+    padding: 25px;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border-left: 5px solid #0891b2;
+    margin: 35px 0;
+    font-size: 17px;
+    line-height: 1.7;
+    border-radius: 5px;
+    clear: both;
+    position: relative;
+    z-index: 5;
+}
+
+.article-excerpt p {
+    margin: 0;
+    color: #1e3a8a;
+    position: relative;
+}
+
+.article-excerpt strong {
+    color: #0c4a6e;
+}
+
+
+/* Article Body - FOARTE VIZIBIL */
+
+.article-body {
+    margin: 40px 0;
+    padding: 0;
+    clear: both;
+    position: relative;
+}
+
+
+/* Stiluri generale doar pentru elemente FĂRĂ stiluri inline */
+
+
+/* Stilurile inline din DB au prioritate - nu folosim !important */
+
+.article-body h2:not([style]) {
+    font-size: 26px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #0891b2;
+    border-bottom: 3px solid #0891b2;
+    padding-bottom: 12px;
+    font-weight: 700;
+}
+
+.article-body h3:not([style]) {
+    font-size: 21px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #0891b2;
+    font-weight: 700;
+}
+
+.article-body h4:not([style]) {
+    font-size: 18px;
+    margin-top: 25px;
+    margin-bottom: 12px;
+    color: #334155;
+    font-weight: 600;
+}
+
+.article-body p:not([style]) {
+    margin-bottom: 18px;
+    color: #334155;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.article-body strong:not([style]) {
+    color: #1f2937;
+    font-weight: 600;
+}
+
+.article-body ul:not([style]),
+.article-body ol:not([style]) {
+    margin-bottom: 25px;
+    padding-left: 30px;
+}
+
+.article-body li:not([style]) {
+    margin-bottom: 12px;
+    line-height: 1.8;
+    color: #334155;
+}
+
+.article-body img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 25px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.article-body a:not([style]) {
+    color: #0891b2;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.article-body a:not([style]):hover {
+    color: #0e7490;
+}
+
+.article-body div[style*="background"] {
+    margin-bottom: 25px !important;
+}
+
+.article-body section {
+    margin-bottom: 50px !important;
+}
+
+
+/* Article Tags - SEO Optimized pentru Google */
+
+.article-tags {
+    margin-top: 40px;
+    padding: 25px;
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.article-tags strong {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #334155;
+    font-weight: 600;
+}
+
+.article-tags strong i {
+    color: #0891b2;
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+
+/* Tag badges - optimizate pentru Google Rich Results */
+
+.tag-badge {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+    color: white !important;
+    padding: 10px 18px;
+    margin: 0;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 2px 6px rgba(8, 145, 178, 0.25);
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.tag-badge meta {
+    display: none;
+}
+
+.tag-badge:hover {
+    background: linear-gradient(135deg, #0e7490 0%, #155e75 100%);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 12px rgba(8, 145, 178, 0.35);
+    color: white !important;
+    border-color: #06b6d4;
+}
+
+
+/* Article CTA */
+
+.article-cta {
+    margin: 40px 0;
+    padding: 30px;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    text-align: center;
+    border-radius: 8px;
+    border: 2px solid #0891b2;
+}
+
+.article-cta .btn {
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(8, 145, 178, 0.3);
+    transition: all 0.3s ease;
+}
+
+.article-cta .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(8, 145, 178, 0.4);
+}
+
+
+/* Article Author Bio */
+
+.article-author-bio {
+    margin-top: 40px;
+    padding: 25px;
+    background: #f8fafc;
+    border-left: 5px solid #0891b2;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.article-author-bio h4 {
+    color: #0891b2;
+    margin-top: 0;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.article-author-bio p {
+    color: #475569;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+
+/* Related Articles */
+
+.related-articles {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 3px solid #e2e8f0;
+}
+
+.related-articles h3 {
+    font-size: 26px;
+    margin-bottom: 30px;
+    color: #1f2937;
+    font-weight: 700;
+}
+
+.related-article-card {
+    border: 2px solid #e2e8f0;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: #fff;
+}
+
+.related-article-card:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-3px);
+    border-color: #0891b2;
+}
+
+.related-article-card h4 a {
+    color: #1f2937;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.related-article-card h4 a:hover {
+    color: #0891b2;
+}
+
+
+/* Responsive */
+
+
+
+/* ========================================
+   HOMEPAGE SEO OPTIMIZED STYLES
+   ======================================== */
+
+/* Main Wrapper */
+.homepage-wrapper {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Intro Section */
+.homepage-intro-section {
+    margin-bottom: 25px;
+}
+
+.homepage-intro-text {
+    font-size: 17px;
+    line-height: 1.6;
+    margin: 0px 0px 15px;
+    color: #1f2937;
+    text-align: center;
+}
+
+/* Category Grid */
+.homepage-category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 20px 0px;
+}
+
+.homepage-category-card {
+    display: block;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.homepage-category-card-blue {
+    background: #f0f9ff;
+    border: 2px solid #0891b2;
+}
+
+.homepage-category-card-yellow {
+    background: #fffbeb;
+    border: 2px solid #f59e0b;
+}
+
+.homepage-category-card-green {
+    background: #f0fdf4;
+    border: 2px solid #10b981;
+}
+
+.homepage-category-card-amber {
+    background: #fef3c7;
+    border: 2px solid #f59e0b;
+    box-shadow: rgba(245, 158, 11, 0.2) 0px 2px 4px;
+}
+
+.homepage-category-icon {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.homepage-category-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+
+.homepage-category-title-blue {
+    color: #0891b2;
+}
+
+.homepage-category-title-yellow {
+    color: #d97706;
+}
+
+.homepage-category-title-green {
+    color: #059669;
+}
+
+.homepage-category-desc {
+    font-size: 13px;
+}
+
+.homepage-category-desc-gray {
+    color: #64748b;
+}
+
+.homepage-category-desc-brown {
+    color: #78350f;
+}
+
+.homepage-category-desc-green {
+    color: #065f46;
+}
+
+.homepage-category-desc-amber {
+    color: #92400e;
+}
+
+/* Action Buttons */
+.homepage-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.homepage-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.homepage-btn-primary {
+    background: #0891b2;
+    color: white;
+}
+
+.homepage-btn-secondary {
+    background: white;
+    color: #0891b2;
+    border: 1px solid #0891b2;
+}
+
+/* Trust Indicators */
+.homepage-trust-box {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 25px;
+    border: 1px solid #e2e8f0;
+}
+
+.homepage-trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+.homepage-trust-number {
+    font-size: 32px;
+    font-weight: 700;
+    color: #0891b2;
+    margin-bottom: 5px;
+}
+
+.homepage-trust-label {
+    font-size: 14px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+/* Autoutilitare Section */
+.homepage-autoutilitare {
+    background: #fffbeb;
+    padding: 18px;
+    border-radius: 6px;
+    border: 2px solid #f59e0b;
+    margin-bottom: 30px;
+}
+
+.homepage-autoutilitare h2 {
+    color: #d97706;
+    margin: 0px 0px 12px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.homepage-autoutilitare p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0px 0px 12px;
+    color: #78350f;
+    text-align: center;
+}
+
+.homepage-autoutilitare-tags {
+    margin: 0px;
+    text-align: center;
+    font-size: 14px;
+    color: #92400e;
+    font-weight: 600;
+}
+
+/* Quick Navigation */
+.homepage-quick-nav {
+    background: white;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 25px;
+    border: 1px solid #e2e8f0;
+}
+
+.homepage-quick-nav-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.homepage-quick-nav-link {
+    display: block;
+    padding: 10px 14px;
+    background: #f8fafc;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #475569;
+    font-size: 15px;
+    border: 1px solid #e2e8f0;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Section Headers */
+.homepage-section {
+    scroll-margin-top: 100px;
+    margin-bottom: 30px;
+}
+
+.homepage-section-bg {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+.homepage-section h2 {
+    color: #0891b2;
+    margin: 0px 0px 18px;
+    font-size: 22px;
+    font-weight: 700;
+    border-bottom: 2px solid #0891b2;
+    padding-bottom: 10px;
+}
+
+.homepage-section h3 {
+    color: #0891b2;
+    margin: 0px 0px 15px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.homepage-section p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0px 0px 20px;
+    color: #1f2937;
+}
+
+.homepage-section-text {
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0px 0px 16px;
+    color: #64748b;
+}
+
+/* Benefits List */
+.homepage-benefits-list {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.homepage-benefits-list li {
+    padding: 12px 0px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.homepage-benefits-list li:last-child {
+    border-bottom: none;
+}
+
+.homepage-benefits-title {
+    color: #0891b2;
+    font-size: 16px;
+}
+
+.homepage-benefits-text {
+    color: #475569;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Info Boxes */
+.homepage-info-box {
+    background: #f0f9ff;
+    padding: 18px 20px;
+    border-radius: 8px;
+    border-left: 4px solid #0891b2;
+    margin-bottom: 25px;
+}
+
+.homepage-info-box h3 {
+    color: #0891b2;
+    margin: 0px 0px 10px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.homepage-info-box p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0px;
+    color: #1f2937;
+}
+
+.homepage-info-box-alt {
+    background: #f0f9ff;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 3px solid #0891b2;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #1f2937;
+    margin: 0px 0px 18px;
+}
+
+.homepage-info-box-alt strong {
+    color: #0891b2;
+}
+
+/* Benefit Cards */
+.homepage-benefit-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.homepage-benefit-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid #e2e8f0;
+    text-align: center;
+}
+
+.homepage-benefit-icon {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.homepage-benefit-card h4 {
+    color: #0891b2;
+    margin: 0px 0px 8px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.homepage-benefit-card p {
+    margin: 0px;
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+/* Services Grid */
+.homepage-services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 25px;
+}
+
+.homepage-service-card {
+    background: #f8fafc;
+    padding: 18px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+}
+
+.homepage-service-icon {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.homepage-service-card h3 {
+    color: #0891b2;
+    margin: 0px 0px 8px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.homepage-service-card p {
+    margin: 0px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #64748b;
+}
+
+.homepage-service-badge {
+    margin: 8px 0px 0px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #0891b2;
+}
+
+/* Content Boxes */
+.homepage-content-box {
+    background: white;
+    padding: 16px;
+    border-radius: 5px;
+    margin-bottom: 16px;
+    border-left: 3px solid #0891b2;
+}
+
+.homepage-content-box h4 {
+    color: #0891b2;
+    margin: 0px 0px 12px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.homepage-content-box ul {
+    margin: 0px;
+    padding: 0px 0px 0px 20px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #1f2937;
+}
+
+.homepage-warning-box {
+    background: #fff7ed;
+    padding: 12px;
+    border-radius: 5px;
+    border-left: 3px solid #f97316;
+    margin-bottom: 15px;
+}
+
+.homepage-warning-box p {
+    margin: 0px 0px 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #ea580c;
+}
+
+.homepage-warning-box ul {
+    margin: 0px;
+    padding: 0px 0px 0px 20px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #9a3412;
+}
+
+/* Finance Section */
+.homepage-finance-list {
+    margin: 0px 0px 20px;
+    padding: 0px;
+    list-style: none;
+}
+
+.homepage-finance-list li {
+    padding: 12px 0px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.homepage-finance-list li:last-child {
+    border-bottom: none;
+}
+
+.homepage-finance-title {
+    color: #0891b2;
+    font-size: 16px;
+}
+
+.homepage-finance-text {
+    color: #475569;
+    font-size: 15px;
+}
+
+/* Import Section */
+.homepage-import-box {
+    background: #f0f9ff;
+    padding: 16px;
+    border-radius: 5px;
+    border: 1px solid #bae6fd;
+    margin-bottom: 18px;
+}
+
+.homepage-import-box h3 {
+    color: #0891b2;
+    margin: 0px 0px 12px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.homepage-import-box ul {
+    margin: 0px;
+    padding: 0px 0px 0px 20px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #1f2937;
+}
+
+.homepage-import-info {
+    background: white;
+    padding: 14px;
+    border-radius: 5px;
+    border-left: 3px solid #0891b2;
+}
+
+.homepage-import-info p {
+    margin: 0px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #1f2937;
+}
+
+.homepage-import-info strong {
+    color: #0891b2;
+}
+
+.homepage-import-actions {
+    margin: 18px 0px 0px;
+    text-align: center;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.homepage-btn-large {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.homepage-btn-orange {
+    background: #f97316;
+    color: white;
+    box-shadow: rgba(249, 115, 22, 0.3) 0px 2px 4px;
+}
+
+/* CTA Section */
+.homepage-cta-section {
+    text-align: center;
+    padding: 25px 20px;
+    background: #f8fafc;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+.homepage-cta-section h2 {
+    color: #0891b2;
+    margin: 0px 0px 15px;
+    font-size: 22px;
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.homepage-cta-section p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0px 0px 20px;
+    color: #475569;
+}
+
+.homepage-cta-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.homepage-cta-footer {
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.homepage-cta-footer p {
+    margin: 0px 0px 10px;
+    font-size: 15px;
+    color: #475569;
+}
+
+.homepage-cta-footer p:last-child {
+    margin: 0px;
+    font-size: 14px;
+    color: #64748b;
+}
+
+/* Links */
+.homepage-link-orange {
+    color: #f97316;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid #f97316;
+}
+
+/* Section Actions */
+.homepage-section-actions {
+    text-align: center;
+    margin-top: 18px;
+}
+
+/* Grid-uri pentru homepage (stiluri de bază) */
+.homepage-services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 25px;
+}
+
+.homepage-quick-nav-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+/* Responsive pentru homepage */
+
+
+/* ============================================
+   Modern Layout Styles for Car Detail Page
+   ============================================ */
+
+.content {
+    background: #f8fafc !important;
+    padding: 40px 0 !important;
+}
+
+.inner-page.inventory-listing {
+    background: transparent !important;
+}
+
+.left-content {
+    padding-right: 20px !important;
+}
+
+.right-content {
+    padding-left: 20px !important;
+}
+
+/* Modern Form Styling */
+#frmInteresat {
+    margin-top: 20px;
+}
+
+#frmInteresat .form-field {
+    margin-bottom: 20px;
+}
+
+#frmInteresat input[type="text"],
+#frmInteresat input[type="tel"],
+#frmInteresat input[type="email"],
+#frmInteresat select,
+#frmInteresat textarea {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 15px;
+    color: #1e293b;
+    transition: all 0.3s ease;
+    width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+#frmInteresat input[type="text"]:focus,
+#frmInteresat input[type="tel"]:focus,
+#frmInteresat input[type="email"]:focus,
+#frmInteresat select:focus,
+#frmInteresat textarea:focus {
+    border-color: #0891b2;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(8, 145, 178, 0.1);
+    background: #ffffff;
+}
+
+#frmInteresat input[type="text"]:hover,
+#frmInteresat input[type="tel"]:hover,
+#frmInteresat input[type="email"]:hover,
+#frmInteresat select:hover,
+#frmInteresat textarea:hover {
+    border-color: #cbd5e1;
+}
+
+#frmInteresat #submit_btn {
+    background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+    color: white;
+    border: none;
+    padding: 16px 35px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(8, 145, 178, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#frmInteresat #submit_btn:hover {
+    background: linear-gradient(135deg, #0e7490 0%, #0891b2 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(8, 145, 178, 0.4);
+}
+
+#frmInteresat #submit_btn:active {
+    transform: translateY(0);
+}
+
+
+
+/* Specifications Grid Responsive */
+
+/* Specifications Table Responsive */
+
+
+/* Smooth scroll for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ============================================
+   MODERN CAR DETAIL PAGE - RIGHT SIDEBAR
+   ============================================ */
+
+/* Sidebar Container */
+.car-detail-sidebar {
+    position: sticky;
+    top: 20px;
+    z-index: 10;
+}
+
+/* Price & CTA Box */
+.car-price-cta-box {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 0;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.car-price-cta-box:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Price Section */
+.car-price-section {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    padding: 32px 24px;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.car-price-main {
+    font-size: 44px;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1.1;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+}
+
+.car-price-main.car-price-discounted {
+    color: #c7081b;
+}
+
+.car-price-currency {
+    font-size: 30px;
+    font-weight: 600;
+    vertical-align: baseline;
+}
+
+.car-price-old {
+    font-size: 20px;
+    color: #94a3b8;
+    text-decoration: line-through;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+/* Warranty Badge */
+.car-warranty-badge {
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    color: #1e293b;
+    padding: 16px 28px;
+    border-radius: 8px;
+    margin-top: 20px;
+    display: inline-block;
+    border: 1px solid #cbd5e1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+}
+
+.car-warranty-badge:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.car-warranty-text {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.3px;
+}
+
+/* CTA Buttons Container */
+.car-cta-buttons {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* CTA Button Base */
+.car-cta-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    color: white !important;
+    z-index: 1;
+}
+
+.car-cta-btn * {
+    position: relative;
+    z-index: 2;
+    color: white !important;
+}
+
+.car-cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    z-index: 0;
+}
+
+.car-cta-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.car-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: white !important;
+}
+
+.car-cta-btn:active {
+    transform: translateY(0);
+    color: white !important;
+}
+
+/* CTA Icon */
+.car-cta-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    fill: currentColor;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.car-cta-btn:hover .car-cta-icon {
+    color: white !important;
+    fill: white !important;
+}
+
+/* WhatsApp Button */
+.car-cta-btn-whatsapp {
+    background: linear-gradient(135deg, #25D366 0%, #20ba5a 100%);
+    color: white;
+}
+
+.car-cta-btn-whatsapp:hover {
+    background: linear-gradient(135deg, #20ba5a 0%, #1da851 100%);
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+    color: white !important;
+}
+
+/* Phone Button */
+.car-cta-btn-phone {
+    background: linear-gradient(135deg, #c7081b 0%, #a5061f 100%);
+    color: white;
+}
+
+.car-cta-btn-phone:hover {
+    background: linear-gradient(135deg, #a5061f 0%, #8a0519 100%);
+    box-shadow: 0 4px 16px rgba(199, 8, 27, 0.4);
+    color: white !important;
+}
+
+/* Contact Form Button */
+.car-cta-btn-contact {
+    background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+    color: white;
+}
+
+.car-cta-btn-contact:hover {
+    background: linear-gradient(135deg, #0e7490 0%, #0c5d75 100%);
+    box-shadow: 0 4px 16px rgba(8, 145, 178, 0.4);
+    color: white !important;
+}
+
+/* Navigation Buttons Container */
+.car-nav-buttons {
+    border-top: 1px solid #e2e8f0;
+    margin-top: 16px;
+    padding-top: 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+/* Navigation Button */
+.car-nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    color: #334155;
+    padding: 12px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    border: 1.5px solid #cbd5e1;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.car-nav-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(8, 145, 178, 0.1), transparent);
+    transition: left 0.5s;
+    z-index: 0;
+}
+
+.car-nav-btn:hover::before {
+    left: 100%;
+}
+
+.car-nav-btn:hover {
+    background: #f8fafc;
+    border-color: #0891b2;
+    color: #0891b2;
+    box-shadow: 0 3px 8px rgba(8, 145, 178, 0.2);
+    transform: translateY(-1px);
+    z-index: 2;
+}
+
+.car-nav-btn:active {
+    transform: translateY(0);
+}
+
+.car-nav-btn-disabled {
+    background: #f1f5f9;
+    color: #94a3b8;
+    border-color: #e2e8f0;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.car-nav-btn-disabled:hover {
+    background: #f1f5f9;
+    color: #94a3b8;
+    border-color: #e2e8f0;
+    transform: none;
+    box-shadow: none;
+}
+
+.car-nav-btn-disabled::before {
+    display: none;
+}
+
+/* Action Buttons Container */
+.car-action-buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+/* Action Button */
+.car-action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    color: #334155 !important;
+    padding: 12px 16px;
+    border-radius: 8px;
+    text-decoration: none !important;
+    font-weight: 600;
+    font-size: 13px;
+    border: 1.5px solid #cbd5e1;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.car-action-btn,
+.car-action-btn * {
+    transition: color 0s !important;
+}
+
+.car-action-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    z-index: 0;
+}
+
+.car-action-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.car-action-btn * {
+    position: relative;
+    z-index: 2;
+    color: inherit;
+}
+
+.car-action-btn span,
+.car-action-btn {
+    position: relative;
+    z-index: 2;
+}
+
+/* Force text color on hover - override any other styles with maximum specificity */
+.car-action-buttons a.car-action-btn:hover,
+.car-action-buttons a.car-action-btn:hover:link,
+.car-action-buttons a.car-action-btn:hover:visited,
+a.car-action-btn:hover,
+a.car-action-btn:hover:link,
+a.car-action-btn:hover:visited,
+.car-action-btn:hover {
+    color: #ffffff !important;
+    border-color: #0891b2 !important;
+    box-shadow: 0 4px 12px rgba(8, 145, 178, 0.3) !important;
+    transform: translateY(-1px);
+}
+
+/* Force all child elements and text nodes to be white on hover - maximum specificity */
+.car-action-buttons a.car-action-btn:hover,
+.car-action-buttons a.car-action-btn:hover *,
+.car-action-buttons a.car-action-btn:hover .car-action-btn-text,
+.car-action-buttons a.car-action-btn:hover:link,
+.car-action-buttons a.car-action-btn:hover:link *,
+.car-action-buttons a.car-action-btn:hover:link .car-action-btn-text,
+.car-action-buttons a.car-action-btn:hover:visited,
+.car-action-buttons a.car-action-btn:hover:visited *,
+.car-action-buttons a.car-action-btn:hover:visited .car-action-btn-text,
+a.car-action-btn:hover,
+a.car-action-btn:hover *,
+a.car-action-btn:hover .car-action-btn-text,
+a.car-action-btn:hover:link,
+a.car-action-btn:hover:link *,
+a.car-action-btn:hover:link .car-action-btn-text,
+a.car-action-btn:hover:visited,
+a.car-action-btn:hover:visited *,
+a.car-action-btn:hover:visited .car-action-btn-text,
+.car-action-btn:hover,
+.car-action-btn:hover *,
+.car-action-btn:hover span,
+.car-action-btn:hover .car-action-btn-text {
+    color: #ffffff !important;
+}
+
+/* Override any global a:hover rules */
+.car-action-buttons a.car-action-btn:hover {
+    color: white !important;
+}
+
+/* Text wrapper styling */
+.car-action-btn-text {
+    position: relative;
+    z-index: 3;
+    color: inherit;
+}
+
+.car-action-btn:active {
+    transform: translateY(0);
+    color: white !important;
+}
+
+.car-action-btn:active,
+.car-action-btn:active *,
+.car-action-btn:active span {
+    color: white !important;
+}
+
+/* Specifications Box */
+.car-specs-box {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 0;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.car-specs-box:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Specifications Header */
+.car-specs-header {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    padding: 18px 20px;
+    border-bottom: 2px solid #e2e8f0;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s ease;
+    position: relative;
+    z-index: 10;
+    -webkit-tap-highlight-color: rgba(8, 145, 178, 0.2);
+    touch-action: manipulation;
+}
+
+.car-specs-header:hover {
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+}
+
+.car-specs-header:active {
+    background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+}
+
+.car-specs-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* Specifications Content */
+.car-specs-content {
+    padding: 0;
+    background: #fafbfc;
+}
+
+
+/* Specifications Table */
+.car-specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+}
+
+/* Specification Row */
+.car-spec-row {
+    border-bottom: 1px solid #f1f5f9;
+    transition: background-color 0.2s ease;
+}
+
+.car-spec-row-odd {
+    background: #fafbfc;
+}
+
+.car-spec-row-even {
+    background: #ffffff;
+}
+
+.car-spec-row:last-child {
+    border-bottom: none;
+}
+
+
+/* Specification Label */
+.car-spec-label {
+    padding: 16px 20px;
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 600;
+    width: 45%;
+    vertical-align: top;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+/* Specification Value */
+.car-spec-value {
+    padding: 16px 20px;
+    color: #1e293b;
+    font-size: 14px;
+    font-weight: 600;
+    vertical-align: top;
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+
+
+/* Desktop - Always show toggle icon but make it non-clickable */
+
+
+/* ============================================
+   FORM STYLING IMPROVEMENTS
+   ============================================ */
+
+#frmInteresat .form-field input,
+#frmInteresat .form-field select,
+#frmInteresat .form-field textarea {
+    border-radius: 8px;
+    border: 1.5px solid #e2e8f0;
+    padding: 12px 15px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+#frmInteresat .form-field input:focus,
+#frmInteresat .form-field select:focus,
+#frmInteresat .form-field textarea:focus {
+    border-color: #0891b2;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.1);
+    background: #fafbfc;
+}
+
+#frmInteresat #submit_btn {
+    background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+    color: white;
+    border: none;
+    padding: 16px 30px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(8, 145, 178, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#frmInteresat #submit_btn:hover {
+    background: linear-gradient(135deg, #0e7490 0%, #0891b2 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(8, 145, 178, 0.4);
+}
+
+#frmInteresat #submit_btn:active {
+    transform: translateY(0);
+}
+
+/* ========================================
+   Footer Professional Styling
+   ======================================== */
+.copyright-wrap {
+    padding: 50px 0 30px 0 !important;
+    background-color: #2f2f2f !important;
+    color: #e0e0e0 !important;
+    font-size: 14px !important;
+    line-height: 1.7 !important;
+}
+
+.copyright-wrap .container .row > div {
+    padding: 0 20px !important;
+    margin-bottom: 30px !important;
+}
+
+.footer-brand-section {
+    padding-right: 30px;
+}
+
+.footer-brand-section .logo-footer h1 {
+    font-family: 'Verdana', sans-serif !important;
+    font-weight: 700 !important;
+    font-style: italic !important;
+    font-size: 28px !important;
+    color: #ffffff !important;
+    margin-bottom: 15px !important;
+    line-height: 1.2 !important;
+}
+
+.footer-brand-section .logo-footer a {
+    text-decoration: none !important;
+    transition: opacity 0.3s ease;
+}
+
+.footer-brand-section .logo-footer a:hover {
+    opacity: 0.85;
+}
+
+.footer-brand-section p {
+    color: #b0b0b0 !important;
+    font-size: 13px !important;
+    line-height: 1.8 !important;
+    margin-bottom: 25px !important;
+}
+
+.footer-section-title {
+    font-size: 17px !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    margin-bottom: 20px !important;
+    padding-bottom: 10px !important;
+    border-bottom: 2px solid #4a4a4a !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.footer-links-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.footer-links-list li {
+    margin-bottom: 12px !important;
+    padding: 0 !important;
+}
+
+.footer-links-list li:last-child {
+    margin-bottom: 0 !important;
+}
+
+.footer-links-list a {
+    color: #d0d0d0 !important;
+    text-decoration: none !important;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    display: inline-block !important;
+    transition: all 0.3s ease !important;
+    padding: 2px 0 !important;
+    position: relative !important;
+}
+
+.footer-links-list a:hover {
+    color: #ffffff !important;
+    padding-left: 8px !important;
+}
+
+.footer-links-list a::before {
+    content: "→" !important;
+    position: absolute !important;
+    left: -15px !important;
+    opacity: 0 !important;
+    transition: all 0.3s ease !important;
+    color: #0891b2 !important;
+}
+
+.footer-links-list a:hover::before {
+    opacity: 1 !important;
+    left: -12px !important;
+}
+
+.footer-social-section {
+    margin-top: 30px !important;
+}
+
+.footer-social-section .footer-section-title {
+    margin-bottom: 15px !important;
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+    font-size: 15px !important;
+}
+
+.footer-social-links {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    gap: 12px !important;
+}
+
+.footer-social-links li {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.footer-social-links a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 40px !important;
+    height: 40px !important;
+    background-color: #3a3a3a !important;
+    color: #ffffff !important;
+    border-radius: 50% !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    font-size: 18px !important;
+}
+
+.footer-social-links a:hover {
+    background-color: #0891b2 !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 4px 8px rgba(8, 145, 178, 0.3) !important;
+}
+
+.footer-subsection {
+    margin-top: 35px !important;
+}
+

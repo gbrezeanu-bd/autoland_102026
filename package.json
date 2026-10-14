@@ -1,0 +1,20 @@
+{
+  "name": "assetminifyer",
+  "version": "1.0.0",
+  "description": "Assets minifier for the project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marius Ionel <webmaster@grupnet.ro>",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-css-copy-assets": "0.0.5",
+    "gulp-minify": "^3.1.0",
+    "gulp-rev": "^9.0.0"
+  }
+}

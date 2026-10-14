@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <title></title>
+        <script type="text/javascript" src="../js/jquery.min.js" />
+    </head>
+    <body>
+        <div id="">
+            <h3>Cere mai multe informatii</h3>
+
+            <form name="request_info" method="post" class="ajax_form">
+                <table>
+                    <tr><td>Nume: </td> <td> <input type="text" name="name"></td></tr>
+                    <tr><td>Contact preferat:</td> <td> <input type="radio" name="contact_method" value="email" id="offer_email"><label for="offer_email">Email</label>  <input type="radio" name="contact_method" value="phone" id="offer_phone"> <label for="offer_phone">Telefon</label></td></tr>
+                    <tr><td>Email: </td> <td> <input type="text" name="email"></td></tr>
+                    <tr><td>Telefon: </td> <td> <input type="text" name="phone"></td></tr>
+                    <tr><td colspan='2'><br><div id='recaptcha'></div></td></tr>        <tr><td colspan="2"><input type="submit" value="Submit" class="pull-left"></td></tr>
+                </table>
+            </form>
+        </div>
+
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+        <script type="text/javascript">
+            grecaptcha.render("recaptcha", {
+                'sitekey': '6LcbK38UAAAAAMAFTZuUcAh346Pp7PDT_YTO-Veq',
+                'theme': "blue",
+                'callback': grecaptcha.focus_response_field
+            });
+        </script>
+        <script>
+//            jQuery(document).ready(function ($) {
+//                //alert('ok');
+//                $(document).on("submit", ".ajax_form", function (e) {
+//                    e.preventDefault();
+//
+//                    var empty_input = false;
+//
+//                    $(this).find("*:not(input[type='submit'])").filter(":input").each(function (index, element) {
+//                        if (!$(this).val().trim()) {
+//                            empty_input = true;
+//
+//                            $(this).css("border", "1px solid #F00");
+//                        } else {
+//                            $(this).attr("style", "");
+//                        }
+//                    });
+//
+//                    //check recaptcha
+//                    // if($("#recaptcha").length){
+//                    // 	var recaptcha_challenge_field = $(this).find("input[name='recaptcha_challenge_field']").val();
+//                    // 	var recaptcha_response_field  = $(this).find("input[name='recaptcha_response_field']").val();
+//
+//                    // 	$.ajax({
+//                    // 		type: "POST",
+//                    // 		url: "includes/recaptcha_check.php",
+//                    // 		data: {recaptcha_challenge_field: recaptcha_challenge_field, recaptcha_response_field: recaptcha_response_field },
+//                    // 		success: function(data){
+//                    // 			if(data != "success"){
+//                    // 				if(!$(".recaptcha_message").length){
+//                    // 					$("#recaptcha").after( "<div class='recaptcha_message'>" + data + "</div>" );
+//                    // 				} else {
+//                    // 					$(".recaptcha_message").html(data);
+//                    // 				}
+//                    // 				return false;
+//                    // 			}
+//                    // 		}
+//                    // 	});
+//                    // }
+//
+//                    if (empty_input == false) {
+//                        var form_values = $(this).serialize();
+//                        var form_name = $(this).attr("name");
+//                        var current_form = $(this);
+//
+//                        $.ajax({
+//                            type: "POST",
+//                            url: "ajax_form.php",
+//                            data: form_values + "&form=" + form_name,
+//                            success: function (data) {
+//                                if (data == "Sent Successfully") {
+//                                    $.fancybox.close();
+//                                } else {
+//                                    if ($(".error_list").length) {
+//                                        $(".error_list").remove();
+//                                    }
+//
+//                                    current_form.prepend(data);
+//                                }
+//                            }
+//                        });
+//                    }
+//                });
+//            });
+        </script>
+    </body>
+</html>

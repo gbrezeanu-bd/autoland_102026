@@ -1,0 +1,70 @@
+<?php 
+require_once('../Connections/autoland.php');       
+
+$query_assoc 		=  	sprintf("SELECT * FROM fotov WHERE oferta = %s ORDER BY nota ASC",$row_vehicule['id']);
+$assoc 				= 	mysql_query($query_assoc, $autoland) or die(mysql_error());
+$row_assoc 			= 	mysql_fetch_assoc($assoc);
+$totalRows_assoc 	= 	mysql_num_rows($assoc);
+$nrfoto				=	$totalRows_assoc;
+//$updateSQL 			= 	sprintf("UPDATE fotov SET nota=%s WHERE id=%s", $nota, $row_assoc['id']);
+//mysql_query($updateSQL, $autoland) or die(mysql_error());
+
+
+	echo '<div id="foto_'.$row_assoc['id']. '" name="foto_'.$row_assoc['id']. '" style="display: block; float: left;">';
+	echo '  <center>
+			<select name="anota" style="width:67px;">
+				<option value="0" '; if (!(strcmp("0", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>0</option>
+				<option value="1" '; if (!(strcmp("1", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>1</option>
+				<option value="2" '; if (!(strcmp("2", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>2</option>
+				<option value="3" '; if (!(strcmp("3", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>3</option>
+				<option value="4" '; if (!(strcmp("4", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>4</option>
+				<option value="5" '; if (!(strcmp("5", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>5</option>
+				<option value="6" '; if (!(strcmp("6", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>6</option>
+				<option value="7" '; if (!(strcmp("7", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>7</option>
+				<option value="8" '; if (!(strcmp("8", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>8</option>
+				<option value="9" '; if (!(strcmp("9", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>9</option>
+				<option value="10" '; if (!(strcmp("10", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>10</option>
+				<option value="11" '; if (!(strcmp("11", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>11</option>
+				<option value="12" '; if (!(strcmp("12", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>12</option>
+				<option value="13" '; if (!(strcmp("13", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>13</option>
+				<option value="14" '; if (!(strcmp("14", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>14</option>
+				<option value="15" '; if (!(strcmp("15", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>15</option>
+            </select>
+			</center>
+			';
+
+	echo '<a href=../foto/'. $row_assoc['file'] .'><img data-no-retina src= "thumb.php?src=foto/'. $row_assoc['file'] .'&wmax=67&hmax=50&quality=90&bgcol=FFFFff" hspace="5" vspace="2" border="1"></img></a>';
+	echo '<br /><center><a href="javascript:delImage(\''.$row_assoc['id']. '\')">Delete</a></center>';
+	echo '</div>';
+
+while($row_assoc = mysql_fetch_assoc($assoc))
+{
+	echo '<div id="foto_'.$row_assoc['id']. '" name="foto_'.$row_assoc['id']. '" style="display: block; float: left;">';
+	echo '	<center>
+			<select name="nota" style="width:67px;">
+				<option value="0"'; if (!(strcmp("0", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>0</option>
+				<option value="1"'; if (!(strcmp("1", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>1</option>
+				<option value="2"'; if (!(strcmp("2", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>2</option>
+				<option value="3"'; if (!(strcmp("3", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>3</option>
+				<option value="4"'; if (!(strcmp("4", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>4</option>
+				<option value="5"'; if (!(strcmp("5", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>5</option>
+				<option value="6"'; if (!(strcmp("6", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>6</option>
+				<option value="7"'; if (!(strcmp("7", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>7</option>
+				<option value="8"'; if (!(strcmp("8", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>8</option>
+				<option value="9"'; if (!(strcmp("9", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>9</option>
+				<option value="10"'; if (!(strcmp("10", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>10</option>
+				<option value="11"'; if (!(strcmp("11", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>11</option>
+				<option value="12"'; if (!(strcmp("12", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>12</option>
+				<option value="13"'; if (!(strcmp("13", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>13</option>
+				<option value="14"'; if (!(strcmp("14", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>14</option>
+				<option value="15"'; if (!(strcmp("15", $row_assoc['nota']))) { echo "selected=\"selected\""; } echo '>15</option>
+            </select>
+			</center>
+			';
+	echo '<a href=../foto/'. $row_assoc['file'] .'><img data-no-retina src= "thumb.php?src=foto/'. $row_assoc['file'] .'&wmax=67&hmax=50&quality=90&bgcol=FFFFff" hspace="5" vspace="2" border="1"></img></a>';
+	echo '<br /><center><a href="javascript:delImage(\''.$row_assoc['id']. '\')">Delete</a></center><br />';
+	echo '</div>';
+}
+
+mysql_free_result($assoc);
+?>

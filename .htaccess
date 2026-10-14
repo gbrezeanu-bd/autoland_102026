@@ -1,0 +1,229 @@
+#Options +FollowSymlinks
+#RewriteEngine on
+## We are in the latest 2018 so https is a must
+#RewriteCond %{HTTPS} off
+#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+#
+#RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+#RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+#RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+#RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+#RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+#RewriteRule ^masini/([^/]+)/([^/]+)/([^/]+).jpg vanzari_detail.php?$3.jpg [NC]
+#
+#RewriteCond %{HTTP_HOST} ^autolandromania.ro$
+#RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+#RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+#RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+#RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+#RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+#RewriteRule ^(.*)$ "http\:\/\/www\.autolandromania\.ro\/$1" [R=301,L]
+#
+#<Files 403.shtml>
+#order allow,deny
+#allow from all
+#</Files>
+#
+#deny from 82.223.187.0/24
+#deny from 61.135.175.0/24
+#deny from 188.143.232.0/24
+#deny from 146.185.0.0/16
+#deny from 46.33.240.0/20
+
+# Added by Gabriela Brezeanu on Aug 21 2026
+# --- Block direct access to sensitive file types ---
+<FilesMatch "(?i)\.(sql|sql\.gz|bak|old|backup|log|inc|env|ini|sh|swp|tmp)$">
+  Require all denied
+</FilesMatch>
+# Belt-and-braces for exact/legacy names and Apache < 2.4:
+<Files "error_log">
+  Require all denied
+</Files>
+RewriteRule (?i)\.(sql|bak|old|backup|log)(\.gz)?$ - [F,L]
+
+# Specify which files to serve for directory requests - added by Gabriela Brezeanu on Oct 30 2025
+DirectoryIndex index.php index.html
+
+# Force redirect to HTTPS
+RewriteEngine on
+RewriteCond %{HTTPS} !=on
+RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
+
+# 3 Nov 2025 added by Gabriela Brezeanu
+# Redirect mobile subdomain to main domain (m.domain.com → domain.com)
+# Handles both m.autolandromania.ro and www.m.autolandromania.ro
+RewriteCond %{HTTP_HOST} ^(www\.)?m\.autolandromania\.ro$ [NC]
+RewriteRule ^(.*)$ https://autolandromania.ro/$1 [R=301,L]
+
+# Redirect www to non-www (301 permanent redirect for SEO)
+# This ensures https://www.autolandromania.ro redirects to https://autolandromania.ro
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# Canonicalize sitemap filename to lowercase
+# Redirect /Sitemap.xml (and other case variants) to /sitemap.xml
+RewriteCond %{REQUEST_URI} !^/sitemap\.xml$
+RewriteRule ^sitemap\.xml$ /sitemap.xml [R=301,L,NC]
+
+# EXCEPTII - Fișiere care trebuie accesate direct (trebuie să fie înainte de regulile generice)
+RewriteCond %{REQUEST_URI} ^/sitemap-generator\.php$ [NC]
+RewriteRule ^ - [L]
+
+# 21 Oct 2025 added by Gabriela Brezeanu
+# Fix malformed pagination URLs: redirect /page.php&page=X to /page.php?page=X
+RewriteCond %{REQUEST_URI} ^(/[^?&]+\.php)&(.+)$
+RewriteRule ^(.*)$ %1?%2 [R=301,L]
+
+# Redirect malformed URL with includes path to main listings page
+RewriteRule ^vanzari_detail\.php/includes/form_interesatde_mail_processor\.php$ /vanzari.php [R=301,L]
+RewriteRule ^([^/]+\.php)/includes/form_mail_processor\.php$ /contact.php [R=301,L]
+RewriteRule ^([^/]+\.php)/includes/form_interesatde_mail_processor\.php$ /vanzari.php [R=301,L]
+
+# Fix malformed URLs: Redirect paths like /vanzari_detail.php/lista_oferta.php to proper pages
+RewriteRule ^vanzari_detail\.php/lista_oferta\.php$ /lista_oferta.php [R=301,L]
+RewriteRule ^([^/]+\.php)/([^/]+\.php)$ /$2 [R=301,L]
+
+# Fix missing jQuery validate file reference
+RewriteRule ^jquery\.validate$ /themes/automotive/js/jquery.validate.min.js [R=301,L]
+# end
+
+# ========================================
+# URL REWRITING RULES - ORDINEA CONTEAZĂ!
+# ========================================
+# IMPORTANT: Regulile mai SPECIFICE trebuie SUS, regulile GENERICE jos!
+
+# ----------------------------------------
+# REGULI PENTRU ARTICOLE (Mai Specifice)
+# ----------------------------------------
+# Articolele trebuie să aibă pattern mai specific pentru a nu conflicta
+
+# /articole (fără slug) → articole.php (pagina de listare)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^articole/?$ articole.php [L,QSA]
+
+# /articole/ghid-masini-second-hand → articol.php?slug=ghid-masini-second-hand
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^articole/([a-zA-Z0-9\-_]+)$ articol.php?slug=$1 [L,QSA]
+
+# 19 Dec 2024 added as recommended by sucuri https://docs.sucuri.net/warnings/hardening/security-headers-x-frame-options/
+Header always append X-Frame-Options SAMEORIGIN
+
+# 19 Dec 2024 added as recommended by sucuri https://docs.sucuri.net/warnings/hardening/security-headers-x-content-type-nosniff/
+Header set X-Content-Type-Options nosniff
+
+# 19 Dec 2024 added as recommended by sucuri in https://blog.sucuri.net/2023/12/what-is-content-security-policy.html
+# disable 
+# Header set Content-Security-Policy "script-src www.google.com gstatic.com doubleclick.net google-analytics.com googletagmanager.com 'self'; img-src https://www.google.* 'self'; frame-src td.doubleclick.net https://www.googletagmanager.com/ 'self' ; font-src fonts.gstatic.com 'self'; script-src-elem data: gap: https://ssl.gstatic.com https://www.google.com/recaptcha/api.js https://googleads.g.doubleclick.net https://www.google-analytics.com/analytics.js https://www.googletagmanager.com 'self'"
+
+# Enable Mainenance Mode for all except IP
+#<Limit GET POST PUT>
+# Order Deny,Allow
+# Deny from all
+# Allow from 92.85.174.71
+#</Limit>
+#ErrorDocument 403 /maintenance.php
+
+ErrorDocument 404 /404.php
+
+#<Files maintenance.html>
+# Order Allow,Deny
+# Allow from all
+#</Files>
+
+
+# ENABLE CACHING for images
+<IfModule mod_expires.c>
+#  ExpiresActive On
+#  
+#    # Fonts
+#    ExpiresByType application/font-woff "access plus 1 month" 
+#    ExpiresByType application/font-woff2 "access plus 1 month"
+#    ExpiresByType application/font-sfnt "access plus 1 month"
+#    ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
+#
+#    # Images
+#    ExpiresByType image/jpeg "access plus 1 week"
+#    ExpiresByType image/gif "access plus 1 week"
+#    ExpiresByType image/png "access plus 1 week"
+#    ExpiresByType image/webp "access plus 1 week"
+#    ExpiresByType image/svg+xml "access plus 1 week"
+#    ExpiresByType image/x-icon "access plus 1 year"
+#
+#    # Video
+#    ExpiresByType video/mp4 "access plus 1 year"
+#    ExpiresByType video/mpeg "access plus 1 year"
+#
+#    # CSS, JavaScript
+#    ExpiresByType text/css "access plus 1 week"
+#    ExpiresByType text/javascript "access plus 1 week"
+#    ExpiresByType application/javascript "access plus 1 week"
+#
+#    # Others
+#    ExpiresByType application/pdf "access plus 1 month"
+#    ExpiresByType application/x-shockwave-flash "access plus 1 month"
+</IfModule>
+
+
+# ENABLE COMPRESSION
+<IfModule mod_deflate.c>
+
+    # Compress HTML, CSS, JavaScript, Text, XML and fonts
+    #AddOutputFilterByType DEFLATE application/javascript
+    #AddOutputFilterByType DEFLATE application/rss+xml
+    #AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+    #AddOutputFilterByType DEFLATE application/x-font
+    #AddOutputFilterByType DEFLATE application/x-font-opentype
+    #AddOutputFilterByType DEFLATE application/x-font-otf
+#    AddOutputFilterByType DEFLATE application/x-font-truetype
+#    AddOutputFilterByType DEFLATE application/x-font-ttf
+#    AddOutputFilterByType DEFLATE application/x-javascript
+#    AddOutputFilterByType DEFLATE application/xhtml+xml
+#    AddOutputFilterByType DEFLATE application/xml
+#    AddOutputFilterByType DEFLATE font/opentype
+#    AddOutputFilterByType DEFLATE font/otf
+#    AddOutputFilterByType DEFLATE font/ttf
+#    AddOutputFilterByType DEFLATE image/svg+xml
+#    AddOutputFilterByType DEFLATE image/x-icon
+#    AddOutputFilterByType DEFLATE text/css
+#    AddOutputFilterByType DEFLATE text/html
+#    AddOutputFilterByType DEFLATE text/javascript
+#    AddOutputFilterByType DEFLATE text/plain
+#    AddOutputFilterByType DEFLATE text/xml
+
+    # Set compression level
+    #DeflateCompressionLevel 6
+
+    # Remove browser bugs (only needed for really old browsers)
+#    BrowserMatch ^Mozilla/4 gzip-only-text/html
+#    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+#    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+#    Header append Vary User-Agent
+
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml \
+        application/javascript application/x-javascript application/json \
+        image/svg+xml application/xml
+    DeflateCompressionLevel 6
+</IfModule>
+
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresDefault "access plus 1 month"
+ExpiresByType image/x-icon "access plus 1 year"
+ExpiresByType image/gif "access plus 1 month"
+ExpiresByType image/png "access plus 1 month"
+ExpiresByType image/jpeg "access plus 1 month"
+ExpiresByType text/css "access plus 1 year"
+ExpiresByType application/javascript "access plus 1 year"
+</IfModule>
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# This domain inherits the “PHP” package.
+# php -- END cPanel-generated handler, do not edit
+
+# 21 Aug 2026 added by Gabriela Brezeanu
+# Blocheaza accesul public la fisierele error_log
+<Files "error_log">
+    Require all denied
+</Files>

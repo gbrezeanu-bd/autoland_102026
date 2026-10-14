@@ -1,0 +1,1134 @@
+[23-Jan-2025 08:00:02 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[23-Jan-2025 08:00:02 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[24-Jan-2025 08:00:01 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[24-Jan-2025 08:00:01 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[27-Jan-2025 08:00:02 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[27-Jan-2025 08:00:02 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[28-Jan-2025 08:00:02 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[28-Jan-2025 08:00:02 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[29-Jan-2025 08:00:02 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[29-Jan-2025 08:00:02 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[30-Jan-2025 08:00:01 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[30-Jan-2025 08:00:01 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[31-Jan-2025 08:00:01 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[31-Jan-2025 08:00:01 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[03-Feb-2025 08:00:02 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[03-Feb-2025 08:00:02 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[04-Feb-2025 08:00:02 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[04-Feb-2025 08:00:02 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[05-Feb-2025 08:00:02 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[05-Feb-2025 08:00:02 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[06-Feb-2025 08:00:02 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[06-Feb-2025 08:00:02 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[07-Feb-2025 08:00:01 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[07-Feb-2025 08:00:01 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[10-Feb-2025 08:00:01 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[10-Feb-2025 08:00:01 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[11-Feb-2025 08:00:02 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[11-Feb-2025 08:00:02 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[12-Feb-2025 08:00:02 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[12-Feb-2025 08:00:02 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[13-Feb-2025 08:00:02 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[13-Feb-2025 08:00:02 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[14-Feb-2025 08:00:01 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[14-Feb-2025 08:00:01 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[17-Feb-2025 08:00:01 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[17-Feb-2025 08:00:01 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[18-Feb-2025 08:00:02 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[18-Feb-2025 08:00:02 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[19-Feb-2025 08:00:01 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[19-Feb-2025 08:00:01 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[20-Feb-2025 08:00:01 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[20-Feb-2025 08:00:01 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[21-Feb-2025 08:00:02 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[21-Feb-2025 08:00:02 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[24-Feb-2025 08:00:01 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[24-Feb-2025 08:00:01 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[25-Feb-2025 08:00:01 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[25-Feb-2025 08:00:01 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[26-Feb-2025 08:00:01 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[26-Feb-2025 08:00:01 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[27-Feb-2025 08:00:02 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[27-Feb-2025 08:00:02 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[28-Feb-2025 08:00:01 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[28-Feb-2025 08:00:01 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[03-Mar-2025 08:00:01 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[03-Mar-2025 08:00:01 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[04-Mar-2025 08:00:02 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[04-Mar-2025 08:00:02 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[05-Mar-2025 08:00:02 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[05-Mar-2025 08:00:02 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[06-Mar-2025 08:00:01 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[06-Mar-2025 08:00:01 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[07-Mar-2025 08:00:01 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[07-Mar-2025 08:00:01 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[10-Mar-2025 08:00:01 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[10-Mar-2025 08:00:01 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[11-Mar-2025 08:00:01 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[11-Mar-2025 08:00:01 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[11-Mar-2025 23:44:16 Europe/Bucharest] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/autoland/public_html/tehnic/upload2.php:48
+Stack trace:
+#0 /home/autoland/public_html/tehnic/upload2.php(60): getUniqueFilename(NULL, 'Renault_Twingo_...')
+#1 {main}
+  thrown in /home/autoland/public_html/tehnic/upload2.php on line 48
+[11-Mar-2025 23:47:43 Europe/Bucharest] PHP Fatal error:  Cannot redeclare getUniqueFilename() (previously declared in /home/autoland/public_html/tehnic/upload2.php:41) in /home/autoland/public_html/tehnic/upload2.php on line 41
+[11-Mar-2025 23:49:10 Europe/Bucharest] PHP Fatal error:  Cannot redeclare getUniqueFilename() (previously declared in /home/autoland/public_html/tehnic/upload2.php:41) in /home/autoland/public_html/tehnic/upload2.php on line 41
+[12-Mar-2025 00:04:25 Europe/Bucharest] PHP Fatal error:  Uncaught Error: Unsupported operand types in /home/autoland/public_html/tehnic/upload2.php:33
+Stack trace:
+#0 [internal function]: {closure}(Array)
+#1 /home/autoland/public_html/tehnic/upload2.php(34): preg_replace_callback('/(\\d+)$/', Object(Closure), 'Renault_Twingo_...')
+#2 /home/autoland/public_html/tehnic/upload2.php(62): incrementFilename('Renault_Twingo_...')
+#3 /home/autoland/public_html/tehnic/upload2.php(79): getUniqueFilename(Object(mysqli), 'Renault_Twingo_...')
+#4 {main}
+  thrown in /home/autoland/public_html/tehnic/upload2.php on line 33
+[12-Mar-2025 00:14:35 Europe/Bucharest] PHP Fatal error:  Uncaught Error: Unsupported operand types in /home/autoland/public_html/tehnic/upload2.php:33
+Stack trace:
+#0 /home/autoland/public_html/tehnic/upload2.php(58): incrementFilename('Renault_Twingo_...')
+#1 /home/autoland/public_html/tehnic/upload2.php(75): getUniqueFilename(Object(mysqli), 'Renault_Twingo_...')
+#2 {main}
+  thrown in /home/autoland/public_html/tehnic/upload2.php on line 33
+[12-Mar-2025 08:00:02 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[12-Mar-2025 08:00:02 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[13-Mar-2025 08:00:01 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[13-Mar-2025 08:00:01 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[14-Mar-2025 08:00:02 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[14-Mar-2025 08:00:02 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[17-Mar-2025 08:00:01 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[17-Mar-2025 08:00:01 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[18-Mar-2025 08:00:02 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[18-Mar-2025 08:00:02 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[19-Mar-2025 08:00:02 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[19-Mar-2025 08:00:02 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[20-Mar-2025 08:00:02 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[20-Mar-2025 08:00:02 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[21-Mar-2025 08:00:02 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[21-Mar-2025 08:00:02 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[24-Mar-2025 08:00:01 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[24-Mar-2025 08:00:01 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[24-Mar-2025 11:43:14 Europe/Bucharest] PHP Parse error:  syntax error, unexpected '$subject' (T_VARIABLE) in /home/autoland/public_html/tehnic/raport_recenzii.php on line 37
+[25-Mar-2025 08:00:01 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[25-Mar-2025 08:00:01 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[26-Mar-2025 08:00:02 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[26-Mar-2025 08:00:02 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[26-Mar-2025 14:39:30 Europe/Bucharest] PHP Warning:  require_once(./functions.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/config.php on line 12
+[26-Mar-2025 14:39:30 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required './functions.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/config.php on line 12
+[26-Mar-2025 14:43:02 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[26-Mar-2025 14:43:02 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[26-Mar-2025 14:45:01 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[26-Mar-2025 14:45:01 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[26-Mar-2025 14:55:01 Europe/Bucharest] PHP Warning:  require_once(/includes/vendor/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/autoland/public_html/includes/functions.php on line 12
+[26-Mar-2025 14:55:01 Europe/Bucharest] PHP Fatal error:  require_once(): Failed opening required '/includes/vendor/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/autoland/public_html/includes/functions.php on line 12
+[23-May-2025 14:01:01 Europe/Bucharest] PHP Warning:  file_get_contents(): SSL: Connection reset by peer in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 40
+[23-May-2025 14:01:01 Europe/Bucharest] PHP Warning:  file_get_contents(https://www.bnr.ro/nbrfxrates.xml): failed to open stream: HTTP request failed! in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 40
+[25-May-2025 10:09:01 Europe/Bucharest] PHP Fatal error:  Uncaught Error: Call to undefined function query() in /home/autoland/public_html/tehnic/view_vanzare_oferta.php:117
+Stack trace:
+#0 {main}
+  thrown in /home/autoland/public_html/tehnic/view_vanzare_oferta.php on line 117
+[25-May-2025 10:09:10 Europe/Bucharest] PHP Fatal error:  Uncaught Error: Call to undefined function query() in /home/autoland/public_html/tehnic/view_vanzare_oferta.php:117
+Stack trace:
+#0 {main}
+  thrown in /home/autoland/public_html/tehnic/view_vanzare_oferta.php on line 117
+[25-May-2025 10:09:11 Europe/Bucharest] PHP Fatal error:  Uncaught Error: Call to undefined function query() in /home/autoland/public_html/tehnic/view_vanzare_oferta.php:117
+Stack trace:
+#0 {main}
+  thrown in /home/autoland/public_html/tehnic/view_vanzare_oferta.php on line 117
+[25-May-2025 10:09:12 Europe/Bucharest] PHP Fatal error:  Uncaught Error: Call to undefined function query() in /home/autoland/public_html/tehnic/view_vanzare_oferta.php:117
+Stack trace:
+#0 {main}
+  thrown in /home/autoland/public_html/tehnic/view_vanzare_oferta.php on line 117
+[25-May-2025 10:09:15 Europe/Bucharest] PHP Fatal error:  Uncaught Error: Call to undefined function query() in /home/autoland/public_html/tehnic/view_vanzare_oferta.php:117
+Stack trace:
+#0 {main}
+  thrown in /home/autoland/public_html/tehnic/view_vanzare_oferta.php on line 117
+[19-Jun-2025 14:01:01 Europe/Bucharest] PHP Warning:  file_get_contents(): SSL: Connection reset by peer in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 40
+[19-Jun-2025 14:01:01 Europe/Bucharest] PHP Warning:  file_get_contents(https://www.bnr.ro/nbrfxrates.xml): failed to open stream: HTTP request failed! in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 40
+[04-Dec-2025 02:04:24 Europe/Bucharest] Thumbnail created successfully: video/thumbs/demo_video_2512040204_thumb.jpg
+[04-Dec-2025 02:13:55 Europe/Bucharest] Video uploaded successfully: demo_video_2512040213.mp4 -> /home/autoland/public_html/video/demo_video_2512040213.mp4
+[04-Dec-2025 02:13:55 Europe/Bucharest] File size: 13927646 bytes
+[04-Dec-2025 02:13:55 Europe/Bucharest] Attempting to generate thumbnail for: /home/autoland/public_html/video/demo_video_2512040213.mp4
+[04-Dec-2025 02:13:57 Europe/Bucharest] FFmpeg thumbnail failed, trying PHP GD placeholder
+[04-Dec-2025 02:13:57 Europe/Bucharest] Placeholder thumbnail created successfully: video/thumbs/demo_video_2512040213_thumb.jpg
+[04-Dec-2025 02:13:57 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/demo_video_2512040213_thumb.jpg
+[04-Dec-2025 02:13:57 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('demo_video_2512040213.mp4', 1546, 0, 'video/thumbs/demo_video_2512040213_thumb.jpg')
+[04-Dec-2025 02:13:57 Europe/Bucharest] Video inserted successfully into database with ID: 3
+[04-Dec-2025 02:19:59 Europe/Bucharest] Video uploaded successfully: demo_2_2512040219.mp4 -> /home/autoland/public_html/video/demo_2_2512040219.mp4
+[04-Dec-2025 02:19:59 Europe/Bucharest] File size: 1444003 bytes
+[04-Dec-2025 02:19:59 Europe/Bucharest] === THUMBNAIL GENERATION START ===
+[04-Dec-2025 02:19:59 Europe/Bucharest] Video file: /home/autoland/public_html/video/demo_2_2512040219.mp4
+[04-Dec-2025 02:19:59 Europe/Bucharest] Video exists: YES
+[04-Dec-2025 02:19:59 Europe/Bucharest] Video size: 1444003 bytes
+[04-Dec-2025 02:19:59 Europe/Bucharest] Video readable: YES
+[04-Dec-2025 02:19:59 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/demo_2_2512040219_thumb.jpg
+[04-Dec-2025 02:19:59 Europe/Bucharest] Thumbnail directory exists: YES
+[04-Dec-2025 02:19:59 Europe/Bucharest] Thumbnail directory writable: YES
+[04-Dec-2025 02:19:59 Europe/Bucharest] FFmpeg command: '/home/autoland/bin/ffmpeg' -i '/home/autoland/public_html/video/demo_2_2512040219.mp4' -ss 00:00:01 -vframes 1 -q:v 2 '/home/autoland/public_html/video/thumbs/demo_2_2512040219_thumb.jpg' 2>&1
+[04-Dec-2025 02:19:59 Europe/Bucharest] Video path: /home/autoland/public_html/video/demo_2_2512040219.mp4
+[04-Dec-2025 02:19:59 Europe/Bucharest] Thumbnail path: /home/autoland/public_html/video/thumbs/demo_2_2512040219_thumb.jpg
+[04-Dec-2025 02:19:59 Europe/Bucharest] FFmpeg executable: '/home/autoland/bin/ffmpeg'
+[04-Dec-2025 02:20:00 Europe/Bucharest] FFmpeg return code: 245
+[04-Dec-2025 02:20:00 Europe/Bucharest] FFmpeg output: ffmpeg version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2024 the FFmpeg developers
+  built with gcc 8 (Debian 8.3.0-6)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-debug --disable-ffplay --disable-indev=sndio --disable-outdev=sndio --cc=gcc --enable-fontconfig --enable-frei0r --enable-gnutls --enable-gmp --enable-libgme --enable-gray --enable-libaom --enable-libfribidi --enable-libass --enable-libvmaf --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-librubberband --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libvorbis --enable-libopus --enable-libtheora --enable-libvidstab --enable-libvo-amrwbenc --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libdav1d --enable-libxvid --enable-libzvbi --enable-libzimg
+  libavutil      59.  8.100 / 59.  8.100
+  libavcodec     61.  3.100 / 61.  3.100
+  libavformat    61.  1.100 / 61.  1.100
+  libavdevice    61.  1.100 / 61.  1.100
+  libavfilter    10.  1.100 / 10.  1.100
+  libswscale      8.  1.100 /  8.  1.100
+  libswresample   5.  1.100 /  5.  1.100
+  libpostproc    58.  1.100 / 58.  1.100
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '/home/autoland/public_html/video/demo_2_2512040219.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso6iso2avc1mp41
+    encoder         : Lavf60.16.100
+  Duration: 00:00:10.18, start: 0.000000, bitrate: 1134 kb/s
+  Stream #0:0[0x1](und): Video: h264 (Main) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 720x1280 [SAR 1:1 DAR 9:16], 1009 kb/s, 30 fps, 30 tbr, 15360 tbn (default)
+      Metadata:
+        handler_name    : ISO Media file produced by Google Inc.
+        vendor_id       : [0][0][0][0]
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 127 kb/s (default)
+      Metadata:
+        handler_name    : ISO Media file produced by Google Inc.
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (h264 (native) -> mjpeg (native))
+Press [q] to stop, [?] for help
+[swscaler @ 0x7f3a14015600] deprecated pixel format used, make sure you did set range correctly
+[mjpeg @ 0x7bf3780] ff_frame_thread_encoder_init failed
+[vost#0:0/mjpeg @ 0x7bbb580] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 0x7bfe700] Error sending frames to consumers: Resource temporarily unavailable
+[vf#0:0 @ 0x7bfe700] Task finished with error code: -11 (Resource temporarily unavailable)
+[vf#0:0 @ 0x7bfe700] Terminating thread with return code -11 (Resource temporarily unavailable)
+[vost#0:0/mjpeg @ 0x7bbb580] Could not open encoder before EOF
+[vost#0:0/mjpeg @ 0x7bbb580] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/mjpeg @ 0x7bbb580] Terminating thread with return code -22 (Invalid argument)
+[out#0/image2 @ 0x7bfe7c0] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A
+Conversion failed!
+[04-Dec-2025 02:20:00 Europe/Bucharest] Thumbnail generation FAILED - file does not exist or is empty
+[04-Dec-2025 02:20:00 Europe/Bucharest] Thumbnail path checked: /home/autoland/public_html/video/thumbs/demo_2_2512040219_thumb.jpg
+[04-Dec-2025 02:20:00 Europe/Bucharest] File exists: NO
+[04-Dec-2025 02:20:00 Europe/Bucharest] ✗ FFmpeg thumbnail generation FAILED
+[04-Dec-2025 02:20:00 Europe/Bucharest] Thumbnail file exists: NO
+[04-Dec-2025 02:20:00 Europe/Bucharest] Trying PHP GD placeholder as fallback...
+[04-Dec-2025 02:20:00 Europe/Bucharest] ✓ Placeholder thumbnail created successfully: video/thumbs/demo_2_2512040219_thumb.jpg
+[04-Dec-2025 02:20:00 Europe/Bucharest] === THUMBNAIL GENERATION END ===
+[04-Dec-2025 02:20:00 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/demo_2_2512040219_thumb.jpg
+[04-Dec-2025 02:20:00 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('demo_2_2512040219.mp4', 1546, 0, 'video/thumbs/demo_2_2512040219_thumb.jpg')
+[04-Dec-2025 02:20:00 Europe/Bucharest] Video inserted successfully into database with ID: 4
+[04-Dec-2025 02:22:03 Europe/Bucharest] Video uploaded successfully: demo_2_2512040222.mp4 -> /home/autoland/public_html/video/demo_2_2512040222.mp4
+[04-Dec-2025 02:22:03 Europe/Bucharest] File size: 1444003 bytes
+[04-Dec-2025 02:22:03 Europe/Bucharest] === THUMBNAIL GENERATION START ===
+[04-Dec-2025 02:22:03 Europe/Bucharest] Video file: /home/autoland/public_html/video/demo_2_2512040222.mp4
+[04-Dec-2025 02:22:03 Europe/Bucharest] Video exists: YES
+[04-Dec-2025 02:22:03 Europe/Bucharest] Video size: 1444003 bytes
+[04-Dec-2025 02:22:03 Europe/Bucharest] Video readable: YES
+[04-Dec-2025 02:22:03 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/demo_2_2512040222_thumb.jpg
+[04-Dec-2025 02:22:03 Europe/Bucharest] Thumbnail directory exists: YES
+[04-Dec-2025 02:22:03 Europe/Bucharest] Thumbnail directory writable: YES
+[04-Dec-2025 02:22:03 Europe/Bucharest] FFmpeg command: '/home/autoland/bin/ffmpeg' -threads 1 -ss 00:00:01 -i '/home/autoland/public_html/video/demo_2_2512040222.mp4' -vframes 1 -an -q:v 2 -f image2 '/home/autoland/public_html/video/thumbs/demo_2_2512040222_thumb.jpg' 2>&1
+[04-Dec-2025 02:22:03 Europe/Bucharest] Video path: /home/autoland/public_html/video/demo_2_2512040222.mp4
+[04-Dec-2025 02:22:03 Europe/Bucharest] Thumbnail path: /home/autoland/public_html/video/thumbs/demo_2_2512040222_thumb.jpg
+[04-Dec-2025 02:22:03 Europe/Bucharest] FFmpeg executable: '/home/autoland/bin/ffmpeg'
+[04-Dec-2025 02:22:04 Europe/Bucharest] FFmpeg return code: 245
+[04-Dec-2025 02:22:04 Europe/Bucharest] FFmpeg output: ffmpeg version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2024 the FFmpeg developers
+  built with gcc 8 (Debian 8.3.0-6)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-debug --disable-ffplay --disable-indev=sndio --disable-outdev=sndio --cc=gcc --enable-fontconfig --enable-frei0r --enable-gnutls --enable-gmp --enable-libgme --enable-gray --enable-libaom --enable-libfribidi --enable-libass --enable-libvmaf --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-librubberband --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libvorbis --enable-libopus --enable-libtheora --enable-libvidstab --enable-libvo-amrwbenc --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libdav1d --enable-libxvid --enable-libzvbi --enable-libzimg
+  libavutil      59.  8.100 / 59.  8.100
+  libavcodec     61.  3.100 / 61.  3.100
+  libavformat    61.  1.100 / 61.  1.100
+  libavdevice    61.  1.100 / 61.  1.100
+  libavfilter    10.  1.100 / 10.  1.100
+  libswscale      8.  1.100 /  8.  1.100
+  libswresample   5.  1.100 /  5.  1.100
+  libpostproc    58.  1.100 / 58.  1.100
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '/home/autoland/public_html/video/demo_2_2512040222.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso6iso2avc1mp41
+    encoder         : Lavf60.16.100
+  Duration: 00:00:10.18, start: 0.000000, bitrate: 1134 kb/s
+  Stream #0:0[0x1](und): Video: h264 (Main) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 720x1280 [SAR 1:1 DAR 9:16], 1009 kb/s, 30 fps, 30 tbr, 15360 tbn (default)
+      Metadata:
+        handler_name    : ISO Media file produced by Google Inc.
+        vendor_id       : [0][0][0][0]
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 127 kb/s (default)
+      Metadata:
+        handler_name    : ISO Media file produced by Google Inc.
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (h264 (native) -> mjpeg (native))
+Press [q] to stop, [?] for help
+[swscaler @ 0x7fc560015b40] deprecated pixel format used, make sure you did set range correctly
+[auto_scale_0 @ 0x7fc560003c00] Failed to configure output pad on auto_scale_0
+[vf#0:0 @ 0x7f95f40] Error reinitializing filters!
+[vf#0:0 @ 0x7f95f40] Task finished with error code: -11 (Resource temporarily unavailable)
+[vf#0:0 @ 0x7f95f40] Terminating thread with return code -11 (Resource temporarily unavailable)
+[vost#0:0/mjpeg @ 0x7f08c00] Could not open encoder before EOF
+[vost#0:0/mjpeg @ 0x7f08c00] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/mjpeg @ 0x7f08c00] Terminating thread with return code -22 (Invalid argument)
+[out#0/image2 @ 0x7f08940] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A
+Conversion failed!
+[04-Dec-2025 02:22:04 Europe/Bucharest] Thumbnail generation FAILED - file does not exist or is empty
+[04-Dec-2025 02:22:04 Europe/Bucharest] Thumbnail path checked: /home/autoland/public_html/video/thumbs/demo_2_2512040222_thumb.jpg
+[04-Dec-2025 02:22:04 Europe/Bucharest] File exists: NO
+[04-Dec-2025 02:22:04 Europe/Bucharest] ✗ FFmpeg thumbnail generation FAILED
+[04-Dec-2025 02:22:04 Europe/Bucharest] Thumbnail file exists: NO
+[04-Dec-2025 02:22:04 Europe/Bucharest] Trying PHP GD placeholder as fallback...
+[04-Dec-2025 02:22:04 Europe/Bucharest] ✓ Placeholder thumbnail created successfully: video/thumbs/demo_2_2512040222_thumb.jpg
+[04-Dec-2025 02:22:04 Europe/Bucharest] === THUMBNAIL GENERATION END ===
+[04-Dec-2025 02:22:04 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/demo_2_2512040222_thumb.jpg
+[04-Dec-2025 02:22:04 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('demo_2_2512040222.mp4', 1546, 0, 'video/thumbs/demo_2_2512040222_thumb.jpg')
+[04-Dec-2025 02:22:04 Europe/Bucharest] Video inserted successfully into database with ID: 5
+[04-Dec-2025 02:24:03 Europe/Bucharest] Video uploaded successfully: demo_2_2512040224.mp4 -> /home/autoland/public_html/video/demo_2_2512040224.mp4
+[04-Dec-2025 02:24:03 Europe/Bucharest] File size: 1444003 bytes
+[04-Dec-2025 02:24:03 Europe/Bucharest] === THUMBNAIL GENERATION START ===
+[04-Dec-2025 02:24:03 Europe/Bucharest] Video file: /home/autoland/public_html/video/demo_2_2512040224.mp4
+[04-Dec-2025 02:24:03 Europe/Bucharest] Video exists: YES
+[04-Dec-2025 02:24:03 Europe/Bucharest] Video size: 1444003 bytes
+[04-Dec-2025 02:24:03 Europe/Bucharest] Video readable: YES
+[04-Dec-2025 02:24:03 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/demo_2_2512040224_thumb.jpg
+[04-Dec-2025 02:24:03 Europe/Bucharest] Thumbnail directory exists: YES
+[04-Dec-2025 02:24:03 Europe/Bucharest] Thumbnail directory writable: YES
+[04-Dec-2025 02:24:03 Europe/Bucharest] FFmpeg executable: '/home/autoland/bin/ffmpeg'
+[04-Dec-2025 02:24:03 Europe/Bucharest] Video path: /home/autoland/public_html/video/demo_2_2512040224.mp4
+[04-Dec-2025 02:24:03 Europe/Bucharest] Thumbnail path: /home/autoland/public_html/video/thumbs/demo_2_2512040224_thumb.jpg
+[04-Dec-2025 02:24:03 Europe/Bucharest] Trying: Varianta 1 (cu pix_fmt)
+[04-Dec-2025 02:24:03 Europe/Bucharest] FFmpeg command: '/home/autoland/bin/ffmpeg' -threads 1 -ss 00:00:01 -i '/home/autoland/public_html/video/demo_2_2512040224.mp4' -vframes 1 -an -pix_fmt yuvj420p -q:v 2 -f image2 '/home/autoland/public_html/video/thumbs/demo_2_2512040224_thumb.jpg' 2>&1
+[04-Dec-2025 02:24:03 Europe/Bucharest] FFmpeg return code: 245
+[04-Dec-2025 02:24:03 Europe/Bucharest] FFmpeg output (last 5 lines): [vost#0:0/mjpeg @ 0x86a5f80] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/mjpeg @ 0x86a5f80] Terminating thread with return code -22 (Invalid argument)
+[out#0/image2 @ 0x86ad640] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A
+Conversion failed!
+[04-Dec-2025 02:24:03 Europe/Bucharest] Trying: Varianta 2 (simplă)
+[04-Dec-2025 02:24:03 Europe/Bucharest] FFmpeg command: '/home/autoland/bin/ffmpeg' -threads 1 -ss 00:00:01 -i '/home/autoland/public_html/video/demo_2_2512040224.mp4' -vframes 1 -an -q:v 2 '/home/autoland/public_html/video/thumbs/demo_2_2512040224_thumb.jpg' 2>&1
+[04-Dec-2025 02:24:04 Europe/Bucharest] FFmpeg return code: 245
+[04-Dec-2025 02:24:04 Europe/Bucharest] FFmpeg output (last 5 lines): [vost#0:0/mjpeg @ 0x6a7dac0] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/mjpeg @ 0x6a7dac0] Terminating thread with return code -22 (Invalid argument)
+[out#0/image2 @ 0x6abd480] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A
+Conversion failed!
+[04-Dec-2025 02:24:04 Europe/Bucharest] Trying: Varianta 3 (fără threads limit)
+[04-Dec-2025 02:24:04 Europe/Bucharest] FFmpeg command: '/home/autoland/bin/ffmpeg' -ss 00:00:01 -i '/home/autoland/public_html/video/demo_2_2512040224.mp4' -vframes 1 -an -q:v 2 '/home/autoland/public_html/video/thumbs/demo_2_2512040224_thumb.jpg' 2>&1
+[04-Dec-2025 02:24:04 Europe/Bucharest] FFmpeg return code: 245
+[04-Dec-2025 02:24:04 Europe/Bucharest] FFmpeg output (last 5 lines): [vost#0:0/mjpeg @ 0x7009580] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/mjpeg @ 0x7009580] Terminating thread with return code -22 (Invalid argument)
+[out#0/image2 @ 0x704c7c0] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A
+Conversion failed!
+[04-Dec-2025 02:24:04 Europe/Bucharest] ✗ All FFmpeg command variants FAILED
+[04-Dec-2025 02:24:04 Europe/Bucharest] Thumbnail path checked: /home/autoland/public_html/video/thumbs/demo_2_2512040224_thumb.jpg
+[04-Dec-2025 02:24:04 Europe/Bucharest] File exists: NO
+[04-Dec-2025 02:24:04 Europe/Bucharest] ✗ FFmpeg thumbnail generation FAILED
+[04-Dec-2025 02:24:04 Europe/Bucharest] Thumbnail file exists: NO
+[04-Dec-2025 02:24:04 Europe/Bucharest] Trying PHP GD placeholder as fallback...
+[04-Dec-2025 02:24:04 Europe/Bucharest] ✓ Placeholder thumbnail created successfully: video/thumbs/demo_2_2512040224_thumb.jpg
+[04-Dec-2025 02:24:04 Europe/Bucharest] === THUMBNAIL GENERATION END ===
+[04-Dec-2025 02:24:04 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/demo_2_2512040224_thumb.jpg
+[04-Dec-2025 02:24:04 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('demo_2_2512040224.mp4', 1546, 0, 'video/thumbs/demo_2_2512040224_thumb.jpg')
+[04-Dec-2025 02:24:04 Europe/Bucharest] Video inserted successfully into database with ID: 6
+[04-Dec-2025 02:24:04 Europe/Bucharest] Video uploaded successfully: demo_2_251204022404.mp4 -> /home/autoland/public_html/video/demo_2_251204022404.mp4
+[04-Dec-2025 02:24:04 Europe/Bucharest] File size: 1444003 bytes
+[04-Dec-2025 02:24:04 Europe/Bucharest] === THUMBNAIL GENERATION START ===
+[04-Dec-2025 02:24:04 Europe/Bucharest] Video file: /home/autoland/public_html/video/demo_2_251204022404.mp4
+[04-Dec-2025 02:24:04 Europe/Bucharest] Video exists: YES
+[04-Dec-2025 02:24:04 Europe/Bucharest] Video size: 1444003 bytes
+[04-Dec-2025 02:24:04 Europe/Bucharest] Video readable: YES
+[04-Dec-2025 02:24:04 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/demo_2_251204022404_thumb.jpg
+[04-Dec-2025 02:24:04 Europe/Bucharest] Thumbnail directory exists: YES
+[04-Dec-2025 02:24:04 Europe/Bucharest] Thumbnail directory writable: YES
+[04-Dec-2025 02:24:04 Europe/Bucharest] FFmpeg executable: '/home/autoland/bin/ffmpeg'
+[04-Dec-2025 02:24:04 Europe/Bucharest] Video path: /home/autoland/public_html/video/demo_2_251204022404.mp4
+[04-Dec-2025 02:24:04 Europe/Bucharest] Thumbnail path: /home/autoland/public_html/video/thumbs/demo_2_251204022404_thumb.jpg
+[04-Dec-2025 02:24:04 Europe/Bucharest] Trying: Varianta 1 (cu pix_fmt)
+[04-Dec-2025 02:24:04 Europe/Bucharest] FFmpeg command: '/home/autoland/bin/ffmpeg' -threads 1 -ss 00:00:01 -i '/home/autoland/public_html/video/demo_2_251204022404.mp4' -vframes 1 -an -pix_fmt yuvj420p -q:v 2 -f image2 '/home/autoland/public_html/video/thumbs/demo_2_251204022404_thumb.jpg' 2>&1
+[04-Dec-2025 02:24:05 Europe/Bucharest] FFmpeg return code: 245
+[04-Dec-2025 02:24:05 Europe/Bucharest] FFmpeg output (last 5 lines): [vost#0:0/mjpeg @ 0x75ebd40] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/mjpeg @ 0x75ebd40] Terminating thread with return code -22 (Invalid argument)
+[out#0/image2 @ 0x756ac80] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A
+Conversion failed!
+[04-Dec-2025 02:24:05 Europe/Bucharest] Trying: Varianta 2 (simplă)
+[04-Dec-2025 02:24:05 Europe/Bucharest] FFmpeg command: '/home/autoland/bin/ffmpeg' -threads 1 -ss 00:00:01 -i '/home/autoland/public_html/video/demo_2_251204022404.mp4' -vframes 1 -an -q:v 2 '/home/autoland/public_html/video/thumbs/demo_2_251204022404_thumb.jpg' 2>&1
+[04-Dec-2025 02:24:05 Europe/Bucharest] FFmpeg return code: 245
+[04-Dec-2025 02:24:05 Europe/Bucharest] FFmpeg output (last 5 lines): [vost#0:0/mjpeg @ 0x88b1340] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/mjpeg @ 0x88b1340] Terminating thread with return code -22 (Invalid argument)
+[out#0/image2 @ 0x87e2700] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A
+Conversion failed!
+[04-Dec-2025 02:24:05 Europe/Bucharest] Trying: Varianta 3 (fără threads limit)
+[04-Dec-2025 02:24:05 Europe/Bucharest] FFmpeg command: '/home/autoland/bin/ffmpeg' -ss 00:00:01 -i '/home/autoland/public_html/video/demo_2_251204022404.mp4' -vframes 1 -an -q:v 2 '/home/autoland/public_html/video/thumbs/demo_2_251204022404_thumb.jpg' 2>&1
+[04-Dec-2025 02:24:06 Europe/Bucharest] FFmpeg return code: 245
+[04-Dec-2025 02:24:06 Europe/Bucharest] FFmpeg output (last 5 lines): [vost#0:0/mjpeg @ 0x7004880] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/mjpeg @ 0x7004880] Terminating thread with return code -22 (Invalid argument)
+[out#0/image2 @ 0x700b840] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A
+Conversion failed!
+[04-Dec-2025 02:24:06 Europe/Bucharest] ✗ All FFmpeg command variants FAILED
+[04-Dec-2025 02:24:06 Europe/Bucharest] Thumbnail path checked: /home/autoland/public_html/video/thumbs/demo_2_251204022404_thumb.jpg
+[04-Dec-2025 02:24:06 Europe/Bucharest] File exists: NO
+[04-Dec-2025 02:24:06 Europe/Bucharest] ✗ FFmpeg thumbnail generation FAILED
+[04-Dec-2025 02:24:06 Europe/Bucharest] Thumbnail file exists: NO
+[04-Dec-2025 02:24:06 Europe/Bucharest] Trying PHP GD placeholder as fallback...
+[04-Dec-2025 02:24:06 Europe/Bucharest] ✓ Placeholder thumbnail created successfully: video/thumbs/demo_2_251204022404_thumb.jpg
+[04-Dec-2025 02:24:06 Europe/Bucharest] === THUMBNAIL GENERATION END ===
+[04-Dec-2025 02:24:06 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/demo_2_251204022404_thumb.jpg
+[04-Dec-2025 02:24:06 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('demo_2_251204022404.mp4', 1546, 0, 'video/thumbs/demo_2_251204022404_thumb.jpg')
+[04-Dec-2025 02:24:06 Europe/Bucharest] Video inserted successfully into database with ID: 7
+[04-Dec-2025 02:25:43 Europe/Bucharest] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home/autoland/public_html/tehnic/test_thumbnail_generation.php on line 181
+[04-Dec-2025 02:25:44 Europe/Bucharest] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home/autoland/public_html/tehnic/test_thumbnail_generation.php on line 181
+[04-Dec-2025 02:26:52 Europe/Bucharest] Video uploaded successfully: demo_2_2512040226.mp4 -> /home/autoland/public_html/video/demo_2_2512040226.mp4
+[04-Dec-2025 02:26:52 Europe/Bucharest] File size: 1444003 bytes
+[04-Dec-2025 02:26:52 Europe/Bucharest] === THUMBNAIL GENERATION START ===
+[04-Dec-2025 02:26:52 Europe/Bucharest] Video file: /home/autoland/public_html/video/demo_2_2512040226.mp4
+[04-Dec-2025 02:26:52 Europe/Bucharest] Video exists: YES
+[04-Dec-2025 02:26:52 Europe/Bucharest] Video size: 1444003 bytes
+[04-Dec-2025 02:26:52 Europe/Bucharest] Video readable: YES
+[04-Dec-2025 02:26:52 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/demo_2_2512040226_thumb.jpg
+[04-Dec-2025 02:26:52 Europe/Bucharest] Thumbnail directory exists: YES
+[04-Dec-2025 02:26:52 Europe/Bucharest] Thumbnail directory writable: YES
+[04-Dec-2025 02:26:52 Europe/Bucharest] FFmpeg executable: '/home/autoland/bin/ffmpeg'
+[04-Dec-2025 02:26:52 Europe/Bucharest] Video path: /home/autoland/public_html/video/demo_2_2512040226.mp4
+[04-Dec-2025 02:26:52 Europe/Bucharest] Thumbnail path: /home/autoland/public_html/video/thumbs/demo_2_2512040226_thumb.jpg
+[04-Dec-2025 02:26:52 Europe/Bucharest] Trying: Varianta 1 (cu pix_fmt)
+[04-Dec-2025 02:26:52 Europe/Bucharest] FFmpeg command: '/home/autoland/bin/ffmpeg' -threads 1 -ss 00:00:01 -i '/home/autoland/public_html/video/demo_2_2512040226.mp4' -vframes 1 -an -pix_fmt yuvj420p -q:v 2 -f image2 '/home/autoland/public_html/video/thumbs/demo_2_2512040226_thumb.jpg' 2>&1
+[04-Dec-2025 02:26:52 Europe/Bucharest] FFmpeg return code: 245
+[04-Dec-2025 02:26:52 Europe/Bucharest] FFmpeg output (last 5 lines): [vost#0:0/mjpeg @ 0x871df80] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/mjpeg @ 0x871df80] Terminating thread with return code -22 (Invalid argument)
+[out#0/image2 @ 0x8725640] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A
+Conversion failed!
+[04-Dec-2025 02:26:52 Europe/Bucharest] Trying: Varianta 2 (simplă)
+[04-Dec-2025 02:26:52 Europe/Bucharest] FFmpeg command: '/home/autoland/bin/ffmpeg' -threads 1 -ss 00:00:01 -i '/home/autoland/public_html/video/demo_2_2512040226.mp4' -vframes 1 -an -q:v 2 '/home/autoland/public_html/video/thumbs/demo_2_2512040226_thumb.jpg' 2>&1
+[04-Dec-2025 02:26:53 Europe/Bucharest] FFmpeg return code: 245
+[04-Dec-2025 02:26:53 Europe/Bucharest] FFmpeg output (last 5 lines): [vost#0:0/mjpeg @ 0x6da2ac0] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/mjpeg @ 0x6da2ac0] Terminating thread with return code -22 (Invalid argument)
+[out#0/image2 @ 0x6de2480] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A
+Conversion failed!
+[04-Dec-2025 02:26:53 Europe/Bucharest] Trying: Varianta 3 (fără threads limit)
+[04-Dec-2025 02:26:53 Europe/Bucharest] FFmpeg command: '/home/autoland/bin/ffmpeg' -ss 00:00:01 -i '/home/autoland/public_html/video/demo_2_2512040226.mp4' -vframes 1 -an -q:v 2 '/home/autoland/public_html/video/thumbs/demo_2_2512040226_thumb.jpg' 2>&1
+[04-Dec-2025 02:26:53 Europe/Bucharest] FFmpeg return code: 245
+[04-Dec-2025 02:26:53 Europe/Bucharest] FFmpeg output (last 5 lines): [vost#0:0/mjpeg @ 0x80d8580] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/mjpeg @ 0x80d8580] Terminating thread with return code -22 (Invalid argument)
+[out#0/image2 @ 0x811b7c0] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A
+Conversion failed!
+[04-Dec-2025 02:26:53 Europe/Bucharest] ✗ All FFmpeg command variants FAILED
+[04-Dec-2025 02:26:53 Europe/Bucharest] Thumbnail path checked: /home/autoland/public_html/video/thumbs/demo_2_2512040226_thumb.jpg
+[04-Dec-2025 02:26:53 Europe/Bucharest] File exists: NO
+[04-Dec-2025 02:26:53 Europe/Bucharest] ✗ FFmpeg thumbnail generation FAILED
+[04-Dec-2025 02:26:53 Europe/Bucharest] Thumbnail file exists: NO
+[04-Dec-2025 02:26:53 Europe/Bucharest] Trying PHP GD placeholder as fallback...
+[04-Dec-2025 02:26:53 Europe/Bucharest] ✓ Placeholder thumbnail created successfully: video/thumbs/demo_2_2512040226_thumb.jpg
+[04-Dec-2025 02:26:53 Europe/Bucharest] === THUMBNAIL GENERATION END ===
+[04-Dec-2025 02:26:53 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/demo_2_2512040226_thumb.jpg
+[04-Dec-2025 02:26:53 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('demo_2_2512040226.mp4', 1546, 0, 'video/thumbs/demo_2_2512040226_thumb.jpg')
+[04-Dec-2025 02:26:53 Europe/Bucharest] Video inserted successfully into database with ID: 8
+[06-Dec-2025 21:36:34 Europe/Bucharest] Video uploaded successfully: demo_2_2512062136.mp4 -> /home/autoland/public_html/video/demo_2_2512062136.mp4
+[06-Dec-2025 21:36:34 Europe/Bucharest] File size: 1444003 bytes
+[06-Dec-2025 21:36:34 Europe/Bucharest] === THUMBNAIL GENERATION START ===
+[06-Dec-2025 21:36:34 Europe/Bucharest] Video file: /home/autoland/public_html/video/demo_2_2512062136.mp4
+[06-Dec-2025 21:36:34 Europe/Bucharest] Video exists: YES
+[06-Dec-2025 21:36:34 Europe/Bucharest] Video size: 1444003 bytes
+[06-Dec-2025 21:36:34 Europe/Bucharest] Video readable: YES
+[06-Dec-2025 21:36:34 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/demo_2_2512062136_thumb.jpg
+[06-Dec-2025 21:36:34 Europe/Bucharest] Thumbnail directory exists: YES
+[06-Dec-2025 21:36:34 Europe/Bucharest] Thumbnail directory writable: YES
+[06-Dec-2025 21:36:34 Europe/Bucharest] FFmpeg executable: '/home/autoland/bin/ffmpeg'
+[06-Dec-2025 21:36:34 Europe/Bucharest] Video path: /home/autoland/public_html/video/demo_2_2512062136.mp4
+[06-Dec-2025 21:36:34 Europe/Bucharest] Thumbnail path: /home/autoland/public_html/video/thumbs/demo_2_2512062136_thumb.jpg
+[06-Dec-2025 21:36:34 Europe/Bucharest] Trying: Varianta 1 (cu pix_fmt)
+[06-Dec-2025 21:36:34 Europe/Bucharest] FFmpeg command: '/home/autoland/bin/ffmpeg' -threads 1 -ss 00:00:01 -i '/home/autoland/public_html/video/demo_2_2512062136.mp4' -vframes 1 -an -pix_fmt yuvj420p -q:v 2 -f image2 '/home/autoland/public_html/video/thumbs/demo_2_2512062136_thumb.jpg' 2>&1
+[06-Dec-2025 21:36:34 Europe/Bucharest] FFmpeg return code: 245
+[06-Dec-2025 21:36:34 Europe/Bucharest] FFmpeg output (last 5 lines): [vost#0:0/mjpeg @ 0x7726f80] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/mjpeg @ 0x7726f80] Terminating thread with return code -22 (Invalid argument)
+[out#0/image2 @ 0x772e640] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A
+Conversion failed!
+[06-Dec-2025 21:36:34 Europe/Bucharest] Trying: Varianta 2 (simplă)
+[06-Dec-2025 21:36:34 Europe/Bucharest] FFmpeg command: '/home/autoland/bin/ffmpeg' -threads 1 -ss 00:00:01 -i '/home/autoland/public_html/video/demo_2_2512062136.mp4' -vframes 1 -an -q:v 2 '/home/autoland/public_html/video/thumbs/demo_2_2512062136_thumb.jpg' 2>&1
+[06-Dec-2025 21:36:35 Europe/Bucharest] FFmpeg return code: 245
+[06-Dec-2025 21:36:35 Europe/Bucharest] FFmpeg output (last 5 lines): [vost#0:0/mjpeg @ 0x7272ac0] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/mjpeg @ 0x7272ac0] Terminating thread with return code -22 (Invalid argument)
+[out#0/image2 @ 0x72b2480] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A
+Conversion failed!
+[06-Dec-2025 21:36:35 Europe/Bucharest] Trying: Varianta 3 (fără threads limit)
+[06-Dec-2025 21:36:35 Europe/Bucharest] FFmpeg command: '/home/autoland/bin/ffmpeg' -ss 00:00:01 -i '/home/autoland/public_html/video/demo_2_2512062136.mp4' -vframes 1 -an -q:v 2 '/home/autoland/public_html/video/thumbs/demo_2_2512062136_thumb.jpg' 2>&1
+[06-Dec-2025 21:36:35 Europe/Bucharest] FFmpeg return code: 245
+[06-Dec-2025 21:36:35 Europe/Bucharest] FFmpeg output (last 5 lines): [vost#0:0/mjpeg @ 0x7357580] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/mjpeg @ 0x7357580] Terminating thread with return code -22 (Invalid argument)
+[out#0/image2 @ 0x739a7c0] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A
+Conversion failed!
+[06-Dec-2025 21:36:35 Europe/Bucharest] ✗ All FFmpeg command variants FAILED
+[06-Dec-2025 21:36:35 Europe/Bucharest] Thumbnail path checked: /home/autoland/public_html/video/thumbs/demo_2_2512062136_thumb.jpg
+[06-Dec-2025 21:36:35 Europe/Bucharest] File exists: NO
+[06-Dec-2025 21:36:35 Europe/Bucharest] ✗ FFmpeg thumbnail generation FAILED
+[06-Dec-2025 21:36:35 Europe/Bucharest] Thumbnail file exists: NO
+[06-Dec-2025 21:36:35 Europe/Bucharest] Trying PHP GD placeholder as fallback...
+[06-Dec-2025 21:36:35 Europe/Bucharest] ✓ Placeholder thumbnail created successfully: video/thumbs/demo_2_2512062136_thumb.jpg
+[06-Dec-2025 21:36:35 Europe/Bucharest] === THUMBNAIL GENERATION END ===
+[06-Dec-2025 21:36:35 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/demo_2_2512062136_thumb.jpg
+[06-Dec-2025 21:36:35 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('demo_2_2512062136.mp4', 1546, 0, 'video/thumbs/demo_2_2512062136_thumb.jpg')
+[06-Dec-2025 21:36:35 Europe/Bucharest] Video inserted successfully into database with ID: 9
+[06-Dec-2025 22:24:50 Europe/Bucharest] Video uploaded successfully: demo_video_2512062224.mp4 -> /home/autoland/public_html/video/demo_video_2512062224.mp4
+[06-Dec-2025 22:24:50 Europe/Bucharest] File size: 13927646 bytes
+[06-Dec-2025 22:24:50 Europe/Bucharest] === THUMBNAIL UPLOAD START ===
+[06-Dec-2025 22:24:50 Europe/Bucharest] Thumbnail file: ghid-masini-sh.jpg
+[06-Dec-2025 22:24:50 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/demo_video_2512062224_thumb.jpg
+[06-Dec-2025 22:24:50 Europe/Bucharest] Thumbnail directory exists: YES
+[06-Dec-2025 22:24:50 Europe/Bucharest] Thumbnail directory writable: YES
+[06-Dec-2025 22:24:50 Europe/Bucharest] ✓ Thumbnail uploaded successfully: /home/autoland/public_html/video/thumbs/demo_video_2512062224_thumb.jpg (2915219 bytes)
+[06-Dec-2025 22:24:50 Europe/Bucharest] ✓ Thumbnail uploaded successfully: video/thumbs/demo_video_2512062224_thumb.jpg
+[06-Dec-2025 22:24:50 Europe/Bucharest] Thumbnail size: 2915219 bytes
+[06-Dec-2025 22:24:50 Europe/Bucharest] === THUMBNAIL UPLOAD END ===
+[06-Dec-2025 22:24:50 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/demo_video_2512062224_thumb.jpg
+[06-Dec-2025 22:24:50 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('demo_video_2512062224.mp4', 1546, 0, 'video/thumbs/demo_video_2512062224_thumb.jpg')
+[06-Dec-2025 22:24:50 Europe/Bucharest] Video inserted successfully into database with ID: 10
+[06-Dec-2025 22:32:42 Europe/Bucharest] Video uploaded successfully: WhatsApp Video 2025-12-06 at 22.31.59_2512062232.mp4 -> /home/autoland/public_html/video/WhatsApp Video 2025-12-06 at 22.31.59_2512062232.mp4
+[06-Dec-2025 22:32:42 Europe/Bucharest] File size: 3360321 bytes
+[06-Dec-2025 22:32:42 Europe/Bucharest] === THUMBNAIL UPLOAD START ===
+[06-Dec-2025 22:32:42 Europe/Bucharest] Thumbnail file: ghid-masini-sh.jpg
+[06-Dec-2025 22:32:42 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/WhatsApp Video 2025-12-06 at 22.31.59_2512062232_thumb.jpg
+[06-Dec-2025 22:32:42 Europe/Bucharest] Thumbnail directory exists: YES
+[06-Dec-2025 22:32:42 Europe/Bucharest] Thumbnail directory writable: YES
+[06-Dec-2025 22:32:42 Europe/Bucharest] ✓ Thumbnail uploaded successfully: /home/autoland/public_html/video/thumbs/WhatsApp Video 2025-12-06 at 22.31.59_2512062232_thumb.jpg (2915219 bytes)
+[06-Dec-2025 22:32:42 Europe/Bucharest] ✓ Thumbnail uploaded successfully: video/thumbs/WhatsApp Video 2025-12-06 at 22.31.59_2512062232_thumb.jpg
+[06-Dec-2025 22:32:42 Europe/Bucharest] Thumbnail size: 2915219 bytes
+[06-Dec-2025 22:32:42 Europe/Bucharest] === THUMBNAIL UPLOAD END ===
+[06-Dec-2025 22:32:42 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/WhatsApp Video 2025-12-06 at 22.31.59_2512062232_thumb.jpg
+[06-Dec-2025 22:32:42 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('WhatsApp Video 2025-12-06 at 22.31.59_2512062232.mp4', 1546, 0, 'video/thumbs/WhatsApp Video 2025-12-06 at 22.31.59_2512062232_thumb.jpg')
+[06-Dec-2025 22:32:42 Europe/Bucharest] Video inserted successfully into database with ID: 11
+[12-Dec-2025 14:56:53 Europe/Bucharest] Video uploaded successfully: Mercedes_GLA-Klasse_17_2512121456.mov -> /home/autoland/public_html/video/Mercedes_GLA-Klasse_17_2512121456.mov
+[12-Dec-2025 14:56:53 Europe/Bucharest] File size: 4355848 bytes
+[12-Dec-2025 14:56:53 Europe/Bucharest] No thumbnail uploaded for video: Mercedes_GLA-Klasse_17_2512121456.mov
+[12-Dec-2025 14:56:53 Europe/Bucharest] ✓ Placeholder thumbnail created: video/thumbs/Mercedes_GLA-Klasse_17_2512121456_thumb.jpg
+[12-Dec-2025 14:56:53 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/Mercedes_GLA-Klasse_17_2512121456_thumb.jpg
+[12-Dec-2025 14:56:53 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('Mercedes_GLA-Klasse_17_2512121456.mov', 1397, 0, 'video/thumbs/Mercedes_GLA-Klasse_17_2512121456_thumb.jpg')
+[12-Dec-2025 14:56:53 Europe/Bucharest] Video inserted successfully into database with ID: 12
+[12-Dec-2025 18:53:26 Europe/Bucharest] Video uploaded successfully: demo_2_2512121853.mp4 -> /home/autoland/public_html/video/demo_2_2512121853.mp4
+[12-Dec-2025 18:53:26 Europe/Bucharest] File size: 1444003 bytes
+[12-Dec-2025 18:53:26 Europe/Bucharest] === THUMBNAIL UPLOAD START ===
+[12-Dec-2025 18:53:26 Europe/Bucharest] Thumbnail file: ghid-masini-sh.jpg
+[12-Dec-2025 18:53:26 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/demo_2_2512121853_thumb.jpg
+[12-Dec-2025 18:53:26 Europe/Bucharest] Thumbnail directory exists: YES
+[12-Dec-2025 18:53:26 Europe/Bucharest] Thumbnail directory writable: YES
+[12-Dec-2025 18:53:27 Europe/Bucharest] ✓ Thumbnail uploaded successfully: /home/autoland/public_html/video/thumbs/demo_2_2512121853_thumb.jpg (2915219 bytes)
+[12-Dec-2025 18:53:27 Europe/Bucharest] ✓ Thumbnail uploaded successfully: video/thumbs/demo_2_2512121853_thumb.jpg
+[12-Dec-2025 18:53:27 Europe/Bucharest] Thumbnail size: 2915219 bytes
+[12-Dec-2025 18:53:27 Europe/Bucharest] === THUMBNAIL UPLOAD END ===
+[12-Dec-2025 18:53:27 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/demo_2_2512121853_thumb.jpg
+[12-Dec-2025 18:53:27 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('demo_2_2512121853.mp4', 1397, 0, 'video/thumbs/demo_2_2512121853_thumb.jpg')
+[12-Dec-2025 18:53:27 Europe/Bucharest] Video inserted successfully into database with ID: 13
+[12-Dec-2025 18:55:33 Europe/Bucharest] Video uploaded successfully: demo_2_2512121855.mp4 -> /home/autoland/public_html/video/demo_2_2512121855.mp4
+[12-Dec-2025 18:55:33 Europe/Bucharest] File size: 1444003 bytes
+[12-Dec-2025 18:55:33 Europe/Bucharest] No thumbnail uploaded for video: demo_2_2512121855.mp4
+[12-Dec-2025 18:55:33 Europe/Bucharest] ✓ Placeholder thumbnail created: video/thumbs/demo_2_2512121855_thumb.jpg
+[12-Dec-2025 18:55:33 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/demo_2_2512121855_thumb.jpg
+[12-Dec-2025 18:55:33 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('demo_2_2512121855.mp4', 1546, 0, 'video/thumbs/demo_2_2512121855_thumb.jpg')
+[12-Dec-2025 18:55:33 Europe/Bucharest] Video inserted successfully into database with ID: 14
+[12-Dec-2025 18:59:08 Europe/Bucharest] Video uploaded successfully: demo_2_2512121859.mp4 -> /home/autoland/public_html/video/demo_2_2512121859.mp4
+[12-Dec-2025 18:59:08 Europe/Bucharest] File size: 1444003 bytes
+[12-Dec-2025 18:59:08 Europe/Bucharest] === THUMBNAIL UPLOAD START ===
+[12-Dec-2025 18:59:08 Europe/Bucharest] Thumbnail file: ghid-masini-sh.jpg
+[12-Dec-2025 18:59:08 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/demo_2_2512121859_thumb.jpg
+[12-Dec-2025 18:59:08 Europe/Bucharest] Thumbnail directory exists: YES
+[12-Dec-2025 18:59:08 Europe/Bucharest] Thumbnail directory writable: YES
+[12-Dec-2025 18:59:08 Europe/Bucharest] ✓ Thumbnail uploaded successfully: /home/autoland/public_html/video/thumbs/demo_2_2512121859_thumb.jpg (2915219 bytes)
+[12-Dec-2025 18:59:08 Europe/Bucharest] ✓ Thumbnail uploaded successfully: video/thumbs/demo_2_2512121859_thumb.jpg
+[12-Dec-2025 18:59:08 Europe/Bucharest] Thumbnail size: 2915219 bytes
+[12-Dec-2025 18:59:08 Europe/Bucharest] === THUMBNAIL UPLOAD END ===
+[12-Dec-2025 18:59:08 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/demo_2_2512121859_thumb.jpg
+[12-Dec-2025 18:59:08 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('demo_2_2512121859.mp4', 1546, 0, 'video/thumbs/demo_2_2512121859_thumb.jpg')
+[12-Dec-2025 18:59:08 Europe/Bucharest] Video inserted successfully into database with ID: 15
+[12-Dec-2025 19:00:52 Europe/Bucharest] Video uploaded successfully: demo_2_2512121900.mp4 -> /home/autoland/public_html/video/demo_2_2512121900.mp4
+[12-Dec-2025 19:00:52 Europe/Bucharest] File size: 1444003 bytes
+[12-Dec-2025 19:00:52 Europe/Bucharest] === THUMBNAIL UPLOAD START ===
+[12-Dec-2025 19:00:52 Europe/Bucharest] Thumbnail file: logo_autoland_3.png
+[12-Dec-2025 19:00:52 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/demo_2_2512121900_thumb.png
+[12-Dec-2025 19:00:52 Europe/Bucharest] Thumbnail directory exists: YES
+[12-Dec-2025 19:00:52 Europe/Bucharest] Thumbnail directory writable: YES
+[12-Dec-2025 19:00:52 Europe/Bucharest] ✓ Thumbnail uploaded successfully: /home/autoland/public_html/video/thumbs/demo_2_2512121900_thumb.png (70968 bytes)
+[12-Dec-2025 19:00:52 Europe/Bucharest] ✓ Thumbnail uploaded successfully: video/thumbs/demo_2_2512121900_thumb.png
+[12-Dec-2025 19:00:52 Europe/Bucharest] Thumbnail size: 70968 bytes
+[12-Dec-2025 19:00:52 Europe/Bucharest] === THUMBNAIL UPLOAD END ===
+[12-Dec-2025 19:00:52 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/demo_2_2512121900_thumb.png
+[12-Dec-2025 19:00:52 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('demo_2_2512121900.mp4', 1615, 0, 'video/thumbs/demo_2_2512121900_thumb.png')
+[12-Dec-2025 19:00:52 Europe/Bucharest] Video inserted successfully into database with ID: 16
+[12-Dec-2025 19:36:21 Europe/Bucharest] Video uploaded successfully: Mercedes_GLA-Klasse_17_2512121936.mov -> /home/autoland/public_html/video/Mercedes_GLA-Klasse_17_2512121936.mov
+[12-Dec-2025 19:36:21 Europe/Bucharest] File size: 4355848 bytes
+[12-Dec-2025 19:36:21 Europe/Bucharest] === THUMBNAIL UPLOAD START ===
+[12-Dec-2025 19:36:21 Europe/Bucharest] Thumbnail file: motor.jpg
+[12-Dec-2025 19:36:21 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/Mercedes_GLA-Klasse_17_2512121936_thumb.jpg
+[12-Dec-2025 19:36:21 Europe/Bucharest] Thumbnail directory exists: YES
+[12-Dec-2025 19:36:21 Europe/Bucharest] Thumbnail directory writable: YES
+[12-Dec-2025 19:36:21 Europe/Bucharest] ✓ Thumbnail uploaded successfully: /home/autoland/public_html/video/thumbs/Mercedes_GLA-Klasse_17_2512121936_thumb.jpg (201386 bytes)
+[12-Dec-2025 19:36:21 Europe/Bucharest] ✓ Thumbnail uploaded successfully: video/thumbs/Mercedes_GLA-Klasse_17_2512121936_thumb.jpg
+[12-Dec-2025 19:36:21 Europe/Bucharest] Thumbnail size: 201386 bytes
+[12-Dec-2025 19:36:21 Europe/Bucharest] === THUMBNAIL UPLOAD END ===
+[12-Dec-2025 19:36:21 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/Mercedes_GLA-Klasse_17_2512121936_thumb.jpg
+[12-Dec-2025 19:36:21 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('Mercedes_GLA-Klasse_17_2512121936.mov', 1397, 0, 'video/thumbs/Mercedes_GLA-Klasse_17_2512121936_thumb.jpg')
+[12-Dec-2025 19:36:21 Europe/Bucharest] Video inserted successfully into database with ID: 17
+[15-Dec-2025 20:52:35 Europe/Bucharest] Video uploaded successfully: Skoda_Kodiak_4x4_24_2512152052.mov -> /home/autoland/public_html/video/Skoda_Kodiak_4x4_24_2512152052.mov
+[15-Dec-2025 20:52:35 Europe/Bucharest] File size: 18990484 bytes
+[15-Dec-2025 20:52:35 Europe/Bucharest] === THUMBNAIL UPLOAD START ===
+[15-Dec-2025 20:52:35 Europe/Bucharest] Thumbnail file: Sunet_motor.jpg
+[15-Dec-2025 20:52:35 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/Skoda_Kodiak_4x4_24_2512152052_thumb.jpg
+[15-Dec-2025 20:52:35 Europe/Bucharest] Thumbnail directory exists: YES
+[15-Dec-2025 20:52:35 Europe/Bucharest] Thumbnail directory writable: YES
+[15-Dec-2025 20:52:35 Europe/Bucharest] ✓ Thumbnail uploaded successfully: /home/autoland/public_html/video/thumbs/Skoda_Kodiak_4x4_24_2512152052_thumb.jpg (273199 bytes)
+[15-Dec-2025 20:52:35 Europe/Bucharest] ✓ Thumbnail uploaded successfully: video/thumbs/Skoda_Kodiak_4x4_24_2512152052_thumb.jpg
+[15-Dec-2025 20:52:35 Europe/Bucharest] Thumbnail size: 273199 bytes
+[15-Dec-2025 20:52:35 Europe/Bucharest] === THUMBNAIL UPLOAD END ===
+[15-Dec-2025 20:52:35 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/Skoda_Kodiak_4x4_24_2512152052_thumb.jpg
+[15-Dec-2025 20:52:35 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('Skoda_Kodiak_4x4_24_2512152052.mov', 1616, 0, 'video/thumbs/Skoda_Kodiak_4x4_24_2512152052_thumb.jpg')
+[15-Dec-2025 20:52:35 Europe/Bucharest] Video inserted successfully into database with ID: 18
+[15-Dec-2025 21:35:41 Europe/Bucharest] Video uploaded successfully: Skoda_Kodiak_4x4_24_2512152135.mov -> /home/autoland/public_html/video/Skoda_Kodiak_4x4_24_2512152135.mov
+[15-Dec-2025 21:35:41 Europe/Bucharest] File size: 638940 bytes
+[15-Dec-2025 21:35:41 Europe/Bucharest] === THUMBNAIL UPLOAD START ===
+[15-Dec-2025 21:35:41 Europe/Bucharest] Thumbnail file: Sunet_motor.jpg
+[15-Dec-2025 21:35:41 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/Skoda_Kodiak_4x4_24_2512152135_thumb.jpg
+[15-Dec-2025 21:35:41 Europe/Bucharest] Thumbnail directory exists: YES
+[15-Dec-2025 21:35:41 Europe/Bucharest] Thumbnail directory writable: YES
+[15-Dec-2025 21:35:41 Europe/Bucharest] ✓ Thumbnail uploaded successfully: /home/autoland/public_html/video/thumbs/Skoda_Kodiak_4x4_24_2512152135_thumb.jpg (273199 bytes)
+[15-Dec-2025 21:35:41 Europe/Bucharest] ✓ Thumbnail uploaded successfully: video/thumbs/Skoda_Kodiak_4x4_24_2512152135_thumb.jpg
+[15-Dec-2025 21:35:41 Europe/Bucharest] Thumbnail size: 273199 bytes
+[15-Dec-2025 21:35:41 Europe/Bucharest] === THUMBNAIL UPLOAD END ===
+[15-Dec-2025 21:35:41 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/Skoda_Kodiak_4x4_24_2512152135_thumb.jpg
+[15-Dec-2025 21:35:41 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('Skoda_Kodiak_4x4_24_2512152135.mov', 1616, 0, 'video/thumbs/Skoda_Kodiak_4x4_24_2512152135_thumb.jpg')
+[15-Dec-2025 21:35:41 Europe/Bucharest] Video inserted successfully into database with ID: 19
+[15-Dec-2025 21:38:15 Europe/Bucharest] Video uploaded successfully: Skoda_Kodiak_4x4_24_2512152138.mp4 -> /home/autoland/public_html/video/Skoda_Kodiak_4x4_24_2512152138.mp4
+[15-Dec-2025 21:38:15 Europe/Bucharest] File size: 589645 bytes
+[15-Dec-2025 21:38:15 Europe/Bucharest] === THUMBNAIL UPLOAD START ===
+[15-Dec-2025 21:38:15 Europe/Bucharest] Thumbnail file: Sunet_motor.jpg
+[15-Dec-2025 21:38:15 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/Skoda_Kodiak_4x4_24_2512152138_thumb.jpg
+[15-Dec-2025 21:38:15 Europe/Bucharest] Thumbnail directory exists: YES
+[15-Dec-2025 21:38:15 Europe/Bucharest] Thumbnail directory writable: YES
+[15-Dec-2025 21:38:15 Europe/Bucharest] ✓ Thumbnail uploaded successfully: /home/autoland/public_html/video/thumbs/Skoda_Kodiak_4x4_24_2512152138_thumb.jpg (273199 bytes)
+[15-Dec-2025 21:38:15 Europe/Bucharest] ✓ Thumbnail uploaded successfully: video/thumbs/Skoda_Kodiak_4x4_24_2512152138_thumb.jpg
+[15-Dec-2025 21:38:15 Europe/Bucharest] Thumbnail size: 273199 bytes
+[15-Dec-2025 21:38:15 Europe/Bucharest] === THUMBNAIL UPLOAD END ===
+[15-Dec-2025 21:38:15 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/Skoda_Kodiak_4x4_24_2512152138_thumb.jpg
+[15-Dec-2025 21:38:15 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('Skoda_Kodiak_4x4_24_2512152138.mp4', 1616, 0, 'video/thumbs/Skoda_Kodiak_4x4_24_2512152138_thumb.jpg')
+[15-Dec-2025 21:38:15 Europe/Bucharest] Video inserted successfully into database with ID: 20
+[15-Dec-2025 22:29:44 Europe/Bucharest] Video uploaded successfully: engine_video_2512152229.mp4 -> /home/autoland/public_html/video/engine_video_2512152229.mp4
+[15-Dec-2025 22:29:44 Europe/Bucharest] File size: 1399471 bytes
+[15-Dec-2025 22:29:44 Europe/Bucharest] === THUMBNAIL UPLOAD START ===
+[15-Dec-2025 22:29:44 Europe/Bucharest] Thumbnail file: sunet_motor.jpg
+[15-Dec-2025 22:29:44 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/engine_video_2512152229_thumb.jpg
+[15-Dec-2025 22:29:44 Europe/Bucharest] Thumbnail directory exists: YES
+[15-Dec-2025 22:29:44 Europe/Bucharest] Thumbnail directory writable: YES
+[15-Dec-2025 22:29:44 Europe/Bucharest] ✓ Thumbnail uploaded successfully: /home/autoland/public_html/video/thumbs/engine_video_2512152229_thumb.jpg (172706 bytes)
+[15-Dec-2025 22:29:44 Europe/Bucharest] ✓ Thumbnail uploaded successfully: video/thumbs/engine_video_2512152229_thumb.jpg
+[15-Dec-2025 22:29:44 Europe/Bucharest] Thumbnail size: 172706 bytes
+[15-Dec-2025 22:29:44 Europe/Bucharest] === THUMBNAIL UPLOAD END ===
+[15-Dec-2025 22:29:44 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/engine_video_2512152229_thumb.jpg
+[15-Dec-2025 22:29:44 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('engine_video_2512152229.mp4', 1617, 0, 'video/thumbs/engine_video_2512152229_thumb.jpg')
+[15-Dec-2025 22:29:44 Europe/Bucharest] Video inserted successfully into database with ID: 21
+[16-Dec-2025 14:06:30 Europe/Bucharest] Video uploaded successfully: engine_video_2512161406.mp4 -> /home/autoland/public_html/video/engine_video_2512161406.mp4
+[16-Dec-2025 14:06:30 Europe/Bucharest] File size: 1429239 bytes
+[16-Dec-2025 14:06:30 Europe/Bucharest] === THUMBNAIL UPLOAD START ===
+[16-Dec-2025 14:06:30 Europe/Bucharest] Thumbnail file: sunet_motor.jpg
+[16-Dec-2025 14:06:30 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/engine_video_2512161406_thumb.jpg
+[16-Dec-2025 14:06:30 Europe/Bucharest] Thumbnail directory exists: YES
+[16-Dec-2025 14:06:30 Europe/Bucharest] Thumbnail directory writable: YES
+[16-Dec-2025 14:06:30 Europe/Bucharest] ✓ Thumbnail uploaded successfully: /home/autoland/public_html/video/thumbs/engine_video_2512161406_thumb.jpg (366529 bytes)
+[16-Dec-2025 14:06:30 Europe/Bucharest] ✓ Thumbnail uploaded successfully: video/thumbs/engine_video_2512161406_thumb.jpg
+[16-Dec-2025 14:06:30 Europe/Bucharest] Thumbnail size: 366529 bytes
+[16-Dec-2025 14:06:30 Europe/Bucharest] === THUMBNAIL UPLOAD END ===
+[16-Dec-2025 14:06:30 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/engine_video_2512161406_thumb.jpg
+[16-Dec-2025 14:06:30 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('engine_video_2512161406.mp4', 1619, 0, 'video/thumbs/engine_video_2512161406_thumb.jpg')
+[16-Dec-2025 14:06:30 Europe/Bucharest] Video inserted successfully into database with ID: 22
+[17-Dec-2025 16:56:11 Europe/Bucharest] Video uploaded successfully: engine_sound_2512171656.mp4 -> /home/autoland/public_html/video/engine_sound_2512171656.mp4
+[17-Dec-2025 16:56:11 Europe/Bucharest] File size: 1483833 bytes
+[17-Dec-2025 16:56:11 Europe/Bucharest] === THUMBNAIL UPLOAD START ===
+[17-Dec-2025 16:56:11 Europe/Bucharest] Thumbnail file: sunet_motor.jpg
+[17-Dec-2025 16:56:11 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/engine_sound_2512171656_thumb.jpg
+[17-Dec-2025 16:56:11 Europe/Bucharest] Thumbnail directory exists: YES
+[17-Dec-2025 16:56:11 Europe/Bucharest] Thumbnail directory writable: YES
+[17-Dec-2025 16:56:11 Europe/Bucharest] ✓ Thumbnail uploaded successfully: /home/autoland/public_html/video/thumbs/engine_sound_2512171656_thumb.jpg (249554 bytes)
+[17-Dec-2025 16:56:11 Europe/Bucharest] ✓ Thumbnail uploaded successfully: video/thumbs/engine_sound_2512171656_thumb.jpg
+[17-Dec-2025 16:56:11 Europe/Bucharest] Thumbnail size: 249554 bytes
+[17-Dec-2025 16:56:11 Europe/Bucharest] === THUMBNAIL UPLOAD END ===
+[17-Dec-2025 16:56:11 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/engine_sound_2512171656_thumb.jpg
+[17-Dec-2025 16:56:11 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('engine_sound_2512171656.mp4', 1118, 0, 'video/thumbs/engine_sound_2512171656_thumb.jpg')
+[17-Dec-2025 16:56:11 Europe/Bucharest] Video inserted successfully into database with ID: 23
+[17-Dec-2025 17:56:43 Europe/Bucharest] Video uploaded successfully: engine_sound_2512171756.mp4 -> /home/autoland/public_html/video/engine_sound_2512171756.mp4
+[17-Dec-2025 17:56:43 Europe/Bucharest] File size: 1483833 bytes
+[17-Dec-2025 17:56:43 Europe/Bucharest] === THUMBNAIL UPLOAD START ===
+[17-Dec-2025 17:56:43 Europe/Bucharest] Thumbnail file: sunet_motor.jpg
+[17-Dec-2025 17:56:43 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/engine_sound_2512171756_thumb.jpg
+[17-Dec-2025 17:56:43 Europe/Bucharest] Thumbnail directory exists: YES
+[17-Dec-2025 17:56:43 Europe/Bucharest] Thumbnail directory writable: YES
+[17-Dec-2025 17:56:43 Europe/Bucharest] ✓ Thumbnail uploaded successfully: /home/autoland/public_html/video/thumbs/engine_sound_2512171756_thumb.jpg (38326 bytes)
+[17-Dec-2025 17:56:43 Europe/Bucharest] ✓ Thumbnail uploaded successfully: video/thumbs/engine_sound_2512171756_thumb.jpg
+[17-Dec-2025 17:56:43 Europe/Bucharest] Thumbnail size: 38326 bytes
+[17-Dec-2025 17:56:43 Europe/Bucharest] === THUMBNAIL UPLOAD END ===
+[17-Dec-2025 17:56:43 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/engine_sound_2512171756_thumb.jpg
+[17-Dec-2025 17:56:43 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('engine_sound_2512171756.mp4', 1118, 0, 'video/thumbs/engine_sound_2512171756_thumb.jpg')
+[17-Dec-2025 17:56:43 Europe/Bucharest] Video inserted successfully into database with ID: 24
+[17-Dec-2025 18:11:39 Europe/Bucharest] Video uploaded successfully: Peugeot_5008_leasing_17_2512171811.mp4 -> /home/autoland/public_html/video/Peugeot_5008_leasing_17_2512171811.mp4
+[17-Dec-2025 18:11:39 Europe/Bucharest] File size: 1291069 bytes
+[17-Dec-2025 18:11:39 Europe/Bucharest] === THUMBNAIL UPLOAD START ===
+[17-Dec-2025 18:11:39 Europe/Bucharest] Thumbnail file: sunet_motor.jpg
+[17-Dec-2025 18:11:39 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/Peugeot_5008_leasing_17_2512171811_thumb.jpg
+[17-Dec-2025 18:11:39 Europe/Bucharest] Thumbnail directory exists: YES
+[17-Dec-2025 18:11:39 Europe/Bucharest] Thumbnail directory writable: YES
+[17-Dec-2025 18:11:39 Europe/Bucharest] ✓ Thumbnail uploaded successfully: /home/autoland/public_html/video/thumbs/Peugeot_5008_leasing_17_2512171811_thumb.jpg (50906 bytes)
+[17-Dec-2025 18:11:39 Europe/Bucharest] ✓ Thumbnail uploaded successfully: video/thumbs/Peugeot_5008_leasing_17_2512171811_thumb.jpg
+[17-Dec-2025 18:11:39 Europe/Bucharest] Thumbnail size: 50906 bytes
+[17-Dec-2025 18:11:39 Europe/Bucharest] === THUMBNAIL UPLOAD END ===
+[17-Dec-2025 18:11:39 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/Peugeot_5008_leasing_17_2512171811_thumb.jpg
+[17-Dec-2025 18:11:39 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('Peugeot_5008_leasing_17_2512171811.mp4', 1620, 0, 'video/thumbs/Peugeot_5008_leasing_17_2512171811_thumb.jpg')
+[17-Dec-2025 18:11:39 Europe/Bucharest] Video inserted successfully into database with ID: 25
+[17-Dec-2025 20:27:09 Europe/Bucharest] Video uploaded successfully: engine_video_2512172027.mp4 -> /home/autoland/public_html/video/engine_video_2512172027.mp4
+[17-Dec-2025 20:27:09 Europe/Bucharest] File size: 1451893 bytes
+[17-Dec-2025 20:27:09 Europe/Bucharest] === THUMBNAIL UPLOAD START ===
+[17-Dec-2025 20:27:09 Europe/Bucharest] Thumbnail file: sunet_motor.jpg
+[17-Dec-2025 20:27:09 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/engine_video_2512172027_thumb.jpg
+[17-Dec-2025 20:27:09 Europe/Bucharest] Thumbnail directory exists: YES
+[17-Dec-2025 20:27:09 Europe/Bucharest] Thumbnail directory writable: YES
+[17-Dec-2025 20:27:09 Europe/Bucharest] ✓ Thumbnail uploaded successfully: /home/autoland/public_html/video/thumbs/engine_video_2512172027_thumb.jpg (50160 bytes)
+[17-Dec-2025 20:27:09 Europe/Bucharest] ✓ Thumbnail uploaded successfully: video/thumbs/engine_video_2512172027_thumb.jpg
+[17-Dec-2025 20:27:09 Europe/Bucharest] Thumbnail size: 50160 bytes
+[17-Dec-2025 20:27:09 Europe/Bucharest] === THUMBNAIL UPLOAD END ===
+[17-Dec-2025 20:27:09 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/engine_video_2512172027_thumb.jpg
+[17-Dec-2025 20:27:09 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('engine_video_2512172027.mp4', 1621, 0, 'video/thumbs/engine_video_2512172027_thumb.jpg')
+[17-Dec-2025 20:27:09 Europe/Bucharest] Video inserted successfully into database with ID: 26
+[30-Dec-2025 13:23:07 Europe/Bucharest] Video uploaded successfully: engine_video_2512301323.mp4 -> /home/autoland/public_html/video/engine_video_2512301323.mp4
+[30-Dec-2025 13:23:07 Europe/Bucharest] File size: 3770684 bytes
+[30-Dec-2025 13:23:07 Europe/Bucharest] === THUMBNAIL UPLOAD START ===
+[30-Dec-2025 13:23:07 Europe/Bucharest] Thumbnail file: sunet_motor.jpg
+[30-Dec-2025 13:23:07 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/engine_video_2512301323_thumb.jpg
+[30-Dec-2025 13:23:07 Europe/Bucharest] Thumbnail directory exists: YES
+[30-Dec-2025 13:23:07 Europe/Bucharest] Thumbnail directory writable: YES
+[30-Dec-2025 13:23:07 Europe/Bucharest] ✓ Thumbnail uploaded successfully: /home/autoland/public_html/video/thumbs/engine_video_2512301323_thumb.jpg (43023 bytes)
+[30-Dec-2025 13:23:07 Europe/Bucharest] ✓ Thumbnail uploaded successfully: video/thumbs/engine_video_2512301323_thumb.jpg
+[30-Dec-2025 13:23:07 Europe/Bucharest] Thumbnail size: 43023 bytes
+[30-Dec-2025 13:23:07 Europe/Bucharest] === THUMBNAIL UPLOAD END ===
+[30-Dec-2025 13:23:07 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/engine_video_2512301323_thumb.jpg
+[30-Dec-2025 13:23:07 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('engine_video_2512301323.mp4', 1430, 0, 'video/thumbs/engine_video_2512301323_thumb.jpg')
+[30-Dec-2025 13:23:07 Europe/Bucharest] Video inserted successfully into database with ID: 27
+[13-Jan-2026 13:24:23 Europe/Bucharest] Video uploaded successfully: engine_video_2601131324.mp4 -> /home/autoland/public_html/video/engine_video_2601131324.mp4
+[13-Jan-2026 13:24:23 Europe/Bucharest] File size: 1076879 bytes
+[13-Jan-2026 13:24:23 Europe/Bucharest] === THUMBNAIL UPLOAD START ===
+[13-Jan-2026 13:24:23 Europe/Bucharest] Thumbnail file: preview.jpg
+[13-Jan-2026 13:24:23 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/engine_video_2601131324_thumb.jpg
+[13-Jan-2026 13:24:23 Europe/Bucharest] Thumbnail directory exists: YES
+[13-Jan-2026 13:24:23 Europe/Bucharest] Thumbnail directory writable: YES
+[13-Jan-2026 13:24:23 Europe/Bucharest] ✓ Thumbnail uploaded successfully: /home/autoland/public_html/video/thumbs/engine_video_2601131324_thumb.jpg (238658 bytes)
+[13-Jan-2026 13:24:23 Europe/Bucharest] ✓ Thumbnail uploaded successfully: video/thumbs/engine_video_2601131324_thumb.jpg
+[13-Jan-2026 13:24:23 Europe/Bucharest] Thumbnail size: 238658 bytes
+[13-Jan-2026 13:24:23 Europe/Bucharest] === THUMBNAIL UPLOAD END ===
+[13-Jan-2026 13:24:23 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/engine_video_2601131324_thumb.jpg
+[13-Jan-2026 13:24:23 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('engine_video_2601131324.mp4', 1512, 0, 'video/thumbs/engine_video_2601131324_thumb.jpg')
+[13-Jan-2026 13:24:23 Europe/Bucharest] Video inserted successfully into database with ID: 28
+[14-Jan-2026 15:22:07 Europe/Bucharest] Video uploaded successfully: engine_video_2601141522.mp4 -> /home/autoland/public_html/video/engine_video_2601141522.mp4
+[14-Jan-2026 15:22:07 Europe/Bucharest] File size: 832231 bytes
+[14-Jan-2026 15:22:07 Europe/Bucharest] === THUMBNAIL UPLOAD START ===
+[14-Jan-2026 15:22:07 Europe/Bucharest] Thumbnail file: DS7_rate_avans_zero_17.jpg
+[14-Jan-2026 15:22:07 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/engine_video_2601141522_thumb.jpg
+[14-Jan-2026 15:22:07 Europe/Bucharest] Thumbnail directory exists: YES
+[14-Jan-2026 15:22:07 Europe/Bucharest] Thumbnail directory writable: YES
+[14-Jan-2026 15:22:07 Europe/Bucharest] ✓ Thumbnail uploaded successfully: /home/autoland/public_html/video/thumbs/engine_video_2601141522_thumb.jpg (69317 bytes)
+[14-Jan-2026 15:22:07 Europe/Bucharest] ✓ Thumbnail uploaded successfully: video/thumbs/engine_video_2601141522_thumb.jpg
+[14-Jan-2026 15:22:07 Europe/Bucharest] Thumbnail size: 69317 bytes
+[14-Jan-2026 15:22:07 Europe/Bucharest] === THUMBNAIL UPLOAD END ===
+[14-Jan-2026 15:22:07 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/engine_video_2601141522_thumb.jpg
+[14-Jan-2026 15:22:07 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('engine_video_2601141522.mp4', 1634, 0, 'video/thumbs/engine_video_2601141522_thumb.jpg')
+[14-Jan-2026 15:22:07 Europe/Bucharest] Video inserted successfully into database with ID: 29
+[19-Jan-2026 12:00:50 Europe/Bucharest] Video uploaded successfully: engine_video_2601191200.mp4 -> /home/autoland/public_html/video/engine_video_2601191200.mp4
+[19-Jan-2026 12:00:50 Europe/Bucharest] File size: 1429300 bytes
+[19-Jan-2026 12:00:50 Europe/Bucharest] === THUMBNAIL UPLOAD START ===
+[19-Jan-2026 12:00:50 Europe/Bucharest] Thumbnail file: preview.jpg
+[19-Jan-2026 12:00:50 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/engine_video_2601191200_thumb.jpg
+[19-Jan-2026 12:00:50 Europe/Bucharest] Thumbnail directory exists: YES
+[19-Jan-2026 12:00:50 Europe/Bucharest] Thumbnail directory writable: YES
+[19-Jan-2026 12:00:50 Europe/Bucharest] ✓ Thumbnail uploaded successfully: /home/autoland/public_html/video/thumbs/engine_video_2601191200_thumb.jpg (62251 bytes)
+[19-Jan-2026 12:00:50 Europe/Bucharest] ✓ Thumbnail uploaded successfully: video/thumbs/engine_video_2601191200_thumb.jpg
+[19-Jan-2026 12:00:50 Europe/Bucharest] Thumbnail size: 62251 bytes
+[19-Jan-2026 12:00:50 Europe/Bucharest] === THUMBNAIL UPLOAD END ===
+[19-Jan-2026 12:00:50 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/engine_video_2601191200_thumb.jpg
+[19-Jan-2026 12:00:50 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('engine_video_2601191200.mp4', 1395, 0, 'video/thumbs/engine_video_2601191200_thumb.jpg')
+[19-Jan-2026 12:00:50 Europe/Bucharest] Video inserted successfully into database with ID: 30
+[03-Feb-2026 09:37:08 Europe/Bucharest] Video uploaded successfully: sample-mp4-files-sample_960x540_2602030937.mp4 -> /home/autoland/public_html/video/sample-mp4-files-sample_960x540_2602030937.mp4
+[03-Feb-2026 09:37:08 Europe/Bucharest] File size: 1320775 bytes
+[03-Feb-2026 09:37:08 Europe/Bucharest] === THUMBNAIL UPLOAD START ===
+[03-Feb-2026 09:37:08 Europe/Bucharest] Thumbnail file: tbi_bank.jpeg
+[03-Feb-2026 09:37:08 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/sample-mp4-files-sample_960x540_2602030937_thumb.jpeg
+[03-Feb-2026 09:37:08 Europe/Bucharest] Thumbnail directory exists: YES
+[03-Feb-2026 09:37:08 Europe/Bucharest] Thumbnail directory writable: YES
+[03-Feb-2026 09:37:08 Europe/Bucharest] ✓ Thumbnail uploaded successfully: /home/autoland/public_html/video/thumbs/sample-mp4-files-sample_960x540_2602030937_thumb.jpeg (256881 bytes)
+[03-Feb-2026 09:37:08 Europe/Bucharest] ✓ Thumbnail uploaded successfully: video/thumbs/sample-mp4-files-sample_960x540_2602030937_thumb.jpeg
+[03-Feb-2026 09:37:08 Europe/Bucharest] Thumbnail size: 256881 bytes
+[03-Feb-2026 09:37:08 Europe/Bucharest] === THUMBNAIL UPLOAD END ===
+[03-Feb-2026 09:37:08 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/sample-mp4-files-sample_960x540_2602030937_thumb.jpeg
+[03-Feb-2026 09:37:08 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('sample-mp4-files-sample_960x540_2602030937.mp4', 1622, 0, 'video/thumbs/sample-mp4-files-sample_960x540_2602030937_thumb.jpeg')
+[03-Feb-2026 09:37:08 Europe/Bucharest] Video inserted successfully into database with ID: 31
+[12-Feb-2026 13:17:29 Europe/Bucharest] Video uploaded successfully: engine_video_2602121317.mp4 -> /home/autoland/public_html/video/engine_video_2602121317.mp4
+[12-Feb-2026 13:17:29 Europe/Bucharest] File size: 1210513 bytes
+[12-Feb-2026 13:17:29 Europe/Bucharest] === THUMBNAIL UPLOAD START ===
+[12-Feb-2026 13:17:29 Europe/Bucharest] Thumbnail file: preview_motor.jpg
+[12-Feb-2026 13:17:29 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/engine_video_2602121317_thumb.jpg
+[12-Feb-2026 13:17:29 Europe/Bucharest] Thumbnail directory exists: YES
+[12-Feb-2026 13:17:29 Europe/Bucharest] Thumbnail directory writable: YES
+[12-Feb-2026 13:17:29 Europe/Bucharest] ✓ Thumbnail uploaded successfully: /home/autoland/public_html/video/thumbs/engine_video_2602121317_thumb.jpg (44591 bytes)
+[12-Feb-2026 13:17:29 Europe/Bucharest] ✓ Thumbnail uploaded successfully: video/thumbs/engine_video_2602121317_thumb.jpg
+[12-Feb-2026 13:17:29 Europe/Bucharest] Thumbnail size: 44591 bytes
+[12-Feb-2026 13:17:29 Europe/Bucharest] === THUMBNAIL UPLOAD END ===
+[12-Feb-2026 13:17:29 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/engine_video_2602121317_thumb.jpg
+[12-Feb-2026 13:17:29 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('engine_video_2602121317.mp4', 1652, 0, 'video/thumbs/engine_video_2602121317_thumb.jpg')
+[12-Feb-2026 13:17:29 Europe/Bucharest] Video inserted successfully into database with ID: 32
+[19-Feb-2026 15:25:23 Europe/Bucharest] Video uploaded successfully: Jeep_Compass_18_2602191525.mp4 -> /home/autoland/public_html/video/Jeep_Compass_18_2602191525.mp4
+[19-Feb-2026 15:25:23 Europe/Bucharest] File size: 2123643 bytes
+[19-Feb-2026 15:25:23 Europe/Bucharest] === THUMBNAIL UPLOAD START ===
+[19-Feb-2026 15:25:23 Europe/Bucharest] Thumbnail file: preview.jpg
+[19-Feb-2026 15:25:23 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/Jeep_Compass_18_2602191525_thumb.jpg
+[19-Feb-2026 15:25:23 Europe/Bucharest] Thumbnail directory exists: YES
+[19-Feb-2026 15:25:23 Europe/Bucharest] Thumbnail directory writable: YES
+[19-Feb-2026 15:25:23 Europe/Bucharest] ✓ Thumbnail uploaded successfully: /home/autoland/public_html/video/thumbs/Jeep_Compass_18_2602191525_thumb.jpg (240173 bytes)
+[19-Feb-2026 15:25:23 Europe/Bucharest] ✓ Thumbnail uploaded successfully: video/thumbs/Jeep_Compass_18_2602191525_thumb.jpg
+[19-Feb-2026 15:25:23 Europe/Bucharest] Thumbnail size: 240173 bytes
+[19-Feb-2026 15:25:23 Europe/Bucharest] === THUMBNAIL UPLOAD END ===
+[19-Feb-2026 15:25:23 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/Jeep_Compass_18_2602191525_thumb.jpg
+[19-Feb-2026 15:25:23 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('Jeep_Compass_18_2602191525.mp4', 1400, 0, 'video/thumbs/Jeep_Compass_18_2602191525_thumb.jpg')
+[19-Feb-2026 15:25:23 Europe/Bucharest] Video inserted successfully into database with ID: 33
+[16-Mar-2026 17:42:53 Europe/Bucharest] Video uploaded successfully: engine_video_2603161742.mp4 -> /home/autoland/public_html/video/engine_video_2603161742.mp4
+[16-Mar-2026 17:42:53 Europe/Bucharest] File size: 951464 bytes
+[16-Mar-2026 17:42:53 Europe/Bucharest] === THUMBNAIL UPLOAD START ===
+[16-Mar-2026 17:42:53 Europe/Bucharest] Thumbnail file: motor.jpg
+[16-Mar-2026 17:42:53 Europe/Bucharest] Target thumbnail: /home/autoland/public_html/video/thumbs/engine_video_2603161742_thumb.jpg
+[16-Mar-2026 17:42:53 Europe/Bucharest] Thumbnail directory exists: YES
+[16-Mar-2026 17:42:53 Europe/Bucharest] Thumbnail directory writable: YES
+[16-Mar-2026 17:42:53 Europe/Bucharest] ✓ Thumbnail uploaded successfully: /home/autoland/public_html/video/thumbs/engine_video_2603161742_thumb.jpg (317915 bytes)
+[16-Mar-2026 17:42:53 Europe/Bucharest] ✓ Thumbnail uploaded successfully: video/thumbs/engine_video_2603161742_thumb.jpg
+[16-Mar-2026 17:42:53 Europe/Bucharest] Thumbnail size: 317915 bytes
+[16-Mar-2026 17:42:53 Europe/Bucharest] === THUMBNAIL UPLOAD END ===
+[16-Mar-2026 17:42:53 Europe/Bucharest] Final thumbnail path in DB: video/thumbs/engine_video_2603161742_thumb.jpg
+[16-Mar-2026 17:42:53 Europe/Bucharest] Inserting video into database: INSERT INTO fotov_video (file, oferta, nota, thumb) VALUES ('engine_video_2603161742.mp4', 1600, 0, 'video/thumbs/engine_video_2603161742_thumb.jpg')
+[16-Mar-2026 17:42:53 Europe/Bucharest] Video inserted successfully into database with ID: 34
+[18-Jun-2026 11:12:01 Europe/Bucharest] PHP Fatal error:  Uncaught Error: Call to undefined function query() in /home/autoland/public_html/tehnic/view_vanzare_oferta.php:117
+Stack trace:
+#0 {main}
+  thrown in /home/autoland/public_html/tehnic/view_vanzare_oferta.php on line 117
+[18-Jun-2026 11:12:03 Europe/Bucharest] PHP Fatal error:  Uncaught Error: Call to undefined function query() in /home/autoland/public_html/tehnic/view_vanzare_oferta.php:117
+Stack trace:
+#0 {main}
+  thrown in /home/autoland/public_html/tehnic/view_vanzare_oferta.php on line 117
+[18-Jun-2026 11:12:05 Europe/Bucharest] PHP Fatal error:  Uncaught Error: Call to undefined function query() in /home/autoland/public_html/tehnic/view_vanzare_oferta.php:117
+Stack trace:
+#0 {main}
+  thrown in /home/autoland/public_html/tehnic/view_vanzare_oferta.php on line 117
+[18-Jun-2026 11:12:13 Europe/Bucharest] PHP Fatal error:  Uncaught Error: Call to undefined function query() in /home/autoland/public_html/tehnic/view_vanzare_oferta.php:117
+Stack trace:
+#0 {main}
+  thrown in /home/autoland/public_html/tehnic/view_vanzare_oferta.php on line 117
+[18-Jun-2026 11:12:16 Europe/Bucharest] PHP Fatal error:  Uncaught Error: Call to undefined function query() in /home/autoland/public_html/tehnic/view_vanzare_oferta.php:117
+Stack trace:
+#0 {main}
+  thrown in /home/autoland/public_html/tehnic/view_vanzare_oferta.php on line 117
+[18-Jun-2026 11:12:18 Europe/Bucharest] PHP Fatal error:  Uncaught Error: Call to undefined function query() in /home/autoland/public_html/tehnic/view_vanzare_oferta.php:117
+Stack trace:
+#0 {main}
+  thrown in /home/autoland/public_html/tehnic/view_vanzare_oferta.php on line 117
+[06-Aug-2026 14:01:11 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[06-Aug-2026 14:01:11 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[06-Aug-2026 14:01:11 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[06-Aug-2026 14:01:11 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[06-Aug-2026 14:01:11 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[06-Aug-2026 14:01:11 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[07-Aug-2026 14:01:18 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[07-Aug-2026 14:01:18 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[07-Aug-2026 14:01:18 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[07-Aug-2026 14:01:18 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[07-Aug-2026 14:01:18 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[07-Aug-2026 14:01:18 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[10-Aug-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[10-Aug-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[10-Aug-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[10-Aug-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[10-Aug-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[10-Aug-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[11-Aug-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[11-Aug-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[11-Aug-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[11-Aug-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[11-Aug-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[11-Aug-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[12-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[12-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[12-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[12-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[12-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[12-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[13-Aug-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[13-Aug-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[13-Aug-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[13-Aug-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[13-Aug-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[13-Aug-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[14-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[14-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[14-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[14-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[14-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[14-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[17-Aug-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[17-Aug-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[17-Aug-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[17-Aug-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[17-Aug-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[17-Aug-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[18-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[18-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[18-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[18-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[18-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[18-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[19-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[19-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[19-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[19-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[19-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[19-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[20-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[20-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[20-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[20-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[20-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[20-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[21-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[21-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[21-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[21-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[21-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[21-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[24-Aug-2026 14:01:09 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[24-Aug-2026 14:01:09 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[24-Aug-2026 14:01:09 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[24-Aug-2026 14:01:09 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[24-Aug-2026 14:01:09 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[24-Aug-2026 14:01:09 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[25-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[25-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[25-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[25-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[25-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[25-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[26-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[26-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[26-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[26-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[26-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[26-Aug-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[27-Aug-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[27-Aug-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[27-Aug-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[27-Aug-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[27-Aug-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[27-Aug-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[28-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[28-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[28-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[28-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[28-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[28-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[31-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[31-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[31-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[31-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[31-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[31-Aug-2026 14:01:05 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[01-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[01-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[01-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[01-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[01-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[01-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[02-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[02-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[02-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[02-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[02-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[02-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[03-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[03-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[03-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[03-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[03-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[03-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[04-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[04-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[04-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[04-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[04-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[04-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[07-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[07-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[07-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[07-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[07-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[07-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[08-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[08-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[08-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[08-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[08-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[08-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[09-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[09-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[09-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[09-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[09-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[09-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[10-Sep-2026 14:01:02 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[10-Sep-2026 14:01:02 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[10-Sep-2026 14:01:02 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[10-Sep-2026 14:01:02 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[10-Sep-2026 14:01:02 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[10-Sep-2026 14:01:02 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[11-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[11-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[11-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[11-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[11-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[11-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[14-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[14-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[14-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[14-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[14-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[14-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[15-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[15-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[15-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[15-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[15-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[15-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[16-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[16-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[16-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[16-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[16-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[16-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[17-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[17-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[17-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[17-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[17-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[17-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[18-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[18-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[18-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[18-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[18-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[18-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[21-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[21-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[21-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[21-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[21-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[21-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[22-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[22-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[22-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[22-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[22-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[22-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[23-Sep-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[23-Sep-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[23-Sep-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[23-Sep-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[23-Sep-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[23-Sep-2026 14:01:06 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[24-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[24-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[24-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[24-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[24-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[24-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[25-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[25-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[25-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[25-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[25-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[25-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[28-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[28-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[28-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[28-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[28-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[28-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[29-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[29-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[29-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[29-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[29-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[29-Sep-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[30-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[30-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[30-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[30-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[30-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[30-Sep-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[01-Oct-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[01-Oct-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[01-Oct-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[01-Oct-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[01-Oct-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[01-Oct-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[02-Oct-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[02-Oct-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[02-Oct-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[02-Oct-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[02-Oct-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[02-Oct-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[05-Oct-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[05-Oct-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[05-Oct-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[05-Oct-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[05-Oct-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[05-Oct-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[06-Oct-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[06-Oct-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[06-Oct-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[06-Oct-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[06-Oct-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[06-Oct-2026 14:01:04 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[07-Oct-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[07-Oct-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[07-Oct-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[07-Oct-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[07-Oct-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[07-Oct-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[08-Oct-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[08-Oct-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[08-Oct-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[08-Oct-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[08-Oct-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[08-Oct-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[09-Oct-2026 14:01:02 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[09-Oct-2026 14:01:02 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[09-Oct-2026 14:01:02 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[09-Oct-2026 14:01:02 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[09-Oct-2026 14:01:02 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[09-Oct-2026 14:01:02 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[12-Oct-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[12-Oct-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[12-Oct-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[12-Oct-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[12-Oct-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[12-Oct-2026 14:01:03 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[13-Oct-2026 14:01:02 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : StartTag: invalid element name in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[13-Oct-2026 14:01:02 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[13-Oct-2026 14:01:02 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[13-Oct-2026 14:01:02 Europe/Bucharest] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Extra content at the end of the document in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[13-Oct-2026 14:01:02 Europe/Bucharest] PHP Warning:  simplexml_load_string(): &lt;!doctype html&gt;&lt;html lang=&quot;ro&quot;&gt; in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76
+[13-Oct-2026 14:01:02 Europe/Bucharest] PHP Warning:  simplexml_load_string():  ^ in /home/autoland/public_html/tehnic/actualizare_curs_valutar.php on line 76

@@ -1,0 +1,31 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	}
+.oferta{
+	margin-left: 54px;
+	margin-top: 5px;
+	list-style-type:square;
+	color: #FF0000;
+	}
+.lnk A:link, .lnk A:active, .lnk A:visited{
+	text-decoration: none;
+	color: black;
+	}
+.lnk A:hover {
+	color: red;
+	font-weight: bold;}	
+.oferta1{
+	font-weight: bold;
+	margin-left: 30px;
+	margin-bottom: 3px;
+	}	
+.add_vanz
+	{
+	width: 180px;
+	}	
+.capat{
+	background-color: #00CCFF;
+	}
