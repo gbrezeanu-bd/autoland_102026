@@ -61,22 +61,48 @@
         // Listings and category/filter pages
         elseif ($basename == 'vanzari.php') {
             $canonical_url .= '/vanzari.php';
-            $canonical_params = [];
-            $param_keys = [
-                'txtsrc', 'users', 'categorie', 'subcateg', 'marcat', 'marca', 'an', 'pret', 'combustibil', 'prov_enienta', 'pageNum_vanzare'
+            // Canonical doar din categorie + pagină. URL-urile de categorie din meniu (care aduc trafic)
+            // rămân exact cum erau, caracter cu caracter.
+            $category_urls = [
+                'Autoturisme'      => 'users=Autoturisme&subcateg=3&marcat=10',
+                'Autoutilitare'    => 'users=Autoutilitare&subcateg=12&marcat=100',
+                'Autospecializate' => 'users=Autospecializate&subcateg=33&marcat=102',
             ];
-            foreach ($param_keys as $key) {
-                if (isset($_GET[$key]) && $_GET[$key] !== '' && $_GET[$key] !== 'undefined') {
-                    // Default values to skip for an/pret/combustibil/prov_enienta
-                    if ($key == 'an' && $_GET[$key] == '1995') continue;
-                    if ($key == 'pret' && $_GET[$key] == '14000000') continue;
-                    if ($key == 'combustibil' && $_GET[$key] == 'fara') continue;
-                    if ($key == 'prov_enienta' && $_GET[$key] == 'fara') continue;
-                    $canonical_params[] = $key . '=' . urlencode($_GET[$key]);
+            $get_str = function ($key) {
+                return (isset($_GET[$key]) && is_string($_GET[$key])) ? trim($_GET[$key]) : '';
+            };
+            $users = $get_str('users');
+            $canonical_params = [];
+            if (isset($category_urls[$users])) {
+                $canonical_params[] = $category_urls[$users];
+            } elseif ($users === 'Utilaje') {
+                $canonical_params[] = 'users=Utilaje';
+                if (in_array($get_str('subcateg'), ['Constructii', 'Agricole', 'Municipale'], true)) {
+                    $canonical_params[] = 'subcateg=' . $get_str('subcateg');
                 }
+            } elseif (in_array($get_str('prov_enienta'), ['Import', 'Romania'], true)) {
+                $canonical_params[] = 'prov_enienta=' . $get_str('prov_enienta');
+            }
+            $canonical_page = isset($_GET['pageNum_vanzare']) ? (int)$_GET['pageNum_vanzare'] : 0;
+            if ($canonical_page > 0) {
+                $canonical_params[] = 'pageNum_vanzare=' . $canonical_page;
             }
             if (!empty($canonical_params)) {
                 $canonical_url .= '?' . implode('&', $canonical_params);
+            }
+
+            // Căutări și combinații de filtre: utile vizitatorilor, dar nu le indexăm.
+            // Când e setată o categorie validă, vanzari.php ignoră filtrele, deci pagina e chiar categoria.
+            $has_category = isset($category_urls[$users]) || $users === 'Utilaje';
+            $is_filtered = !$has_category && (
+                $get_str('txtsrc') !== ''
+                || !in_array($get_str('marca'), ['', '%'], true)
+                || !in_array($get_str('an'), ['', '1995'], true)
+                || !in_array($get_str('pret'), ['', '14000000'], true)
+                || !in_array($get_str('combustibil'), ['', '%', 'fara'], true)
+            );
+            if (($is_filtered || isset($_GET['message'])) && !isset($robots_meta)) {
+                $robots_meta = 'noindex,follow';
             }
         }    
         // Fallback: just use current page

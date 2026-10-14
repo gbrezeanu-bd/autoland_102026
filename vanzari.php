@@ -207,9 +207,17 @@ $query_limit_vanzare 	= $query_vanzare . " LIMIT " . $startRow_vanzare . ", " . 
 $vanzare 		= $connection->query($query_limit_vanzare) or db_fail($connection);
 $row_vanzare 		= mysqli_fetch_assoc($vanzare);
 
-// totalRows_vanzare din URL nu mai e folosit: se calculează mereu
-$all_vanzare = $connection->query($query_vanzare);
-$totalRows_vanzare = $all_vanzare ? mysqli_num_rows($all_vanzare) : 0;
+// totalRows_vanzare din URL nu mai e folosit: se calculează mereu.
+// COUNT(*) cu aceleași condiții, ca să nu aducem toate rândurile doar pentru a le număra.
+$count_query_vanzare = preg_replace(array('/^SELECT \* FROM/', '/ ORDER BY .*$/'), array('SELECT COUNT(*) FROM', ''), $query_vanzare);
+if (strpos($count_query_vanzare, 'SELECT COUNT(*) FROM') === 0) {
+    $count_vanzare = $connection->query($count_query_vanzare);
+    $totalRows_vanzare = $count_vanzare ? (int)$count_vanzare->fetch_row()[0] : 0;
+} else {
+    // Interogare cu altă formă: numărăm rândurile ca înainte
+    $all_vanzare = $connection->query($query_vanzare);
+    $totalRows_vanzare = $all_vanzare ? mysqli_num_rows($all_vanzare) : 0;
+}
 $totalPages_vanzare = ceil($totalRows_vanzare/$maxRows_vanzare)-1;
 
 $queryString_vanzare = "";
@@ -242,7 +250,7 @@ if (!empty($_SERVER['QUERY_STRING']))
     $queryString_vanzare = "&amp;" . htmlentities(implode("&", $newParams));
   }
 }
-$queryString_vanzare = sprintf("&amp;totalRows_vanzare=%d%s", $totalRows_vanzare, $queryString_vanzare);
+// totalRows_vanzare nu mai e transmis în URL (crea duplicate pentru Google)
       
 $header_currentOption = 'vauto';
 
