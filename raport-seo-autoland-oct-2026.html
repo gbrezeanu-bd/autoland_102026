@@ -1,0 +1,1139 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Audit SEO Autoland</title>
+<style>
+:root{
+  --bg:#f7f7f5; --surface:#ffffff; --surface-2:#f0efeb; --text:#1d1d1b; --muted:#5c5c57; --border:#dddcd6;
+  --accent:#1f5fbf; --accent-soft:#e6eefb;
+  --crit:#b3261e; --crit-soft:#fbe9e7; --high:#b35c00; --high-soft:#fdf0e1;
+  --med:#7a6a00; --med-soft:#f8f3d6; --low:#2f6b3a; --low-soft:#e6f2e8; --ok:#2f6b3a;
+  --code-bg:#f0efeb;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141413; --surface:#1d1d1b; --surface-2:#262624; --text:#ecebe6; --muted:#a8a79f; --border:#3a3a36;
+    --accent:#7fb0ff; --accent-soft:#1d2a40;
+    --crit:#ff8a80; --crit-soft:#3a1d1b; --high:#ffb766; --high-soft:#3a2a17;
+    --med:#e6d36b; --med-soft:#333017; --low:#8fd19e; --low-soft:#1c3121; --ok:#8fd19e; --code-bg:#262624;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141413; --surface:#1d1d1b; --surface-2:#262624; --text:#ecebe6; --muted:#a8a79f; --border:#3a3a36;
+  --accent:#7fb0ff; --accent-soft:#1d2a40;
+  --crit:#ff8a80; --crit-soft:#3a1d1b; --high:#ffb766; --high-soft:#3a2a17;
+  --med:#e6d36b; --med-soft:#333017; --low:#8fd19e; --low-soft:#1c3121; --ok:#8fd19e; --code-bg:#262624;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:32px 16px 80px}
+header.top{border-bottom:1px solid var(--border);padding-bottom:20px;margin-bottom:28px}
+h1{font-size:1.9rem;line-height:1.25;margin:0 0 6px}
+h2{font-size:1.4rem;margin:48px 0 12px;padding-top:8px;border-top:1px solid var(--border)}
+h3{font-size:1.1rem;margin:28px 0 8px}
+p,li{max-width:76ch}
+.meta{color:var(--muted);font-size:.92rem}
+a{color:var(--accent)}
+code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.88em;background:var(--code-bg);padding:1px 5px;border-radius:4px;word-break:break-word}
+pre{background:var(--code-bg);padding:12px 14px;border-radius:8px;overflow-x:auto;font-size:.85rem;line-height:1.45}
+pre code{background:none;padding:0}
+nav.toc{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin:20px 0}
+nav.toc ol{margin:6px 0 0;padding-left:20px;columns:2;column-gap:28px}
+nav.toc li{margin:2px 0;break-inside:avoid}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:14px 0}
+.summary{border-left:4px solid var(--accent)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.table-wrap{overflow-x:auto;margin:12px 0;border:1px solid var(--border);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{text-align:left;vertical-align:top;padding:8px 12px;border-bottom:1px solid var(--border)}
+th{background:var(--surface-2);font-weight:600}
+tr:last-child td{border-bottom:0}
+.tag{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.t-crit{color:var(--crit);background:var(--crit-soft)}
+.t-high{color:var(--high);background:var(--high-soft)}
+.t-med{color:var(--med);background:var(--med-soft)}
+.t-low{color:var(--low);background:var(--low-soft)}
+.t-ok{color:var(--ok);background:var(--low-soft)}
+.t-g{color:var(--accent);background:var(--accent-soft)}
+.finding{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin:12px 0}
+.finding h4{margin:0 0 6px;font-size:1.02rem;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.finding dl{display:grid;grid-template-columns:110px 1fr;gap:4px 12px;margin:8px 0 0}
+.finding dt{color:var(--muted);font-size:.88rem}
+.finding dd{margin:0}
+.note{background:var(--med-soft);border-radius:8px;padding:10px 14px;margin:12px 0;font-size:.95rem}
+.checklist li{list-style:none;margin:6px 0;padding-left:4px}
+.checklist{padding-left:4px}
+.checklist li::before{content:"☐ ";color:var(--accent);font-weight:700}
+footer{margin-top:60px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--border);padding-top:14px}
+@media (max-width:700px){
+  nav.toc ol{columns:1}
+  .grid2{grid-template-columns:1fr}
+  .finding dl{grid-template-columns:1fr}
+  .finding dt{margin-top:6px}
+  h1{font-size:1.5rem}
+}
+@media print{ body{background:#fff} .card,.finding,.table-wrap{break-inside:avoid} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>Audit SEO – autolandromania.ro</h1>
+  <div class="meta">Data raportului: 13 octombrie 2026 · Surse: backup server 20.08.2026, site live verificat 13.10.2026, loguri server (iul–aug 2026), <code>_docs/</code>, Search Console (screenshot 12 luni), documentație publică Google și presa SEO.</div>
+</header>
+
+<nav class="toc" aria-label="Cuprins">
+  <strong>Cuprins</strong>
+  <ol>
+    <li><a href="#rezumat">Rezumat</a></li>
+    <li><a href="#grafic">Ce spune graficul din Search Console</a></li>
+    <li><a href="#cronologie">Cronologie: Google și site-ul</a></li>
+    <li><a href="#google">Ce s-a schimbat la Google (2025–2026)</a></li>
+    <li><a href="#constatari">Problemele găsite pe site</a></li>
+    <li><a href="#rezolvate">Ce e deja rezolvat pe live</a></li>
+    <li><a href="#gsc">Ce trebuie verificat în Search Console</a></li>
+    <li><a href="#plan">Plan de acțiune</a></li>
+    <li><a href="#solutii">Soluții detaliate, pas cu pas</a></li>
+    <li><a href="#neverificat">Ce nu am putut verifica</a></li>
+    <li><a href="#surse">Surse</a></li>
+  </ol>
+</nav>
+
+<!-- ============================================================ -->
+<h2 id="rezumat">1. Rezumat</h2>
+
+<div class="card" style="border-left:4px solid var(--ok)">
+<p><strong>Actualizare după datele din Search Console și Google Business Profile:</strong></p>
+<ul>
+  <li>Clicurile sunt doar <strong>−10% față de anul trecut</strong>, mai puțin decât scăderea pieței (−15%).</li>
+  <li><strong>Două treimi din clicurile pierdute vin din căutări pe numele firmei</strong> („autoland”), cu pozițiile neschimbate. Asta ține de cerere, nu de SEO.</li>
+  <li>Indexarea s-a îmbunătățit, leasingul a câștigat poziții, iar apelurile din profilul Google sunt constante.</li>
+  <li><strong>Singura pierdere SEO reală</strong> e pe căutările locale: „parc auto iasi” a coborât de pe poziția ~5 pe ~9.</li>
+</ul>
+<p><strong>Prioritatea nr. 1 devine SEO local</strong> (profil Google Business și homepage). Restul problemelor tehnice rămân importante ca prevenție. Detalii în secțiunea 2.</p>
+</div>
+
+<div class="card summary">
+<p><strong>Concluzia inițială (înainte de datele GSC):</strong> scăderea din septembrie nu pare să aibă o singură cauză. Se suprapun trei lucruri. Unele țin de Google, altele de piață, iar altele de site. Pe cele de pe site le puteți repara.</p>
+<ol>
+  <li><strong>Google:</strong> în perioada august–octombrie 2026 <em>nu</em> a fost niciun core update, dar au fost două spam updates (<strong>18–21 aug</strong> și <strong>24 sep – 8 oct 2026</strong>). Din <strong>8 septembrie</strong> s-a schimbat și pagina de rezultate în Spațiul Economic European, inclusiv România (DMA). Rezultatele locale au fost incluse din <strong>18 septembrie</strong>.</li>
+  <li><strong>Piața:</strong> înmatriculările de mașini second hand în România au scăzut cu <strong>−14,5% în august</strong> și cu <strong>−14,7% în septembrie 2026</strong> față de anul trecut. Mai puțini cumpărători înseamnă mai puține căutări.</li>
+  <li><strong>Site-ul:</strong> câteva probleme pot fi interpretate de Google ca semnale de calitate slabă sau chiar de spam:
+    <ul>
+      <li>același <strong>rating 4,3 din 31 de recenzii</strong> e pus în cod pe toate cele aproximativ 470 de mașini;</li>
+      <li>mașinile vândute sau șterse fac <strong>redirect 301 spre lista de anunțuri</strong>, iar cele dezactivate apar încă „în stoc”;</li>
+      <li>aceeași mașină este accesibilă la mai multe URL-uri (<code>&amp;pic=</code>, filtre);</li>
+      <li>Google accesează paginile de mașini de aproximativ <strong>16 ori mai rar decât în 2022</strong>.</li>
+    </ul>
+  </li>
+</ol>
+<p>Între <strong>21 august și 4 septembrie 2026</strong> a fost urcat pe server un lot de modificări SEO: robots.txt nou, sitemap valid, canonical nou pe homepage, redirect 301. <strong>Raportul de indexare din GSC arată că au funcționat:</strong> paginile indexate au crescut la 584, iar „Accesată – nu este indexată” a scăzut de la 660 la 180. Deci <em>indexarea nu este cauza scăderii</em>. Problema e la poziționare sau la cerere (detalii în secțiunea 2).</p>
+<p><strong>Cel mai urgent:</strong> scoateți ratingul pus în cod din datele structurate. Mașinile vândute ar trebui să returneze 410 sau o pagină „Vândut” cu <code>noindex</code>, nu redirect. Apoi verificați în Search Console secțiunea <em>Acțiuni manuale</em>.</p>
+</div>
+
+<div class="note"><strong>Atenție la comparații:</strong> nu comparați <em>afișările</em> de anul acesta cu cele de anul trecut.
+<ul>
+  <li>Google a confirmat un bug care a umflat afișările între <strong>13 mai 2025 și 27 aprilie 2026</strong>, iar datele vechi nu vor fi corectate.</li>
+  <li>În <strong>septembrie 2025</strong> a dispărut parametrul <code>&amp;num=100</code>, pe care îl foloseau instrumentele de monitorizare a pozițiilor. De atunci, afișările au scăzut și poziția medie „s-a îmbunătățit” artificial pentru majoritatea site-urilor.</li>
+</ul>
+<strong>Comparați clicurile</strong>, care nu au fost afectate.</div>
+
+<!-- ============================================================ -->
+<h2 id="grafic">2. Ce spune graficul din Search Console</h2>
+<p>Pe ultimele 12 luni: <strong>10,4K clicuri</strong>, <strong>457K afișări</strong>, CTR 2,3%, poziție medie 10,5. Graficul are patru perioade:</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Perioada</th><th>Ce se vede</th><th>Explicația probabilă</th></tr></thead>
+<tbody>
+<tr><td>oct – mijloc nov 2025</td><td>Poziție bună, clicuri și afișări mici, stabile</td><td>Situația de dinainte de update-ul SEO.</td></tr>
+<tr><td>mijloc nov 2025 – ian 2026</td><td>Poziția medie oscilează puternic și se înrăutățește</td><td>
+  <ul>
+    <li><strong>Mutarea de pe www pe varianta fără www</strong> (3 nov 2025, <code>.htaccess</code>).</li>
+    <li>Erori fatale de PHP la deploy: 20 nov, 6 dec, 6 ian, iar cea din <code>json_ld_schemas.php</code> a afectat tot site-ul.</li>
+    <li><strong>Core update-ul din decembrie 2025</strong> (11–29 dec).</li>
+  </ul>
+  În plus, odată cu mai multe pagini indexate, apar afișări la poziții slabe, care trag media în jos.</td></tr>
+<tr><td>feb – iun 2026</td><td>Clicurile și afișările cresc constant, iar poziția se stabilizează. Apare un vârf de afișări la mijlocul lui februarie și un vârf de clicuri la începutul lui iunie</td><td>Efectul update-ului SEO (JSON-LD, meta, canonical). Vârful din iunie coincide cu finalul <strong>core update-ului din mai 2026</strong> (21 mai – 2 iun).</td></tr>
+<tr><td>iul – oct 2026</td><td>Platou, apoi scădere lentă a afișărilor din august și a clicurilor din a doua jumătate a lui septembrie</td><td>Vezi rezumatul: spam updates (aug, sep–oct), noul layout pentru SEE, piață în scădere, lotul de modificări din 21 aug – 4 sep și problemele de calitate de pe site.</td></tr>
+</tbody></table></div>
+
+<h3>Raportul „Indexarea paginilor” (screenshot din 13.10.2026)</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Indicator</th><th>Audit intern (~aug 2026)</th><th>Acum (oct 2026)</th><th>Ce înseamnă</th></tr></thead>
+<tbody>
+<tr><td><strong>Indexate</strong></td><td>554</td><td><strong>584</strong></td><td><span class="tag t-ok">bine</span> Numărul de pagini indexate crește ușor. Stocul are ~490 de mașini, deci majoritatea mașinilor active sunt probabil în index.</td></tr>
+<tr><td>Neindexate (total)</td><td>~1.620</td><td><strong>1.270</strong></td><td><span class="tag t-ok">bine</span> Totalul a scăzut constant din iulie (~1,75K → 1,27K): Google curăță URL-urile vechi.</td></tr>
+<tr><td>Accesată cu crawlere – nu este indexată</td><td>660</td><td><strong>180</strong></td><td><span class="tag t-ok">foarte bine</span> O scădere de ~73%. Este efectul cel mai clar al corecturilor (sitemap valid, canonical-uri). Google nu mai respinge în masă pagini pentru calitate.</td></tr>
+<tr><td>Pagină alternativă cu etichetă canonică corespunzătoare</td><td>651</td><td><strong>796</strong></td><td><span class="tag t-high">crește</span> Aici sunt URL-urile cu <code>&amp;pic=</code>, filtrele și paginarea cu <code>totalRows_vanzare</code>. Canonical-ul funcționează, dar Google consumă crawl pe ~800 de duplicate. Problema dispare dacă scoateți <code>&amp;pic=</code> din linkuri (pasul 6 din plan).</td></tr>
+<tr><td>Pagină cu redirecționare</td><td>231</td><td><strong>227</strong></td><td><span class="tag t-med">stabil</span> Aici intră URL-urile www, http, <code>m.</code> și, foarte probabil, <strong>mașinile șterse care fac 301 spre <code>/vanzari.php</code></strong>. Google le pune la „redirect”, nu la „soft 404”, deci impactul e mai mic decât estimasem. Totuși, 410 rămâne varianta corectă: le scoate din index mai repede și oprește crawl-ul repetat.</td></tr>
+<tr><td>Dublură fără canonică selectată</td><td>13</td><td>11</td><td>Probabil pagini vechi (<code>vanzari3.php</code>, <code>index (copie)--.php</code>, <code>/articole</code> vs <code>/articole/</code>). Deschideți lista din GSC și ștergeți sursele.</td></tr>
+<tr><td>Dublură, Google a ales altă canonică</td><td>12</td><td>7</td><td>Puține. Verificați exemplele: dacă e homepage-ul (<code>/</code> vs <code>/index.php</code>), problema se rezolvă de la sine.</td></tr>
+<tr><td>Descoperită – nu este indexată</td><td>48</td><td>49</td><td>Validarea a reușit. Sunt probabil mașini noi, încă neaccesate.</td></tr>
+<tr><td>Soft 404</td><td>0</td><td>0 (nu apare)</td><td><span class="tag t-ok">bine</span></td></tr>
+</tbody></table></div>
+
+<div class="card summary">
+<p><strong>Ce schimbă asta în concluzii:</strong> indexarea <em>nu</em> este cauza scăderii din septembrie. Dimpotrivă, s-a îmbunătățit clar după corecturile din 21 aug – 4 sep: mai multe pagini indexate, de 3–4 ori mai puține pagini respinse. Ipoteza că lotul de modificări a perturbat indexarea pierde din greutate.</p>
+<p>Dacă paginile sunt indexate, dar clicurile și afișările scad, problema este la <strong>poziționare</strong> sau la <strong>cerere</strong>, nu la indexare. Rămân deci trei explicații:</p>
+<ol>
+  <li>evaluarea de calitate sau spam din spam update-urile din august și septembrie. Ratingul pus în cod e principalul suspect pe partea tehnică;</li>
+  <li>noul layout din SEE, care dă mai mult spațiu agregatorilor (Autovit, OLX);</li>
+  <li>cererea mai mică de pe piață (−15%).</li>
+</ol>
+<p>Ca să le separăm, cel mai util e raportul <strong>Performanță</strong>, filtrat pe interogări și pe pagini (vezi secțiunea 7), plus pagina <strong>Acțiuni manuale</strong>.</p>
+</div>
+
+<h3>De unde vine traficul (Performanță, ultimele 16 luni)</h3>
+<div class="grid2">
+<div class="card">
+<strong>Top interogări după clicuri</strong>
+<ul>
+  <li><strong>Brand:</strong> „autoland romania” 764, „autoland” 710</li>
+  <li><strong>Local, generic:</strong> „parc auto iasi” 579 (12,3K afișări), „parcuri auto iasi” 326 (10,2K), „auto rulate iasi” 148, „parcuri auto romania” 86</li>
+  <li><strong>Modele:</strong> „fiat doblo maxi xl” 124, „opel vivaro 6 locuri” 100</li>
+  <li><strong>Finanțare:</strong> „leasing auto fara avans persoane juridice” 84, „autoutilitare in rate” 79</li>
+</ul>
+</div>
+<div class="card">
+<strong>Top pagini după clicuri</strong>
+<ul>
+  <li><strong>Homepage:</strong> 4.373 clicuri, plus variantele vechi <code>http://www</code> (731) și <code>https://www</code> (704): <strong>~5.800 în total</strong></li>
+  <li><code>leasing.php</code>: 1.613, plus <code>www</code> 460: <strong>~2.070</strong></li>
+  <li><code>vanzari.php?users=Autoutilitare&amp;subcateg=12&amp;marcat=100</code>: 382, plus varianta <code>www</code> 292</li>
+  <li><code>/articole/ghid-complet-leasing-finantare-auto-2026</code>: 363 clicuri din 35,4K afișări (<strong>CTR ~1%</strong>)</li>
+  <li>Prima pagină de mașină: <code>id=1517</code> cu 290 de clicuri, <code>id=1501</code> cu 150</li>
+</ul>
+</div>
+</div>
+
+<div class="card summary">
+<p><strong>Ce înseamnă asta:</strong></p>
+<ol>
+  <li><strong>Traficul e foarte concentrat.</strong> Homepage-ul și pagina de leasing aduc împreună aproximativ trei sferturi din clicuri. Paginile de mașini aduc puțin, deci problemele lor (rating, <code>&amp;pic=</code>, 410) contează mai mult ca semnal de calitate pentru tot site-ul decât ca trafic direct.</li>
+  <li><strong>Interogările locale sunt motorul site-ului.</strong> „parc auto iasi”, „parcuri auto iasi” și „auto rulate iasi” sunt exact tipul de căutări afectate de <strong>noile blocuri pentru afaceri locale din SEE (din 18 septembrie 2026)</strong> și de Local Pack. Pentru ele, <strong>profilul Google Business</strong> (recenzii, fotografii, categorie, program) contează la fel de mult ca site-ul.</li>
+  <li><strong>Leasingul este un subiect financiar (YMYL).</strong> Core și spam updates evaluează aceste pagini mai sever. Titlul „Finanțare cu Avans 0%” combinat cu textul „0% dobândă” de pe homepage, care contrazice dobânzile afișate, poate fi văzut ca o promisiune înșelătoare. Articolul de ghid are CTR de ~1%, un tipar tipic pentru interogările informaționale la care Google afișează un AI Overview.</li>
+  <li><strong>AI generativ (primul screenshot):</strong> 8,42K afișări din 18 mai, adică ~40–80 pe zi, constant. Reprezintă sub 5% din totalul afișărilor și nu scade semnificativ în septembrie. <strong>AI Overviews nu sunt cauza principală a scăderii.</strong></li>
+</ol>
+</div>
+
+<div class="note"><strong>Atenție la pasul 7 din plan (canonical din listă albă):</strong> <code>vanzari.php?users=Autoutilitare&amp;subcateg=12&amp;marcat=100</code> este a treia cea mai performantă pagină a site-ului. Dacă se schimbă parametrii din canonical sau din linkuri, URL-ul vechi trebuie redirecționat cu <strong>301</strong> spre cel nou. Altfel, poziția câștigată se pierde. Varianta cea mai sigură: păstrați exact acest URL ca URL canonic al categoriei Autoutilitare și aplicați lista albă doar pe celelalte combinații.</div>
+
+<h3>Comparație an la an: 16.09–12.10.2026 vs 16.08–15.09.2025</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Indicator</th><th>2025</th><th>2026</th><th>Diferență</th><th>Interpretare</th></tr></thead>
+<tbody>
+<tr><td>Clicuri</td><td>802</td><td>721</td><td><strong>−81 (−10%)</strong></td><td>Scădere mică, sub scăderea pieței (−15%).</td></tr>
+<tr><td>Afișări</td><td>38K</td><td>31,8K</td><td>−16%</td><td>Nu e comparabil: afișările din 2025 erau umflate de bug și de <code>&amp;num=100</code>.</td></tr>
+<tr><td>CTR</td><td>2,1%</td><td>2,3%</td><td>+0,2</td><td>Ușor mai bun.</td></tr>
+<tr><td>Poziție medie</td><td>18,8</td><td>9,5</td><td>„+9,3”</td><td>Mare parte e artefact. În graficul zilnic, linia de poziție din 2025 sare brusc în jurul zilei 26 a perioadei (~10 sep 2025), exact când a dispărut <code>&amp;num=100</code>.</td></tr>
+</tbody></table></div>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Interogare</th><th>Clicuri 2025 → 2026</th><th>Poziție 2025 → 2026</th><th>Observație</th></tr></thead>
+<tbody>
+<tr><td>autoland romania</td><td>53 → 36 (−17)</td><td>1 → 1</td><td rowspan="2"><strong>Brandul explică −52 din cele −81 de clicuri pierdute.</strong> Pozițiile sunt la fel, dar mai puțini oameni caută numele firmei (afișări 106 → 50 și 681 → 541). E o problemă de cerere sau notorietate, nu de SEO.</td></tr>
+<tr><td>autoland</td><td>53 → 18 (−35)</td><td>4,4 → 5,9</td></tr>
+<tr><td>parc auto iasi</td><td>27 → 21 (−6)</td><td><strong>5,1 → 9,1</strong></td><td rowspan="2"><span class="tag t-high">atenție</span> Afișările au crescut (345 → 827), dar poziția organică a scăzut cu ~4 locuri pe cea mai importantă interogare locală. Concurența locală sau noile blocuri locale împing site-ul mai jos.</td></tr>
+<tr><td>auto rulate iasi</td><td>7 → 7</td><td>6 → 9,4</td></tr>
+<tr><td>parcuri auto iasi</td><td>14 → 13</td><td>7,1 → 7,8</td><td>Stabil.</td></tr>
+<tr><td>leasing operational fara avans</td><td>0 → 7</td><td><strong>42,7 → 8,6</strong></td><td rowspan="2"><span class="tag t-ok">câștig</span> Pagina și articolul de leasing au urcat masiv față de anul trecut. Update-ul SEO a funcționat aici.</td></tr>
+<tr><td>mașini în leasing fără avans</td><td>0 → 7</td><td>18,4 → 4,2</td></tr>
+<tr><td>parcuri auto</td><td>1 → 8</td><td>45,9 → 12,9</td><td><span class="tag t-ok">câștig</span></td></tr>
+<tr><td>renault espace 7 locuri</td><td>5 → 9</td><td>3,2 → 2,9</td><td>Paginile de mașini aduc trafic pe modele specifice.</td></tr>
+</tbody></table></div>
+<p class="note">Tabelul „Pagini” din comparație nu e util așa cum e: în 2025 site-ul era pe <code>www</code>, așa că toate URL-urile fără www au 0 clicuri anul trecut. Pentru o comparație corectă pe pagini, folosiți perioada <strong>16.08–15.09.2026 vs 16.09–12.10.2026</strong> (lună la lună, același domeniu).</p>
+
+<h3>Statistici de accesare cu crawlere (15.07 – 11.10.2026)</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Indicator</th><th>Valoare</th><th>Interpretare</th></tr></thead>
+<tbody>
+<tr><td>Solicitări totale</td><td>45,4K (~500/zi)</td><td>Volumul e normal pentru un site de această mărime.</td></tr>
+<tr><td>Durata medie de răspuns</td><td><strong>767 ms</strong></td><td><span class="tag t-high">lent</span> Peste ~500 ms, Google reduce ritmul de crawl. Cauzele probabile sunt cele două <code>error_log("DEBUG …")</code> din <code>vanzari_detail.php</code> (scriu în log la fiecare afișare a unei mașini), <code>session_start()</code> pe fiecare pagină (blochează cache-ul) și interogări fără cache. Ținta: sub 300 ms.</td></tr>
+<tr><td>Tip Googlebot</td><td>Imagine 79% · Smartphone 13% · Resurse 4% · Desktop 4%</td><td>Google cheltuie aproape 4/5 din crawl pe cele ~7.500 de poze (473 MB). HTML-ul are doar <strong>11%</strong>, adică ~55 de pagini pe zi, ceea ce confirmă logurile (~48 de pagini de mașini pe zi).</td></tr>
+<tr><td>Scop</td><td>Descoperire 72% · Actualizare 28%</td><td>Procentul mare de „descoperire” arată că Google găsește mereu URL-uri noi: poze noi, variante <code>&amp;pic=</code> și combinații de filtre.</td></tr>
+<tr><td>Răspuns</td><td>200: 81% · 301: 11% · 404: 6% · 304: 2%</td><td>Redirecturile 301 sunt mașinile șterse și host-urile vechi. Erorile 404 sunt în principal pozele mașinilor vândute (confirmat în logurile din august).</td></tr>
+<tr><td>Gazde</td><td>autolandromania.ro 40.954 · www 3.614 · m. 460 · <strong>mail. 214</strong> · www.m. 193 · +1</td><td><span class="tag t-high">confirmat 13.10</span> <code>http://mail.autolandromania.ro</code> afișează tot site-ul, deci e o copie duplicată a lui. Soluția e la 9.5: o singură regulă 301 pentru toate gazdele. Verificați și a 6-a gazdă din listă.</td></tr>
+<tr><td><strong>Gol de crawl ~17–27 sep 2026</strong></td><td>solicitările scad aproape la zero</td><td><span class="tag t-high">atenție</span> Coincide cu începutul scăderii clicurilor și cu spam update-ul din 24 sep. Volumul descărcat a scăzut odată cu solicitările, deci a fost afectat mai ales crawlerul de imagini. Timpul de răspuns a scăzut și el, deci nu pare un server supraîncărcat. Merită verificat dacă hostingul sau firewall-ul (Imunify360) a blocat sau a limitat Googlebot în acea perioadă: în cPanel → Raw Access Logs, căutați „Googlebot” și coduri 403/406/429/5xx între 17 și 27 septembrie.</td></tr>
+</tbody></table></div>
+
+<h3>Google Business Profile (mai – oct 2026)</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Indicator</th><th>Valoare</th><th>Observație</th></tr></thead>
+<tbody>
+<tr><td>Interacțiuni (6 luni)</td><td>985</td><td>Vârf în august (~280), apoi ~125 în septembrie. Octombrie arată doar 12 zile, deci punctul final pare mai jos decât e de fapt.</td></tr>
+<tr><td>Apeluri</td><td>96</td><td>Mai ~14, iun ~18, iul ~21, aug ~18, <strong>sep ~20</strong>. Apelurile <strong>nu au scăzut</strong> în septembrie: fluxul real de clienți din Google e stabil.</td></tr>
+<tr><td>Vizualizări profil</td><td>20.129</td><td>74% Google Search mobil, 13% desktop, 13% Maps.</td></tr>
+<tr><td>Căutări care au afișat profilul</td><td>6.232</td><td>autoland 844, <strong>parc auto iasi 714</strong>, parcuri auto iasi 609, parcuri auto romania 414, used cars romania 357.</td></tr>
+</tbody></table></div>
+
+<div class="card summary">
+<p><strong>Concluzie actualizată după datele din GSC și GBP:</strong></p>
+<ol>
+  <li><strong>Nu există penalizare.</strong> Acțiuni manuale și Probleme de securitate: „Nu au fost detectate probleme” (13.10.2026). Clicurile sunt doar −10% față de anul trecut, iar pozițiile pe brand și pe leasing sunt bune sau mai bune. Apelurile din profilul Google sunt constante.</li>
+  <li><strong>Cea mai mare parte a scăderii vine din căutările pe numele firmei</strong> (−52 din −81 de clicuri). Mai puțini oameni caută „autoland”, ceea ce ține de piață (−15%), de publicitate și de notorietate, nu de site.</li>
+  <li><strong>Problema SEO reală este pe interogările locale.</strong> „parc auto iasi” a coborât de pe poziția ~5 pe ~9, iar „auto rulate iasi” de pe 6 pe 9,4. Aceleași căutări aduc multe afișări profilului Google Business, deci o parte din clienți ajung direct la apel sau la hartă, fără să mai intre pe site.</li>
+  <li><strong>Prioritatea se mută spre SEO local:</strong> profilul Google Business (recenzii noi și răspunsuri la ele, fotografii, postări săptămânale cu mașini, categorii, program), homepage optimizat pentru „parc auto Iași” (text local, adresă, hartă, recenzii reale, ultimele mașini) și consistența adresei și a telefonului pe toate site-urile unde apare firma.</li>
+  <li>Problemele tehnice din secțiunea 5 rămân de corectat, mai ales ratingul pus în cod și securitatea. Ele sunt însă <em>prevenție</em>, nu explicația scăderii actuale.</li>
+</ol>
+</div>
+
+<p>Scăderea din septembrie este, deocamdată, <strong>moderată</strong>. Nu arată ca o penalizare bruscă, adică o cădere de 50–80% peste noapte. Tiparul seamănă mai mult cu o reevaluare treptată, peste care se adaugă o cerere mai mică pe piață.</p>
+
+<!-- ============================================================ -->
+<h2 id="cronologie">3. Cronologie: Google și site-ul</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Data</th><th>Tip</th><th>Eveniment</th></tr></thead>
+<tbody>
+<tr><td>24 mai – 2 iun 2025</td><td><span class="tag t-crit">site</span></td><td>Atac SQL injection reușit pe <code>vanzari_detail.php?id=</code>, cu date extrase din baza de date (<code>_docs/06-attack-forensics.html</code>, <code>error_log</code>)</td></tr>
+<tr><td>12 iun 2025</td><td><span class="tag t-g">Google</span></td><td>Google anunță că renunță la 7 tipuri de rich results, inclusiv <strong>Vehicle listing</strong></td></tr>
+<tr><td>30 iun – 17 iul 2025</td><td><span class="tag t-g">Google</span></td><td>Core update iunie 2025</td></tr>
+<tr><td>26 aug – 22 sep 2025</td><td><span class="tag t-g">Google</span></td><td>Spam update august 2025</td></tr>
+<tr><td>~8–14 sep 2025</td><td><span class="tag t-g">Google</span></td><td>Dispare <code>&amp;num=100</code>, iar afișările din GSC scad la majoritatea site-urilor</td></tr>
+<tr><td>9 sep 2025</td><td><span class="tag t-g">Google</span></td><td>Documentația Vehicle listing e ștearsă: rezultatele nu mai apar în Search</td></tr>
+<tr><td>~8–9 oct 2025</td><td><span class="tag t-g">Google</span></td><td>AI Mode este lansat în limba română</td></tr>
+<tr><td>21 oct – 3 nov 2025</td><td><span class="tag t-med">site</span></td><td>Update SEO: reguli noi în <code>.htaccess</code>, redirect <code>m.</code> → domeniul principal, <strong>www → fără www</strong></td></tr>
+<tr><td>20 nov 2025</td><td><span class="tag t-crit">site</span></td><td>Parse error în <code>vanzari_detail.php:328</code> (pagina de mașină nu funcționează)</td></tr>
+<tr><td>6 dec 2025</td><td><span class="tag t-crit">site</span></td><td>Fatal error: <code>getCarVideos()</code> nu este definită</td></tr>
+<tr><td>11 – 29 dec 2025</td><td><span class="tag t-g">Google</span></td><td>Core update decembrie 2025</td></tr>
+<tr><td>6 ian 2026</td><td><span class="tag t-crit">site</span></td><td>Parse error în <code>json_ld_schemas.php:22</code> (inclus pe toate paginile)</td></tr>
+<tr><td>2 feb 2026</td><td><span class="tag t-crit">site</span></td><td>Parse error în <code>menu_top.php:55</code> (pe toate paginile)</td></tr>
+<tr><td>24 feb 2026</td><td><span class="tag t-crit">site</span></td><td>Parse error în <code>vanzari_detail.php:1337</code></td></tr>
+<tr><td>24 mar 2026</td><td><span class="tag t-g">Google</span></td><td>Spam update martie 2026</td></tr>
+<tr><td>27 mar – 8 apr 2026</td><td><span class="tag t-g">Google</span></td><td>Core update martie 2026</td></tr>
+<tr><td>27 apr 2026</td><td><span class="tag t-g">Google</span></td><td>Se încheie bug-ul care umfla afișările în GSC (început pe 13 mai 2025)</td></tr>
+<tr><td>~4 mai 2026</td><td><span class="tag t-med">site</span></td><td>Sitemap regenerat, dar salvat în <strong>UTF-16</strong>, deci necitibil pentru Google</td></tr>
+<tr><td>7 mai 2026</td><td><span class="tag t-g">Google</span></td><td>Rezultatele FAQ nu mai sunt afișate</td></tr>
+<tr><td>21 mai – 2 iun 2026</td><td><span class="tag t-g">Google</span></td><td>Core update mai 2026, apoi vârful de trafic din iunie</td></tr>
+<tr><td>iun 2026</td><td><span class="tag t-med">site</span></td><td><code>error_log</code> ajunge la 40.000 de linii pe lună (mesajele <code>error_log("DEBUG …")</code> din <code>vanzari_detail.php</code>)</td></tr>
+<tr><td>24 – 26 iun 2026</td><td><span class="tag t-g">Google</span></td><td>Spam update iunie 2026</td></tr>
+<tr><td>18 – 21 aug 2026</td><td><span class="tag t-g">Google</span></td><td><strong>Spam update august 2026</strong></td></tr>
+<tr><td>21 aug 2026</td><td><span class="tag t-high">site</span></td><td>Audit intern (<code>_docs/</code>) și <strong>robots.txt nou</strong> urcat pe server</td></tr>
+<tr><td>21 aug – 4 sep 2026</td><td><span class="tag t-high">site</span></td><td>Redirect HTTPS trecut de la 302 la 301, <code>lang="ro"</code>, canonical homepage <code>/index.php</code> → <code>/</code>, <strong>sitemap UTF-8 valid</strong> (4 sep)</td></tr>
+<tr><td>28 aug 2026</td><td><span class="tag t-g">Google</span></td><td>Politica de „site reputation abuse” se schimbă pentru SEE</td></tr>
+<tr><td>8 sep 2026</td><td><span class="tag t-g">Google</span></td><td><strong>Layout nou al rezultatelor în SEE</strong> (blocuri „aggregator” / „supplier”, DMA)</td></tr>
+<tr><td>~15–18 sep 2026</td><td><span class="tag t-g">Google</span></td><td>Listările gratuite de produse dispar din SEE. Din 18 sep, blocurile noi apar și pentru afaceri locale</td></tr>
+<tr><td>24 sep – 8 oct 2026</td><td><span class="tag t-g">Google</span></td><td><strong>Spam update septembrie 2026</strong> (cel mai lung din an: 2 săptămâni)</td></tr>
+<tr><td>sep 2026</td><td><span class="tag t-low">piață</span></td><td>Înmatriculări de mașini second hand −14,7% față de septembrie 2025 (aug: −14,5%)</td></tr>
+</tbody></table></div>
+
+<!-- ============================================================ -->
+<h2 id="google">4. Ce s-a schimbat la Google (2025–2026)</h2>
+
+<h3>4.1 Update-uri de ranking confirmate</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Update</th><th>Început</th><th>Sfârșit</th></tr></thead>
+<tbody>
+<tr><td>Core update iunie 2025</td><td>30 iun 2025</td><td>17 iul 2025</td></tr>
+<tr><td>Spam update august 2025</td><td>26 aug 2025</td><td>22 sep 2025</td></tr>
+<tr><td>Core update decembrie 2025</td><td>11 dec 2025</td><td>29 dec 2025</td></tr>
+<tr><td>Discover update (doar Discover)</td><td>5 feb 2026</td><td>~26 feb 2026</td></tr>
+<tr><td>Spam update martie 2026</td><td>24 mar 2026</td><td>&lt; 24 h</td></tr>
+<tr><td>Core update martie 2026</td><td>27 mar 2026</td><td>8 apr 2026</td></tr>
+<tr><td>Core update mai 2026</td><td>21 mai 2026</td><td>1–2 iun 2026</td></tr>
+<tr><td>Spam update iunie 2026</td><td>24 iun 2026</td><td>~26 iun 2026</td></tr>
+<tr><td><strong>Spam update august 2026</strong></td><td>18 aug 2026</td><td>~20–21 aug 2026</td></tr>
+<tr><td><strong>Spam update septembrie 2026</strong></td><td>24 sep 2026</td><td>8 oct 2026</td></tr>
+</tbody></table></div>
+<p>Spam updates sunt globale și se aplică în toate limbile. Google nu spune ce vizează concret. Pentru site-ul de față contează în special <strong>datele structurate înșelătoare</strong>, adică ratingul pus în cod. Google le tratează în politicile sale ca spam și le poate sancționa manual sau algoritmic.</p>
+
+<h3>4.2 Date structurate și rezultate îmbogățite</h3>
+<ul>
+  <li><strong>Vehicle listing</strong>: rezultatele dedicate pentru mașini nu mai sunt afișate din septembrie 2025, iar raportul din Search Console a dispărut. Markup-ul <code>Car</code>/<code>Vehicle</code> nu strică, dar nu mai aduce un rezultat special. Google precizează că eliminarea nu afectează ranking-ul.</li>
+  <li><strong>FAQ</strong>: nu mai este afișat din 7 mai 2026. <strong>HowTo</strong> fusese eliminat încă din 2023.</li>
+  <li><strong>Product / Merchant listings</strong> rămâne valabil. Tocmai de aceea, un <code>aggregateRating</code> fals pe un Product este riscant.</li>
+</ul>
+
+<h3>4.3 AI Overviews, AI Mode și noul layout pentru SEE</h3>
+<ul>
+  <li><strong>AI Overviews</strong> au fost extinse în peste 200 de țări în mai 2025, iar <strong>AI Mode este disponibil în română</strong> din octombrie 2025. Pe căutările informaționale, CTR-ul organic a scăzut puternic (Seer Interactive: −61% până în sep 2025, cu o revenire parțială în 2026). Asta afectează mai ales articolele și ghidurile, mai puțin căutările tranzacționale de tipul „Dacia Logan second hand Iași”.</li>
+  <li><strong>Layout nou în SEE (din 8 sep 2026):</strong> blocuri „aggregator”/„supplier” pentru hoteluri, zboruri, produse și, din 18 sep, afaceri locale. Nicio sursă nu confirmă explicit că sunt afectate căutările de mașini, dar momentul se potrivește cu scăderea. Merită verificat manual în Google cum arată acum rezultatele pentru căutările dumneavoastră principale. Agregatorii (Autovit, OLX) pot primi acum mai mult spațiu vizual.</li>
+</ul>
+
+<h3>4.4 Indexare și crawling</h3>
+<ul>
+  <li><strong>Produse expirate:</strong> conform documentației Google, 404 și 410 duc la eliminarea din index. Un redirect în masă spre o pagină de categorie este tratat de obicei ca <strong>soft 404</strong> (John Mueller). Redirectul e potrivit doar când există un echivalent real.</li>
+  <li>Din decembrie 2025, paginile care nu răspund cu 200 s-ar putea să nu mai fie randate deloc (JavaScript).</li>
+  <li>Unii practicieni raportează din martie 2026 o creștere a statusului „Accesată – momentan neindexată”. Google nu a confirmat.</li>
+  <li>Mobile-first indexing este complet de ani buni. La Core Web Vitals nu au fost schimbări în 2025–2026; INP rămâne metrica de interactivitate.</li>
+</ul>
+
+<h3>4.5 Specific pentru dealeri auto</h3>
+<ul>
+  <li>Funcția „Vehicles for sale” din Google Business Profile ar fi fost eliminată în jurul datei de 12 nov 2025. Informația vine din surse terțe și nu este confirmată de Google.</li>
+  <li>Reclamele Merchant Center pentru vehicule (vehicle ads) sunt disponibile în Spania, Italia și Germania din martie 2026. <strong>Nu am găsit dovezi că ar fi disponibile în România.</strong></li>
+  <li>Recenziile <em>reale</em> din Google Business Profile rămân un semnal important pentru căutările locale („parc auto Iași”).</li>
+</ul>
+
+<!-- ============================================================ -->
+<h2 id="constatari">5. Problemele găsite pe site</h2>
+<p>Pentru fiecare problemă găsiți dovada (fișier:linie din backup sau URL live), impactul și remedierea. Liniile de cod se referă la backup-ul din 20.08.2026. Acolo unde am putut, am confirmat starea pe site-ul live din 13.10.2026.</p>
+
+<h3>Critice</h3>
+
+<div class="finding">
+<h4><span class="tag t-crit">Critic</span> Același rating (4,3 / 31 de recenzii) pe toate mașinile</h4>
+<dl>
+<dt>Dovadă</dt><dd><code>vanzari_detail.php:726-738</code>, cu comentariul „Always show rating to satisfy Google's rich snippet requirements”. Pe pagini de listare: <code>vanzari.php:457-463</code>. <strong>Confirmat pe live</strong> pe mai multe mașini (id 1176, 1261, 1265, 1269).</dd>
+<dt>Impact</dt><dd>Google interzice ratingurile la nivel de firmă sau ratingurile care nu aparțin produsului respectiv pe <code>Product</code>. Aceeași recenzie pe 470 de produse este un tipar clasic de „spammy structured data”. Riscul este o acțiune manuală sau ignorarea algoritmică a tuturor rich results ale site-ului, și poate contribui la evaluarea de calitate din spam updates.</dd>
+<dt>Remediere</dt><dd><em>Stare 13.10.2026: nu există acțiune manuală, deci încă nu a fost sancționat. Riscul rămâne, pentru că o acțiune manuală poate apărea oricând.</em><br>Ștergeți blocul <code>aggregateRating</code> din ambele fișiere. Ratingul de firmă poate rămâne <em>doar</em> pe schema <code>AutoDealer</code> de pe homepage, și numai dacă reflectă recenzii afișate pe site. Verificați apoi <em>Acțiuni manuale</em> în GSC.</dd>
+</dl>
+</div>
+
+<div class="finding">
+<h4><span class="tag t-crit">Critic</span> Mașinile șterse fac redirect 301 spre lista de anunțuri (soft 404)</h4>
+<dl>
+<dt>Dovadă</dt><dd><code>vanzari_detail.php:61-69</code>: <code>http_response_code(301); header("Location: ... vanzari.php?message=expired")</code>. <strong>Confirmat pe live:</strong> <code>/vanzari_detail.php?id=999999</code> → 301 → <code>/vanzari.php?message=expired</code> (200, canonical <code>/vanzari.php</code>). În <code>error_log</code> apar ~930 de cereri „Missing car ID”, iar printre ID-urile cele mai accesate sunt 1622, 1094 și 1447.</dd>
+<dt>Impact</dt><dd>Google vede sute de pagini care „se mută permanent” în același loc. În GSC apar în prezent la „Pagină cu redirecționare” (227), nu la „Soft 404”, așa că impactul direct e moderat. Totuși, URL-urile moarte rămân mai mult timp în procesul de indexare și consumă bugetul de crawl.</dd>
+<dt>Remediere</dt><dd>Pentru ID inexistent: <strong>410 Gone</strong> și o pagină utilă (mașini similare, link spre stoc). Exemplu:
+<pre><code>if (mysqli_num_rows($vanzare) == 0) {
+    http_response_code(410);
+    include './404.php';   // cu un singur meta robots: noindex (vezi tabelul Medii)
+    exit();
+}</code></pre>
+Corectați și bug-ul de precedență de la linia 64: <code>($_SERVER['HTTP_REFERER'] ?? 'direct')</code> trebuie pus în paranteze.</dd>
+</dl>
+</div>
+
+<div class="finding">
+<h4><span class="tag t-crit">Critic</span> Mașinile dezactivate (<code>stare_anunt=0</code>) rămân accesibile, indexabile și „InStock”</h4>
+<dl>
+<dt>Dovadă</dt><dd><code>vanzari_detail.php:55</code> selectează mașina doar după <code>id</code>, fără <code>stare_anunt</code>. JSON-LD are <code>"availability" =&gt; "InStock"</code> pus în cod (linia 464) și <code>priceValidUntil</code> la +180 de zile (467). Paginile de categorie (<code>vanzari.php:148,151</code>) listează mașini fără să filtreze după <code>stare_anunt</code>.</dd>
+<dt>Impact</dt><dd>O mașină vândută continuă să apară ca disponibilă, cu preț. Pentru Google sunt date înșelătoare, iar pentru utilizator e o experiență proastă: sună și află că mașina nu mai există.</dd>
+<dt>Remediere</dt><dd>Alegeți una dintre variante:
+<ul>
+  <li>Mașina dezactivată returnează 410, ca o mașină ștearsă.</li>
+  <li>Păstrați o pagină „VÂNDUT” cu <code>&lt;meta name="robots" content="noindex"&gt;</code>, <code>availability: SoldOut</code> și linkuri spre mașini similare.</li>
+</ul>
+Adăugați <code>AND stare_anunt='1'</code> în interogările de listare.</dd>
+</dl>
+</div>
+
+<div class="finding">
+<h4><span class="tag t-crit">Critic</span> Securitate: SQL injection, dump-uri de bază de date și loguri în webroot</h4>
+<dl>
+<dt>Dovadă</dt><dd>
+<ul>
+  <li>Parametrul <code>id</code> este escapat, dar nu e pus între ghilimele (<code>WHERE id = %s</code>, <code>vanzari_detail.php:47,55</code>), așa că escaparea nu protejează nimic. Același tipar apare în <code>vanzari.php:158,195-201</code>.</li>
+  <li>Atacul din mai 2025 a reușit, iar tentativele continuă în 2026 (<code>SLEEP</code>, <code>BENCHMARK</code>).</li>
+  <li>În <code>public_html</code> există <code>autolan1_autos1ww1a.sql</code> și <code>autogrupnet_auto(1).sql</code> (8,6 MB fiecare, cu tabelul de utilizatori admin) și <code>error_log</code> de 43 MB.</li>
+  <li>Sunt prezente și fișiere <code>.old</code>/<code>.bak</code>/<code>_backup_*</code> (servite ca text, cu codul sursă vizibil), <code>test.php</code> și scripturi de test în <code>tehnic/</code> fără autentificare.</li>
+  <li><code>thumb.php</code> permite scrierea de fișiere prin parametri trimiși de oricine.</li>
+</ul></dd>
+<dt>Impact SEO</dt><dd>Un site compromis poate primi eticheta „Acest site poate fi piratat” sau pagini spam injectate, ceea ce înseamnă o prăbușire în rezultate. Și riscul de securitate în sine este grav.</dd>
+<dt>Remediere</dt><dd><code>$id = (int)$_GET['id'];</code> sau prepared statements. Mutați sau ștergeți dump-urile, logurile și backup-urile din webroot. Pentru restul, folosiți <code>&lt;FilesMatch "\.(sql|log|old|bak)$|_backup_|^error_log$"&gt; Require all denied &lt;/FilesMatch&gt;</code>. Ștergeți scripturile de test.</dd>
+</dl>
+</div>
+
+<h3>Ridicate</h3>
+
+<div class="finding">
+<h4><span class="tag t-high">Ridicat</span> Aceeași mașină la mai multe URL-uri (<code>&amp;pic=</code>, filtre, paginare)</h4>
+<dl>
+<dt>Dovadă</dt><dd>
+<ul>
+  <li>Toate cardurile din listă trimit la <code>vanzari_detail.php?id=X&amp;pic=Fisier.jpg</code> (<code>inventory_listing2.php:89</code>). <strong>Confirmat pe live.</strong></li>
+  <li>Paginarea adaugă <code>totalRows_vanzare</code> (<code>vanzari.php:246</code>).</li>
+  <li>Canonical-ul se construiește din toate cele 11 filtre posibile (<code>header.php:62-80</code>), deci fiecare combinație de filtre devine o pagină indexabilă.</li>
+  <li>Când e setat <code>users</code>, celelalte filtre sunt ignorate (<code>vanzari.php:145</code>): conținut identic cu canonical diferit.</li>
+</ul></dd>
+<dt>Impact</dt><dd>Auditul intern citează din GSC <strong>651 de pagini „Alternativă cu etichetă canonică corectă”</strong> și <strong>660 „Accesată – neindexată”</strong>, față de doar 554 de pagini indexate. Google pierde timp cu duplicate în loc să acceseze mașinile noi.</dd>
+<dt>Remediere</dt><dd>
+<ul>
+  <li>Linkuri interne doar către <code>vanzari_detail.php?id=X</code>.</li>
+  <li>Canonical construit dintr-o listă albă: <code>users</code> + <code>pageNum_vanzare</code>.</li>
+  <li><code>noindex,follow</code> pe combinațiile de filtre (marcă + an + preț etc.).</li>
+  <li>Eliminați <code>totalRows_vanzare</code> din URL.</li>
+</ul></dd>
+</dl>
+</div>
+
+<div class="finding">
+<h4><span class="tag t-high">Ridicat</span> Accesarea paginilor de mașini de către Google a scăzut puternic</h4>
+<dl>
+<dt>Dovadă</dt><dd>Loguri de acces: în <strong>sep 2022</strong>, Googlebot a accesat <code>vanzari_detail.php</code> de 24.493 de ori în 31 de zile (~790/zi, 306 mașini). În <strong>aug 2026</strong>: 955 de accesări în 20 de zile (~48/zi, 215 mașini). Restul accesărilor merg spre imagini, CSS și redirecturi.</dd>
+<dt>Impact</dt><dd>Google consideră paginile de mașini puțin valoroase: șablon identic, conținut unic puțin, multe duplicate. Mașinile noi sunt descoperite și indexate greu, uneori după ce au fost deja vândute.</dd>
+<dt>Remediere</dt><dd>Rezolvarea duplicatelor și a soft 404 eliberează bugetul de crawl. Ajută și linkuri spre cele mai noi mașini de pe homepage, un sitemap generat automat cu <code>lastmod</code> real și conținut unic pe fiecare mașină.</dd>
+</dl>
+</div>
+
+<div class="finding">
+<h4><span class="tag t-high">Ridicat</span> Pagini vechi sau duplicate încă funcționale</h4>
+<dl>
+<dt>Dovadă</dt><dd>
+<ul>
+  <li><code>index (copie)--.php</code> afișează homepage-ul întreg.</li>
+  <li><code>vanzari3.php</code> și <code>vanzari.bak.php</code> sunt liste duplicate, iar <code>vanzari3.php</code> e chiar inclus în lista de canonical-uri proprii din <code>header.php:53</code>.</li>
+  <li><code>mobile/</code> folosește <code>mysql_*</code> (eroare fatală pe PHP 7+) și are un <code>.htaccess</code> propriu care redirecționează spre <code>http://www.m.autolandromania.ro</code>.</li>
+  <li><code>Sitemap2.xml</code> și <code>Sitemap-backup.xml</code> au namespace greșit și URL-uri codate.</li>
+</ul></dd>
+<dt>Remediere</dt><dd>Ștergeți aceste fișiere de pe server sau returnați 410. <code>robots.txt</code> nou blochează deja <code>/mobile/</code>, dar blocarea nu scoate paginile din index. Pentru asta e nevoie de 410/404.</dd>
+</dl>
+</div>
+
+<div class="finding">
+<h4><span class="tag t-high">Ridicat</span> Titlurile paginilor de mașini sunt suprascrise, iar câmpurile SEO din admin sunt ignorate</h4>
+<dl>
+<dt>Dovadă</dt><dd>Liniile 347–365 construiesc un titlu bun (model, an, preț, max. 60 de caractere), dar <code>vanzari_detail.php:758</code> îl înlocuiește cu <code>$car_name . " - Second Hand - Autoland România"</code>. Câmpurile <code>title</code>/<code>description</code> din admin (<code>tehnic/view_mod_vanzare.php</code>) nu sunt folosite, ci doar <code>keywords</code>, pe care Google îl ignoră.</dd>
+<dt>Remediere</dt><dd>Folosiți titlul de la linia 347 sau câmpul din admin, dacă e completat. Model recomandat: <em>„Renault Scenic 1.5 dCi 2012, 3.500 € – Second Hand Iași | Autoland”</em>.</dd>
+</dl>
+</div>
+
+<div class="finding">
+<h4><span class="tag t-high">Ridicat</span> Schema Product pe paginile de listare și date de ofertă generate artificial</h4>
+<dl>
+<dt>Dovadă</dt><dd>
+<ul>
+  <li><code>vanzari.php:303-465</code> emite 5 blocuri <code>Product</code> complete plus un <code>ItemList</code>, iar paginile de categorie nu sunt eligibile pentru rich results de tip Product.</li>
+  <li>Pe fiecare ofertă apar <code>shippingRate 0</code> cu eticheta „La cerere”, <code>MerchantReturnNotPermitted</code> și un <code>priceValidUntil</code> mereu la +180 de zile.</li>
+  <li>Pe listări, <code>WebPage.name</code> este gol: schema se generează la linia 500, înainte ca titlul să fie setat la linia 533.</li>
+</ul></dd>
+<dt>Remediere</dt><dd>Pe listări păstrați doar <code>ItemList</code> (cu URL-urile mașinilor) și <code>BreadcrumbList</code>. Pe paginile de mașini păstrați doar câmpurile adevărate și eliminați livrarea și returul, care nu se aplică unui dealer auto.</dd>
+</dl>
+</div>
+
+<h3>Medii</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Problemă</th><th>Dovadă</th><th>Remediere</th></tr></thead>
+<tbody>
+<tr><td>Meta robots apare de două ori pe fiecare pagină</td><td>Live: <code>index,follow</code> de 2× pe homepage și pe <code>/vanzari.php</code>; <code>header.php:133</code> + <code>articol.php:154</code></td><td>Un singur tag, setat prin variabilă (<code>$robots</code>)</td></tr>
+<tr><td>Pagina 404 are simultan <code>index,follow</code> și <code>noindex,follow</code></td><td>Live: <code>/nu-exista-pagina.php</code></td><td>Doar <code>noindex</code> pe 404/410, pe formulare și pe paginile de mulțumire</td></tr>
+<tr><td>Sitemap static, <code>lastmod</code> artificial</td><td>Live: sitemap generat pe 4 sep, cu ~19 mașini noi lipsă. <code>sitemap-generator.php:61,72</code> pune data curentă pe 62 de URL-uri la fiecare rulare. Generatorul e accesibil public (<code>.htaccess:58-59</code>)</td><td>Cron zilnic din cPanel, <code>lastmod</code> = data ultimei modificări din baza de date, generator protejat</td></tr>
+<tr><td>Homepage fără linkuri spre mașini</td><td>Live: niciun link <code>vanzari_detail.php</code> pe homepage</td><td>Bloc „Ultimele 8–12 mașini adăugate” și „Oferte speciale”</td></tr>
+<tr><td>Conținut subțire pe paginile de mașini</td><td>Live: ~2.900 de cuvinte, majoritatea din șablon. Al doilea <code>&lt;h1&gt;Autoland Romania</code></td><td>Descriere unică (istoric, dotări, stare, garanție), un singur H1, specificații într-un tabel</td></tr>
+<tr><td>Mesaje de debug scrise în log la fiecare afișare de mașină</td><td><code>vanzari_detail.php:295</code> și <code>:714</code> (<code>error_log("DEBUG …")</code>, fără nicio condiție): ~100.000 de linii în <code>error_log</code></td><td>Comentați cele două linii (vezi 9.8). <strong>Nu</strong> schimbați constanta <code>DEBUG</code>: ea controlează doar CSS/JS.</td></tr>
+<tr><td>Lanț de redirecturi</td><td>Live: <code>http://www…</code> → <code>https://www…</code> → <code>https://autolandromania.ro</code> (2 hopuri)</td><td>O singură regulă: dacă nu e HTTPS <em>sau</em> host-ul începe cu www, atunci 301 direct spre <code>https://autolandromania.ro%{REQUEST_URI}</code></td></tr>
+<tr><td>Paginare cu titlu și descriere identice</td><td><code>vanzari.php</code>, paginile 2–48. <code>articole.php:12</code> pune canonical spre pagina 1 pe toate paginile</td><td>Adăugați „– Pagina N” în titlu. Canonical propriu pe fiecare pagină de articole</td></tr>
+<tr><td>Linkuri moarte pe pagina 404</td><td><code>404.php:58-59</code> trimit la <code>/ghid-masini-second-hand</code> și <code>/import-masini-la-comanda</code> (lipsește <code>/articole/</code>)</td><td>Corectați URL-urile și adăugați <code>ErrorDocument 404 /404.php</code></td></tr>
+<tr><td>Imagini cu spații sau caractere speciale în nume</td><td>60 de fișiere în <code>foto/</code> (ex. <code>Qashqai_!.7DCi_150CP_01.jpg</code>), cu URL-uri nevalide în <code>og:image</code> și JSON-LD</td><td><code>rawurlencode()</code> pe numele fișierului sau redenumire la upload</td></tr>
+<tr><td>Text cu greșeli pe homepage</td><td>Live: „pela”, „avem venim”, „0% dobândă” lângă dobânzi de 7,9%, „Reclama ta poate fi aici”</td><td>Corectură. Pagina principală contează mult pentru încrederea vizitatorilor (E-E-A-T)</td></tr>
+</tbody></table></div>
+
+<h3>Performanță (Core Web Vitals)</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Problemă</th><th>Dovadă</th><th>Remediere</th></tr></thead>
+<tbody>
+<tr><td>~300 KB de CSS care blochează afișarea paginii</td><td><code>header.php:216-219</code> (bootstrap, style, mobile, fonts)</td><td>Folosiți fișierele <code>.min.css</code> care există deja lângă cele normale (vezi 9.8). Bundle-ul din <code>public/build</code> e din 2019 și nu trebuie folosit</td></tr>
+<tr><td>jQuery 2.1.0 (2014, vulnerabilități XSS cunoscute), încărcat sincron</td><td><code>footer.php:92</code></td><td>jQuery 3.7 cu <code>defer</code></td></tr>
+<tr><td>Revolution Slider (~175 KB JS) pe aproape toate paginile</td><td><code>footer.php:98-167</code></td><td>Încărcați-l doar pe homepage</td></tr>
+<tr><td>Imagini originale în cardurile de 300×200, fără WebP</td><td><code>foto/</code> = 473 MB, 0 fișiere WebP</td><td>Thumbnail-uri generate la upload (WebP, 400 px) și <code>srcset</code></td></tr>
+<tr><td>Galeria de pe pagina de mașină fără <code>width</code>/<code>height</code> (CLS)</td><td><code>vanzari_detail.php:952-958, 1019-1022</code></td><td>Adăugați dimensiunile</td></tr>
+<tr><td>Analytics încărcat de două ori (GTM + gtag direct)</td><td><code>header.php:24-30</code> și <code>272-278</code></td><td>Păstrați doar GTM, altfel vizitele pot fi numărate dublu</td></tr>
+<tr><td>HTML cache-uit o lună în browser</td><td><code>.htaccess:193</code> <code>ExpiresDefault "access plus 1 month"</code></td><td><code>ExpiresByType text/html "access plus 0 seconds"</code>. Altfel, vizitatorii pot vedea mașini deja vândute</td></tr>
+<tr><td><code>Vary: User-Agent</code> pe toate răspunsurile</td><td><code>../.htaccess:24</code></td><td>Eliminați (site-ul e responsive)</td></tr>
+</tbody></table></div>
+
+<!-- ============================================================ -->
+<h2 id="rezolvate">6. Ce e deja rezolvat pe live</h2>
+<p>Aceste probleme existau în backup-ul din 20 august și sunt corectate pe site-ul live, conform verificării din 13 octombrie:</p>
+<ul>
+  <li><span class="tag t-ok">OK</span> <code>sitemap.xml</code> este acum UTF-8 valid, fără comentarii DEBUG (487 de URL-uri, 470 de mașini).</li>
+  <li><span class="tag t-ok">OK</span> <code>http://</code> → <code>https://</code> folosește acum <strong>301</strong> (înainte era 302).</li>
+  <li><span class="tag t-ok">OK</span> <code>&lt;html lang="ro"&gt;</code> (înainte era <code>en</code>).</li>
+  <li><span class="tag t-ok">OK</span> Canonical-ul homepage-ului este <code>https://autolandromania.ro/</code> (înainte era <code>/index.php</code>).</li>
+  <li><span class="tag t-ok">OK</span> <code>robots.txt</code> a fost rescris (21 aug): sitemap pe varianta fără www, blochează <code>/tehnic/ /mobile/ /thumb.php /_docs/ *.sql</code> și nu blochează conținut util.</li>
+  <li><span class="tag t-ok">OK</span> Stocul nu a scăzut: 489 de mașini pe live, față de 458 în mai 2026. Un număr mai mic de anunțuri <em>nu</em> explică scăderea.</li>
+</ul>
+<p class="note">Aceste corecturi sunt bune, dar Google are nevoie de <strong>3–6 săptămâni</strong> ca să le proceseze. Schimbarea canonical-ului homepage-ului și un sitemap devenit brusc citibil pot produce fluctuații temporare de poziție tocmai în septembrie–octombrie. Nu reveniți asupra lor.</p>
+
+<!-- ============================================================ -->
+<h2 id="gsc">7. Ce trebuie verificat în Search Console</h2>
+<p>Pentru a confirma cauza, verificați următoarele în GSC. Dacă îmi trimiteți screenshot-uri sau exporturi, completez analiza.</p>
+<ul class="checklist">
+  <li><s><strong>Acțiuni manuale</strong></s>: <span class="tag t-ok">verificat 13.10</span> „Nu au fost detectate probleme”.</li>
+  <li><s><strong>Probleme de securitate</strong></s>: <span class="tag t-ok">verificat 13.10</span> „Nu au fost detectate probleme”.</li>
+  <li><s><strong>Indexare → Pagini</strong></s>: <span class="tag t-ok">verificat 13.10</span> 584 indexate, 1.270 neindexate, tendință bună (vezi secțiunea 2). Rămâne de deschis lista „Dublură fără canonică selectată” (11) și câteva exemple din „Pagină cu redirecționare” (227), ca să confirmați că acolo sunt mașinile șterse.</li>
+  <li><strong>Sitemapuri</strong>: trebuie trimis <code>https://autolandromania.ro/sitemap.xml</code> (fără www), cu status „Reușit” și numărul de URL-uri descoperite.</li>
+  <li><s><strong>Statistici de accesare cu crawlere</strong></s>: <span class="tag t-ok">verificat 13.10</span> (vezi secțiunea 2). Rămân de verificat: ce afișează <code>mail.autolandromania.ro</code> și logurile brute pentru golul de crawl din 17–27 septembrie.</li>
+  <li><strong>Performanță</strong>, cu următoarele comparații:
+    <ul>
+      <li>clicuri <strong>16 sep – 12 oct 2026</strong> vs <strong>16 aug – 15 sep 2026</strong> și vs aceeași perioadă din 2025;</li>
+      <li>filtru pe interogări cu „autoland” (brand) vs fără. Dacă scade doar non-brand, cauza ține de Google sau de calitatea site-ului; dacă scade și brandul, cauza ține de cerere sau de piață;</li>
+      <li>filtru pe pagini: <code>vanzari_detail</code> vs <code>vanzari.php</code> vs <code>/articole/</code>. Dacă scad doar articolele, e efectul AI Overviews.</li>
+    </ul>
+  </li>
+  <li><strong>Îmbunătățiri → Listări de comercianți / Fragmente de produse</strong>: erori, avertismente și numărul de articole valide.</li>
+  <li><strong>Google Trends</strong>: „mașini second hand” și „parc auto Iași” în România, ultimele 2 ani, pentru a verifica sezonalitatea și cererea.</li>
+  <li>Căutați manual în Google (fereastră incognito, locație România) 5–10 interogări principale și notați cum arată acum pagina de rezultate: blocuri noi, Autovit/OLX, AI Overview.</li>
+</ul>
+
+<!-- ============================================================ -->
+<h2 id="plan">8. Plan de acțiune</h2>
+
+<h3>Săptămâna 1 – riscuri majore</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>#</th><th>Acțiune</th><th>Fișiere</th><th>Efort</th><th>Impact</th></tr></thead>
+<tbody>
+<tr><td>0</td><td><strong>SEO local:</strong> în Google Business Profile, cereți recenzii fiecărui client din ultimele luni, răspundeți la toate recenziile, adăugați 1–2 postări pe săptămână cu mașini noi și fotografii reale ale parcului, verificați categoria principală („Dealer de mașini second hand”) și pe cele secundare. Pe homepage, scrieți un paragraf de text local („parc auto în Iași, str. Luca Arbore 3…”), adăugați harta, programul și ultimele mașini</td><td>GBP, <code>index.php</code> (text din DB)</td><td>2–3 h, apoi continuu</td><td><span class="tag t-crit">Foarte mare</span></td></tr>
+<tr><td>1</td><td>Eliminați <code>aggregateRating</code> pus în cod</td><td><code>vanzari_detail.php</code>, <code>vanzari.php</code></td><td>15 min</td><td><span class="tag t-crit">Foarte mare</span></td></tr>
+<tr><td>2</td><td>410 pentru ID-uri inexistente, 410 sau pagină „Vândut” cu <code>noindex</code> + <code>SoldOut</code> pentru <code>stare_anunt=0</code></td><td><code>vanzari_detail.php:55-71</code></td><td>1–2 h</td><td><span class="tag t-crit">Foarte mare</span></td></tr>
+<tr><td>3</td><td><code>(int)$_GET['id']</code> și prepared statements; ștergeți <code>.sql</code>, <code>error_log</code>, <code>.old/.bak</code>, <code>test.php</code> și scripturile de test</td><td><code>vanzari_detail.php</code>, <code>vanzari.php</code>, webroot</td><td>2–3 h</td><td><span class="tag t-crit">Mare (securitate)</span></td></tr>
+<tr><td>4</td><td>Opriți mesajele de debug din log (comentați cele 2 <code>error_log("DEBUG …")</code>). Constanta <code>DEBUG</code> rămâne <code>TRUE</code></td><td><code>vanzari_detail.php:295, 714</code></td><td>2 min</td><td><span class="tag t-high">Mediu</span></td></tr>
+<tr><td>5</td><td>Verificați Acțiunile manuale și cereți reindexarea pentru homepage și <code>/vanzari.php</code></td><td>GSC</td><td>15 min</td><td><span class="tag t-high">Diagnostic</span></td></tr>
+</tbody></table></div>
+
+<h3>Săptămânile 2–3 – URL-uri curate și indexare</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>#</th><th>Acțiune</th><th>Fișiere</th><th>Efort</th><th>Impact</th></tr></thead>
+<tbody>
+<tr><td>6</td><td>Scoateți <code>&amp;pic=</code> din toate linkurile interne</td><td><code>inventory_listing2.php:89</code> și alte șabloane</td><td>30 min</td><td><span class="tag t-high">Mare</span></td></tr>
+<tr><td>7</td><td>Canonical din listă albă și <code>noindex,follow</code> pe combinațiile de filtre; eliminați <code>totalRows_vanzare</code>. <strong>Păstrați neschimbate URL-urile de categorie care aduc trafic</strong> (de ex. <code>users=Autoutilitare&amp;subcateg=12&amp;marcat=100</code>) sau faceți 301 spre noile URL-uri</td><td><code>header.php:46-84</code>, <code>vanzari.php</code></td><td>2–3 h</td><td><span class="tag t-high">Mare</span></td></tr>
+<tr><td>8</td><td>Ștergeți paginile duplicate (<code>index (copie)--.php</code>, <code>vanzari3.php</code>, <code>vanzari.bak.php</code>, <code>mobile/</code>, <code>Sitemap2.xml</code>, <code>Sitemap-backup.xml</code>)</td><td>webroot</td><td>30 min</td><td><span class="tag t-med">Mediu</span></td></tr>
+<tr><td>9</td><td>Sitemap generat zilnic prin cron, cu <code>lastmod</code> real; generator protejat</td><td><code>sitemap-generator.php</code>, cPanel</td><td>1–2 h</td><td><span class="tag t-med">Mediu</span></td></tr>
+<tr><td>10</td><td>Un singur meta robots; <code>noindex</code> pe 404, formulare și pagini de mulțumire</td><td><code>header.php:133</code>, <code>articol.php</code>, <code>404.php</code></td><td>1 h</td><td><span class="tag t-med">Mediu</span></td></tr>
+<tr><td>11</td><td>Titlurile paginilor de mașini (eliminați suprascrierea), titluri cu „Pagina N” la paginare</td><td><code>vanzari_detail.php:758</code>, <code>vanzari.php</code></td><td>1 h</td><td><span class="tag t-med">Mediu</span></td></tr>
+<tr><td>12</td><td>Product schema doar pe paginile de mașini; pe listări doar <code>ItemList</code> + <code>BreadcrumbList</code></td><td><code>vanzari.php:303-465</code></td><td>1 h</td><td><span class="tag t-med">Mediu</span></td></tr>
+<tr><td>13</td><td>Redirect într-un singur hop; host-urile <code>mail.</code>, <code>m.</code>, <code>www.m.</code> trebuie să răspundă cu 301 spre <code>https://autolandromania.ro</code> sau 404, niciodată cu site-ul</td><td><code>.htaccess:37-50</code></td><td>30 min</td><td><span class="tag t-med">Mediu</span></td></tr>
+<tr><td>13b</td><td>Timp de răspuns sub 300 ms: fără mesaje de debug în log, LiteSpeed Cache (există deja <code>lscache/</code> pe server) pentru paginile publice, <code>session_start()</code> doar unde e nevoie</td><td><code>config.php</code>, <code>.htaccess</code></td><td>2–4 h</td><td><span class="tag t-high">Mare (crawl)</span></td></tr>
+</tbody></table></div>
+
+<h3>Luna 2 – calitate și conținut</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>#</th><th>Acțiune</th><th>Efort</th><th>Impact</th></tr></thead>
+<tbody>
+<tr><td>14</td><td>Descriere unică pentru fiecare mașină (minim 120–200 de cuvinte proprii: istoric, dotări, stare, ce include garanția). Poate fi completată din admin</td><td>Continuu</td><td><span class="tag t-high">Mare</span></td></tr>
+<tr><td>15</td><td>Bloc „Ultimele mașini adăugate” pe homepage și link-uri „Mașini similare” pe paginile de mașini</td><td>3–4 h</td><td><span class="tag t-high">Mare</span></td></tr>
+<tr><td>16</td><td>Pagini de categorie cu text propriu (de ex. „SUV second hand Iași”, „Autoutilitare second hand”), cu un URL curat pentru fiecare categorie</td><td>1–2 zile</td><td><span class="tag t-med">Mediu</span></td></tr>
+<tr><td>17</td><td>Performanță: fișiere <code>.min.css</code>, jQuery 3 cu <code>defer</code>, slider doar pe homepage, thumbnail-uri WebP, dimensiuni pe imagini, un singur analytics, HTML fără cache de o lună</td><td>1–2 zile</td><td><span class="tag t-med">Mediu</span></td></tr>
+<tr><td>18</td><td>Google Business Profile: cereți recenzii reale clienților, adăugați fotografii și postări cu mașini noi. Afișați pe site recenzii reale (cu autor și dată)</td><td>Continuu</td><td><span class="tag t-high">Mare (interogările locale sunt principala sursă de trafic)</span></td></tr>
+<tr><td>18b</td><td>Pagina de leasing (<code>leasing.php</code>, ~2.000 de clicuri): text clar și verificabil (parteneri, documente necesare, exemplu de calcul cu DAE reală, condiții pentru PF/PJ), fără „0%” acolo unde nu e adevărat; autor sau firmă și dată de actualizare; link spre articolul-ghid și invers</td><td>3–4 h</td><td><span class="tag t-high">Mare</span></td></tr>
+<tr><td>19</td><td>Corectură pe homepage și pe paginile statice; scoateți placeholder-ul „Reclama ta poate fi aici” și promisiunea de „0% dobândă”, care contrazice dobânzile afișate</td><td>2 h</td><td><span class="tag t-low">Mic–mediu</span></td></tr>
+<tr><td>19b</td><td>URL-uri prietenoase pentru mașini: <code>/masini/marca-model-an-ID</code>, fără schimbări în baza de date, cu 301 de la URL-urile vechi (vezi 9.15). Categoriile, eventual, într-o etapă ulterioară</td><td>4–6 h</td><td><span class="tag t-med">Mediu</span></td></tr>
+<tr><td>20</td><td>Proces de deploy cu verificare locală (<code>php -l</code> pe fișierele modificate) înainte de urcare, ca să nu se mai repete erorile fatale din nov 2025 – feb 2026</td><td>1 h</td><td><span class="tag t-low">Prevenție</span></td></tr>
+</tbody></table></div>
+
+<p><strong>Ce să așteptați:</strong> după pașii 1–3, efectul apare de obicei în 2–6 săptămâni. Dacă există o acțiune manuală, după corectare trimiteți o cerere de reconsiderare din GSC. Dacă scăderea ține de spam update-ul algoritmic, recuperarea vine de regulă la următorul update, după ce problemele au fost corectate. Partea care ține de piață (−15%) nu poate fi recuperată prin SEO.</p>
+
+<!-- ============================================================ -->
+<h2 id="solutii">9. Soluții detaliate, pas cu pas</h2>
+<p>Pentru fiecare problemă de mai sus găsiți aici soluția concretă: ce faceți, unde și cu ce cod. Numerele de linie sunt din backup-ul din 20.08.2026. Pe server, unele fișiere au fost modificate între timp (canonical-ul homepage-ului, <code>lang</code>, robots.txt), așa că <strong>căutați blocul de cod după conținut, nu după numărul liniei</strong>.</p>
+<div class="note"><strong>Înainte de orice modificare:</strong>
+<ul>
+  <li>Faceți backup la fișierul respectiv (de ex. <code>vanzari_detail.php.bak-2026-10-13</code>, păstrat <em>în afara</em> <code>public_html</code>).</li>
+  <li>După editare, rulați <code>php -l fisier.php</code> (din Terminal, în cPanel) ca să prindeți erorile de sintaxă.</li>
+  <li>Testați imediat în browser.</li>
+</ul>
+Erorile fatale din nov 2025 – feb 2026 au venit tocmai din lipsa acestui pas.</div>
+
+<!-- S1 -->
+<h3>9.1 SEO local: profilul Google Business și homepage-ul <span class="tag t-crit">prioritatea 1</span></h3>
+<p><strong>Problema:</strong> „parc auto iasi” a coborât de pe poziția ~5 pe ~9, iar „auto rulate iasi” de pe 6 pe 9,4. Profilul Google Business apare la aceleași căutări (714 și 609 afișări).</p>
+<p><strong>În Google Business Profile</strong> (fără cod):</p>
+<ol>
+  <li><strong>Recenzii:</strong> trimiteți linkul de recenzie (Profil → „Cereți recenzii”) fiecărui client din ultimele 6–12 luni, prin SMS sau WhatsApp. Ținta: 3–5 recenzii noi pe lună, constant, nu toate odată. Răspundeți la <em>fiecare</em> recenzie, inclusiv la cele vechi, menționând natural serviciul („mulțumim că ați ales un Renault Master de la parcul nostru auto din Iași”).</li>
+  <li><strong>Categorii:</strong> principală „Dealer de mașini second-hand”. Secundare: „Dealer de autoutilitare”, „Serviciu de finanțare auto” (dacă se potrivește), „Dealer auto”.</li>
+  <li><strong>Postări:</strong> 1–2 pe săptămână, de tip „Ofertă” sau „Noutate”, cu mașini nou intrate în stoc: fotografie, preț, link spre <code>vanzari_detail.php?id=…</code>.</li>
+  <li><strong>Fotografii:</strong> fotografii reale ale parcului, ale biroului și ale echipei, plus 5–10 fotografii noi pe lună. Profilurile cu fotografii proaspete primesc mai multe interacțiuni.</li>
+  <li><strong>Produse:</strong> adăugați categoriile „Autoturisme”, „Autoutilitare”, „Leasing” ca produse, cu link spre paginile corespunzătoare.</li>
+  <li><strong>Date de contact:</strong> numele, adresa și telefonul trebuie să fie <em>identice</em> pe GBP, pe site (footer, contact) și pe Autovit, OLX, Facebook și în directoare: „Strada Luca Arbore nr. 3, Iași, 700440”, „+40 742 377 001”.</li>
+  <li><strong>Q&amp;A:</strong> adăugați 4–5 întrebări frecvente cu răspuns (leasing PJ, garanție, livrare, test drive).</li>
+</ol>
+<p><strong>Pe homepage</strong> (textul vine din baza de date, tabelul <code>texte</code>, câmpul <code>home</code>, editabil din admin):</p>
+<ul>
+  <li>Primul paragraf trebuie să conțină natural „parc auto în Iași” și adresa. Exemplu: <em>„Autoland România este un parc auto din Iași, pe strada Luca Arbore nr. 3, deschis din 2007. Avem în stoc permanent peste 400 de autoturisme, autoutilitare și autospecializate second hand, verificate tehnic și cu garanție…”</em></li>
+  <li><strong>Scoateți „dobândă de la zero 0%, avans de la zero 0%”</strong>, care apare în textul de pe homepage (se vede și în screenshot-ul de pe <code>mail.</code>), sau formulați corect: „avans de la 0% pentru anumite profiluri, dobândă în funcție de finanțator”. Google tratează strict promisiunile financiare care nu pot fi verificate (YMYL).</li>
+  <li>Adăugați un bloc „Ultimele mașini intrate în stoc” (8–12 carduri), descris la 9.10.</li>
+  <li>Adăugați o hartă Google încorporată, programul, telefonul cu link <code>tel:</code> și 3–5 recenzii reale (text, nume, dată), copiate din GBP.</li>
+</ul>
+
+<!-- S2 -->
+<h3>9.2 Ștergerea ratingului pus în cod <span class="tag t-crit">critic</span></h3>
+<p><strong>În <code>vanzari_detail.php</code></strong>, ștergeți complet blocul (în backup, liniile 726–738):</p>
+<pre><code>// Add aggregateRating (company-wide rating for AutoLand)
+// Using actual Google rating of 4.3 on 0-5 scale
+// Always show rating to satisfy Google's rich snippet requirements
+$structured_data["aggregateRating"] = [
+    "@type" =&gt; "AggregateRating",
+    "ratingValue" =&gt; "4.3",
+    "bestRating" =&gt; "5",
+    "worstRating" =&gt; "0",
+    "ratingCount" =&gt; 31
+];</code></pre>
+<p><strong>În <code>vanzari.php</code></strong>, ștergeți cheia <code>"aggregateRating" =&gt; [ ... ]</code> din blocul Product (în backup, ~liniile 457–463), inclusiv virgula de dinaintea ei: <code>],</code> devine <code>]</code>.</p>
+<p><strong>Verificare:</strong> deschideți o pagină de mașină, apoi <em>View source</em> și căutați „ratingValue”: nu trebuie să mai apară. Testați apoi URL-ul în <a href="https://search.google.com/test/rich-results">Rich Results Test</a>.</p>
+
+<!-- S3 -->
+<h3>9.3 Mașini șterse (410) și mașini vândute sau dezactivate (pagină „Vândut” cu noindex) <span class="tag t-crit">critic</span></h3>
+<p><strong>Pasul A:</strong> un singur loc care decide meta robots. În <code>themes/automotive/template_parts/header.php</code>, înlocuiți linia</p>
+<pre><code>&lt;meta name="robots" content="index,follow" /&gt;</code></pre>
+<p>cu:</p>
+<pre><code>&lt;meta name="robots" content="&lt;?php echo !empty($meta_robots) ? htmlspecialchars($meta_robots) : 'index,follow,max-image-preview:large'; ?&gt;" /&gt;</code></pre>
+<p>Apoi ștergeți liniile care adaugă un al doilea robots: <code>articol.php</code> (~154) și <code>articole.php</code> (~57). Dacă vreți păstra opțiunile din articol.php, setați acolo <code>$meta_robots = 'index,follow,max-snippet:-1,max-image-preview:large';</code> <em>înainte</em> de include-ul header-ului.</p>
+
+<p><strong>Pasul B:</strong> <code>404.php</code> trebuie să poată trimite și 410 și să fie <code>noindex</code>. Înlocuiți <code>header("HTTP/1.0 404 Not Found");</code> cu:</p>
+<pre><code>$http_status = isset($http_status) ? (int)$http_status : 404;
+http_response_code($http_status);
+$meta_robots = 'noindex,follow';</code></pre>
+<p>Corectați tot aici linkurile moarte de la ~liniile 58–59: <code>/ghid-masini-second-hand</code> devine <code>/articole/ghid-masini-second-hand</code> și la fel pentru <code>import-masini-la-comanda</code>. În <code>.htaccess</code> adăugați: <code>ErrorDocument 404 /404.php</code>.</p>
+
+<p><strong>Pasul C:</strong> în <code>vanzari_detail.php</code>, înlocuiți blocul de la <code>$colname_vanzare = "-1";</code> până la <code>$row_vanzare = $vanzare-&gt;fetch_assoc();</code> (în backup, liniile 41–71) cu:</p>
+<pre><code>// ID valid numeric (închide și SQL injection-ul pe acest parametru)
+$car_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+if ($car_id &lt;= 0) {
+    $http_status = 404;
+    include './404.php';
+    exit();
+}
+
+$stmt = $connection-&gt;prepare("SELECT * FROM masini WHERE id = ? LIMIT 1");
+$stmt-&gt;bind_param('i', $car_id);
+$stmt-&gt;execute();
+$vanzare = $stmt-&gt;get_result();
+
+if ($vanzare-&gt;num_rows === 0) {
+    // Mașina nu mai există: 410 Gone (Google o scoate repede din index)
+    error_log("Missing car ID requested: " . $car_id . " from " . ($_SERVER['HTTP_REFERER'] ?? 'direct'));
+    $http_status = 410;
+    include './404.php';
+    exit();
+}
+$row_vanzare = $vanzare-&gt;fetch_assoc();
+
+// Mașină dezactivată / vândută: pagina rămâne pentru vizitatori, dar nu se indexează
+$is_sold = ((string)$row_vanzare['stare_anunt'] !== '1');
+if ($is_sold) {
+    $meta_robots = 'noindex,follow';
+}</code></pre>
+<p>Dacă sub acest bloc codul mai folosește <code>$colname_vanzare</code>, <code>$query_vanzare</code> sau <code>$totalRows_vanzare</code> (liniile 81–87 din backup), înlocuiți <code>$colname_vanzare</code> cu <code>$car_id</code>, iar blocul <code>totalRows</code> cu <code>$totalRows_vanzare = 1; $totalPages_vanzare = 0;</code>. Pagina de detaliu afișează mereu o singură mașină.</p>
+
+<p><strong>Pasul D:</strong> JSON-LD corect pentru ofertă. În blocul <code>$structured_data["offers"]</code> (în backup, ~liniile 459–520):</p>
+<pre><code>"availability" =&gt; $is_sold ? "https://schema.org/SoldOut" : "https://schema.org/InStock",</code></pre>
+<p>Ștergeți cheile <code>"priceValidUntil"</code>, <code>"shippingDetails"</code> și <code>"hasMerchantReturnPolicy"</code> cu tot conținutul lor. Nu se aplică unui dealer auto, iar valorile erau inventate (livrare 0 €, „+180 de zile”). Garanția de 12 luni poate fi descrisă în textul paginii.</p>
+
+<p><strong>Pasul E:</strong> afișați vizibil starea. În zona de preț din pagina de mașină:</p>
+<pre><code>&lt;?php if ($is_sold): ?&gt;
+  &lt;div class="alert alert-warning"&gt;&lt;strong&gt;Această mașină a fost vândută.&lt;/strong&gt;
+  Vedeți &lt;a href="&lt;?php echo BASE_PATH; ?&gt;vanzari.php?users=&lt;?php echo urlencode($row_vanzare['cat']); ?&gt;"&gt;alte mașini din aceeași categorie&lt;/a&gt;.&lt;/div&gt;
+&lt;?php endif; ?&gt;</code></pre>
+
+<p><strong>Pasul F:</strong> paginile de categorie să nu mai listeze mașinile inactive. În <code>vanzari.php</code> (~liniile 148 și 151) adăugați condiția <code>stare_anunt = 1</code>:</p>
+<pre><code>"SELECT * FROM masini WHERE stare_anunt = 1 AND cat = '%s' AND subcateg = '%s' ORDER BY pret ASC"
+"SELECT * FROM masini WHERE stare_anunt = 1 AND cat = '%s' ORDER BY pret ASC"</code></pre>
+<p>Tot în <code>vanzari.php</code>, blocul JSON-LD (~linia 322 și ~399) are <code>InStock</code> pus fix. După Pasul F, pe listări rămân doar mașini active, deci valoarea devine corectă.</p>
+<p><strong>Verificare:</strong></p>
+<ul>
+  <li><code>/vanzari_detail.php?id=999999</code> trebuie să răspundă cu <strong>410</strong> (verificați cu <a href="https://httpstatus.io/">httpstatus.io</a>);</li>
+  <li><code>/vanzari_detail.php?id=abc</code> trebuie să răspundă cu <strong>404</strong>;</li>
+  <li>o mașină dezactivată din admin trebuie să răspundă cu <strong>200</strong>, să aibă <code>noindex</code> și să afișeze mesajul „vândută”.</li>
+</ul>
+<p>După 2–4 săptămâni, în GSC, „Pagină cu redirecționare” (227) trebuie să scadă.</p>
+
+<!-- S4 -->
+<h3>9.4 Securitate: fișiere expuse, SQL injection, parole <span class="tag t-crit">critic</span></h3>
+<ol>
+  <li><strong>Ștergeți de pe server</strong> (după ce le salvați local, dacă vă trebuie):
+    <ul>
+      <li>dump-uri: <code>autolan1_autos1ww1a.sql</code>, <code>autogrupnet_auto(1).sql</code>;</li>
+      <li>loguri: <code>error_log</code>, <code>tehnic/error_log</code>;</li>
+      <li>copii și backup-uri: <code>index (copie)--.php</code>, <code>vanzari.bak.php</code>, <code>vanzari.php.old</code>, <code>vanzari.php_backup_02_jul_2025</code>, <code>vanzari3.php</code>, <code>includes/functions.php.bak</code>, <code>themes/automotive/template_parts/*.old</code> și <code>*.backup</code>, <code>menu_top_1.php</code>;</li>
+      <li>scripturi de test: <code>test.php</code>, <code>aaaa.txt</code>, <code>__update_foto_folder__.php</code>, <code>tehnic/test_*.php</code>, <code>tehnic/check_video_paths.php</code>, <code>tehnic/detect_os.php</code>;</li>
+      <li>diverse: folderul <code>mobile/</code>, <code>Sitemap2.xml</code>, <code>Sitemap-backup.xml</code>, <code>nbproject/</code>, <code>static/index.html</code>.</li>
+    </ul>
+  </li>
+  <li><strong>Blocați ce ar putea reapărea.</strong> În <code>public_html/.htaccess</code>, imediat după <code>DirectoryIndex</code>:
+<pre><code># Fișiere care nu trebuie servite niciodată
+&lt;FilesMatch "(\.(sql|sql\.gz|log|bak|old|orig|swp|backup)$|_backup_|^error_log$|^php\.ini$|^\.user\.ini$)"&gt;
+    Require all denied
+&lt;/FilesMatch&gt;
+Options -Indexes
+AcceptPathInfo Off</code></pre>
+<code>AcceptPathInfo Off</code> elimină URL-urile de tip <code>/vanzari_detail.php/includes/…</code>. Regulile de redirect pentru ele (<code>.htaccess:66-73</code>) pot rămâne pentru URL-urile deja indexate.</li>
+  <li><strong>Schimbați parolele.</strong> <code>includes/config.php</code> conține parola bazei de date și parola de email în clar. Au existat un atac SQL injection reușit (mai 2025) și dump-uri descărcabile, iar codul sursă poate fi văzut prin fișierele <code>.old</code>/<code>.bak</code>. Schimbați din cPanel parola utilizatorului MySQL <code>autoland_autos1</code> și parola contului <code>auto@autolandromania.ro</code>, apoi actualizați <code>config.php</code>. Schimbați și parolele utilizatorilor din admin (<code>tehnic/</code>).</li>
+  <li><strong>SQL injection pe listări</strong> (<code>vanzari.php</code>):
+    <ul>
+      <li>Parametrii <code>an</code> și <code>pret</code> intră nefiltrați în SQL. Acolo unde se citesc din <code>$_GET</code>, folosiți <code>$col_an_vanzare = (int)$_GET['an'];</code> și <code>$col_pret_vanzare = (int)$_GET['pret'];</code>.</li>
+      <li>Pentru căutarea <code>#S10</code> (~linia 158): <code>$textt = (int)substr($_GET['txtsrc'], 4, 10);</code>.</li>
+      <li>Pentru <code>marca</code>, <code>combustibil</code> și <code>prov_enienta</code>: <code>$connection-&gt;real_escape_string()</code> pe fiecare, sau o listă albă de valori.</li>
+      <li>Căutarea text (<code>LIKE "%'.$word.'%"</code>) are nevoie tot de <code>real_escape_string($word)</code>.</li>
+    </ul>
+  </li>
+  <li><strong>Nu afișați erorile SQL vizitatorilor.</strong> În <code>vanzari.php</code> (~linia 205), <code>or die("&lt;pre&gt;Error: ... Query: ...")</code> afișează interogarea oricui. Înlocuiți cu:
+<pre><code>if (!$vanzare) { error_log("vanzari.php SQL: " . $connection-&gt;error); http_response_code(500); exit('Eroare temporară. Reîncercați.'); }</code></pre>
+    La fel pentru <code>or die($connection-&gt;error)</code> din <code>index.php</code>, <code>leasing.php</code> și celelalte pagini.</li>
+  <li><strong><code>thumb.php</code>:</strong> nu e folosit de paginile publice și permite scrierea de fișiere. Ștergeți-l sau protejați-l cu parolă.</li>
+</ol>
+
+<!-- S5 -->
+<h3>9.5 Gazde duplicate (<code>mail.</code>, <code>m.</code>, <code>www.m.</code>, <code>www.</code>) și redirect într-un singur hop <span class="tag t-high">ridicat</span></h3>
+<p><strong>De unde vine <code>mail.</code>:</strong> cPanel creează automat, pentru fiecare domeniu, înregistrarea DNS <code>mail.autolandromania.ro</code>, pe care o folosesc programele de email (Outlook, telefon) pentru IMAP/SMTP. Același cPanel adaugă <code>mail.</code> și ca alias al site-ului în configurația Apache, deci orice cerere web spre <code>mail.</code> primește conținutul din <code>public_html</code>. În plus, pe server există un certificat <em>wildcard</em> (<code>*.autolandromania.ro</code>, în <code>ssl/certs/</code>), așa că orice subdomeniu funcționează și pe HTTPS, fără eroare. Google a descoperit probabil gazda din jurnalele publice de certificate SSL (Certificate Transparency), din setări de email sau dintr-un link vechi. Nimeni nu a „creat” ceva greșit: e comportamentul standard al cPanel, dar trebuie neutralizat cu un redirect. <strong>Nu ștergeți înregistrarea DNS <code>mail</code></strong>, pentru că opriți emailul.</p>
+<p><strong>Confirmat pe 13.10:</strong> <code>http://mail.autolandromania.ro</code> afișează tot site-ul, deci este o copie completă a lui, accesată de Googlebot (214 cereri în 90 de zile). În <code>public_html/.htaccess</code>, înlocuiți blocul de la <code># Force redirect to HTTPS</code> până la regula www → non-www (în backup, liniile 36–50) cu:</p>
+<pre><code>RewriteEngine on
+
+# O singură regulă: orice gazdă diferită de autolandromania.ro SAU http -&gt; https://autolandromania.ro (un singur 301)
+# Excepții: validarea SSL (.well-known) și subdomeniile de serviciu cPanel
+RewriteCond %{REQUEST_URI} !^/\.well-known/
+RewriteCond %{HTTP_HOST} !^(cpanel|webmail|webdisk|autodiscover|autoconfig|cpcalendars|cpcontacts|whm)\. [NC]
+RewriteCond %{HTTP_HOST} !^autolandromania\.ro$ [NC,OR]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://autolandromania.ro%{REQUEST_URI} [R=301,L]</code></pre>
+<p>Regula acoperă <code>www.</code>, <code>m.</code>, <code>www.m.</code>, <code>mail.</code> și orice altă gazdă care ajunge pe același folder. Emailul (IMAP/SMTP pe <code>mail.</code>) nu este afectat, pentru că nu folosește HTTP. Ștergeți folderul <code>mobile/</code>: are propriul <code>.htaccess</code> cu <code>RewriteEngine on</code>, care anulează regulile de mai sus în interiorul lui.</p>
+<p><strong>Verificare:</strong> în <a href="https://httpstatus.io/">httpstatus.io</a> introduceți <code>http://mail.autolandromania.ro/leasing.php</code>, <code>http://www.autolandromania.ro/</code> și <code>http://m.autolandromania.ro/vanzari.php</code>. Fiecare trebuie să dea <strong>un singur 301</strong> direct spre <code>https://autolandromania.ro/…</code>. Verificați apoi că AutoSSL din cPanel se reînnoiește normal.</p>
+
+<!-- S6 -->
+<h3>9.6 Scoaterea <code>&amp;pic=</code> din linkuri <span class="tag t-high">ridicat</span></h3>
+<p>Aceeași modificare se face în 3 fișiere: <code>themes/automotive/template_parts/inventory_listing.php:42</code>, <code>inventory_listing2.php:89</code> și <code>inventory_listing3.php:40</code>. Linia</p>
+<pre><code>&lt;a class="inventory" href="vanzari_detail.php?id=&lt;?php echo $row_vanzare['id']; ?&gt;&amp;pic=&lt;?php echo getCarFirstPicture($row_vanzare['id'], $connection)['file']; ?&gt;"&gt;</code></pre>
+<p>devine:</p>
+<pre><code>&lt;a class="inventory" href="&lt;?php echo BASE_PATH; ?&gt;vanzari_detail.php?id=&lt;?php echo (int)$row_vanzare['id']; ?&gt;"&gt;</code></pre>
+<p><code>BASE_PATH</code> face linkul absolut și elimină problemele cu URL-urile relative. Căutați apoi în tot site-ul (<code>grep -rn "pic=" --include=*.php</code>) alte apariții. Parametrul <code>pic</code> nu trebuie folosit nicăieri în <code>vanzari_detail.php</code> pentru conținut.</p>
+<p><strong>Rezultat așteptat:</strong> în 4–8 săptămâni, „Pagină alternativă cu etichetă canonică corespunzătoare” (796) scade treptat, iar Google cheltuie crawl-ul pe pagini reale.</p>
+
+<!-- S7 -->
+<h3>9.7 Canonical pe listări din listă albă și noindex pe combinațiile de filtre <span class="tag t-high">ridicat</span></h3>
+<p>În <code>header.php</code>, înlocuiți ramura <code>elseif ($basename == 'vanzari.php') { ... }</code> (în backup, liniile 62–81) cu varianta de mai jos. Ea <strong>păstrează exact URL-urile de categorie care aduc trafic</strong> (de ex. <code>users=Autoutilitare&amp;subcateg=12&amp;marcat=100</code>, a treia pagină a site-ului).</p>
+<pre><code>elseif ($basename == 'vanzari.php') {
+    $canonical_url .= '/vanzari.php';
+    // URL-urile de categorie existente (cele din meniu, sitemap și GSC) - NU le schimbați forma
+    $category_urls = [
+        'Autoturisme'      =&gt; 'users=Autoturisme&amp;subcateg=3&amp;marcat=10',
+        'Autoutilitare'    =&gt; 'users=Autoutilitare&amp;subcateg=12&amp;marcat=100',
+        'Autospecializate' =&gt; 'users=Autospecializate&amp;subcateg=33&amp;marcat=102',
+    ];
+    $qs = [];
+    $users = $_GET['users'] ?? '';
+    if (isset($category_urls[$users])) {
+        $qs[] = $category_urls[$users];
+    } elseif ($users === 'Utilaje') {
+        $qs[] = 'users=Utilaje';
+        if (in_array($_GET['subcateg'] ?? '', ['Constructii', 'Agricole', 'Municipale'], true)) {
+            $qs[] = 'subcateg=' . urlencode($_GET['subcateg']);
+        }
+    } elseif (in_array($_GET['prov_enienta'] ?? '', ['Import', 'Romania'], true)) {
+        $qs[] = 'prov_enienta=' . $_GET['prov_enienta'];
+    }
+    $page = (int)($_GET['pageNum_vanzare'] ?? 0);
+    if ($page &gt; 0) {
+        $qs[] = 'pageNum_vanzare=' . $page;
+    }
+    if ($qs) {
+        $canonical_url .= '?' . implode('&amp;', $qs);
+    }
+
+    // Căutări și combinații de filtre: utile vizitatorilor, dar nu le indexăm
+    $is_filtered = !empty($_GET['txtsrc'])
+        || (!empty($_GET['marca']) &amp;&amp; $_GET['marca'] !== '%')
+        || (!empty($_GET['an']) &amp;&amp; $_GET['an'] != '1995')
+        || (!empty($_GET['pret']) &amp;&amp; $_GET['pret'] != '14000000')
+        || (!empty($_GET['combustibil']) &amp;&amp; $_GET['combustibil'] !== 'fara');
+    if ($is_filtered || isset($_GET['message'])) {
+        $meta_robots = 'noindex,follow';
+    }
+}</code></pre>
+<p><strong>Notă:</strong> verificați în <code>vanzari.php</code> valorile implicite reale pentru <code>marca</code>, <code>an</code> și <code>pret</code> (aici: <code>%</code>, <code>1995</code>, <code>14000000</code>, preluate din codul existent).</p>
+<p><strong>Paginarea:</strong> în <code>vanzari.php</code>, eliminați <code>totalRows_vanzare</code> din URL. Înlocuiți</p>
+<pre><code>$queryString_vanzare = sprintf("&amp;totalRows_vanzare=%d%s", $totalRows_vanzare, $queryString_vanzare);</code></pre>
+<p>cu <code>/* totalRows nu mai e transmis în URL */</code> (lăsați <code>$queryString_vanzare</code> neschimbat), iar blocul <code>if (isset($_GET['totalRows_vanzare'])) { ... } else { ... }</code> cu calculul direct:</p>
+<pre><code>$all_vanzare = $connection-&gt;query($query_vanzare);
+$totalRows_vanzare = $all_vanzare ? mysqli_num_rows($all_vanzare) : 0;</code></pre>
+<p>Pe paginile 2+ adăugați numărul paginii în titlu: <code>if ($pageNum_vanzare &gt; 0) $page_title .= ' – Pagina ' . ($pageNum_vanzare + 1);</code>.</p>
+
+<!-- S8 -->
+<h3>9.8 Logurile de debug, sesiunile și viteza serverului (767 ms → sub 300 ms) <span class="tag t-high">ridicat</span></h3>
+<div class="note"><strong>Corectură:</strong> o versiune anterioară a acestui raport recomanda <code>DEBUG = FALSE</code>. <strong>Nu faceți asta.</strong> Constanta <code>DEBUG</code> nu controlează logurile, ci doar ce CSS/JS se încarcă (<code>header.php:186</code>, <code>footer.php:85</code>):
+<ul>
+  <li>cu <code>FALSE</code>, site-ul încarcă bundle-ul din <code>public/build/</code> (<code>stylesheet-c1a59ef97a.css</code>, <code>bundle-73a1752ea5.js</code>). Bundle-ul a fost generat pe <strong>18 martie 2019</strong> și nu conține modificările CSS făcute de atunci;</li>
+  <li>bundle-ul nu include <code>scustomizer.css</code>, pe care header-ul îl încarcă separat;</li>
+  <li>bundle-ul e încărcat asincron (<code>preload</code> + <code>onload</code>), deci pagina apare o clipă fără stil.</li>
+</ul>
+De aceea se „duce” CSS-ul. Lăsați <code>DEBUG</code> pe <code>TRUE</code>.</div>
+<ol>
+  <li><strong>Opriți mesajele din log</strong> (sursa celor ~100.000 de linii din <code>error_log</code>). În <code>vanzari_detail.php</code>, comentați cele două linii, care nu depind de nicio condiție:
+<pre><code>// error_log("DEBUG Car ID {$row_vanzare['id']}: Parsed details = " . print_r($parsed_details, true));   // ~linia 295
+// error_log("DEBUG: Payload added to JSON-LD for car ID {$row_vanzare['id']}: {$parsed_details['payload']} kg");  // ~linia 714</code></pre></li>
+  <li><strong>Opțional, CSS mai mic, fără risc.</strong> Lângă fiecare fișier CSS din <code>themes/automotive/css/</code> există deja o versiune <code>.min.css</code> (de ex. <code>style.min.css</code>, <code>mobile.min.css</code>). Verificați întâi că fiecare <code>.min.css</code> e mai nou decât originalul sau identic ca reguli: dacă <code>style.css</code> a fost modificat după generarea <code>style.min.css</code>, minificați-l din nou (de ex. cu <a href="https://www.toptal.com/developers/cssminifier">cssminifier</a>). Abia apoi schimbați în <code>header.php</code> <code>style.css</code> în <code>style.min.css</code> etc., câte un fișier pe rând, verificând pagina după fiecare.</li>
+  <li><strong>Pe termen lung</strong> (doar dacă vreți un singur fișier CSS/JS): regenerați bundle-ul cu <code>gulp</code> din <code>gulpfile.js</code>, pe calculatorul local. Adăugați în lista din <code>pack-css</code> și <code>scustomizer.css</code>, verificați că rezultatul arată identic și abia apoi schimbați condiția din <code>header.php</code>/<code>footer.php</code> într-o constantă separată, de ex. <code>USE_BUILD_ASSETS</code>, ca să nu mai depindă de <code>DEBUG</code>.</li>
+  <li><code>includes/config.php:11</code>: <code>session_start();</code> pornește o sesiune la fiecare vizită, ceea ce împiedică orice cache. Sesiunea e folosită doar în <code>vanzari_detail.php</code>, care o pornește oricum singur (linia 21). Ștergeți linia 11 din <code>config.php</code>, apoi testați formularele (contact, cerere ofertă, recenzie). Dacă vreunul folosește <code>$_SESSION</code> (de ex. pentru captcha), adăugați <code>session_start();</code> doar în fișierul acela.</li>
+  <li><strong>LiteSpeed Cache</strong> (serverul rulează LiteSpeed, există folderul <code>lscache/</code>). În <code>public_html/.htaccess</code>, la final:
+<pre><code>&lt;IfModule LiteSpeed&gt;
+    CacheLookup on
+    RewriteEngine on
+    # cache 10 minute pentru paginile publice, doar GET, fără formulare și fără admin
+    RewriteCond %{REQUEST_METHOD} ^GET$
+    RewriteCond %{REQUEST_URI} !^/(tehnic|includes|_docs|backups)/ [NC]
+    RewriteCond %{REQUEST_URI} !(cerere_oferta|contact|completare_recenzie|sitemap-generator)\.php [NC]
+    RewriteRule ^(index\.php|vanzari\.php|vanzari_detail\.php|leasing\.php|garantie\.php|lista_oferta\.php|articole.*)?$ - [E=cache-control:max-age=600]
+&lt;/IfModule&gt;</code></pre>
+    Cu 10 minute de cache, o mașină adăugată sau vândută apare cu cel mult 10 minute întârziere. LiteSpeed nu păstrează în cache răspunsurile care setează cookie-uri, deci pasul 2 este obligatoriu.</li>
+  <li><strong>HTML fără cache în browser.</strong> În blocul <code>mod_expires</code> (<code>.htaccess:191-200</code>) adăugați:
+<pre><code>ExpiresByType text/html "access plus 0 seconds"
+ExpiresByType application/xml "access plus 1 hour"
+ExpiresByType text/xml "access plus 1 hour"
+ExpiresByType text/plain "access plus 1 hour"</code></pre>
+    Fără ele, regula <code>ExpiresDefault "access plus 1 month"</code> face ca vizitatorii să vadă versiuni vechi ale paginilor, inclusiv mașini deja vândute.</li>
+  <li>În <code>../.htaccess</code> (folderul home), ștergeți <code>Header append Vary User-Agent</code>. Site-ul e responsive, deci antetul doar strică cache-ul.</li>
+  <li><strong>Verificare:</strong> în GSC → Statistici crawl, „Durata medie de răspuns” trebuie să scadă sub 300–400 ms în 2–3 săptămâni. Testați și cu <a href="https://pagespeed.web.dev/">PageSpeed Insights</a> (indicatorul TTFB).</li>
+</ol>
+
+<!-- S9 -->
+<h3>9.9 Sitemap automat, cu dată reală <span class="tag t-med">mediu</span></h3>
+<ol>
+  <li><strong>Coloană cu data modificării</strong> (o singură dată, din phpMyAdmin):
+<pre><code>ALTER TABLE masini
+  ADD COLUMN data_actualizare TIMESTAMP NOT NULL
+  DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;</code></pre>
+    De acum, MySQL actualizează automat data la fiecare modificare a anunțului (preț, descriere, stare).</li>
+  <li><strong>În <code>sitemap-generator.php</code></strong>:
+    <ul>
+      <li>în cele 3 interogări pentru mașini, înlocuiți <code>SELECT id FROM masini</code> cu <code>SELECT id, DATE(data_actualizare) AS lastmod FROM masini</code>;</li>
+      <li>în cele 3 apeluri <code>$add_url(...)</code>, înlocuiți ultimul argument (<code>$today</code> sau lipsa lui) cu <code>$row['lastmod']</code>;</li>
+      <li>ștergeți din <code>$static_pages</code> linia <code>/cerere_oferta.php</code> (e un formular) și adăugați <code>/articole/</code>.</li>
+    </ul>
+  </li>
+  <li><strong>Generatorul să ruleze doar din cron</strong>, nu din browser. La începutul fișierului, după <code>&lt;?php</code>:
+<pre><code>if (php_sapi_name() !== 'cli') { http_response_code(404); exit(); }
+chdir(__DIR__); // include-urile relative funcționează și din cron</code></pre>
+    Ștergeți apoi din <code>.htaccess</code> excepția <code>RewriteCond %{REQUEST_URI} ^/sitemap-generator\.php$ [NC] / RewriteRule ^ - [L]</code> (liniile 58–59).</li>
+  <li><strong>Cron zilnic</strong> (cPanel → Cron Jobs, ora 04:00):
+<pre><code>0 4 * * * /usr/local/bin/php /home/autoland/public_html/sitemap-generator.php &gt;/dev/null 2&gt;&amp;1</code></pre>
+    Calea spre PHP poate diferi: în cPanel → Terminal, rulați <code>which php</code>.</li>
+  <li><strong>În GSC → Sitemapuri</strong>, verificați că apare doar <code>https://autolandromania.ro/sitemap.xml</code>. Ștergeți intrările vechi: <code>www</code>, <code>Sitemap2.xml</code>, <code>Sitemap-backup.xml</code>.</li>
+</ol>
+
+<!-- S10 -->
+<h3>9.10 Titluri, conținut și linkuri interne <span class="tag t-med">mediu</span></h3>
+<ul>
+  <li><strong>Titlul paginii de mașină:</strong> în <code>vanzari_detail.php</code> (~linia 758), ștergeți linia <code>$page_title = $car_name . " - Second Hand - Autoland România";</code>. Titlul bun, construit la liniile 347–365 (model, an, preț, max. 60 de caractere), rămâne în vigoare. Dacă vreți să folosiți titlul și descrierea completate în admin: <code>if (!empty($row_vanzare['title'])) $page_title = $row_vanzare['title'];</code> și la fel pentru <code>$meta_description</code> cu <code>$row_vanzare['description']</code>.</li>
+  <li><strong>Un singur H1</strong> pe pagina de mașină: <code>&lt;h1&gt;Autoland Romania&lt;/h1&gt;</code> din antet (logo) devine <code>&lt;div class="logo-title"&gt;</code> (cu același CSS). Faceți asta pe toate paginile, în <code>header.php</code>.</li>
+  <li><strong>„Ultimele mașini” pe homepage</strong> (<code>index.php</code>, după <code>print $content;</code>):
+<pre><code>&lt;?php
+$latest = $connection-&gt;query("SELECT id, marca, tip, an, pret FROM masini WHERE stare_anunt = 1 ORDER BY id DESC LIMIT 8");
+if ($latest &amp;&amp; $latest-&gt;num_rows): ?&gt;
+&lt;h2&gt;Ultimele mașini intrate în parcul auto din Iași&lt;/h2&gt;
+&lt;ul class="latest-cars"&gt;
+&lt;?php while ($c = $latest-&gt;fetch_assoc()):
+    $pic = getCarFirstPicture($c['id'], $connection); ?&gt;
+  &lt;li&gt;&lt;a href="&lt;?php echo BASE_PATH; ?&gt;vanzari_detail.php?id=&lt;?php echo (int)$c['id']; ?&gt;"&gt;
+    &lt;?php if (!empty($pic['file'])): ?&gt;&lt;img src="&lt;?php echo BASE_PATH . 'foto/' . rawurlencode($pic['file']); ?&gt;" width="300" height="200" loading="lazy"
+         alt="&lt;?php echo htmlspecialchars($c['marca'] . ' ' . $c['tip'] . ' ' . $c['an']); ?&gt;"&gt;&lt;?php endif; ?&gt;
+    &lt;?php echo htmlspecialchars($c['marca'] . ' ' . $c['tip']); ?&gt; · &lt;?php echo (int)$c['an']; ?&gt; · &lt;?php echo number_format($c['pret'], 0, ',', '.'); ?&gt; €
+  &lt;/a&gt;&lt;/li&gt;
+&lt;?php endwhile; ?&gt;
+&lt;/ul&gt;
+&lt;?php endif; ?&gt;</code></pre>
+    Adăugați CSS pentru grid (4 coloane pe desktop, 2 pe mobil).</li>
+  <li><strong>Mașini similare</strong> pe pagina de mașină: aceeași interogare cu <code>WHERE stare_anunt = 1 AND cat = ? AND id &lt;&gt; ? ORDER BY ABS(pret - ?) LIMIT 4</code>.</li>
+  <li><strong>Descriere unică pe fiecare mașină:</strong> în admin, pe lângă lista de dotări, 3–5 propoziții proprii: proveniență, istoric service, stare, pentru cine e potrivită, ce include garanția. Începeți cu mașinile care aduc deja afișări (în GSC → Pagini: <code>id=1595</code>, <code>1517</code>, <code>1374</code>, <code>1441</code>, <code>1289</code>…).</li>
+  <li><strong>Imagini cu caractere speciale:</strong> peste tot unde se construiește <code>foto/…</code> pentru <code>src</code>, <code>og:image</code> și JSON-LD, folosiți <code>rawurlencode($file)</code>. Pe termen lung, la upload, redenumiți fișierele cu doar <code>a-z 0-9 - _</code>.</li>
+</ul>
+
+<!-- S11 -->
+<h3>9.11 Pagina de leasing <span class="tag t-high">ridicat</span></h3>
+<p>Textul vine din baza de date (<code>texte.leasing</code>, editabil din admin). Titlul se setează în <code>leasing.php:21</code>.</p>
+<ul>
+  <li><strong>Titlul:</strong> <code>"Leasing/Credit Auto Iași | Finanțare cu Avans 0% | Autoland România"</code> devine, de exemplu, <code>"Leasing auto second hand Iași – PF și PJ, avans de la 0% | Autoland"</code>. Păstrați „avans 0%” doar dacă e o ofertă reală, cu condiții.</li>
+  <li><strong>Structura recomandată a textului:</strong>
+    <ol>
+      <li>pentru cine (PF, PJ, PFA, firme nou înființate);</li>
+      <li>cu ce finanțatori lucrați (nume reale: TBI, BT Leasing etc.);</li>
+      <li>documentele necesare (listă);</li>
+      <li><strong>un exemplu de calcul real</strong>: preț, avans, perioadă, rată, DAE;</li>
+      <li>pașii procesului;</li>
+      <li>întrebări frecvente;</li>
+      <li>data actualizării („Actualizat: octombrie 2026”).</li>
+    </ol>
+  </li>
+  <li>Link reciproc între <code>leasing.php</code> și articolul <code>/articole/ghid-complet-leasing-finantare-auto-2026</code>.</li>
+  <li>Breadcrumb-ul din <code>leasing.php:32-35</code> are „Servicii” și „Leasing / Rate” cu același URL. Păstrați doar „Acasă → Leasing”.</li>
+</ul>
+
+<!-- S12 -->
+<h3>9.12 Schema Product doar pe paginile de mașini <span class="tag t-med">mediu</span></h3>
+<p>În <code>vanzari.php</code>, blocul care generează cele 5 obiecte <code>Product</code> complete (în backup, ~liniile 303–465) se înlocuiește cu un <code>ItemList</code> simplu:</p>
+<pre><code>$items = [];
+$pos = 1;
+mysqli_data_seek($vanzare, 0);
+while ($r = mysqli_fetch_assoc($vanzare)) {
+    $items[] = ["@type" =&gt; "ListItem", "position" =&gt; $pos++,
+                "url" =&gt; BASE_PATH . "vanzari_detail.php?id=" . (int)$r['id']];
+}
+mysqli_data_seek($vanzare, 0);
+$header_scripts .= '&lt;script type="application/ld+json"&gt;' . json_encode([
+    "@context" =&gt; "https://schema.org", "@type" =&gt; "ItemList", "itemListElement" =&gt; $items
+], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . '&lt;/script&gt;';</code></pre>
+<p>Mutați și apelul <code>getWebPageSchema()</code> (~linia 500) <em>după</em> setarea <code>$page_title</code> (~linia 533), ca <code>name</code> să nu mai fie gol.</p>
+
+<!-- S13 -->
+<h3>9.13 Golul de crawl din 17–27 septembrie: cum îl investigați <span class="tag t-med">diagnostic</span></h3>
+<ol>
+  <li>cPanel → <strong>Raw Access</strong>, descărcați arhiva pentru septembrie (<code>autolandromania.ro-ssl_log-Sep-2026.gz</code>).</li>
+  <li>În cPanel → Terminal:
+<pre><code>zcat ~/logs/autolandromania.ro-ssl_log-Sep-2026.gz | grep -i googlebot \
+  | awk '{print substr($4,2,11), $9}' | sort | uniq -c | sort -k2,2 -k3,3</code></pre>
+    Comanda numără pe zile câte cereri a făcut Googlebot și cu ce cod de răspuns. Căutați zilele 17–27 septembrie cu multe <code>403</code>/<code>406</code>/<code>429</code>/<code>5xx</code> sau cu foarte puține cereri.</li>
+  <li>Dacă apar 403 sau 406: cPanel → <strong>Imunify360</strong> → Firewall / Proactive Defense, verificați dacă IP-uri Googlebot (66.249.x.x) au fost blocate și adăugați-le la whitelist. Întrebați și hostingul dacă au fost lucrări sau incidente în acea perioadă.</li>
+  <li>Dacă nu apar erori, golul a venit din partea Google (crawlerul de imagini). Nu e nimic de corectat, iar crawl-ul și-a revenit oricum după 27 septembrie.</li>
+</ol>
+
+<!-- S14 -->
+<h3>9.14 Proces de deploy sigur <span class="tag t-low">prevenție</span></h3>
+<ul>
+  <li>Înainte de urcare: <code>php -l</code> pe fiecare fișier modificat. În VS Code, extensia „PHP Intelephense” arată erorile de sintaxă în timp ce scrieți.</li>
+  <li>Urcați fișierele unul câte unul și deschideți imediat pagina afectată, plus homepage-ul.</li>
+  <li>Țineți versiunile anterioare <em>în afara</em> <code>public_html</code> (de ex. <code>/home/autoland/versiuni/2026-10-13/</code>), nu ca <code>.old</code>/<code>.bak</code> lângă original.</li>
+  <li>Opțional: un repository Git privat (GitHub sau Bitbucket) pentru <code>public_html</code>, fără <code>foto/</code>, <code>video/</code> și <code>config.php</code>. Fiecare modificare devine reversibilă și documentată.</li>
+</ul>
+
+<!-- S15 -->
+<h3>9.15 URL-uri prietenoase pentru mașini (fără modificări în baza de date) <span class="tag t-med">mediu, după 9.2–9.7</span></h3>
+<p><strong>Contează?</strong> Puțin pentru ranking: Google spune că pentru poziționare cuvintele din URL sunt un semnal foarte slab. Beneficiile sunt în altă parte:</p>
+<ul>
+  <li>URL-ul se citește în rezultatele Google, pe WhatsApp și pe Facebook (<code>autolandromania.ro › masini › renault-scenic-2012</code>), ceea ce aduce încredere și un CTR ușor mai bun;</li>
+  <li>dispar definitiv variantele <code>?id=…&amp;pic=…</code>, pentru că fiecare mașină are un singur URL;</li>
+  <li>riscul e mic, pentru că paginile de mașini aduc puțin trafic. Homepage-ul, leasingul și categoriile nu se schimbă.</li>
+</ul>
+<p>Prioritatea rămâne după SEO local și corecturile critice.</p>
+
+<p><strong>Formatul ales:</strong> <code>https://autolandromania.ro/masini/renault-scenic-1-5-dci-2012-1673</code></p>
+<ul>
+  <li>Slug-ul (<code>renault-scenic-1-5-dci-2012</code>) se generează <em>din mers</em> din coloanele existente <code>marca</code>, <code>tip</code> și <code>an</code>.</li>
+  <li><strong>ID-ul de la final</strong> (<code>1673</code>) este singurul lucru folosit pentru a găsi mașina în baza de date. Nu e nevoie de nicio coloană nouă, iar dacă modificați titlul din admin, URL-ul vechi face 301 automat la cel nou.</li>
+  <li>Este același tipar folosit de Autovit, mobile.de și AutoScout24.</li>
+</ul>
+
+<p><strong>Pasul 1: funcțiile de URL</strong>, în <code>includes/functions.php</code> (la final):</p>
+<pre><code>/**
+ * Transformă un text în slug: "Renault Scénic 1.5 dCi" -&gt; "renault-scenic-1-5-dci"
+ */
+function slugify($text) {
+    $text = mb_strtolower(trim((string)$text), 'UTF-8');
+    $text = str_replace(
+        ['ă', 'â', 'î', 'ș', 'ş', 'ț', 'ţ', 'é', 'è', 'ë', 'ö', 'ü', 'ä'],
+        ['a', 'a', 'i', 's', 's', 't', 't', 'e', 'e', 'e', 'o', 'u', 'a'],
+        $text
+    );
+    $text = preg_replace('/[^a-z0-9]+/', '-', $text);
+    return trim($text, '-');
+}
+
+/**
+ * URL-ul canonic al unei mașini. $car trebuie să conțină id, marca, tip, an.
+ */
+function car_url(array $car) {
+    $slug = slugify(($car['marca'] ?? '') . ' ' . ($car['tip'] ?? '') . ' ' . ($car['an'] ?? ''));
+    $slug = trim(substr($slug, 0, 80), '-');
+    return BASE_PATH . 'masini/' . ($slug !== '' ? $slug . '-' : '') . (int)$car['id'];
+}</code></pre>
+
+<p><strong>Pasul 2: regula de rescriere</strong>, în <code>public_html/.htaccess</code>, <em>după</em> regula de redirect pentru host/HTTPS (9.5) și <em>înainte</em> de regulile pentru articole:</p>
+<pre><code># /masini/renault-scenic-1-5-dci-2012-1673  -&gt;  vanzari_detail.php?id=1673 (intern, fără redirect)
+RewriteRule ^masini/(?:[a-z0-9-]+-)?([0-9]+)/?$ vanzari_detail.php?id=$1 [L,QSA]</code></pre>
+
+<p><strong>Pasul 3: redirect 301 de la URL-urile vechi</strong>, în <code>vanzari_detail.php</code>, imediat după blocul din 9.3 (după <code>$row_vanzare = …</code> și <code>$is_sold = …</code>):</p>
+<pre><code>// Orice URL vechi (?id=, &amp;pic=, slug greșit) -&gt; 301 la URL-ul canonic
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $canonical_car_url = car_url($row_vanzare);
+    $request_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    if ($request_path !== parse_url($canonical_car_url, PHP_URL_PATH)) {
+        header('Location: ' . $canonical_car_url, true, 301);
+        exit();
+    }
+}</code></pre>
+<p>Condiția <code>GET</code> e importantă: formularele care trimit POST spre pagină (de ex. <code>vizUrl</code>, la începutul fișierului) nu sunt redirecționate.</p>
+
+<p><strong>Pasul 4: toate linkurile interne folosesc <code>car_url()</code></strong> (13 locuri în backup):</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Fișier</th><th>Acum</th><th>Devine</th></tr></thead>
+<tbody>
+<tr><td><code>vanzari_detail.php</code> ~370</td><td><code>$car_url = BASE_PATH . "vanzari_detail.php?id=" . $row_vanzare['id'];</code></td><td><code>$car_url = car_url($row_vanzare);</code></td></tr>
+<tr><td><code>vanzari.php</code> ~283</td><td><code>$car_url = BASE_PATH . "vanzari_detail.php?id=" . $car['id'];</code></td><td><code>$car_url = car_url($car);</code></td></tr>
+<tr><td><code>lista_oferta.php</code> ~41</td><td>la fel</td><td><code>$car_url = car_url($car);</code></td></tr>
+<tr><td><code>inventory_listing.php:42</code>, <code>inventory_listing2.php:89</code>, <code>inventory_listing3.php:40</code></td><td><code>href="vanzari_detail.php?id=…&amp;pic=…"</code></td><td><code>href="&lt;?php echo car_url($row_vanzare); ?&gt;"</code></td></tr>
+<tr><td><code>vanzari_detail.php</code> ~110–111 și ~1286, ~1295 (anterior / următor)</td><td><code>SELECT id FROM masini …</code> și <code>'vanzari_detail.php?id=' . $prev_id</code></td><td><code>SELECT id, marca, tip, an FROM masini …</code>, păstrați rândul întreg (<code>$prev_car</code>, <code>$next_car</code>) și <code>href="&lt;?php echo car_url($prev_car); ?&gt;"</code></td></tr>
+<tr><td><code>header.php</code> ~58–59 (canonical)</td><td><code>$canonical_url .= '/vanzari_detail.php?id=' . urlencode($_GET['id']);</code></td><td><code>$canonical_url = !empty($row_vanzare['id']) ? car_url($row_vanzare) : $canonical_url . '/vanzari.php';</code></td></tr>
+<tr><td><code>sitemap-generator.php</code> (3 interogări)</td><td><code>SELECT id …</code> și <code>'/vanzari_detail.php?id=' . $row['id']</code></td><td><code>SELECT id, marca, tip, an, DATE(data_actualizare) AS lastmod …</code> și <code>$add_url(car_url($row), …)</code>. Atenție: <code>car_url()</code> întoarce URL-ul complet, deci nu mai adăugați <code>$base_url</code> în față.</td></tr>
+<tr><td>„Ultimele mașini” / „Mașini similare” (9.10)</td><td>—</td><td><code>car_url($c)</code></td></tr>
+</tbody></table></div>
+<p>Verificați la final că nu a mai rămas nimic: <code>grep -rn "vanzari_detail.php?id=" --include=*.php . | grep -v tehnic/</code>. Linkurile din admin (<code>tehnic/</code>) pot rămâne pe <code>?id=</code>, pentru că fac redirect automat.</p>
+
+<p><strong>Pasul 5: căile relative de pe pagina de mașină.</strong> Sub <code>/masini/…</code>, un link relativ precum <code>href="impresii.php"</code> ar deveni <code>/masini/impresii.php</code>. Am găsit doar câteva:</p>
+<ul>
+  <li><code>menu_top.php</code>: <code>href="impresii.php"</code> devine <code>href="&lt;?php echo BASE_PATH; ?&gt;impresii.php"</code></li>
+  <li><code>sidebar_left.php</code>: <code>action="vanzari.php"</code> devine <code>action="&lt;?php echo BASE_PATH; ?&gt;vanzari.php"</code></li>
+  <li><code>header.php</code>: <code>href="index.php"</code> devine <code>href="&lt;?php echo BASE_PATH; ?&gt;"</code></li>
+  <li><code>themes/automotive/js/custom.js:182</code>: <code>"getmake.php"</code> devine <code>"/getmake.php"</code> (lista de mărci din căutare). Probabil e deja defect pe paginile <code>/articole/…</code>.</li>
+  <li><code>vanzari_detail.php</code> ~907, ~1003: <code>src="themes/automotive/images/…"</code> devine <code>src="&lt;?php echo BASE_PATH; ?&gt;themes/automotive/images/…"</code></li>
+</ul>
+<p>Nu folosiți <code>&lt;base href&gt;</code> ca scurtătură: strică linkurile <code>href="#…"</code> (tab-urile „Detalii” și „Cere mai multe informații”).</p>
+
+<p><strong>Pasul 6: lansarea, toate într-o singură zi</strong></p>
+<ol>
+  <li>Urcați pașii 1–5 și regenerați sitemap-ul.</li>
+  <li>Testați:
+    <ul>
+      <li>o mașină nouă la URL-ul nou (200);</li>
+      <li><code>/vanzari_detail.php?id=1673</code> → 301 → <code>/masini/…-1673</code>;</li>
+      <li><code>/masini/orice-text-1673</code> → 301 → slug-ul corect;</li>
+      <li><code>/masini/x-999999</code> → 410;</li>
+      <li>formularul „Cere mai multe informații” trimite în continuare emailul;</li>
+      <li>butoanele anterior/următor, galeria foto și lista de mărci din căutare funcționează.</li>
+    </ul>
+  </li>
+  <li>În GSC: retrimiteți sitemap-ul și cereți indexarea pentru 5–10 mașini, prin Inspecție URL.</li>
+  <li>Urmăriți 4–6 săptămâni. URL-urile vechi apar treptat la „Pagină cu redirecționare”, iar cele noi la „Indexate”. Fluctuațiile pe paginile de mașini sunt normale în această perioadă.</li>
+</ol>
+
+<p><strong>Etapa 2, opțional (după 6–8 săptămâni, dacă etapa 1 a mers bine): categorii prietenoase.</strong></p>
+<ul>
+  <li>De exemplu: <code>/autoturisme/</code>, <code>/autoutilitare/</code>, <code>/autospecializate/</code>, <code>/utilaje/constructii/</code>.</li>
+  <li>Se fac cu reguli interne în <code>.htaccess</code> (<code>RewriteRule ^autoutilitare/?$ vanzari.php?users=Autoutilitare&amp;subcateg=12&amp;marcat=100 [L,QSA]</code>), plus redirect 301 în PHP de la vechile URL-uri cu parametri. Redirectul se aplică doar când nu sunt alte filtre în URL.</li>
+  <li><strong>Atenție:</strong> categoria Autoutilitare este a treia pagină a site-ului ca trafic. O mutare greșită costă mai mult decât câștigă, așa că o faceți doar cu 301 testat și doar după ce etapa 1 e stabilă.</li>
+</ul>
+
+<!-- ============================================================ -->
+<h2 id="neverificat">10. Ce nu am putut verifica</h2>
+<ul>
+  <li><strong>Dacă dump-urile <code>.sql</code>, <code>error_log</code> și fișierele <code>.old</code> se pot descărca acum de pe site-ul live.</strong> Ele există în backup, iar noul <code>robots.txt</code> blochează <code>*.sql</code>, dar robots.txt nu împiedică descărcarea. Testați în browser: <code>https://autolandromania.ro/error_log</code> și <code>https://autolandromania.ro/autolan1_autos1ww1a.sql</code>. Răspunsul corect este 403 sau 404.</li>
+  <li>Dacă mașinile cu <code>stare_anunt=0</code> se comportă la fel pe live. Codul din backup arată că da, dar nu am avut un ID de mașină dezactivată pe care să-l testez.</li>
+  <li>Datele detaliate din Search Console (acțiuni manuale, indexare, crawl stats după 20 august). Logurile de acces din backup se opresc pe 19 august.</li>
+  <li>Dacă noile blocuri din rezultatele Google pentru SEE se aplică și căutărilor de mașini.</li>
+  <li>Data exactă a lansării AI Overviews în România și dacă eliminarea „Vehicles for sale” din Google Business Profile este confirmată oficial.</li>
+  <li>Date de sezonalitate pentru căutări (Google Trends). Am folosit înmatriculările ca indicator al cererii.</li>
+</ul>
+
+<!-- ============================================================ -->
+<h2 id="surse">11. Surse</h2>
+<h3>Update-uri Google</h3>
+<ul>
+  <li><a href="https://status.search.google.com/products/rGHU1u87FJnkP6W2GwMi/history">Google Search Status Dashboard – istoric ranking</a></li>
+  <li><a href="https://status.search.google.com/incidents/XhUDXP7A67iHCD2kmbVu">Spam update septembrie 2026 – incident pe dashboard</a></li>
+  <li><a href="https://searchengineland.com/google-releases-september-2026-spam-update-491267">Search Engine Land – September 2026 spam update</a></li>
+  <li><a href="https://www.seroundtable.com/google-september-2026-spam-update-done-42235.html">SER – September 2026 spam update done</a></li>
+  <li><a href="https://www.seroundtable.com/google-august-2026-spam-update-done-41906.html">SER – August 2026 spam update done</a></li>
+  <li><a href="https://www.seroundtable.com/google-may-2026-core-update-done-41435.html">SER – May 2026 core update done</a></li>
+  <li><a href="https://searchengineland.com/google-march-2026-core-update-rollout-is-now-complete-473883">SEL – March 2026 core update complete</a></li>
+  <li><a href="https://searchengineland.com/google-december-2025-core-update-rollout-is-now-complete-466362">SEL – December 2025 core update complete</a></li>
+  <li><a href="https://searchengineland.com/google-june-2025-core-update-rollout-is-now-complete-458617">SEL – June 2025 core update complete</a></li>
+  <li><a href="https://searchengineland.com/google-august-2025-spam-update-done-rolling-out-461560">SEL – August 2025 spam update</a></li>
+  <li><a href="https://developers.google.com/search/updates">Google Search Central – jurnal de modificări în documentație</a></li>
+</ul>
+<h3>Search Console, date structurate, SERP</h3>
+<ul>
+  <li><a href="https://support.google.com/webmasters/answer/6211453?hl=en">Search Console – anomalii de date (bug-ul afișărilor 2025–2026)</a></li>
+  <li><a href="https://searchengineland.com/google-search-console-bug-inflated-impression-counts-473530">SEL – bug-ul care a umflat afișările</a></li>
+  <li><a href="https://zeo.org/resources/blog/the-impact-of-num-100-parameter-removal-on-seo-reporting">Zeo – efectul eliminării &amp;num=100</a></li>
+  <li><a href="https://developers.google.com/search/blog/2025/06/simplifying-search-results">Google – simplificarea rezultatelor (eliminare Vehicle listing etc.)</a></li>
+  <li><a href="https://www.searchenginejournal.com/google-drops-search-console-reporting-for-six-structured-data-types/555560/">SEJ – rapoarte GSC eliminate pentru 6 tipuri de date structurate</a></li>
+  <li><a href="https://www.searchenginejournal.com/google-rolls-out-redesigned-search-results-across-the-eea/588870/">SEJ – rezultate redesenate în SEE</a></li>
+  <li><a href="https://www.searchenginejournal.com/google-adds-local-businesses-to-eea-search-result-units/589955/">SEJ – afaceri locale incluse în blocurile SEE</a></li>
+  <li><a href="https://www.romania-insider.com/google-ai-mode-searches-romanian-2025">Romania Insider – AI Mode în limba română</a></li>
+  <li><a href="https://www.seerinteractive.com/news/search-engine-land-and-other-search-pubs-cite-seers-2026-ctr-research">Seer Interactive – CTR și AI Overviews</a></li>
+  <li><a href="https://developers.google.com/search/docs/crawling-indexing/http-network-errors">Google – coduri HTTP și indexare (404/410)</a></li>
+  <li><a href="https://www.searchenginejournal.com/googles-john-mueller-explains-why-expired-product-pages-may-become-soft-404s/293959/">SEJ – John Mueller despre produse expirate și soft 404</a></li>
+  <li><a href="https://developers.google.com/search/docs/appearance/structured-data/review-snippet">Google – reguli pentru review snippets (ratinguri)</a></li>
+</ul>
+<h3>Piață</h3>
+<ul>
+  <li><a href="https://www.bursa.ro/inmatriculari-de-autoturisme-noi-in-romania-septembrie-2026-20654061">Bursa – înmatriculări septembrie 2026</a></li>
+  <li><a href="https://economedia.ro/?p=369419">Economedia – înmatriculări august 2026</a></li>
+  <li><a href="https://www.automarket.ro/stiri/inmatricularile-din-romania-in-luna-septembrie-scadere-de-112-128913.html">AutoMarket – înmatriculări septembrie</a></li>
+</ul>
+
+<footer>
+Raport generat pe baza backup-ului din 20.08.2026 (<code>public_html</code>), a logurilor de acces (31 iul – 19 aug 2026), a <code>error_log</code> (mai 2025 – aug 2026), a documentelor interne din <code>_docs/</code> (21.08.2026) și a verificării site-ului live din 13.10.2026. Numerele de linie se referă la fișierele din backup și pot fi diferite pe server dacă s-au făcut modificări după 20 august.
+</footer>
+
+</div>
+</body>
+</html>

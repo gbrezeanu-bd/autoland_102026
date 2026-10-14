@@ -9,14 +9,20 @@
  */
 
 session_start();
-require_once '/home/autoland/public_html/includes/functions.php';
+require_once __DIR__ . '/functions.php';
 mb_internal_encoding('UTF-8');
 
 
 // ////////////////////////////////////////////////////////////////////////////
 // START USER CONFIGURATION
 define('DEBUG', TRUE);
-DEFINE('BASE_PATH', 'https://autolandromania.ro/'); // watch out!! force to www in htaccess redirection!
+// Local XAMPP copy runs from https://localhost/autoland_102026/
+define('IS_LOCAL', isset($_SERVER['HTTP_HOST']) && preg_match('/^(localhost|127\.0\.0\.1)(:\d+)?$/', $_SERVER['HTTP_HOST']));
+if (IS_LOCAL) {
+    DEFINE('BASE_PATH', 'https://' . $_SERVER['HTTP_HOST'] . '/autoland_102026/');
+} else {
+    DEFINE('BASE_PATH', 'https://autolandromania.ro/'); // watch out!! force to www in htaccess redirection!
+}
 
 
 $hostname = "localhost";

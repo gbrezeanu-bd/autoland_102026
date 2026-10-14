@@ -1,6 +1,6 @@
 <?php
 
-require_once('/home/autoland/public_html/includes/config.php');
+require_once(dirname(__DIR__) . '/includes/config.php');
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 

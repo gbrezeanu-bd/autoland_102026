@@ -9,9 +9,9 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require_once '/home/autoland/public_html/includes/vendor/PHPMailer/src/Exception.php';
-require_once '/home/autoland/public_html/includes/vendor/PHPMailer/src/PHPMailer.php';
-require_once '/home/autoland/public_html/includes/vendor/PHPMailer/src/SMTP.php';
+require_once __DIR__ . '/vendor/PHPMailer/src/Exception.php';
+require_once __DIR__ . '/vendor/PHPMailer/src/PHPMailer.php';
+require_once __DIR__ . '/vendor/PHPMailer/src/SMTP.php';
 
 check_min_requirements();
 
