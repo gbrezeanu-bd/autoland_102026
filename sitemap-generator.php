@@ -11,7 +11,9 @@
  * modificare a anunțului (ALTER TABLE masini ADD COLUMN data_actualizare TIMESTAMP NOT NULL
  * DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP).
  */
-if (php_sapi_name() !== 'cli') {
+// Pe server, `php` din cron e varianta CGI (nu CLI), deci verificăm dacă e o cerere web,
+// nu numele SAPI: o cerere din browser are mereu REQUEST_METHOD, rularea din cron nu.
+if (isset($_SERVER['REQUEST_METHOD'])) {
     http_response_code(404);
     exit();
 }

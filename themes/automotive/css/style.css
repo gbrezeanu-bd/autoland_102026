@@ -2380,7 +2380,8 @@ input[type=text]:focus,
 	text-decoration: none !important;
 }
 
-.logo-footer a h1 {
+.logo-footer a h1,
+.logo-footer a .footer-logo-title {
 	font-family: 'Yellowtail', cursive;
 	font-size: 40px;
 	text-decoration: none;
@@ -2389,7 +2390,8 @@ input[type=text]:focus,
 	color: #999;
 }
 
-.no_footer .logo-footer a h1 {
+.no_footer .logo-footer a h1,
+.no_footer .logo-footer a .footer-logo-title {
 	text-align: center;
 	color: #FFF;
 }

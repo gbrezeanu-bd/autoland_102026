@@ -10,7 +10,7 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 footer-brand-section">
                 <div class="logo-footer">
                     <a href="<?php echo BASE_PATH; ?>index.php">
-                        <h1>Autoland Romania</h1>
+                        <div class="footer-logo-title">Autoland Romania</div>
                     </a>
                 </div>
                 <p>Copyright &copy; 2007 - <?php echo date("Y") ?> Autoland S.R.L.<br>Toate drepturile rezervate.</p>
@@ -189,19 +189,7 @@ if (DEBUG == FALSE && file_exists('public/build/rev-manifest.json')) {
  
 
 
-<!-- Google Analytics -->
-<?php
-// add analytics code only if allowed by GDPR settings
-if (isset($_COOKIE['CookiePreferences'])) {
-    $cookiePreferences = json_decode($_COOKIE['CookiePreferences'], TRUE);
-    if (is_array($cookiePreferences) && in_array('analytics', $cookiePreferences)) {
-        ?>
-        <script type="text/javascript" src="<?php echo BASE_PATH; ?>js/ganalytics.js" defer></script>
-        <?php
-    }
-}
-?>
-<!-- End Google Analytics -->
+<!-- Google Analytics se încarcă din GTM (GTM-N85GS6ZP), cu consimțământ prin Consent Mode (vezi header.php) -->
 </body>
 
 </html>

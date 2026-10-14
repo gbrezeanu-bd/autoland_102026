@@ -19,6 +19,27 @@
                 'ad_personalization': 'denied',
                 'analytics_storage': 'denied'
             });
+
+            // Alegerea salvată de bannerul de cookies (CookiePreferences) se aplică înainte să pornească GTM
+            function cookieConsentState(prefs) {
+                var has = function (p) { return prefs.indexOf(p) !== -1 ? 'granted' : 'denied'; };
+                return {
+                    'analytics_storage': has('analytics'),
+                    'ad_storage': has('googleads'),
+                    'ad_user_data': has('googleads'),
+                    'ad_personalization': has('googleads')
+                };
+            }
+            (function () {
+                var m = document.cookie.match(/(?:^|;\s*)CookiePreferences=([^;]*)/);
+                if (!m) return;
+                try {
+                    var prefs = JSON.parse(decodeURIComponent(m[1]));
+                    if (prefs && prefs.length !== undefined) {
+                        gtag('consent', 'update', cookieConsentState(prefs));
+                    }
+                } catch (e) {}
+            })();
         </script>
 
         <script>
@@ -298,15 +319,9 @@
         <!-- Non-critical JavaScript - Load with defer -->
         <script type="text/JavaScript" src="<?php echo BASE_PATH; ?>js/selectmake.js" defer></script>
 
-        <!-- Google tag (gtag.js) - Loaded in head as recommended by Google -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-23845PZRLE"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-23845PZRLE');
-        </script>
-        
+        <!-- Google Analytics (G-23845PZRLE) se încarcă din GTM (eticheta "GT – Google tag"), nu direct aici:
+             încărcat de două ori ar număra fiecare vizită dublu -->
+
         <script>
             // Make BASE_PATH available to JavaScript
             var BASE_PATH = '<?= BASE_PATH ?>';

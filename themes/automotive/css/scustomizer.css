@@ -7105,7 +7105,8 @@ a.car-action-btn:hover:visited .car-action-btn-text,
     padding-right: 30px;
 }
 
-.footer-brand-section .logo-footer h1 {
+.footer-brand-section .logo-footer h1,
+.footer-brand-section .logo-footer .footer-logo-title {
     font-family: 'Verdana', sans-serif !important;
     font-weight: 700 !important;
     font-style: italic !important;

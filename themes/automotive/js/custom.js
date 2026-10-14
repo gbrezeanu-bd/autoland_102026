@@ -116,12 +116,20 @@ var cookieSettings = {
         }
     ],
     OnAccept: function () {
-        updateCookiePreferences();
+        updateCookiePreferences(true);
     }
 };
 
-var updateCookiePreferences = function () {
+var updateCookiePreferences = function (justAccepted) {
     var preferences = $.fn.bsgdprcookies.GetUserPreferences();
+
+    // Trimitem alegerea către Google Consent Mode (fără asta, GA rămâne pe "denied" și nu colectează date)
+    if (preferences && typeof gtag === 'function' && typeof cookieConsentState === 'function') {
+        gtag('consent', 'update', cookieConsentState(preferences));
+        if (justAccepted) {
+            window.dataLayer.push({'event': 'cookie_consent_update'});
+        }
+    }
     var cookies = {
         necessary: ['PHPSESSID'],
         preferences: ['baz'],
