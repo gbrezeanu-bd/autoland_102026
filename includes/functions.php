@@ -574,7 +574,7 @@ function clean_car_tip($tip) {
 }
 
 /**
- * Page title for a car: "Marca Tip [automat] [diesel] [7 locuri] An – Second Hand Iași"
+ * Page title for a car: "Marca Tip [automat] [110 CP] [7 locuri] An[, în rate, avans 0%] – Second Hand Iași"
  *
  * @param array $car   row from masini (marca, tip, an, cat, subcateg)
  * @param array|null $csv row from for_csv (combustibil, transmisie, nr_locuri)
@@ -599,14 +599,11 @@ function car_page_title(array $car, $csv = null) {
             && !preg_match('/autom|dsg|tiptronic|cvt/u', $lower)) {
             $extra[] = 'automat';
         }
-        // Combustibil, doar dacă nu apare deja
-        $fuel_words = '/diesel|motorina|benzina|hybrid|hibrid|electric|gpl|\bphev\b|\bev\b/u';
-        if (!empty($csv['combustibil']) && !preg_match($fuel_words, $lower)) {
-            $map = array('motorina' => 'diesel', 'benzina' => 'benzina', 'hybrid' => 'hybrid', 'hibrid' => 'hybrid', 'electric' => 'electric', 'gpl' => 'GPL');
-            $fuel = mb_strtolower(trim($csv['combustibil']), 'UTF-8');
-            foreach ($map as $k => $v) {
-                if (strpos($fuel, $k) !== false) { $extra[] = $v; break; }
-            }
+        // Puterea motorului (for_csv.putere_motor, în CP), dacă nu apare deja în tip.
+        // Valorile în afara 40–700 sunt greșeli de introducere (cilindree, wați) și se ignoră.
+        $power = !empty($csv['putere_motor']) ? (int)$csv['putere_motor'] : 0;
+        if ($power >= 40 && $power <= 700 && !preg_match('/\d\s*(cp|hp|ps|kw)\b/u', $lower)) {
+            $extra[] = $power . ' CP';
         }
         // 6+ locuri (se caută: „7 locuri”, „vivaro 6 locuri”)
         if (!empty($csv['nr_locuri']) && (int)$csv['nr_locuri'] >= 6 && strpos($lower, 'locuri') === false) {
@@ -617,6 +614,30 @@ function car_page_title(array $car, $csv = null) {
         $extra[] = (int)$car['an'];
     }
 
+    // Finanțarea rămâne în titlu doar dacă e trecută în admin (tip), scrisă unitar
+    $finance = car_finance_label(isset($car['tip']) ? $car['tip'] : '');
+
     $suffix = $is_utilaje ? ' – Utilaje Second Hand Iași' : ' – Second Hand Iași';
-    return trim($name . ($extra ? ' ' . implode(' ', $extra) : '')) . $suffix;
+    return trim($name . ($extra ? ' ' . implode(' ', $extra) : '')) . ($finance ? ', ' . $finance : '') . $suffix;
+}
+
+/**
+ * Financing label from the admin "tip" text: only what the dealer already wrote there, normalized.
+ * "rate, avans 0" / "avans zero" / "fara avans" -> "în rate, avans 0%"; rate + leasing -> "în rate sau leasing".
+ */
+function car_finance_label($tip) {
+    $t = mb_strtolower((string)$tip, 'UTF-8');
+    $avans0 = preg_match('/avans\s*(0|z)|fara\s+avans/u', $t); // "avans z" = "avans zero" tăiat în admin
+    $rate = preg_match('/\b(rate|credit)\b/u', $t);
+    $leasing = strpos($t, 'leasing') !== false;
+    if ($avans0) {
+        return 'în rate, avans 0%';
+    }
+    if ($rate && $leasing) {
+        return 'în rate sau leasing';
+    }
+    if ($rate) {
+        return 'în rate';
+    }
+    return $leasing ? 'în leasing' : '';
 }
