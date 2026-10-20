@@ -17,7 +17,7 @@
                     var okMessage = "Notificarea dumneavoastra a fost trimisa cu succes!<br>";
                     okMessage = okMessage + "Va rugam sa verificati acum mesajul AUTOLAND primit pe adresa de email furnizata prin care vam transmis cateva informatii interesante, cu caracter general.<br>";
                     okMessage = okMessage + "Detalii in plus privind oferta noastra de finantare auto puteti gasi in site pe pagina Leasing/Rate.<br>";
-                    okMessage = okMessage + "Pentru informatii suplimentare privind masina dorita de dumneavoastra (eventual consultanta necesara pentru a gasi cea mai buna varianta auto si a o stabili impreuna, de comun acord) precum si pentru intrebari suplimentare privind sistemul nostru de leasing auto sau rate va rugam sa ne contactati telefonic de Luni pana Vineri in intervalul 9-18 la unul din numerele din pagina Contact. <br>";
+                    okMessage = okMessage + "Pentru informatii suplimentare privind masina dorita de dumneavoastra (eventual consultanta necesara pentru a gasi cea mai buna varianta auto si a o stabili impreuna, de comun acord) precum si pentru intrebari suplimentare privind sistemul nostru de leasing auto sau rate va rugam sa ne contactati telefonic de Luni pana Vineri in intervalul 10-18 la unul din numerele din pagina Contact. <br>";
                     okMessage = okMessage + "Va multumim pentru interesul dumneavoastra si va asiguram ca ati gasit si veti colabora cu acei profesionisti de nota 10 (zece) pe care ii doriti.  <br>";
                     okMessage = okMessage + "<br>";
                     okMessage = okMessage + "Cu respect,<br>";

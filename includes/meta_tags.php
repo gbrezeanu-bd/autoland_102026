@@ -23,7 +23,7 @@ function setHomePageMeta() {
 function setContactPageMeta() {
     global $meta_description, $meta_keywords, $og_type;
     
-    $meta_description = "Contactează AutoLand România - dealer auto second hand în Iași. Strada Luca Arbore nr. 3, Iași, 700440. Telefon: +40 742 377 001. Program: Luni-Vineri 09:30-17:30. Vino să vezi mașinile noastre sau sună pentru informații.";
+    $meta_description = "Contactează AutoLand România - dealer auto second hand în Iași. Strada Luca Arbore nr. 3, Iași, 700440. Telefon: +40 742 377 001. Program: Luni-Vineri 10:00-18:00. Vino să vezi mașinile noastre sau sună pentru informații.";
     $meta_keywords = "contact dealer auto Iași, AutoLand România contact, dealer auto Strada Luca Arbore, telefon dealer auto, program dealer auto Iași";
     $og_type = "website";
 }
