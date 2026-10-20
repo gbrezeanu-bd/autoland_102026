@@ -301,8 +301,7 @@ if ($pageNum_vanzare > 0) {
     $title_parts[count($title_parts) - 1] .= " – Pagina " . ($pageNum_vanzare + 1);
 }
 
-$title_parts[] = "Second Hand Iași";
-$title_parts[] = "Autoland România";
+$title_parts[] = "second hand în rate, livrare în toată țara | Autoland România";
 
 $page_title = implode(" | ", $title_parts);
 

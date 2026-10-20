@@ -18,7 +18,7 @@ $query_text = "SELECT id, garantie FROM texte WHERE id = 1";
 $result = $connection->query($query_text) or db_fail($connection);
 $row = $result->fetch_assoc();
 
-$page_title = "Garanție Auto 12 Luni Iași | Autoland România";
+$page_title = "Garanție auto 1 - 3 ani, valabilă în orice service RAR din țară | Autoland România";
 $page_subtitle = "Garanţie auto şi second hand";
 $content = is_null($row) ? "Content is missing" : $row['garantie'];
 

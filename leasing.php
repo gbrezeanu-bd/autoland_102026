@@ -18,7 +18,7 @@ $query_text = "SELECT id, leasing FROM texte WHERE id = 1";
 $result = $connection->query($query_text) or db_fail($connection);
 $row = $result->fetch_assoc();
 
-$page_title = "Leasing/Credit Auto Iași | Finanțare cu Avans 0% | Autoland România";
+$page_title = "Leasing auto second hand, avans de la 0%, și pentru firme noi | Autoland România";
 $page_subtitle = '';
 $content = is_null($row) ? "Content is missing" : $row['leasing'];
 

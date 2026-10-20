@@ -11,7 +11,7 @@ $row = $result->fetch_assoc();
 
 // $page_title = "Încă din 2007: experiența noastră - garanția mașinii tale de vis.";
 // $page_subtitle = 'Mașini atent verificate, garanție 12 luni cu suport complet la fiecare pas.';
-$page_title = "Vânzări Mașini Rulate, Second Hand și Noi cu Garanție | Iași";
+$page_title = "Parc auto second hand din Iași, cu livrare în toată România | Autoland România";
 $page_subtitle = 'Dealer (Parc) auto de încredere începând din 2007';
 $content = is_null($row) ? "Content is missing" : $row['home'];
 
