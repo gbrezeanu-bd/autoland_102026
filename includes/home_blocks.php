@@ -95,7 +95,7 @@ function home_recenzii($connection, $limit = 3)
         }
         $autor = trim(trim($r['prenume']) . ' ' . trim($r['nume']));
         $html .= '<blockquote class="ap-review"><p>' . htmlspecialchars($text) . '</p>'
-            . '<span class="ap-review-by">' . htmlspecialchars($autor) . ', ' . date('Y', strtotime($r['data_recenzie'])) . '</span></blockquote>';
+            . '<span class="ap-review-by">' . htmlspecialchars($autor) . '</span></blockquote>';
     }
     return $html . '</div>';
 }
