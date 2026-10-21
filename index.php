@@ -1,6 +1,8 @@
 <?php
 // get config file;
 include_once './includes/config.php';
+include_once './includes/pagini_sectiuni.php';
+include_once './includes/home_blocks.php';
 
 // /////////////////////////////////////////////////////////////////////////////
 // try to get content
@@ -11,9 +13,11 @@ $row = $result->fetch_assoc();
 
 // $page_title = "Încă din 2007: experiența noastră - garanția mașinii tale de vis.";
 // $page_subtitle = 'Mașini atent verificate, garanție 12 luni cu suport complet la fiecare pas.';
-$page_title = "Parc auto second hand din Iași, cu livrare în toată România | Autoland România";
-$page_subtitle = 'Dealer (Parc) auto de încredere începând din 2007';
-$content = is_null($row) ? "Content is missing" : $row['home'];
+$page_title = "Mașini second hand verificate, Iași | Autoland România";
+$banner_title = "Mașini second hand verificate, cu garanție, livrate din Iași în toată România";
+$page_subtitle = '';
+// Marcajele {NR_MASINI}, {ULTIMELE_MASINI}, {RECENZII} din text se înlocuiesc cu date actuale (includes/home_blocks.php)
+$content = is_null($row) ? "Content is missing" : home_inlocuieste_marcaje(pagini_linkuri_interne($row['home']), $connection);
 
 
 $query_marci     = "SELECT * FROM `search` ORDER BY categorie, marca ASC";
@@ -34,8 +38,13 @@ $json_ld_homepage = [
     getOrganizationSchema(),
     getWebSiteSchema()
 ];
+$header_scripts .= '<link rel="stylesheet" href="' . BASE_PATH . 'themes/automotive/css/pagini.css">' . "\n";
 $header_scripts .= '<script type="application/ld+json">' . json_encode($json_ld_homepage[0], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . '</script>';
 $header_scripts .= '<script type="application/ld+json">' . json_encode($json_ld_homepage[1], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . '</script>';
+$faq_items = pagini_extrage_faq($content);
+if ($faq_items) {
+    $header_scripts .= '<script type="application/ld+json">' . json_encode(['@context' => 'https://schema.org', '@type' => 'FAQPage', 'mainEntity' => $faq_items], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . '</script>';
+}
 
 
 include './themes/automotive/template_parts/header.php';

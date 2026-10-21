@@ -10,6 +10,11 @@
  */
 // get config file;
 include_once './includes/config.php';
+include_once './includes/pagini_sectiuni.php';
+
+// Aspectul cu meniu lateral al secțiunii Garanție și servicii
+$sectiune = 'servicii';
+$slug = 'garantie';
 
 // /////////////////////////////////////////////////////////////////////////////
 // try to get content
@@ -18,9 +23,10 @@ $query_text = "SELECT id, garantie FROM texte WHERE id = 1";
 $result = $connection->query($query_text) or db_fail($connection);
 $row = $result->fetch_assoc();
 
-$page_title = "Garanție auto 1 - 3 ani, valabilă în orice service RAR din țară | Autoland România";
-$page_subtitle = "Garanţie auto şi second hand";
-$content = is_null($row) ? "Content is missing" : $row['garantie'];
+$page_title = "Garanție auto 12–36 luni, în orice service RAR | Autoland";
+$banner_title = "Garanția Autoland România: ce acoperă, cât ține și cât costă";
+$page_subtitle = "";
+$content = is_null($row) ? "Content is missing" : pagini_linkuri_interne($row['garantie']);
 
 // Set SEO meta tags
 require_once './includes/meta_tags.php';
@@ -52,6 +58,7 @@ $service_schemas = [
     getOrganizationSchema(),
     getWebPageSchema($canonical_url, $page_title, $meta_description ?? '')
 ];
+$header_scripts .= '<link rel="stylesheet" href="' . BASE_PATH . 'themes/automotive/css/pagini.css">' . "\n";
 $header_scripts .= getJsonLdString($service_schemas);
 
 // /////////////////////////////////////////////////////////////////////////////
@@ -62,8 +69,13 @@ include './themes/automotive/template_parts/header.php';
 <section class="content">
     <div class="container">
         <div class="inner-page">
-            <?php print $content; ?>
-            
+            <div class="ap-layout">
+                <?php include './themes/automotive/template_parts/pagina_sidebar.php'; ?>
+                <div class="ap-main">
+                    <?php print $content; ?>
+                </div>
+            </div>
+
             <div class="clearfix"></div>
         </div>
     </div>

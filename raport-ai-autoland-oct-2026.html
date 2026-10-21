@@ -94,6 +94,7 @@ footer{margin-top:60px;color:var(--muted);font-size:.85rem;border-top:1px solid 
     <li><a href="#constatari">Problemele găsite</a></li>
     <li><a href="#plan">Plan de acțiune</a></li>
     <li><a href="#solutii">Soluții detaliate și modele (texte, llms.txt, FAQ, structura site-ului)</a></li>
+    <li><a href="#national">Extinderea la nivel național: Google și AI</a></li>
     <li><a href="#masurare">Cum măsurați rezultatul</a></li>
     <li><a href="#neverificat">Ce nu am putut verifica</a></li>
     <li><a href="#surse">Surse</a></li>
@@ -109,7 +110,25 @@ footer{margin-top:60px;color:var(--muted);font-size:.85rem;border-top:1px solid 
 <li><strong>Aproape nimeni altcineva nu vorbește despre Autoland pe internet.</strong> Nu am găsit liste de tip „cele mai bune parcuri auto din Iași”, articole de presă sau discuții pe forumuri care să vă menționeze. Asistenții AI recomandă mai ales firmele pe care le confirmă <em>mai multe</em> surse independente, nu doar site-ul propriu.</li>
 <li><strong>Numele „Autoland” e ambiguu.</strong> Există dealeri „Autoland” în SUA, o firmă germană cu același nume, iar „autoland” e și un termen din aviație. Site-ul trebuie să spună clar și consecvent, inclusiv pentru roboți: <em>Autoland România, parc auto second hand din Iași, din 2007</em>.</li>
 </ol>
+<p><strong>Majoritatea clienților sunt din toată țara, nu din Iași</strong>, dar site-ul se prezintă ca un parc auto local. Secțiunea 7 arată cum câștigați teren la nivel național, în Google și în AI, fără pagini copiate pe orașe: o pagină despre cumpărarea de la distanță și livrare, titluri care spun „livrare în toată România”, pagini pe nișele de autoutilitare și finanțare pentru firme.</p>
+<p><strong>Planul concret pentru următoarele 30 de zile</strong> (Google, AI, Autovit/OLX, reclame, apeluri) e în auditul principal, <code>raport-seo-autoland-oct-2026.html</code>, secțiunea 11. Cercetarea completă despre cum funcționează acum Google și AI e în secțiunea 10 a aceluiași raport.</p>
 <p>Primul punct se rezolvă din cPanel, într-o oră. Al treilea se rezolvă din cod, într-o zi. Secțiunea 6 conține modele gata de folosit: cum se scriu textele, un fișier <code>llms.txt</code> complet, pagina de întrebări frecvente, pagina „Despre noi” și structura recomandată a site-ului. Al doilea cere efort continuu de marketing (recenzii, listări, mențiuni) și e cel mai important pe termen lung.</p>
+</div>
+
+<div class="card summary">
+<p><strong>Primele date GA4 (14–20.10.2026, doar vizitatorii care au acceptat cookie-urile)</strong></p>
+<div class="table-wrap"><table>
+<thead><tr><th>Canal</th><th>Utilizatori noi</th><th>Sesiuni</th><th>% din sesiuni</th></tr></thead>
+<tbody>
+<tr><td>Organic Search (Google, Bing)</td><td>146</td><td>159</td><td>~70%</td></tr>
+<tr><td>Direct</td><td>23</td><td>43</td><td>~19%</td></tr>
+<tr><td><strong>AI Assistant</strong> (ChatGPT, Gemini, Perplexity etc.)</td><td><strong>18</strong></td><td><strong>24</strong></td><td><strong>~11%</strong></td></tr>
+</tbody></table></div>
+<ul>
+<li><strong>Asistenții AI aduc ~11% din vizite</strong>, de aproape 10 ori peste media din studiile internaționale (~1%). Datele confirmă ce a observat conducerea în septembrie: pentru Autoland, AI e deja un canal real de clienți.</li>
+<li>Nu apar vizite din Autovit, OLX, Facebook sau reclame. Clienții de pe aceste platforme sună direct din anunț, fără să treacă prin site, deci se pot număra doar întrebând la telefon „De unde ați aflat de noi?”.</li>
+<li>Perioada e scurtă (6 zile) și include doar vizitatorii care au apăsat „Accept”. Cifrele absolute sunt mai mari în realitate, iar proporțiile sunt orientative. Reverificați după o lună.</li>
+</ul>
 </div>
 
 <div class="note"><strong>Ce nu poate promite nimeni:</strong> nu există o metodă garantată de a fi recomandat de ChatGPT. OpenAI, Google și Perplexity nu publică criteriile de selecție. Recomandările de mai jos se bazează pe ce documentează oficial furnizorii (roboți, acces, index) și pe tiparele observate de specialiști. Acolo unde o informație nu e confirmată oficial, o marchez ca atare.</div>
@@ -121,11 +140,11 @@ footer{margin-top:60px;color:var(--muted);font-size:.85rem;border-top:1px solid 
 <div class="table-wrap"><table>
 <thead><tr><th>Asistent</th><th>De unde își ia informațiile</th><th>Ce contează pentru voi</th></tr></thead>
 <tbody>
-<tr><td>ChatGPT (cu căutare)</td><td>Propriul robot <code>OAI-SearchBot</code> și rezultate din indexul Bing. La cererea unui utilizator, pagina e deschisă de <code>ChatGPT-User</code>.</td><td>Acces pentru <code>OAI-SearchBot</code> (OpenAI spune explicit că site-urile care îl blochează nu apar în răspunsurile ChatGPT Search) și prezență bună în <strong>Bing</strong>.</td></tr>
-<tr><td>Microsoft Copilot</td><td>Bing</td><td>Bing Webmaster Tools, Bing Places.</td></tr>
+<tr><td>ChatGPT (cu căutare)</td><td>Propriul robot <code>OAI-SearchBot</code>, indexul Bing și, conform unui studiu independent (Peec, sep. 2026), și rezultate Google, Google Maps și surse locale. ChatGPT caută pe web doar la o parte din întrebări. Când caută, folosește tot mai des cuvintele „oficial” și „preț” (Ahrefs, oct. 2026). Paginile sunt deschise de <code>ChatGPT-User</code>.</td><td>Acces pentru <code>OAI-SearchBot</code> (OpenAI spune explicit că site-urile care îl blochează nu apar în ChatGPT Search), prezență bună în <strong>Bing și Google</strong>, profil Google Business cu recenzii și pagini cu condiții și prețuri exacte.</td></tr>
+<tr><td>Microsoft Copilot</td><td>Bing</td><td>Bing Webmaster Tools (are din 2026 un raport „AI Performance” cu citările în Copilot) și Bing Places.</td></tr>
 <tr><td>Perplexity</td><td>Propriul robot <code>PerplexityBot</code> și <code>Perplexity-User</code></td><td>Acces pentru ambii roboți. <strong>Acum sunt blocați</strong> (vezi secțiunea 3).</td></tr>
 <tr><td>Gemini, Google AI Mode, AI Overviews</td><td>Indexul Google și Google Business Profile</td><td>Același SEO ca pentru Google, plus profilul Google Business (recenzii, categorii, program).</td></tr>
-<tr><td>Claude</td><td>Căutare web, iar paginile sunt deschise de <code>Claude-User</code></td><td>Acces pentru roboți.</td></tr>
+<tr><td>Claude</td><td>Brave Search, iar paginile sunt deschise de <code>Claude-User</code></td><td>Acces pentru roboți și poziții bune în căutare.</td></tr>
 </tbody></table></div>
 
 <p>După ce găsesc sursele, asistenții preferă informațiile care sunt <strong>confirmate de mai multe surse</strong> (site-ul propriu, Google Maps, directoare de firme, liste locale, presă, recenzii) și care sunt <strong>clare și ușor de citat</strong>: adresă, program, servicii, garanție, condiții de finanțare, scrise ca text simplu. Search Engine Land a testat cum caută ChatGPT firme locale: el pornește de la rezultatele Bing, citește 5–8 surse și le alege pe cele care arată clar ratingul și pot fi verificate. Concluzia testului e că firma trebuie să fie bine reprezentată în Bing.</p>
@@ -225,7 +244,7 @@ Listele de IP se schimbă, deci verificați-le o dată la câteva luni. Dacă ho
 <ul>
 <li><strong>Garanția:</strong> homepage-ul spune „garanție auto extinsă până la 3 ani”, iar datele structurate și paginile de mașini spun „garanție 12 luni în scris”.</li>
 <li><strong>Dobânda:</strong> homepage-ul spune „dobândă de la zero 0%”, în timp ce dobânzile afișate în alte locuri sunt de ~7,9%.</li>
-<li><strong>Programul:</strong> în datele structurate e luni–vineri, 09:30–17:30. Trebuie verificat să fie identic cu cel din Google Business Profile.</li>
+<li><strong>Programul:</strong> în datele structurate e luni–vineri, 10:00–18:00. Trebuie verificat să fie identic cu cel din Google Business Profile.</li>
 </ul></dd>
 <dt>Impact</dt><dd>Asistenții AI citează exact astfel de afirmații. Un client care întreabă ChatGPT „ce garanție oferă Autoland” poate primi „3 ani” sau „12 luni”, după sursa citită. Pentru subiectele financiare (leasing, dobânzi), sistemele Google și AI tratează mai sever afirmațiile care nu pot fi verificate.</dd>
 <dt>Remediere</dt><dd>Formulați o singură variantă, adevărată, pentru garanție, finanțare și program, și folosiți-o identic pe homepage, în pagina de garanție, pe pagina de leasing și în profilul Google Business. Exemplu: „Garanție 12 luni în scris inclusă; extensie până la 36 de luni la cerere” (dacă așa este). Exemple complete, cu textele actuale, la <a href="#inainte-dupa">6.2</a>.</dd>
@@ -260,7 +279,7 @@ Rezultatele FAQ nu mai apar în Google din mai 2026, dar textul în sine e exact
 <h4><span class="tag t-low">Mic</span> 4.9 Fișierul <code>llms.txt</code> lipsește</h4>
 <dl>
 <dt>Dovadă</dt><dd><code>https://autolandromania.ro/llms.txt</code> răspunde 404.</dd>
-<dt>Impact</dt><dd>Mic și neconfirmat. <code>llms.txt</code> e o propunere comunitară: un fișier text care rezumă firma pentru modelele AI. Nu există o confirmare oficială că ChatGPT sau Google îl folosesc, deci nu e o prioritate.</dd>
+<dt>Impact</dt><dd><strong>Practic zero, după datele actuale.</strong> Un studiu pe ~300.000 de domenii nu a găsit niciun efect al <code>llms.txt</code> asupra citărilor AI, iar 97% din aceste fișiere nu au primit nicio vizită de la roboți (Ahrefs, mai 2026). Google spune explicit că nu îl folosește.</dd>
 <dt>Remediere</dt><dd>Durează 15 minute: un fișier cu numele firmei, descrierea, adresa, programul, telefonul, serviciile și linkuri spre paginile principale (stoc, leasing, garanție, contact, întrebări frecvente). Nu face rău și poate ajuta asistenții care îl citesc. Model complet la <a href="#llmstxt">6.3</a>.</dd>
 </dl>
 </div>
@@ -282,7 +301,7 @@ Rezultatele FAQ nu mai apar în Google din mai 2026, dar textul în sine e exact
 <tr><td>1</td><td>Deblocați PerplexityBot (regula 406) și adăugați în whitelist IP-urile oficiale OpenAI și Perplexity</td><td>cPanel → Imunify360, sau hostingul</td><td>1 h</td><td><span class="tag t-crit">Foarte mare</span></td></tr>
 <tr><td>2</td><td>Bing Webmaster Tools: import din GSC, sitemap, IndexNow</td><td>Marketing</td><td>30 min</td><td><span class="tag t-high">Mare</span></td></tr>
 <tr><td>3</td><td>Bing Places și Apple Business Connect, cu aceleași date ca Google Business</td><td>Marketing</td><td>1 h</td><td><span class="tag t-high">Mare</span></td></tr>
-<tr><td>4</td><td>Grup de canale „AI” în GA4, ca să măsurați traficul din ChatGPT, Perplexity, Gemini etc. (vezi secțiunea 7)</td><td>GA4</td><td>15 min</td><td><span class="tag t-g">Măsurare</span></td></tr>
+<tr><td>4</td><td>Urmăriți lunar canalul standard „AI Assistant” din GA4 (există deja: ~11% din sesiuni în 14–20.10) și măsurați apelurile și formularele în GTM (vezi secțiunea 8)</td><td>GA4 / GTM</td><td>30 min</td><td><span class="tag t-g">Măsurare</span></td></tr>
 </tbody></table></div>
 
 <h3>Săptămânile 2–3 – identitatea firmei pe site</h3>
@@ -292,7 +311,7 @@ Rezultatele FAQ nu mai apar în Google din mai 2026, dar textul în sine e exact
 <tr><td>5</td><td>Date structurate <code>AutoDealer</code> complete: <code>legalName</code>, CUI, <code>foundingDate</code>, <code>areaServed</code>, toate profilurile în <code>sameAs</code>. Un singur nume: „Autoland România” (<a href="#schema">6.8</a>)</td><td>Cod (<code>includes/json_ld_schemas.php</code>)</td><td>1 h</td><td><span class="tag t-high">Mare</span></td></tr>
 <tr><td>6</td><td>O singură variantă, adevărată, pentru garanție, finanțare și program, peste tot. Rescrierea homepage-ului și a paginii de leasing după regulile de la <a href="#principii">6.1</a>–<a href="#inainte-dupa">6.2</a></td><td>Admin (texte) și GBP</td><td>1–2 h</td><td><span class="tag t-med">Mediu</span></td></tr>
 <tr><td>7</td><td>Pagini noi: „Despre Autoland România”, „Întrebări frecvente”, „Cum cumpărați de la noi”; meniul reorganizat (<a href="#faq">6.4</a>–<a href="#reorganizare">6.6</a>)</td><td>Cod (pagini noi), cu textul scris de voi</td><td>1 zi</td><td><span class="tag t-high">Mare</span></td></tr>
-<tr><td>8</td><td><code>llms.txt</code> (<a href="#llmstxt">6.3</a>) și curățarea <code>robots.txt</code></td><td>Cod</td><td>30 min</td><td><span class="tag t-low">Mic</span></td></tr>
+<tr><td>8</td><td>Curățarea <code>robots.txt</code>; <code>llms.txt</code> opțional (<a href="#llmstxt">6.3</a>; efect nedovedit)</td><td>Cod</td><td>30 min</td><td><span class="tag t-low">Mic</span></td></tr>
 </tbody></table></div>
 
 <h3>Continuu – reputația în afara site-ului</h3>
@@ -349,7 +368,7 @@ Fiecare mașină are garanție [12 luni / 10.000 km inclusă în preț], cu posi
 înființate, cu avans de la 0% în anumite condiții (vezi pagina Leasing). Ne ocupăm și de înmatriculare,
 omologare RAR și livrare în toată România.
 
-Program: luni–vineri, 09:30–17:30. Telefon: +40 742 377 001.</code></pre>
+Program: luni–vineri, 10:00–18:00. Telefon: +40 742 377 001.</code></pre>
 
 <p><strong>Garanția.</strong> Acum: pe homepage „+36 luni garanție extinsă”, „garanție comercială de max. 3 ani”; în datele structurate „garanție 12 luni în scris”; pe pagina de garanție „între 12 luni / 10.000 km și 3 ani / 40.000 km… cost mediu 5% din valoarea mașinii”. Un client care întreabă ChatGPT „Autoland dă garanție 3 ani?” poate primi „da” fără nicio condiție.</p>
 <p>Propunere, scrisă la fel peste tot:</p>
@@ -389,7 +408,7 @@ Reparațiile în garanție se fac în orice service autorizat RAR.</code></pre>
 - Adresă: Strada Luca Arbore nr. 3, Iași 700440, România
 - Telefon: +40 742 377 001
 - Email: office@autolandromania.ro
-- Program: luni–vineri, 09:30–17:30
+- Program: luni–vineri, 10:00–18:00
 - Google Maps: https://maps.app.goo.gl/cuxVc4u2BkxwVWXt6
 
 ## Ce oferim
@@ -423,7 +442,7 @@ Reparațiile în garanție se fac în orice service autorizat RAR.</code></pre>
 - [Păreri clienți](https://autolandromania.ro/impresii.php)
 - [Sitemap](https://autolandromania.ro/sitemap.xml): lista tuturor paginilor, inclusiv fiecare mașină</code></pre>
 
-<p>După ce apar paginile noi („Despre noi”, „Întrebări frecvente”), adăugați-le la „Pagini principale”. Efectul fișierului nu e confirmat oficial de OpenAI sau Google (vezi 4.9). Ce contează e ca aceleași fapte să apară și pe paginile site-ului.</p>
+<p>După ce apar paginile noi („Despre noi”, „Întrebări frecvente”), adăugați-le la „Pagini principale”. <strong>Important:</strong> studiile din 2026 nu au găsit niciun efect măsurabil al <code>llms.txt</code> (vezi 4.9). Faceți-l doar dacă aveți 15 minute libere. Timpul e mult mai bine investit în textele de pe pagini (6.1–6.2), pe care asistenții chiar le citesc.</p>
 
 <h3 id="faq">6.4 Model pentru pagina „Întrebări frecvente”</h3>
 
@@ -486,7 +505,7 @@ fără garanții materiale. Pentru venituri din România (minimum 3 luni), avans
 
 Unde se află parcul auto Autoland în Iași?
 Parcul auto Autoland România se află în Iași, pe strada Luca Arbore nr. 3 (cod 700440), [reper:
-de ex. în apropiere de ...]. Programul este luni–vineri, 09:30–17:30. Vă rugăm să sunați înainte
+de ex. în apropiere de ...]. Programul este luni–vineri, 10:00–18:00. Vă rugăm să sunați înainte
 la +40 742 377 001 ca să confirmăm că mașina dorită este în parc.</code></pre>
 
 <p>Pentru cod, pagina se face din admin (textul) plus un șablon nou. Datele structurate <code>FAQPage</code> se pot adăuga pentru claritate, chiar dacă Google nu mai afișează rezultate FAQ din mai 2026.</p>
@@ -567,6 +586,7 @@ Se poate cumpăra în leasing sau rate, inclusiv de firme nou înființate.</cod
 ],
 "knowsAbout": ["mașini second hand", "autoutilitare", "leasing auto", "înmatriculări auto"]</code></pre>
 <p>Pentru <code>aggregateRating</code> pe firmă: puneți-l doar dacă afișați pe aceeași pagină recenziile pe care se bazează, și cu cifrele actuale din Google, nu cu cifre fixe în cod.</p>
+<p><strong>Ce așteptați de la datele structurate:</strong> sunt utile pentru Google (identitatea firmei, rezultate îmbogățite). Un test controlat Ahrefs (mai 2026) nu a găsit însă o creștere a citărilor în ChatGPT sau în AI Overviews datorită lor, pentru că asistenții citesc textul vizibil din pagină. Faceți-le, dar nu vă bazați pe ele pentru AI. Aceleași informații trebuie să fie și în textul paginii „Despre noi”.</p>
 
 <h3 id="gbp">6.9 Descrierea din Google Business Profile, Bing Places și directoare</h3>
 
@@ -579,12 +599,149 @@ la 3 ani. Oferim leasing și rate pentru persoane fizice și firme, inclusiv fir
 autolandromania.ro.</code></pre>
 <p>Folosiți aceeași categorie principală („Dealer de mașini second-hand”), același nume („Autoland România”), aceeași adresă scrisă identic și același telefon în toate listările.</p>
 
-<h2 id="masurare">7. Cum măsurați rezultatul</h2>
+<h2 id="national">7. Extinderea la nivel național: Google și AI</h2>
+
+<div class="card summary">
+<p>Conducerea firmei spune că majoritatea clienților sunt din afara Iașului, din toată România. Site-ul se prezintă însă aproape exclusiv ca un parc auto local:</p>
+<ul>
+<li>„Iași” apare în titlul și descrierea de pe homepage, de la categoria Autoutilitare, de pe pagina de leasing și de pe cea de garanție;</li>
+<li>livrarea în toată țara apare doar în textul lung de pe homepage și nu are o pagină proprie;</li>
+<li>auditurile de până acum au pus și ele accentul pe SEO-ul local pentru „parc auto Iași”.</li>
+</ul>
+<p>Pentru un client din Cluj sau din București, mesajul „parc auto din Iași” sună a „departe”. Asistenții AI și Google caută însă, pentru întrebările naționale, firme care spun clar că <strong>vând și livrează în toată țara</strong>. Secțiunea propune o direcție nouă: <strong>Iașiul rămâne adresa, România devine piața.</strong></p>
+</div>
+
+<h3 id="nat-date">7.1 Ce arată deja datele</h3>
+<p>Multe căutări care aduc trafic acum nu conțin orașul:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Căutare (Search Console, 16 luni)</th><th>Clicuri</th><th>Tip</th></tr></thead>
+<tbody>
+<tr><td>fiat doblo maxi xl</td><td>124</td><td>model, național</td></tr>
+<tr><td>opel vivaro 6 locuri</td><td>100</td><td>model, național</td></tr>
+<tr><td>parcuri auto romania</td><td>86</td><td>național</td></tr>
+<tr><td>leasing auto fara avans persoane juridice</td><td>84</td><td>finanțare, național</td></tr>
+<tr><td>autoutilitare in rate</td><td>79</td><td>categorie + finanțare, național</td></tr>
+</tbody></table></div>
+<p>Profilul Google Business apare și la „parcuri auto romania” (414 afișări) și „used cars romania” (357). Exact acestea sunt întrebările pe care oamenii le pun și asistenților AI, doar formulate mai lung: „unde găsesc o autoutilitară second hand în rate cu avans 0 și livrare în toată țara?”.</p>
+<p><strong>Ce merită verificat acum</strong>, cu datele care există:</p>
+<ul>
+<li><strong>GA4 → Rapoarte → Date demografice → Oraș / Regiune.</strong> De unde vin vizitatorii. Datele sunt corecte de la 14.10.2026, deci primele concluzii apar după 3–4 săptămâni.</li>
+<li><strong>Search Console → Performanță → Interogări.</strong> Filtrați <em>fără</em> „iasi”. Cât din trafic e deja național?</li>
+<li><strong>Registrul de vânzări</strong> sau facturile din ultimul an: în ce județe s-au livrat mașinile. Un număr real („am livrat în [N] județe”) e cel mai puternic argument pentru Google, pentru AI și pentru clienți.</li>
+</ul>
+
+<h3 id="nat-pozitionare">7.2 Poziționarea: unde puteți câștiga la nivel național</h3>
+<p>Ca „parc auto de autoturisme” la nivel național, concurați cu Autovit, OLX și sute de dealeri. Puteți câștiga însă pe nișele unde aveți deja stoc și trafic:</p>
+<ol>
+<li><strong>Autoutilitare și autospecializate</strong> (frigorifice, basculabile, platforme, transport persoane, L2H2 / L3H2). E a treia pagină a site-ului ca trafic, cu ~175 de vehicule în stoc (autoutilitare și autospecializate). Cumpărătorul e o firmă care caută după tip și dotări, nu după oraș, și e dispusă să cumpere de la distanță.</li>
+<li><strong>Finanțare pentru firme, inclusiv nou înființate, cu avans de la 0%.</strong> E o căutare națională care aduce deja clicuri și exact motivul pentru care au sunat clienții veniți din ChatGPT în septembrie.</li>
+<li><strong>Cumpărare de la distanță, cu livrare în toată țara</strong> și garanție valabilă în orice service autorizat RAR din România. Pagina voastră de garanție spune deja asta, dar nimeni nu o vede.</li>
+</ol>
+<div class="note">Concurența națională folosește deja acest mesaj. De exemplu, un dealer din Cluj specializat pe autoutilitare second hand a apărut într-un articol din presa națională (Spotmedia) cu „livrare în toată țara”, garanție minimă 12 luni și retur în 14 zile. Exact astfel de articole citează asistenții AI.</div>
+
+<h3 id="nat-nu">7.3 Ce să NU faceți: pagini copiate pentru fiecare oraș</h3>
+<p>Tentația e să creați „Parc auto Cluj”, „Parc auto Timișoara”, „Parc auto Brașov” etc., cu același text în care se schimbă doar numele orașului. Google le numește <strong>doorway pages</strong> și le interzice explicit în regulile anti-spam: pagini aproape identice, făcute doar ca să apară la căutări diferite. Spam update-urile din 2026 au vizat și ele astfel de pagini și conținutul generat în masă. Riscul e o penalizare pe tot site-ul, nu doar pe paginile respective.</p>
+<p>Varianta corectă: <strong>o singură pagină bună despre livrarea în toată țara</strong>, plus dovezi reale din diferite orașe (recenzii, livrări, poze), ca la 7.4 și 7.5.</p>
+
+<h3 id="nat-site">7.4 Pe site</h3>
+
+<div class="finding">
+<h4><span class="tag t-crit">Prioritar</span> Pagina „Cumpărați de la distanță, cu livrare în toată România”</h4>
+<p>E cea mai importantă pagină nouă pentru clienții din afara Iașului. Răspunde la întrebarea pe care o are oricine e la 400 km: „Cum cumpăr o mașină din Iași fără să vin de 3 ori acolo?”. Structura, cu pașii reali ai firmei (de completat de voi):</p>
+<ol>
+<li><strong>Alegeți mașina</strong> de pe site. Cereți un video sau un apel video cu mașina, ca s-o vedeți în detaliu: motorul pornit, caroseria, interiorul.</li>
+<li><strong>Rezervarea:</strong> cum se face, cu ce avans, cât timp e rezervată mașina.</li>
+<li><strong>Finanțarea de la distanță:</strong> documentele trimise online, cât durează aprobarea.</li>
+<li><strong>Contractul și actele:</strong> ce se semnează la distanță și ce la livrare.</li>
+<li><strong>Transportul:</strong> pe platformă sau condusă, în cât timp, cost orientativ (de exemplu pe zone sau pe km), sau ridicare personală de la Iași.</li>
+<li><strong>Înmatricularea:</strong> numere provizorii, înmatriculare în județul cumpărătorului, cine se ocupă.</li>
+<li><strong>Garanția, oriunde în țară:</strong> reparațiile în garanție se fac în orice service autorizat RAR din România.</li>
+<li><strong>Exemple reale:</strong> „Am livrat în [N] județe” și 3–5 recenzii de la clienți din alte orașe, cu orașul menționat.</li>
+<li><strong>Întrebări frecvente</strong> despre cumpărarea de la distanță.</li>
+</ol>
+<p>Pagina se leagă de pe homepage, din meniu, de pe fiecare pagină de mașină („Livrăm în toată țara – vezi cum”) și din <code>llms.txt</code>.</p>
+</div>
+
+<div class="finding">
+<h4><span class="tag t-high">Ridicat</span> Titlurile și descrierile: „Iași” ca adresă, „toată România” ca piață</h4>
+<p>Propunere pentru paginile principale. Homepage-ul și pagina de contact păstrează Iașiul în față, pentru căutările locale. Paginile de categorie, de finanțare și de garanție vorbesc național:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Pagină</th><th>Titlu acum</th><th>Propunere</th></tr></thead>
+<tbody>
+<tr><td>Homepage</td><td>Vânzări Mașini Rulate, Second Hand și Noi cu Garanție | Iași | Autoland România</td><td>Parc auto second hand din Iași, cu livrare în toată România | Autoland România</td></tr>
+<tr><td>Autoutilitare</td><td>Autoutilitare | Second Hand Iași | Autoland România</td><td>Autoutilitare second hand în rate, livrare în toată țara | Autoland România</td></tr>
+<tr><td>Leasing</td><td>Leasing/Credit Auto Iași | Finanțare cu Avans 0% | Autoland România</td><td>Leasing auto second hand, avans de la 0%, și pentru firme noi | Autoland România</td></tr>
+<tr><td>Garanție</td><td>Garanție Auto 12 Luni Iași | Autoland România</td><td>Garanție auto [12 luni], valabilă în orice service RAR din țară | Autoland România</td></tr>
+</tbody></table></div>
+<p><strong>Paginile de mașini</strong> se termină acum în „– Second Hand Iași”. Pentru un client din altă regiune, varianta „– livrare în toată țara” poate fi mai convingătoare. Varianta cea mai sigură: păstrați titlul actual o lună, comparați apoi în GA4 de unde vin vizitatorii paginilor de mașini și decideți pe date. Tehnic, finalul se schimbă dintr-o singură linie de cod.</p>
+<p>În descrierea fiecărei mașini (meta description) se poate adăuga automat: „Livrare în toată România, garanție valabilă în orice service RAR”.</p>
+</div>
+
+<div class="finding">
+<h4><span class="tag t-high">Ridicat</span> Pagini de categorie pe nișe, cu text propriu</h4>
+<p>Căutările naționale care aduc deja trafic sunt pe tipuri de vehicul („opel vivaro 6 locuri”, „autoutilitare in rate”). Fiecare nișă cu stoc constant merită o pagină proprie: o adresă curată, un paragraf de introducere scris de voi, avantajele, finanțarea și întrebările frecvente specifice, apoi lista de vehicule. Candidați, după stocul actual:</p>
+<ul>
+<li>Autoutilitare frigorifice (~22 în stoc)</li>
+<li>Autoutilitare mari / L2H2–L3H2 (~48)</li>
+<li>Autoșasiuri carosate, platforme, basculabile, cu macara sau prelată (~60)</li>
+<li>Transport persoane, 7–9 locuri (~24)</li>
+<li>SUV și 4x4 (~115)</li>
+<li>Utilaje de construcții și agricole</li>
+</ul>
+<p>Fiecare pagină are conținut diferit, pentru că vehiculele, clienții și întrebările sunt diferite. Asta o deosebește de paginile copiate de la 7.3. Tehnic, se face cu URL-urile prietenoase pentru categorii (etapa 2 din 9.15 a auditului SEO).</p>
+</div>
+
+<div class="finding">
+<h4><span class="tag t-high">Ridicat</span> Pagina „Leasing pentru firme nou înființate”</h4>
+<p>„leasing auto fara avans persoane juridice” aduce clicuri deja, iar finanțarea firmelor noi e un avantaj rar. O pagină dedicată, cu condițiile reale (vechime minimă, avans, valoare maximă, documente), un exemplu de calcul și întrebări frecvente, răspunde exact la o întrebare națională pe care asistenții AI o primesc des.</p>
+</div>
+
+<div class="finding">
+<h4><span class="tag t-med">Mediu</span> Video pentru fiecare mașină</h4>
+<p>Cine cumpără de la distanță vrea să vadă mașina. Un video scurt de prezentare pe YouTube (motor pornit, caroserie, interior, bord cu km), legat pe pagina mașinii, crește încrederea. YouTube e și o sursă pe care Google și asistenții AI o folosesc des. Contul de TikTok existent poate primi aceleași clipuri.</p>
+</div>
+
+<div class="finding">
+<h4><span class="tag t-med">Mediu</span> Date structurate pentru toată țara</h4>
+<ul>
+<li><code>areaServed</code> = România, pe schema firmei (vezi 6.8).</li>
+<li>Pe oferta fiecărei mașini: <code>eligibleRegion</code> = RO. Livrarea (<code>shippingDetails</code>) se pune înapoi <strong>doar cu costuri și termene reale</strong>. Cele vechi erau inventate (0 €, 1–30 de zile) și au fost scoase.</li>
+</ul>
+</div>
+
+<h3 id="nat-extern">7.5 În afara site-ului</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Acțiune</th><th>De ce ajută la nivel național</th></tr></thead>
+<tbody>
+<tr><td><strong>Autovit și OLX:</strong> profil de dealer complet, cu „livrare în toată țara”, finanțare, garanție și link spre site, plus toate anunțurile</td><td>Sunt cele mai vizibile surse auto din România, atât în Google, cât și în răspunsurile AI. Clienții din alte orașe vă găsesc întâi acolo.</td></tr>
+<tr><td><strong>Recenzii de la clienți din alte orașe</strong>, care menționează orașul și livrarea („am cumpărat de la distanță, din Brașov, mașina a venit pe platformă”)</td><td>Asistenții AI extrag din recenzii afirmații de tipul „livrează în toată țara”. E dovada că mesajul de pe site e real.</td></tr>
+<tr><td><strong>Presa națională auto și de afaceri:</strong> articole despre experiența voastră (19 ani, autoutilitare pentru firme, finanțare pentru firme noi), plătite sau câștigate</td><td>Asistenții AI citează des articolele de presă când recomandă firme. Concurența folosește deja metoda (vezi 7.2).</td></tr>
+<tr><td><strong>Parteneri de finanțare:</strong> apariția în listele de dealeri partenere ale firmelor de leasing și ale băncilor cu care lucrați</td><td>Sunt surse naționale credibile, cu link spre site.</td></tr>
+<tr><td><strong>Comunități de firme:</strong> grupuri de transportatori, curierat, HoReCa (pentru frigorifice), forumuri auto; răspunsuri utile, nu reclame</td><td>Mențiunile naturale de pe forumuri și Reddit apar tot mai des în răspunsurile AI.</td></tr>
+</tbody></table></div>
+
+<p><strong>Google Business Profile</strong> rămâne important pentru „parc auto Iași”. Pentru căutările naționale ajută mai puțin: zonele de servicii din profil sunt gândite pentru zone apropiate. La nivel național contează site-ul, Autovit și OLX, recenziile și mențiunile externe.</p>
+
+<h3 id="nat-test">7.6 Întrebări de test la nivel național</h3>
+<p>Adăugați la testul lunar din secțiunea 8:</p>
+<ul class="checklist">
+<li>Unde găsesc o autoutilitară second hand în rate, cu avans 0, cu livrare în toată țara?</li>
+<li>Ce dealer vinde autoutilitare frigorifice second hand în România?</li>
+<li>Pot lua în leasing o dubă second hand cu o firmă nou înființată?</li>
+<li>Dealer auto second hand cu garanție care livrează în [orașul vostru de test, de ex. Cluj]</li>
+<li>Opel Vivaro 6 locuri second hand de vânzare</li>
+</ul>
+
+<h2 id="masurare">8. Cum măsurați rezultatul</h2>
 
 <h3>Trafic din AI, în Google Analytics 4</h3>
-<p>Analytics colectează corect date abia din 14.10.2026. ChatGPT adaugă automat <code>utm_source=chatgpt.com</code> la linkurile pe care le citează, iar ceilalți asistenți apar ca site-uri de proveniență. În GA4 → Administrare → <em>Grupuri de canale</em>, creați un canal nou „AI”, cu condiția <em>Sursă sesiune</em> potrivită cu expresia:</p>
-<pre><code>chatgpt\.com|chat\.openai\.com|perplexity\.ai|gemini\.google\.com|copilot\.microsoft\.com|claude\.ai|bing\.com/chat</code></pre>
-<p>Puneți canalul <em>deasupra</em> canalului „Referral”. GA4 aplică primul canal care se potrivește. O parte din vizitele din aplicațiile mobile AI vin fără sursă și apar la „Direct”, deci cifra reală e ceva mai mare.</p>
+<p>GA4 are deja un canal standard <strong>„AI Assistant”</strong>, vizibil în contul Autoland în raportul <em>Achiziție → Grupul principal de canale</em>. Nu e nevoie de un grup de canale personalizat. Urmăriți lunar:</p>
+<ul>
+<li>numărul de sesiuni și utilizatori noi din „AI Assistant” și procentul din total (punct de plecare: ~11%, 14–20.10.2026);</li>
+<li>pe ce pagini intră vizitatorii din AI (<em>Pagină de destinație</em>, cu filtru pe canal). Spun ce informații citează asistenții despre voi;</li>
+<li>după ce măsurarea apelurilor și formularelor e configurată în GTM: câte click-uri pe telefon, WhatsApp și formulare vin din AI.</li>
+</ul>
+<p>O parte din vizitele din aplicațiile mobile AI vin fără sursă și apar la „Direct”, deci cifra reală e ceva mai mare. Dacă vreți să vedeți separat fiecare asistent, adăugați dimensiunea <em>Sursă sesiune</em> (de exemplu <code>chatgpt.com</code>, <code>gemini.google.com</code>, <code>perplexity.ai</code>).</p>
 
 <h3>Test lunar, manual</h3>
 <p>O dată pe lună, puneți aceleași întrebări în ChatGPT (cu căutare), Perplexity, Gemini, Copilot și Google AI Mode, din fereastră privată. Notați dacă apare Autoland, pe ce loc și ce sursă citează asistentul.</p>
@@ -597,26 +754,29 @@ autolandromania.ro.</code></pre>
 <li>Ce garanție oferă Autoland Iași?</li>
 </ul>
 <p>Ultimele două întrebări verifică dacă informațiile despre voi sunt corecte (garanție, adresă, program), nu doar dacă apăreți.</p>
+<p><strong>Răspunsurile AI se schimbă de la o rulare la alta:</strong> aceeași întrebare dă aceeași listă de firme în mai puțin de 1% din cazuri (SparkToro, ~3.000 de întrebări). Puneți deci fiecare întrebare de 3 ori și notați <em>de câte ori</em> apare Autoland (de exemplu 2 din 3), nu „pe ce loc”. Pentru Copilot, raportul „AI Performance” din Bing Webmaster Tools arată citările reale.</p>
 
 <h3>Întrebați clienții</h3>
 <p>Adăugați la telefon sau în formularul de contact întrebarea „De unde ați aflat de noi?”, cu opțiunea „ChatGPT / AI”. E singura metodă sigură de a număra clienții care vin din conversații cu AI, pentru că multe nu lasă nicio urmă în Analytics.</p>
 
-<h2 id="neverificat">8. Ce nu am putut verifica</h2>
+<h2 id="neverificat">9. Ce nu am putut verifica</h2>
 <ul>
-<li><strong>Răspunsurile reale ale ChatGPT, Perplexity și Gemini</strong> la întrebările de mai sus. Nu am acces la ele din mediul de audit. Testul lunar din secțiunea 7 le acoperă.</li>
+<li><strong>Răspunsurile reale ale ChatGPT, Perplexity și Gemini</strong> la întrebările de mai sus. Nu am acces la ele din mediul de audit. Testul lunar din secțiunea 8 le acoperă.</li>
 <li><strong>Câte pagini are Bing în index.</strong> Se vede în Bing Webmaster Tools după pasul 2.</li>
 <li><strong>Comportamentul firewall-ului față de IP-urile reale ale roboților.</strong> Testul a folosit un IP obișnuit, cu numele robotului. E posibil ca Imunify360 să recunoască deja unii roboți după IP. Blocarea Perplexity după nume (406) se aplică însă probabil indiferent de IP. Jurnalul Imunify360 din cPanel arată situația reală.</li>
 <li><strong>Numărul actual de recenzii și programul din Google Business Profile.</strong></li>
 <li><strong>Ce date are firma în registrele publice</strong> (denumire legală, CUI), pentru <code>legalName</code> și <code>taxID</code>.</li>
 </ul>
 
-<h2 id="surse">9. Surse</h2>
+<h2 id="surse">10. Surse</h2>
 <ul>
 <li><a href="https://developers.openai.com/api/docs/bots">OpenAI – roboții OAI-SearchBot, GPTBot, ChatGPT-User și listele lor de IP</a></li>
 <li><a href="https://docs.perplexity.ai/guides/bots">Perplexity – roboții PerplexityBot, Perplexity-User și listele lor de IP</a></li>
 <li><a href="https://searchengineland.com/how-does-chatgpt-conduct-local-searches-454894">Search Engine Land – How does ChatGPT conduct local searches?</a></li>
 <li><a href="https://cloutly.com/blog/ai-search-for-local-business/">Cloutly – AI search optimization for local businesses</a></li>
 <li><a href="https://www.mo.agency/blog/how-to-track-ai-traffic-and-referrals-in-google-analytics-4">MO Agency – How to track AI traffic and referrals in GA4</a></li>
+<li><a href="https://developers.google.com/search/docs/essentials/spam-policies">Google – reguli anti-spam (doorway pages, conținut generat în masă)</a></li>
+<li><a href="https://spotmedia.ro/stiri/auto/investitii-sigure-intr-un-parc-de-autoutilitare-second-hand-prin-levis-automobile-cu-livrare-in-toata-tara">Spotmedia – exemplu de dealer de autoutilitare cu livrare în toată țara</a></li>
 <li><a href="https://llmstxt.org/">llmstxt.org – propunerea de format pentru llms.txt</a></li>
 <li><a href="https://presenc.ai/research/state-of-llms-txt-2026">Presenc AI – State of llms.txt 2026</a> (sursă comercială, de citit cu prudență)</li>
 <li><a href="https://help.elitehost.co.za/en/article/what-is-imunify360-how-does-it-work-1l4ld3o/">Imunify360 – cum funcționează listele de firewall</a></li>

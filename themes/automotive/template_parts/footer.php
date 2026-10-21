@@ -52,7 +52,9 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <h4 class="footer-section-title">Servicii</h4>
                 <ul class="footer-links-list">
-                    <li><a href="<?php echo BASE_PATH; ?>leasing.php">Leasing / Rate</a></li>
+                    <li><a href="<?php echo BASE_PATH; ?>leasing.php">Finanțare / Leasing / Rate</a></li>
+                    <li><a href="<?php echo BASE_PATH; ?>finantare/credit-auto/">Credit auto în rate</a></li>
+                    <li><a href="<?php echo BASE_PATH; ?>finantare/acte-necesare/">Acte necesare finanțare</a></li>
                     <li><a href="<?php echo BASE_PATH; ?>garantie.php">Garanție</a></li>
                     <li><a href="<?php echo BASE_PATH; ?>inmatriculari.php">Înmatriculări / Acte Auto</a></li>
                     <li><a href="<?php echo BASE_PATH; ?>asistenta-rutiera.php">Asistență Rutieră</a></li>
@@ -63,6 +65,7 @@
                     <ul class="footer-links-list">
                         <li><a href="<?php echo BASE_PATH; ?>articole/">Ghiduri Utile</a></li>
                         <li><a href="<?php echo BASE_PATH; ?>impresii.php">Păreri Clienți</a></li>
+                        <li><a href="<?php echo BASE_PATH; ?>despre-noi/">Despre Autoland</a></li>
                     </ul>
                 </div>
             </div>

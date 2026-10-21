@@ -10,6 +10,11 @@
  */
 // get config file;
 include_once './includes/config.php';
+include_once './includes/pagini_sectiuni.php';
+
+// Aspectul cu meniu lateral al secțiunii Garanție și servicii
+$sectiune = 'servicii';
+$slug = 'inmatriculari';
 
 
 // /////////////////////////////////////////////////////////////////////////////
@@ -26,7 +31,8 @@ $footer_scripts .= "<script type='text/javascript' src='/themes/automotive/js/jq
 $footer_scripts .= "<script type='text/javascript' src='/themes/automotive/js/additional-methods.min.js'></script>";
 
 $footer_scripts .= "<script type='text/javascript'>" . file_get_contents("./includes/inmatriculari_footer.js") . "</script>";
-$content = is_null($row) ? "Content is missing" : $row['inmatriculari'];
+$banner_title = "Înmatriculări auto în Iași și în toată țara, cu sau fără mașina de la noi";
+$content = is_null($row) ? "Content is missing" : pagini_linkuri_interne($row['inmatriculari']);
 
 // Set SEO meta tags
 require_once './includes/meta_tags.php';
@@ -51,6 +57,7 @@ $service_schemas = [
     getOrganizationSchema(),
     getWebPageSchema($canonical_url, $page_title, $meta_description ?? '')
 ];
+$header_scripts .= '<link rel="stylesheet" href="' . BASE_PATH . 'themes/automotive/css/pagini.css">' . "\n";
 $header_scripts .= getJsonLdString($service_schemas);
 
 // /////////////////////////////////////////////////////////////////////////////
@@ -61,6 +68,9 @@ include './themes/automotive/template_parts/header.php';
 <section class="content">
     <div class="container">
         <div class="inner-page">
+            <div class="ap-layout">
+            <?php include './themes/automotive/template_parts/pagina_sidebar.php'; ?>
+            <div class="ap-main">
             <?php print $content; ?>
             <section class="row container">
 
@@ -103,6 +113,8 @@ include './themes/automotive/template_parts/header.php';
 
 
             </section>
+            </div>
+            </div>
 
             <div class="clearfix"></div>
         </div>

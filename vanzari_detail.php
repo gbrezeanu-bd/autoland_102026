@@ -9,6 +9,7 @@
  */
 // get config file;
 include_once './includes/config.php';
+include_once './includes/car_presentation.php';
 
 // Flag to indicate this is a car detail page (for conditional script loading)
 define('IS_CAR_DETAIL_PAGE', true);
@@ -713,6 +714,12 @@ if ($is_valid && !empty($structured_data['name']) && !empty($structured_data['br
     error_log("Invalid structured data for car ID: " . $row_vanzare['id'] . " - JSON-LD not generated");
 }
 
+// Specificații tehnice: plăcuțe în două coloane, pliabile
+$header_scripts .= '<link rel="stylesheet" href="' . BASE_PATH . 'themes/automotive/css/specificatii-masina.css">' . PHP_EOL;
+
+// Stilurile calculatorului de rată
+$header_scripts .= '<link rel="stylesheet" href="' . BASE_PATH . 'themes/automotive/css/calculator-rata.css">' . PHP_EOL;
+
 // Preload LCP image (Largest Contentful Paint optimization)
 // The first car image is typically the LCP element
 if (!empty($car_pictures) && !empty($car_pictures[0]['file'])) {
@@ -788,6 +795,7 @@ $footer_scripts .= "<script>
     }
 })();
 </script>";
+$footer_scripts .= "<script type='text/javascript' src='" . BASE_PATH . "themes/automotive/js/calculator-rata.js' defer></script>";
 $footer_scripts .= "<script type='text/javascript' src='" . BASE_PATH . "themes/automotive/js/jquery.validate.min.js' defer></script>";
 $footer_scripts .= "<script type='text/javascript' src='" . BASE_PATH . "themes/automotive/js/additional-methods.min.js' defer></script>";
 $footer_scripts .= "<script type='text/javascript'>" . file_get_contents("./includes/sunt_interesat_de_masina_footer.js") . "</script>";
@@ -1009,15 +1017,11 @@ include './themes/automotive/template_parts/header.php';
                         </ul>
 -->                        
                         <div id="myTabContent" class="tab-content margin-top-15 margin-bottom-20">
-                            <div id="vehicle" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background: white; border-radius: 12px; padding: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
-                                <h2 style="font-size: 24px; font-weight: 700; color: #1e293b; margin: 0 0 25px 0; padding-bottom: 15px; border-bottom: 2px solid #e2e8f0;">
-                                    Descriere Detaliată
-                                </h2>
-                                <div style="font-size: 16px; line-height: 1.8; color: #334155;">
-                                    <?php echo $row_vanzare['detalii']; ?>
-                                </div>
+                            <div id="vehicle" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 car-desc-card">
+                                <h2 class="car-desc-title">Descriere detaliată</h2>
+                                <div class="car-desc-body"><?php echo car_descriere_structurata($row_vanzare['detalii']); ?></div>
                             </div>
-                            
+
                             <!-- Contact CTA Section -->
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-top-30 margin-bottom-20">
                                 <?php
@@ -1179,6 +1183,22 @@ include './themes/automotive/template_parts/header.php';
                                 <?php endif; ?>
                             </div>
                             
+                            <!-- Calculator de rată, sub caseta de garanție -->
+                            <?php
+                            // Calculator de rată (model orientativ, formulele din Excel-ul de leasing); prețul afișat e considerat final, cu TVA
+                            if (empty($is_sold) && !empty($row_vanzare['pret']) && (float)$row_vanzare['pret'] > 0) {
+                                $calc_price = (float)$row_vanzare['pret'];
+                                $calc_price_editable = false;
+                                $calc_collapsible = true;
+                                $calc_cta_url = '#informatii';
+                                $calc_cta_label = 'Contactează-ne';
+                                $calc_wa_base = 'Bună ziua, mă interesează ' . trim($row_vanzare['marca'] . ' ' . clean_car_tip($row_vanzare['tip'])) . ' (Cod #S10' . $row_vanzare['id'] . ').';
+                                echo '<div class="car-rate-calculator">';
+                                include './themes/automotive/template_parts/calculator_rata.php';
+                                echo '</div>';
+                            }
+                            ?>
+
                             <!-- CTA Buttons & Navigation -->
                             <?php
                             $whatsapp_phone = '40742377001';
@@ -1240,14 +1260,22 @@ include './themes/automotive/template_parts/header.php';
                         </div>
                         
                         <!-- Specifications Professional Table -->
-                        <div class="car-specs-box">
-                            <div class="car-specs-header">
-                                <h3 class="car-specs-title">
-                                    Specificații Tehnice
-                                </h3>
-                            </div>
+                        <details class="car-specs-box" open>
+                            <?php
+                            // Rezumat afișat în antet (util când secțiunea e pliată pe telefon): an, km/ore, combustibil
+                            $specs_peek = [];
+                            if (!empty($car_year) && $car_year >= 1900 && $car_year <= (int)date('Y')) { $specs_peek[] = (int)$car_year; }
+                            if (!empty($row_for_csv['kilometraj']) && is_numeric($row_for_csv['kilometraj'])) {
+                                $specs_peek[] = number_format($row_for_csv['kilometraj'], 0, ',', '.') . (($row_vanzare['cat'] === 'Utilaje') ? ' ore' : ' km');
+                            }
+                            if (!empty($row_vanzare['combustibil']) && $row_vanzare['combustibil'] != 'fara') { $specs_peek[] = ucfirst(mb_strtolower($row_vanzare['combustibil'], 'UTF-8')); }
+                            ?>
+                            <summary class="car-specs-header">
+                                <h3 class="car-specs-title">Specificații tehnice</h3>
+                                <?php if ($specs_peek): ?><span class="car-specs-peek"><?php echo htmlspecialchars(implode(' · ', $specs_peek)); ?></span><?php endif; ?>
+                            </summary>
                             <div class="car-specs-content">
-                                <table class="car-specs-table specs-table-responsive">
+                                <?php ob_start(); ?><table class="car-specs-table specs-table-responsive">
                                     <tbody>
                                         <?php 
                                         // Check if this is a Utilaje (equipment)
@@ -1444,9 +1472,16 @@ include './themes/automotive/template_parts/header.php';
                                             </tr>
                                         <?php endif; ?>
                                     </tbody>
-                                </table>
+                                </table><?php echo car_specs_iconite(ob_get_clean()); ?>
                             </div>
-                        </div>
+                        </details>
+                        <script>
+                        // Pe ecrane mici, specificațiile și restul dotărilor pornesc pliate (se deschid din antet)
+                        if (window.matchMedia && window.matchMedia('(max-width: 767px)').matches) {
+                            var specsBoxes = document.querySelectorAll('details.car-specs-box, details.car-feat-more');
+                            for (var i = 0; i < specsBoxes.length; i++) { specsBoxes[i].removeAttribute('open'); }
+                        }
+                        </script>
                         <div class="clearfix"></div>
                     </div>
                 </div>

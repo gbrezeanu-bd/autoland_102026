@@ -32,7 +32,7 @@
 
 # Added by Gabriela Brezeanu on Aug 21 2026
 # --- Block direct access to sensitive file types ---
-<FilesMatch "(?i)\.(sql|sql\.gz|bak|old|backup|log|inc|env|ini|sh|swp|tmp)$">
+<FilesMatch "(?i)\.(sql|sql\.gz|bak|old|backup|log|inc|env|ini|sh|swp|tmp|xls|xlsx|xlsm)$">
   Require all denied
 </FilesMatch>
 # Belt-and-braces for exact/legacy names and Apache < 2.4:
@@ -106,6 +106,29 @@ RewriteRule ^articole/?$ articole.php [L,QSA]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^articole/([a-zA-Z0-9\-_]+)$ articol.php?slug=$1 [L,QSA]
+
+# ----------------------------------------
+# PAGINI DE CONȚINUT DIN TABELUL `pagini` (editabile din admin)
+# ----------------------------------------
+# /finantare/credit-auto → /finantare/credit-auto/ (un singur URL, cu slash)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(finantare|garantie)/([a-z0-9\-]+)$ %{REQUEST_URI}/ [R=301,L]
+
+# /finantare/credit-auto/ → pagina.php?sectiune=finantare&slug=credit-auto
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(finantare|garantie)/([a-z0-9\-]+)/$ pagina.php?sectiune=$1&slug=$2 [L,QSA]
+
+# Pagini la rădăcină (secțiunea "pagini"), ex. /buy-back/ → pagina.php?sectiune=pagini&slug=buy-back
+# Lista se completează când se adaugă o pagină nouă la rădăcină.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(buy-back|masini-la-comanda|despre-noi|livrare-in-toata-tara)$ %{REQUEST_URI}/ [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(buy-back|masini-la-comanda|despre-noi|livrare-in-toata-tara)/$ pagina.php?sectiune=pagini&slug=$1 [L,QSA]
 
 # 19 Dec 2024 added as recommended by sucuri https://docs.sucuri.net/warnings/hardening/security-headers-x-frame-options/
 Header always append X-Frame-Options SAMEORIGIN

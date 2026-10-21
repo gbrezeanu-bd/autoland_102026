@@ -97,6 +97,8 @@ footer{margin-top:60px;color:var(--muted);font-size:.85rem;border-top:1px solid 
     <li><a href="#gsc">Ce trebuie verificat în Search Console</a></li>
     <li><a href="#plan">Plan de acțiune</a></li>
     <li><a href="#solutii">Soluții detaliate, pas cu pas</a></li>
+    <li><a href="#cercetare">Ce funcționează acum în Google și în AI</a></li>
+    <li><a href="#plan30"><strong>Plan pentru următoarele 30 de zile</strong></a></li>
     <li><a href="#neverificat">Ce nu am putut verifica</a></li>
     <li><a href="#surse">Surse</a></li>
   </ol>
@@ -104,6 +106,17 @@ footer{margin-top:60px;color:var(--muted);font-size:.85rem;border-top:1px solid 
 
 <!-- ============================================================ -->
 <h2 id="rezumat">1. Rezumat</h2>
+<div class="card summary" style="border-left:4px solid var(--crit)">
+<p><strong>Actualizare 15 octombrie 2026: ce s-a schimbat și ce urmează</strong></p>
+<ul>
+  <li><strong>Majoritatea clienților sunt din toată țara</strong>, nu din Iași. Prioritatea devine dublă: SEO local pentru Iași (9.1) <em>și</em> creștere națională pe autoutilitare, finanțare și livrare (9.16).</li>
+  <li><strong>„Avans de la 0%” aduce clienți.</strong> În septembrie, multe apeluri au venit de la clienți cărora ChatGPT le-a spus asta. Mesajul rămâne, cu condițiile reale. Se scoate doar „dobândă 0%”.</li>
+  <li><strong>Google Analytics nu colecta date</strong> până pe 14.10. Bannerul de cookies nu transmitea acceptul, iar etichetele din GTM nu erau publicate. A fost reparat. Apelurile și formularele <em>încă nu sunt măsurate</em>.</li>
+  <li><strong>Verificare pe codul actual, 20.10.2026:</strong> fiecare problemă din secțiunea 5 și fiecare pas din planul (secțiunea 8) are acum marcată starea: <span class="tag t-ok">Rezolvat</span>, <span class="tag t-med">Parțial</span>, <span class="tag t-high">Deschis</span> sau <span class="tag t-g">De verificat</span>. Din cele 9 probleme majore, 6 sunt rezolvate, 1 e parțial rezolvată (securitate), 1 e deschisă (pagini duplicate) și 1 e de verificat în Search Console (crawl). Rămase deschise: secțiunea 6, „Implementat după audit”.</li>
+  <li>Secțiunea 10 rezumă <strong>ce funcționează acum în Google și în AI</strong>. Secțiunea 11 e <strong>planul pentru următoarele 30 de zile</strong>, pentru mai multe apeluri și cereri.</li>
+</ul>
+</div>
+
 
 <div class="card" style="border-left:4px solid var(--ok)">
 <p><strong>Actualizare după datele din Search Console și Google Business Profile:</strong></p>
@@ -176,6 +189,20 @@ footer{margin-top:60px;color:var(--muted);font-size:.85rem;border-top:1px solid 
 </tbody></table></div>
 
 <div class="card summary">
+<div class="card" style="border-left:4px solid var(--accent)">
+<p><strong>Actualizare 20.10.2026 – „De ce există pagini neindexate”, la o săptămână după modificări</strong></p>
+<div class="table-wrap"><table>
+<thead><tr><th>Motiv</th><th>13.10<br>(toate paginile)</th><th>20.10<br>(toate paginile)</th><th>20.10<br>(doar sitemap)</th><th>Interpretare</th></tr></thead>
+<tbody>
+<tr><td>Pagină alternativă cu etichetă canonică corespunzătoare</td><td>796</td><td>792</td><td>0</td><td>Adresele cu <code>&amp;pic=</code>, filtre și <code>totalRows</code>. Nu mai sunt generate de site, dar Google le are în memorie și le elimină treptat, în 4–8 săptămâni. Stare normală: nu porniți validarea.</td></tr>
+<tr><td>Pagină cu redirecționare</td><td>227</td><td>227</td><td>0</td><td>Mașinile șterse încă înregistrate cu vechiul redirect 301. La următoarea vizită Google primește 410 și le scoate. Sitemap-ul nu mai conține nicio adresă cu redirect.</td></tr>
+<tr><td>Accesată cu crawlere – nu este indexată</td><td>180</td><td>189</td><td>43</td><td><strong>Cea mai utilă cifră:</strong> 43 sunt mașini <em>active</em> din sitemap, vizitate de Google, dar respinse. Deschideți exemplele: aproape sigur au doar textul din șablon. Descrierea unică (plan 14) începe cu ele.</td></tr>
+<tr><td>Descoperită – nu este indexată</td><td>49</td><td>49 (validare reușită)</td><td>49</td><td>Toate sunt în sitemap, deci sunt mașini active pe care Google încă nu le-a vizitat. Sitemap-ul zilnic cu dată reală ar trebui să le grăbească.</td></tr>
+<tr><td>Dublură fără pagina canonică selectată de utilizator</td><td>11</td><td>11</td><td>–</td><td>Probabil paginile vechi (<code>vanzari3.php</code>, <code>index (copie)--.php</code>), încă online (plan 8).</td></tr>
+<tr><td>Dublură, Google a ales altă pagină canonică</td><td>7</td><td>7</td><td>–</td><td>Puține; verificați exemplele.</td></tr>
+</tbody></table></div>
+<p class="note"><strong>Concluzie:</strong> după o săptămână, raportul „toate paginile” e practic neschimbat. E normal: raportul se actualizează cu întârziere, iar Google trebuie să revină pe fiecare dintre cele ~1.270 de adrese. Vestea bună e în vederea „doar sitemap”: adresele pe care le trimitem acum sunt curate (0 redirect, 0 canonical alternativ). Reverificați „toate paginile” pe <strong>~10 noiembrie</strong>. „Pagină cu redirecționare” și „Pagină alternativă…” ar trebui să scadă atunci vizibil.</p>
+</div>
 <p><strong>Ce schimbă asta în concluzii:</strong> indexarea <em>nu</em> este cauza scăderii din septembrie. Dimpotrivă, s-a îmbunătățit clar după corecturile din 21 aug – 4 sep: mai multe pagini indexate, de 3–4 ori mai puține pagini respinse. Ipoteza că lotul de modificări a perturbat indexarea pierde din greutate.</p>
 <p>Dacă paginile sunt indexate, dar clicurile și afișările scad, problema este la <strong>poziționare</strong> sau la <strong>cerere</strong>, nu la indexare. Rămân deci trei explicații:</p>
 <ol>
@@ -375,6 +402,7 @@ footer{margin-top:60px;color:var(--muted);font-size:.85rem;border-top:1px solid 
 
 <div class="finding">
 <h4><span class="tag t-crit">Critic</span> Același rating (4,3 / 31 de recenzii) pe toate mașinile</h4>
+<p class="note" style="background:var(--surface-2)"><span class="tag t-ok">Rezolvat</span> <strong>Stare la 20.10.2026:</strong> Scos din <code>vanzari_detail.php</code> și <code>vanzari.php</code>: 0 apariții în cod. Search Console afișează acum avertismentul neesențial „Lipsește câmpul aggregateRating”. E normal și nu trebuie „reparat”.</p>
 <dl>
 <dt>Dovadă</dt><dd><code>vanzari_detail.php:726-738</code>, cu comentariul „Always show rating to satisfy Google's rich snippet requirements”. Pe pagini de listare: <code>vanzari.php:457-463</code>. <strong>Confirmat pe live</strong> pe mai multe mașini (id 1176, 1261, 1265, 1269).</dd>
 <dt>Impact</dt><dd>Google interzice ratingurile la nivel de firmă sau ratingurile care nu aparțin produsului respectiv pe <code>Product</code>. Aceeași recenzie pe 470 de produse este un tipar clasic de „spammy structured data”. Riscul este o acțiune manuală sau ignorarea algoritmică a tuturor rich results ale site-ului, și poate contribui la evaluarea de calitate din spam updates.</dd>
@@ -384,6 +412,7 @@ footer{margin-top:60px;color:var(--muted);font-size:.85rem;border-top:1px solid 
 
 <div class="finding">
 <h4><span class="tag t-crit">Critic</span> Mașinile șterse fac redirect 301 spre lista de anunțuri (soft 404)</h4>
+<p class="note" style="background:var(--surface-2)"><span class="tag t-ok">Rezolvat</span> <strong>Stare la 20.10.2026:</strong> <code>?id=999999</code> → <strong>410</strong>, <code>?id=abc</code> → 404, ambele cu <code>noindex</code>. Bug-ul de precedență din log a fost reparat.</p>
 <dl>
 <dt>Dovadă</dt><dd><code>vanzari_detail.php:61-69</code>: <code>http_response_code(301); header("Location: ... vanzari.php?message=expired")</code>. <strong>Confirmat pe live:</strong> <code>/vanzari_detail.php?id=999999</code> → 301 → <code>/vanzari.php?message=expired</code> (200, canonical <code>/vanzari.php</code>). În <code>error_log</code> apar ~930 de cereri „Missing car ID”, iar printre ID-urile cele mai accesate sunt 1622, 1094 și 1447.</dd>
 <dt>Impact</dt><dd>Google vede sute de pagini care „se mută permanent” în același loc. În GSC apar în prezent la „Pagină cu redirecționare” (227), nu la „Soft 404”, așa că impactul direct e moderat. Totuși, URL-urile moarte rămân mai mult timp în procesul de indexare și consumă bugetul de crawl.</dd>
@@ -399,6 +428,7 @@ Corectați și bug-ul de precedență de la linia 64: <code>($_SERVER['HTTP_REFE
 
 <div class="finding">
 <h4><span class="tag t-crit">Critic</span> Mașinile dezactivate (<code>stare_anunt=0</code>) rămân accesibile, indexabile și „InStock”</h4>
+<p class="note" style="background:var(--surface-2)"><span class="tag t-ok">Rezolvat</span> <strong>Stare la 20.10.2026:</strong> Mașina 1267 (dezactivată): 200, <code>noindex,follow</code>, mesaj „Această mașină a fost vândută”, <code>SoldOut</code>. Listările filtrează <code>stare_anunt = 1</code>. <code>priceValidUntil</code>, livrarea și returul inventate au fost scoase.</p>
 <dl>
 <dt>Dovadă</dt><dd><code>vanzari_detail.php:55</code> selectează mașina doar după <code>id</code>, fără <code>stare_anunt</code>. JSON-LD are <code>"availability" =&gt; "InStock"</code> pus în cod (linia 464) și <code>priceValidUntil</code> la +180 de zile (467). Paginile de categorie (<code>vanzari.php:148,151</code>) listează mașini fără să filtreze după <code>stare_anunt</code>.</dd>
 <dt>Impact</dt><dd>O mașină vândută continuă să apară ca disponibilă, cu preț. Pentru Google sunt date înșelătoare, iar pentru utilizator e o experiență proastă: sună și află că mașina nu mai există.</dd>
@@ -413,6 +443,7 @@ Adăugați <code>AND stare_anunt='1'</code> în interogările de listare.</dd>
 
 <div class="finding">
 <h4><span class="tag t-crit">Critic</span> Securitate: SQL injection, dump-uri de bază de date și loguri în webroot</h4>
+<p class="note" style="background:var(--surface-2)"><span class="tag t-med">Parțial</span> <strong>Stare la 20.10.2026:</strong> <strong>Închis:</strong> injecția SQL pe <code>id</code>, pe listări (an, preț, căutare, paginare), în formularul de recenzie și în AJAX; erorile SQL nu mai sunt afișate. Blocate (403): <code>.sql</code>, <code>.old</code>, <code>error_log</code>.<br><strong>Încă deschis (verificat pe live, 20.10):</strong> <code>vanzari.php_backup_02_jul_2025</code> răspunde 200 (cod sursă vizibil); <code>test.php</code> răspunde 200 și afișează date din baza de date; <code>vanzari.bak.php</code>, <code>index (copie)--.php</code>, <code>thumb.php</code> și scripturile de test din <code>tehnic/</code> există încă. Dump-urile sunt tot pe server (blocate, dar prezente). <code>AcceptPathInfo Off</code> și <code>Options -Indexes</code> lipsesc din <code>.htaccess</code>. Schimbarea parolelor: necunoscută.</p>
 <dl>
 <dt>Dovadă</dt><dd>
 <ul>
@@ -431,6 +462,7 @@ Adăugați <code>AND stare_anunt='1'</code> în interogările de listare.</dd>
 
 <div class="finding">
 <h4><span class="tag t-high">Ridicat</span> Aceeași mașină la mai multe URL-uri (<code>&amp;pic=</code>, filtre, paginare)</h4>
+<p class="note" style="background:var(--surface-2)"><span class="tag t-ok">Rezolvat</span> <strong>Stare la 20.10.2026:</strong> <code>&amp;pic=</code> scos din linkuri; <code>totalRows_vanzare</code> scos din paginare; canonical construit dintr-o listă fixă (adresele de categorie din meniu au rămas identice); <code>noindex,follow</code> pe filtre și căutări. Efectul în GSC („Pagină alternativă cu etichetă canonică”) apare în 4–8 săptămâni.</p>
 <dl>
 <dt>Dovadă</dt><dd>
 <ul>
@@ -452,6 +484,7 @@ Adăugați <code>AND stare_anunt='1'</code> în interogările de listare.</dd>
 
 <div class="finding">
 <h4><span class="tag t-high">Ridicat</span> Accesarea paginilor de mașini de către Google a scăzut puternic</h4>
+<p class="note" style="background:var(--surface-2)"><span class="tag t-g">De verificat</span> <strong>Stare la 20.10.2026:</strong> Cauzele din cod au fost reduse: duplicatele, redirecturile spre listă (acum 410) și sitemap-ul vechi (acum zilnic, cu dată reală). Rămâne de urmărit în GSC → Statistici crawl. <strong>Atenție:</strong> pe 14.10, firewall-ul Imunify360 a blocat complet un IP după ~20 de cereri pe minut. Poate limita și roboții de căutare (vezi raportul AI, 4.2).</p>
 <dl>
 <dt>Dovadă</dt><dd>Loguri de acces: în <strong>sep 2022</strong>, Googlebot a accesat <code>vanzari_detail.php</code> de 24.493 de ori în 31 de zile (~790/zi, 306 mașini). În <strong>aug 2026</strong>: 955 de accesări în 20 de zile (~48/zi, 215 mașini). Restul accesărilor merg spre imagini, CSS și redirecturi.</dd>
 <dt>Impact</dt><dd>Google consideră paginile de mașini puțin valoroase: șablon identic, conținut unic puțin, multe duplicate. Mașinile noi sunt descoperite și indexate greu, uneori după ce au fost deja vândute.</dd>
@@ -461,6 +494,7 @@ Adăugați <code>AND stare_anunt='1'</code> în interogările de listare.</dd>
 
 <div class="finding">
 <h4><span class="tag t-high">Ridicat</span> Pagini vechi sau duplicate încă funcționale</h4>
+<p class="note" style="background:var(--surface-2)"><span class="tag t-high">Deschis</span> <strong>Stare la 20.10.2026:</strong> Încă funcționale (200): <code>index (copie)--.php</code>, <code>vanzari3.php</code>, <code>vanzari.bak.php</code>, <code>mobile/</code>. <code>vanzari3.php</code> e încă în lista de canonical-uri din <code>header.php</code>, iar <code>menu_top_1.php</code> există încă. <code>Sitemap2.xml</code> și <code>Sitemap-backup.xml</code> nu mai există.</p>
 <dl>
 <dt>Dovadă</dt><dd>
 <ul>
@@ -475,6 +509,7 @@ Adăugați <code>AND stare_anunt='1'</code> în interogările de listare.</dd>
 
 <div class="finding">
 <h4><span class="tag t-high">Ridicat</span> Titlurile paginilor de mașini sunt suprascrise, iar câmpurile SEO din admin sunt ignorate</h4>
+<p class="note" style="background:var(--surface-2)"><span class="tag t-ok">Rezolvat</span> <strong>Stare la 20.10.2026:</strong> Titlu nou, generat automat: marcă + tip fără textul de vânzare + automat + putere (CP) + locuri + an + finanțarea trecută în admin. Exemplu: „Citroen NEMO - autoutilitara mica 68 CP 2011, în rate, avans 0% – Second Hand Iași”. Câmpurile <code>title</code>/<code>description</code> din admin nu sunt folosite, intenționat: la 235 de mașini conțin același text generic.</p>
 <dl>
 <dt>Dovadă</dt><dd>Liniile 347–365 construiesc un titlu bun (model, an, preț, max. 60 de caractere), dar <code>vanzari_detail.php:758</code> îl înlocuiește cu <code>$car_name . " - Second Hand - Autoland România"</code>. Câmpurile <code>title</code>/<code>description</code> din admin (<code>tehnic/view_mod_vanzare.php</code>) nu sunt folosite, ci doar <code>keywords</code>, pe care Google îl ignoră.</dd>
 <dt>Remediere</dt><dd>Folosiți titlul de la linia 347 sau câmpul din admin, dacă e completat. Model recomandat: <em>„Renault Scenic 1.5 dCi 2012, 3.500 € – Second Hand Iași | Autoland”</em>.</dd>
@@ -483,6 +518,7 @@ Adăugați <code>AND stare_anunt='1'</code> în interogările de listare.</dd>
 
 <div class="finding">
 <h4><span class="tag t-high">Ridicat</span> Schema Product pe paginile de listare și date de ofertă generate artificial</h4>
+<p class="note" style="background:var(--surface-2)"><span class="tag t-ok">Rezolvat</span> <strong>Stare la 20.10.2026:</strong> Pe listări sunt doar <code>ItemList</code> (poziție, nume, URL) și <code>BreadcrumbList</code>, iar <code>WebPage.name</code> e completat. Livrarea, returul și <code>priceValidUntil</code> au fost scoase și de pe paginile de mașini.</p>
 <dl>
 <dt>Dovadă</dt><dd>
 <ul>
@@ -496,33 +532,33 @@ Adăugați <code>AND stare_anunt='1'</code> în interogările de listare.</dd>
 
 <h3>Medii</h3>
 <div class="table-wrap"><table>
-<thead><tr><th>Problemă</th><th>Dovadă</th><th>Remediere</th></tr></thead>
+<thead><tr><th>Problemă</th><th>Dovadă</th><th>Remediere</th><th>Stare 20.10</th></tr></thead>
 <tbody>
-<tr><td>Meta robots apare de două ori pe fiecare pagină</td><td>Live: <code>index,follow</code> de 2× pe homepage și pe <code>/vanzari.php</code>; <code>header.php:133</code> + <code>articol.php:154</code></td><td>Un singur tag, setat prin variabilă (<code>$robots</code>)</td></tr>
-<tr><td>Pagina 404 are simultan <code>index,follow</code> și <code>noindex,follow</code></td><td>Live: <code>/nu-exista-pagina.php</code></td><td>Doar <code>noindex</code> pe 404/410, pe formulare și pe paginile de mulțumire</td></tr>
-<tr><td>Sitemap static, <code>lastmod</code> artificial</td><td>Live: sitemap generat pe 4 sep, cu ~19 mașini noi lipsă. <code>sitemap-generator.php:61,72</code> pune data curentă pe 62 de URL-uri la fiecare rulare. Generatorul e accesibil public (<code>.htaccess:58-59</code>)</td><td>Cron zilnic din cPanel, <code>lastmod</code> = data ultimei modificări din baza de date, generator protejat</td></tr>
-<tr><td>Homepage fără linkuri spre mașini</td><td>Live: niciun link <code>vanzari_detail.php</code> pe homepage</td><td>Bloc „Ultimele 8–12 mașini adăugate” și „Oferte speciale”</td></tr>
-<tr><td>Conținut subțire pe paginile de mașini</td><td>Live: ~2.900 de cuvinte, majoritatea din șablon. Al doilea <code>&lt;h1&gt;Autoland Romania</code></td><td>Descriere unică (istoric, dotări, stare, garanție), un singur H1, specificații într-un tabel</td></tr>
-<tr><td>Mesaje de debug scrise în log la fiecare afișare de mașină</td><td><code>vanzari_detail.php:295</code> și <code>:714</code> (<code>error_log("DEBUG …")</code>, fără nicio condiție): ~100.000 de linii în <code>error_log</code></td><td>Comentați cele două linii (vezi 9.8). <strong>Nu</strong> schimbați constanta <code>DEBUG</code>: ea controlează doar CSS/JS.</td></tr>
-<tr><td>Lanț de redirecturi</td><td>Live: <code>http://www…</code> → <code>https://www…</code> → <code>https://autolandromania.ro</code> (2 hopuri)</td><td>O singură regulă: dacă nu e HTTPS <em>sau</em> host-ul începe cu www, atunci 301 direct spre <code>https://autolandromania.ro%{REQUEST_URI}</code></td></tr>
-<tr><td>Paginare cu titlu și descriere identice</td><td><code>vanzari.php</code>, paginile 2–48. <code>articole.php:12</code> pune canonical spre pagina 1 pe toate paginile</td><td>Adăugați „– Pagina N” în titlu. Canonical propriu pe fiecare pagină de articole</td></tr>
-<tr><td>Linkuri moarte pe pagina 404</td><td><code>404.php:58-59</code> trimit la <code>/ghid-masini-second-hand</code> și <code>/import-masini-la-comanda</code> (lipsește <code>/articole/</code>)</td><td>Corectați URL-urile și adăugați <code>ErrorDocument 404 /404.php</code></td></tr>
-<tr><td>Imagini cu spații sau caractere speciale în nume</td><td>60 de fișiere în <code>foto/</code> (ex. <code>Qashqai_!.7DCi_150CP_01.jpg</code>), cu URL-uri nevalide în <code>og:image</code> și JSON-LD</td><td><code>rawurlencode()</code> pe numele fișierului sau redenumire la upload</td></tr>
-<tr><td>Text cu greșeli pe homepage</td><td>Live: „pela”, „avem venim”, „0% dobândă” lângă dobânzi de 7,9%, „Reclama ta poate fi aici”</td><td>Corectură. Pagina principală contează mult pentru încrederea vizitatorilor (E-E-A-T)</td></tr>
+<tr><td>Meta robots apare de două ori pe fiecare pagină</td><td>Live: <code>index,follow</code> de 2× pe homepage și pe <code>/vanzari.php</code>; <code>header.php:133</code> + <code>articol.php:154</code></td><td>Un singur tag, setat prin variabilă (<code>$robots</code>)</td><td><span class="tag t-ok">Rezolvat</span> Un singur tag pe toate paginile.</td></tr>
+<tr><td>Pagina 404 are simultan <code>index,follow</code> și <code>noindex,follow</code></td><td>Live: <code>/nu-exista-pagina.php</code></td><td>Doar <code>noindex</code> pe 404/410, pe formulare și pe paginile de mulțumire</td><td><span class="tag t-ok">Rezolvat</span> Doar <code>noindex,follow</code>; 410 pentru mașini șterse.</td></tr>
+<tr><td>Sitemap static, <code>lastmod</code> artificial</td><td>Live: sitemap generat pe 4 sep, cu ~19 mașini noi lipsă. <code>sitemap-generator.php:61,72</code> pune data curentă pe 62 de URL-uri la fiecare rulare. Generatorul e accesibil public (<code>.htaccess:58-59</code>)</td><td>Cron zilnic din cPanel, <code>lastmod</code> = data ultimei modificări din baza de date, generator protejat</td><td><span class="tag t-ok">Rezolvat</span> Cron zilnic la 04:00, ~510 adrese, <code>lastmod</code> real; generatorul răspunde 404 din browser.</td></tr>
+<tr><td>Homepage fără linkuri spre mașini</td><td>Live: niciun link <code>vanzari_detail.php</code> pe homepage</td><td>Bloc „Ultimele 8–12 mașini adăugate” și „Oferte speciale”</td><td><span class="tag t-high">Deschis</span> Încă 0 linkuri spre mașini (planul, pasul 15).</td></tr>
+<tr><td>Conținut subțire pe paginile de mașini</td><td>Live: ~2.900 de cuvinte, majoritatea din șablon. Al doilea <code>&lt;h1&gt;Autoland Romania</code></td><td>Descriere unică (istoric, dotări, stare, garanție), un singur H1, specificații într-un tabel</td><td><span class="tag t-high">Deschis</span> Descrierile unice nu au fost începute. Al doilea H1 (logo-ul din footer) a fost scos.</td></tr>
+<tr><td>Mesaje de debug scrise în log la fiecare afișare de mașină</td><td><code>vanzari_detail.php:295</code> și <code>:714</code> (<code>error_log("DEBUG …")</code>, fără nicio condiție): ~100.000 de linii în <code>error_log</code></td><td>Comentați cele două linii (vezi 9.8). <strong>Nu</strong> schimbați constanta <code>DEBUG</code>: ea controlează doar CSS/JS.</td><td><span class="tag t-ok">Rezolvat</span> Ambele linii sunt comentate.</td></tr>
+<tr><td>Lanț de redirecturi</td><td>Live: <code>http://www…</code> → <code>https://www…</code> → <code>https://autolandromania.ro</code> (2 hopuri)</td><td>O singură regulă: dacă nu e HTTPS <em>sau</em> host-ul începe cu www, atunci 301 direct spre <code>https://autolandromania.ro%{REQUEST_URI}</code></td><td><span class="tag t-high">Deschis</span> Verificat pe live: <code>http://www</code> → <code>https://www</code> → <code>https://</code> (2 pași). <code>mail.autolandromania.ro</code> afișează încă tot site-ul (200; canonical spre domeniul principal).</td></tr>
+<tr><td>Paginare cu titlu și descriere identice</td><td><code>vanzari.php</code>, paginile 2–48. <code>articole.php:12</code> pune canonical spre pagina 1 pe toate paginile</td><td>Adăugați „– Pagina N” în titlu. Canonical propriu pe fiecare pagină de articole</td><td><span class="tag t-ok">Rezolvat</span> „– Pagina N” în titlu pe listări. La articole, canonical-ul spre pagina 1 a rămas, dar nu contează: sunt doar 3 articole, deci o singură pagină.</td></tr>
+<tr><td>Linkuri moarte pe pagina 404</td><td><code>404.php:58-59</code> trimit la <code>/ghid-masini-second-hand</code> și <code>/import-masini-la-comanda</code> (lipsește <code>/articole/</code>)</td><td>Corectați URL-urile și adăugați <code>ErrorDocument 404 /404.php</code></td><td><span class="tag t-ok">Rezolvat</span> Linkuri reparate (ghidul de leasing a înlocuit articolul inexistent); <code>ErrorDocument 404</code> există.</td></tr>
+<tr><td>Imagini cu spații sau caractere speciale în nume</td><td>60 de fișiere în <code>foto/</code> (ex. <code>Qashqai_!.7DCi_150CP_01.jpg</code>), cu URL-uri nevalide în <code>og:image</code> și JSON-LD</td><td><code>rawurlencode()</code> pe numele fișierului sau redenumire la upload</td><td><span class="tag t-high">Deschis</span> 57 de fișiere; <code>rawurlencode()</code> încă nefolosit.</td></tr>
+<tr><td>Text cu greșeli pe homepage</td><td>Live: „pela”, „avem venim”, „0% dobândă” lângă dobânzi de 7,9%, „Reclama ta poate fi aici”</td><td>Corectură. Pagina principală contează mult pentru încrederea vizitatorilor (E-E-A-T)</td><td><span class="tag t-high">Deschis</span> „pela”, „avem venim” și „dobândă de la zero 0%” sunt încă în textul homepage-ului; „Reclama ta poate fi aici” e încă în sidebar. <strong>„Avans 0%” rămâne</strong> (decizia din 15.10).</td></tr>
 </tbody></table></div>
 
 <h3>Performanță (Core Web Vitals)</h3>
 <div class="table-wrap"><table>
-<thead><tr><th>Problemă</th><th>Dovadă</th><th>Remediere</th></tr></thead>
+<thead><tr><th>Problemă</th><th>Dovadă</th><th>Remediere</th><th>Stare 20.10</th></tr></thead>
 <tbody>
-<tr><td>~300 KB de CSS care blochează afișarea paginii</td><td><code>header.php:216-219</code> (bootstrap, style, mobile, fonts)</td><td>Folosiți fișierele <code>.min.css</code> care există deja lângă cele normale (vezi 9.8). Bundle-ul din <code>public/build</code> e din 2019 și nu trebuie folosit</td></tr>
-<tr><td>jQuery 2.1.0 (2014, vulnerabilități XSS cunoscute), încărcat sincron</td><td><code>footer.php:92</code></td><td>jQuery 3.7 cu <code>defer</code></td></tr>
-<tr><td>Revolution Slider (~175 KB JS) pe aproape toate paginile</td><td><code>footer.php:98-167</code></td><td>Încărcați-l doar pe homepage</td></tr>
-<tr><td>Imagini originale în cardurile de 300×200, fără WebP</td><td><code>foto/</code> = 473 MB, 0 fișiere WebP</td><td>Thumbnail-uri generate la upload (WebP, 400 px) și <code>srcset</code></td></tr>
-<tr><td>Galeria de pe pagina de mașină fără <code>width</code>/<code>height</code> (CLS)</td><td><code>vanzari_detail.php:952-958, 1019-1022</code></td><td>Adăugați dimensiunile</td></tr>
-<tr><td>Analytics încărcat de două ori (GTM + gtag direct)</td><td><code>header.php:24-30</code> și <code>272-278</code></td><td>Păstrați doar GTM, altfel vizitele pot fi numărate dublu</td></tr>
-<tr><td>HTML cache-uit o lună în browser</td><td><code>.htaccess:193</code> <code>ExpiresDefault "access plus 1 month"</code></td><td><code>ExpiresByType text/html "access plus 0 seconds"</code>. Altfel, vizitatorii pot vedea mașini deja vândute</td></tr>
-<tr><td><code>Vary: User-Agent</code> pe toate răspunsurile</td><td><code>../.htaccess:24</code></td><td>Eliminați (site-ul e responsive)</td></tr>
+<tr><td>~300 KB de CSS care blochează afișarea paginii</td><td><code>header.php:216-219</code> (bootstrap, style, mobile, fonts)</td><td>Folosiți fișierele <code>.min.css</code> care există deja lângă cele normale (vezi 9.8). Bundle-ul din <code>public/build</code> e din 2019 și nu trebuie folosit</td><td><span class="tag t-high">Deschis</span> <code>style.css</code>, <code>mobile.css</code>, <code>flexslider.css</code> etc. sunt încă neminificate.</td></tr>
+<tr><td>jQuery 2.1.0 (2014, vulnerabilități XSS cunoscute), încărcat sincron</td><td><code>footer.php:92</code></td><td>jQuery 3.7 cu <code>defer</code></td><td><span class="tag t-high">Deschis</span> Încă v2.1.0.</td></tr>
+<tr><td>Revolution Slider (~175 KB JS) pe aproape toate paginile</td><td><code>footer.php:98-167</code></td><td>Încărcați-l doar pe homepage</td><td><span class="tag t-high">Deschis</span> Exclus doar pe pagina de mașină; se încarcă pe restul paginilor.</td></tr>
+<tr><td>Imagini originale în cardurile de 300×200, fără WebP</td><td><code>foto/</code> = 473 MB, 0 fișiere WebP</td><td>Thumbnail-uri generate la upload (WebP, 400 px) și <code>srcset</code></td><td><span class="tag t-high">Deschis</span> 0 fișiere WebP.</td></tr>
+<tr><td>Galeria de pe pagina de mașină fără <code>width</code>/<code>height</code> (CLS)</td><td><code>vanzari_detail.php:952-958, 1019-1022</code></td><td>Adăugați dimensiunile</td><td><span class="tag t-high">Deschis</span> 12 imagini din galerie fără <code>width</code>/<code>height</code> (mașina 1654).</td></tr>
+<tr><td>Analytics încărcat de două ori (GTM + gtag direct)</td><td><code>header.php:24-30</code> și <code>272-278</code></td><td>Păstrați doar GTM, altfel vizitele pot fi numărate dublu</td><td><span class="tag t-ok">Rezolvat</span> Doar prin GTM (<code>G-23845PZRLE</code>). Etichetele GTM au fost publicate pe 14.10, bannerul transmite consimțământul, iar scriptul vechi <code>analytics.js</code> a fost scos. GA4 colectează din 14.10.</td></tr>
+<tr><td>HTML cache-uit o lună în browser</td><td><code>.htaccess:193</code> <code>ExpiresDefault "access plus 1 month"</code></td><td><code>ExpiresByType text/html "access plus 0 seconds"</code>. Altfel, vizitatorii pot vedea mașini deja vândute</td><td><span class="tag t-low">Neactual acum</span> Pe live, paginile PHP trimit <code>Cache-Control: no-store</code> (din <code>session_start()</code>), deci regula de o lună nu se aplică acum. Devine actuală dacă se scoate <code>session_start()</code> (9.8). Atunci adăugați <code>ExpiresByType text/html</code>.</td></tr>
+<tr><td><code>Vary: User-Agent</code> pe toate răspunsurile</td><td><code>../.htaccess:24</code></td><td>Eliminați (site-ul e responsive)</td><td><span class="tag t-high">Deschis</span> Încă prezent pe live.</td></tr>
 </tbody></table></div>
 
 <!-- ============================================================ -->
@@ -537,6 +573,35 @@ Adăugați <code>AND stare_anunt='1'</code> în interogările de listare.</dd>
   <li><span class="tag t-ok">OK</span> Stocul nu a scăzut: 489 de mașini pe live, față de 458 în mai 2026. Un număr mai mic de anunțuri <em>nu</em> explică scăderea.</li>
 </ul>
 <p class="note">Aceste corecturi sunt bune, dar Google are nevoie de <strong>3–6 săptămâni</strong> ca să le proceseze. Schimbarea canonical-ului homepage-ului și un sitemap devenit brusc citibil pot produce fluctuații temporare de poziție tocmai în septembrie–octombrie. Nu reveniți asupra lor.</p>
+
+<h3 id="implementat">Implementat după audit (14–20 octombrie 2026, verificat pe 20.10)</h3>
+<p>Modificări făcute în cod, testate local și urcate pe server:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Din plan</th><th>Ce s-a făcut</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><span class="tag t-ok">OK</span> Ratingul pus în cod (4,3 / 31) scos de pe paginile de mașini și de pe listări</td></tr>
+<tr><td>2</td><td><span class="tag t-ok">OK</span> Mașină ștearsă → <strong>410</strong>; ID invalid → 404; mașină dezactivată → pagină cu mesajul „vândută”, <code>noindex</code> și <code>SoldOut</code>; listările arată doar mașini active. Datele de ofertă inventate (livrare 0 €, retur, „+180 de zile”) au fost scoase</td></tr>
+<tr><td>3</td><td><span class="tag t-ok">OK</span> Injecția SQL închisă pe listări (<code>an</code>, <code>pret</code>, căutare, paginare), în formularul de recenzie și în căutarea de mărci (AJAX). Erorile SQL nu mai sunt afișate vizitatorilor. Rămân de făcut: ștergerea fișierelor expuse și schimbarea parolelor</td></tr>
+<tr><td>4</td><td><span class="tag t-ok">OK</span> Mesajele de debug erau deja comentate</td></tr>
+<tr><td>6</td><td><span class="tag t-ok">OK</span> <code>&amp;pic=</code> scos din toate linkurile spre mașini</td></tr>
+<tr><td>7</td><td><span class="tag t-ok">OK</span> Canonical construit dintr-o listă fixă (adresele de categorie care aduc trafic au rămas identice), <code>noindex,follow</code> pe filtre și căutări, <code>totalRows_vanzare</code> scos din URL, numărare optimizată (<code>COUNT(*)</code>)</td></tr>
+<tr><td>9</td><td><span class="tag t-ok">OK</span> Sitemap generat zilnic prin cron, la 04:00, cu data reală a ultimei modificări (coloana nouă <code>masini.data_actualizare</code>). Primul rezultat: 510 adrese</td></tr>
+<tr><td>10</td><td><span class="tag t-ok">OK</span> Un singur meta robots; linkurile moarte din pagina 404 reparate</td></tr>
+<tr><td>11</td><td><span class="tag t-ok">OK</span> Titluri noi pentru mașini: „Marcă Tip [automat] [putere CP] [locuri] An[, în rate, avans 0%] – Second Hand Iași”. Finanțarea apare doar la mașinile unde e trecută în admin (272 de mașini). Kilometrajul a fost adăugat în descriere, iar listările au „– Pagina N”</td></tr>
+<tr><td>12</td><td><span class="tag t-ok">OK</span> Pe listări doar <code>ItemList</code> și <code>BreadcrumbList</code>, fără <code>Product</code></td></tr>
+<tr><td>17 (parțial)</td><td><span class="tag t-ok">OK</span> Google Analytics: <strong>GA4 nu primea date</strong>. Bannerul de cookies nu transmitea acceptul către Google, iar etichetele din Google Tag Manager nu fuseseră publicate niciodată. Ambele au fost reparate, iar Analytics colectează din 14.10.2026, o singură dată (prin GTM). Scriptul vechi Universal Analytics și H1-ul din footer au fost scoase</td></tr>
+</tbody></table></div>
+<p><strong>Rămase deschise (verificat în cod și pe live, 20.10.2026):</strong></p>
+<ul>
+<li><strong>Securitate:</strong> fișiere încă accesibile (<code>vanzari.php_backup_02_jul_2025</code>, <code>test.php</code>, <code>vanzari.bak.php</code>, <code>thumb.php</code>, scripturi de test), dump-urile pe server, parolele (plan 3, 8).</li>
+<li><strong>Pagini duplicate:</strong> <code>index (copie)--.php</code>, <code>vanzari3.php</code>, <code>mobile/</code> (plan 8).</li>
+<li><strong>Gazde și redirecturi:</strong> lanț în 2 pași pentru <code>http://www</code>; <code>mail.autolandromania.ro</code> afișează site-ul (plan 13).</li>
+<li><strong>Viteză:</strong> <code>session_start()</code> pe toate paginile, CSS neminificat, jQuery 2.1.0, slider pe toate paginile, imagini fără WebP și fără dimensiuni, <code>Vary: User-Agent</code> (plan 13b, 17).</li>
+<li><strong>Conținut:</strong> ultimele mașini pe homepage, descrieri unice, pagini de categorie, textul homepage și al paginii de leasing (inclusiv al doilea H1 din textul de leasing), URL-uri prietenoase, partea națională (plan 14–16, 18b, 19, 19b, 21).</li>
+<li><strong>În afara codului:</strong> Search Console (plan 5), Google Business Profile (plan 0, 18), măsurarea apelurilor și formularelor în GTM (secțiunea 11, pasul 1).</li>
+</ul>
+<div class="note"><strong>Corectare față de recomandarea inițială despre „0%”:</strong> conducerea a confirmat că în septembrie 2026 multe apeluri au venit de la clienți cărora ChatGPT le-a spus că Autoland vinde cu <strong>avans 0</strong>. „Avans de la 0%” este o ofertă reală, cu condiții, și <strong>rămâne</strong> în titluri, pe homepage și pe pagina de leasing. Se scoate doar „dobândă de la 0%”, care e contrazisă de dobânzile afișate (4,5–7,9%).</div>
+
 
 <!-- ============================================================ -->
 <h2 id="gsc">7. Ce trebuie verificat în Search Console</h2>
@@ -564,44 +629,45 @@ Adăugați <code>AND stare_anunt='1'</code> în interogările de listare.</dd>
 
 <h3>Săptămâna 1 – riscuri majore</h3>
 <div class="table-wrap"><table>
-<thead><tr><th>#</th><th>Acțiune</th><th>Fișiere</th><th>Efort</th><th>Impact</th></tr></thead>
+<thead><tr><th>#</th><th>Acțiune</th><th>Fișiere</th><th>Efort</th><th>Impact</th><th>Stare 20.10</th></tr></thead>
 <tbody>
-<tr><td>0</td><td><strong>SEO local:</strong> în Google Business Profile, cereți recenzii fiecărui client din ultimele luni, răspundeți la toate recenziile, adăugați 1–2 postări pe săptămână cu mașini noi și fotografii reale ale parcului, verificați categoria principală („Dealer de mașini second hand”) și pe cele secundare. Pe homepage, scrieți un paragraf de text local („parc auto în Iași, str. Luca Arbore 3…”), adăugați harta, programul și ultimele mașini</td><td>GBP, <code>index.php</code> (text din DB)</td><td>2–3 h, apoi continuu</td><td><span class="tag t-crit">Foarte mare</span></td></tr>
-<tr><td>1</td><td>Eliminați <code>aggregateRating</code> pus în cod</td><td><code>vanzari_detail.php</code>, <code>vanzari.php</code></td><td>15 min</td><td><span class="tag t-crit">Foarte mare</span></td></tr>
-<tr><td>2</td><td>410 pentru ID-uri inexistente, 410 sau pagină „Vândut” cu <code>noindex</code> + <code>SoldOut</code> pentru <code>stare_anunt=0</code></td><td><code>vanzari_detail.php:55-71</code></td><td>1–2 h</td><td><span class="tag t-crit">Foarte mare</span></td></tr>
-<tr><td>3</td><td><code>(int)$_GET['id']</code> și prepared statements; ștergeți <code>.sql</code>, <code>error_log</code>, <code>.old/.bak</code>, <code>test.php</code> și scripturile de test</td><td><code>vanzari_detail.php</code>, <code>vanzari.php</code>, webroot</td><td>2–3 h</td><td><span class="tag t-crit">Mare (securitate)</span></td></tr>
-<tr><td>4</td><td>Opriți mesajele de debug din log (comentați cele 2 <code>error_log("DEBUG …")</code>). Constanta <code>DEBUG</code> rămâne <code>TRUE</code></td><td><code>vanzari_detail.php:295, 714</code></td><td>2 min</td><td><span class="tag t-high">Mediu</span></td></tr>
-<tr><td>5</td><td>Verificați Acțiunile manuale și cereți reindexarea pentru homepage și <code>/vanzari.php</code></td><td>GSC</td><td>15 min</td><td><span class="tag t-high">Diagnostic</span></td></tr>
+<tr><td>0</td><td><strong>SEO local:</strong> în Google Business Profile, cereți recenzii fiecărui client din ultimele luni, răspundeți la toate recenziile, adăugați 1–2 postări pe săptămână cu mașini noi și fotografii reale ale parcului, verificați categoria principală („Dealer de mașini second hand”) și pe cele secundare. Pe homepage, scrieți un paragraf de text local („parc auto în Iași, str. Luca Arbore 3…”), adăugați harta, programul și ultimele mașini</td><td>GBP, <code>index.php</code> (text din DB)</td><td>2–3 h, apoi continuu</td><td><span class="tag t-crit">Foarte mare</span></td><td><span class="tag t-g">De verificat</span> Google Business Profile și textul homepage se fac în afara codului.</td></tr>
+<tr><td>1</td><td>Eliminați <code>aggregateRating</code> pus în cod</td><td><code>vanzari_detail.php</code>, <code>vanzari.php</code></td><td>15 min</td><td><span class="tag t-crit">Foarte mare</span></td><td><span class="tag t-ok">Rezolvat</span></td></tr>
+<tr><td>2</td><td>410 pentru ID-uri inexistente, 410 sau pagină „Vândut” cu <code>noindex</code> + <code>SoldOut</code> pentru <code>stare_anunt=0</code></td><td><code>vanzari_detail.php:55-71</code></td><td>1–2 h</td><td><span class="tag t-crit">Foarte mare</span></td><td><span class="tag t-ok">Rezolvat</span></td></tr>
+<tr><td>3</td><td><code>(int)$_GET['id']</code> și prepared statements; ștergeți <code>.sql</code>, <code>error_log</code>, <code>.old/.bak</code>, <code>test.php</code> și scripturile de test</td><td><code>vanzari_detail.php</code>, <code>vanzari.php</code>, webroot</td><td>2–3 h</td><td><span class="tag t-crit">Mare (securitate)</span></td><td><span class="tag t-med">Parțial</span> SQL închis; fișierele expuse și parolele încă nu.</td></tr>
+<tr><td>4</td><td>Opriți mesajele de debug din log (comentați cele 2 <code>error_log("DEBUG …")</code>). Constanta <code>DEBUG</code> rămâne <code>TRUE</code></td><td><code>vanzari_detail.php:295, 714</code></td><td>2 min</td><td><span class="tag t-high">Mediu</span></td><td><span class="tag t-ok">Rezolvat</span></td></tr>
+<tr><td>5</td><td>Verificați Acțiunile manuale și cereți reindexarea pentru homepage și <code>/vanzari.php</code></td><td>GSC</td><td>15 min</td><td><span class="tag t-high">Diagnostic</span></td><td><span class="tag t-g">De verificat</span> În Search Console.</td></tr>
 </tbody></table></div>
 
 <h3>Săptămânile 2–3 – URL-uri curate și indexare</h3>
 <div class="table-wrap"><table>
-<thead><tr><th>#</th><th>Acțiune</th><th>Fișiere</th><th>Efort</th><th>Impact</th></tr></thead>
+<thead><tr><th>#</th><th>Acțiune</th><th>Fișiere</th><th>Efort</th><th>Impact</th><th>Stare 20.10</th></tr></thead>
 <tbody>
-<tr><td>6</td><td>Scoateți <code>&amp;pic=</code> din toate linkurile interne</td><td><code>inventory_listing2.php:89</code> și alte șabloane</td><td>30 min</td><td><span class="tag t-high">Mare</span></td></tr>
-<tr><td>7</td><td>Canonical din listă albă și <code>noindex,follow</code> pe combinațiile de filtre; eliminați <code>totalRows_vanzare</code>. <strong>Păstrați neschimbate URL-urile de categorie care aduc trafic</strong> (de ex. <code>users=Autoutilitare&amp;subcateg=12&amp;marcat=100</code>) sau faceți 301 spre noile URL-uri</td><td><code>header.php:46-84</code>, <code>vanzari.php</code></td><td>2–3 h</td><td><span class="tag t-high">Mare</span></td></tr>
-<tr><td>8</td><td>Ștergeți paginile duplicate (<code>index (copie)--.php</code>, <code>vanzari3.php</code>, <code>vanzari.bak.php</code>, <code>mobile/</code>, <code>Sitemap2.xml</code>, <code>Sitemap-backup.xml</code>)</td><td>webroot</td><td>30 min</td><td><span class="tag t-med">Mediu</span></td></tr>
-<tr><td>9</td><td>Sitemap generat zilnic prin cron, cu <code>lastmod</code> real; generator protejat</td><td><code>sitemap-generator.php</code>, cPanel</td><td>1–2 h</td><td><span class="tag t-med">Mediu</span></td></tr>
-<tr><td>10</td><td>Un singur meta robots; <code>noindex</code> pe 404, formulare și pagini de mulțumire</td><td><code>header.php:133</code>, <code>articol.php</code>, <code>404.php</code></td><td>1 h</td><td><span class="tag t-med">Mediu</span></td></tr>
-<tr><td>11</td><td>Titlurile paginilor de mașini (eliminați suprascrierea), titluri cu „Pagina N” la paginare</td><td><code>vanzari_detail.php:758</code>, <code>vanzari.php</code></td><td>1 h</td><td><span class="tag t-med">Mediu</span></td></tr>
-<tr><td>12</td><td>Product schema doar pe paginile de mașini; pe listări doar <code>ItemList</code> + <code>BreadcrumbList</code></td><td><code>vanzari.php:303-465</code></td><td>1 h</td><td><span class="tag t-med">Mediu</span></td></tr>
-<tr><td>13</td><td>Redirect într-un singur hop; host-urile <code>mail.</code>, <code>m.</code>, <code>www.m.</code> trebuie să răspundă cu 301 spre <code>https://autolandromania.ro</code> sau 404, niciodată cu site-ul</td><td><code>.htaccess:37-50</code></td><td>30 min</td><td><span class="tag t-med">Mediu</span></td></tr>
-<tr><td>13b</td><td>Timp de răspuns sub 300 ms: fără mesaje de debug în log, LiteSpeed Cache (există deja <code>lscache/</code> pe server) pentru paginile publice, <code>session_start()</code> doar unde e nevoie</td><td><code>config.php</code>, <code>.htaccess</code></td><td>2–4 h</td><td><span class="tag t-high">Mare (crawl)</span></td></tr>
+<tr><td>6</td><td>Scoateți <code>&amp;pic=</code> din toate linkurile interne</td><td><code>inventory_listing2.php:89</code> și alte șabloane</td><td>30 min</td><td><span class="tag t-high">Mare</span></td><td><span class="tag t-ok">Rezolvat</span></td></tr>
+<tr><td>7</td><td>Canonical din listă albă și <code>noindex,follow</code> pe combinațiile de filtre; eliminați <code>totalRows_vanzare</code>. <strong>Păstrați neschimbate URL-urile de categorie care aduc trafic</strong> (de ex. <code>users=Autoutilitare&amp;subcateg=12&amp;marcat=100</code>) sau faceți 301 spre noile URL-uri</td><td><code>header.php:46-84</code>, <code>vanzari.php</code></td><td>2–3 h</td><td><span class="tag t-high">Mare</span></td><td><span class="tag t-ok">Rezolvat</span></td></tr>
+<tr><td>8</td><td>Ștergeți paginile duplicate (<code>index (copie)--.php</code>, <code>vanzari3.php</code>, <code>vanzari.bak.php</code>, <code>mobile/</code>, <code>Sitemap2.xml</code>, <code>Sitemap-backup.xml</code>)</td><td>webroot</td><td>30 min</td><td><span class="tag t-med">Mediu</span></td><td><span class="tag t-high">Deschis</span></td></tr>
+<tr><td>9</td><td>Sitemap generat zilnic prin cron, cu <code>lastmod</code> real; generator protejat</td><td><code>sitemap-generator.php</code>, cPanel</td><td>1–2 h</td><td><span class="tag t-med">Mediu</span></td><td><span class="tag t-ok">Rezolvat</span> Cron zilnic.</td></tr>
+<tr><td>10</td><td>Un singur meta robots; <code>noindex</code> pe 404, formulare și pagini de mulțumire</td><td><code>header.php:133</code>, <code>articol.php</code>, <code>404.php</code></td><td>1 h</td><td><span class="tag t-med">Mediu</span></td><td><span class="tag t-ok">Rezolvat</span></td></tr>
+<tr><td>11</td><td>Titlurile paginilor de mașini (eliminați suprascrierea), titluri cu „Pagina N” la paginare</td><td><code>vanzari_detail.php:758</code>, <code>vanzari.php</code></td><td>1 h</td><td><span class="tag t-med">Mediu</span></td><td><span class="tag t-ok">Rezolvat</span></td></tr>
+<tr><td>12</td><td>Product schema doar pe paginile de mașini; pe listări doar <code>ItemList</code> + <code>BreadcrumbList</code></td><td><code>vanzari.php:303-465</code></td><td>1 h</td><td><span class="tag t-med">Mediu</span></td><td><span class="tag t-ok">Rezolvat</span></td></tr>
+<tr><td>13</td><td>Redirect într-un singur hop; host-urile <code>mail.</code>, <code>m.</code>, <code>www.m.</code> trebuie să răspundă cu 301 spre <code>https://autolandromania.ro</code> sau 404, niciodată cu site-ul</td><td><code>.htaccess:37-50</code></td><td>30 min</td><td><span class="tag t-med">Mediu</span></td><td><span class="tag t-high">Deschis</span></td></tr>
+<tr><td>13b</td><td>Timp de răspuns sub 300 ms: fără mesaje de debug în log, LiteSpeed Cache (există deja <code>lscache/</code> pe server) pentru paginile publice, <code>session_start()</code> doar unde e nevoie</td><td><code>config.php</code>, <code>.htaccess</code></td><td>2–4 h</td><td><span class="tag t-high">Mare (crawl)</span></td><td><span class="tag t-high">Deschis</span></td></tr>
 </tbody></table></div>
 
 <h3>Luna 2 – calitate și conținut</h3>
 <div class="table-wrap"><table>
-<thead><tr><th>#</th><th>Acțiune</th><th>Efort</th><th>Impact</th></tr></thead>
+<thead><tr><th>#</th><th>Acțiune</th><th>Efort</th><th>Impact</th><th>Stare 20.10</th></tr></thead>
 <tbody>
-<tr><td>14</td><td>Descriere unică pentru fiecare mașină (minim 120–200 de cuvinte proprii: istoric, dotări, stare, ce include garanția). Poate fi completată din admin</td><td>Continuu</td><td><span class="tag t-high">Mare</span></td></tr>
-<tr><td>15</td><td>Bloc „Ultimele mașini adăugate” pe homepage și link-uri „Mașini similare” pe paginile de mașini</td><td>3–4 h</td><td><span class="tag t-high">Mare</span></td></tr>
-<tr><td>16</td><td>Pagini de categorie cu text propriu (de ex. „SUV second hand Iași”, „Autoutilitare second hand”), cu un URL curat pentru fiecare categorie</td><td>1–2 zile</td><td><span class="tag t-med">Mediu</span></td></tr>
-<tr><td>17</td><td>Performanță: fișiere <code>.min.css</code>, jQuery 3 cu <code>defer</code>, slider doar pe homepage, thumbnail-uri WebP, dimensiuni pe imagini, un singur analytics, HTML fără cache de o lună</td><td>1–2 zile</td><td><span class="tag t-med">Mediu</span></td></tr>
-<tr><td>18</td><td>Google Business Profile: cereți recenzii reale clienților, adăugați fotografii și postări cu mașini noi. Afișați pe site recenzii reale (cu autor și dată)</td><td>Continuu</td><td><span class="tag t-high">Mare (interogările locale sunt principala sursă de trafic)</span></td></tr>
-<tr><td>18b</td><td>Pagina de leasing (<code>leasing.php</code>, ~2.000 de clicuri): text clar și verificabil (parteneri, documente necesare, exemplu de calcul cu DAE reală, condiții pentru PF/PJ), fără „0%” acolo unde nu e adevărat; autor sau firmă și dată de actualizare; link spre articolul-ghid și invers</td><td>3–4 h</td><td><span class="tag t-high">Mare</span></td></tr>
-<tr><td>19</td><td>Corectură pe homepage și pe paginile statice; scoateți placeholder-ul „Reclama ta poate fi aici” și promisiunea de „0% dobândă”, care contrazice dobânzile afișate</td><td>2 h</td><td><span class="tag t-low">Mic–mediu</span></td></tr>
-<tr><td>19b</td><td>URL-uri prietenoase pentru mașini: <code>/masini/marca-model-an-ID</code>, fără schimbări în baza de date, cu 301 de la URL-urile vechi (vezi 9.15). Categoriile, eventual, într-o etapă ulterioară</td><td>4–6 h</td><td><span class="tag t-med">Mediu</span></td></tr>
-<tr><td>20</td><td>Proces de deploy cu verificare locală (<code>php -l</code> pe fișierele modificate) înainte de urcare, ca să nu se mai repete erorile fatale din nov 2025 – feb 2026</td><td>1 h</td><td><span class="tag t-low">Prevenție</span></td></tr>
+<tr><td>14</td><td>Descriere unică pentru fiecare mașină (minim 120–200 de cuvinte proprii: istoric, dotări, stare, ce include garanția). Poate fi completată din admin</td><td>Continuu</td><td><span class="tag t-high">Mare</span></td><td><span class="tag t-high">Deschis</span></td></tr>
+<tr><td>15</td><td>Bloc „Ultimele mașini adăugate” pe homepage și link-uri „Mașini similare” pe paginile de mașini</td><td>3–4 h</td><td><span class="tag t-high">Mare</span></td><td><span class="tag t-high">Deschis</span></td></tr>
+<tr><td>16</td><td>Pagini de categorie cu text propriu (de ex. „SUV second hand Iași”, „Autoutilitare second hand”), cu un URL curat pentru fiecare categorie</td><td>1–2 zile</td><td><span class="tag t-med">Mediu</span></td><td><span class="tag t-high">Deschis</span></td></tr>
+<tr><td>17</td><td>Performanță: fișiere <code>.min.css</code>, jQuery 3 cu <code>defer</code>, slider doar pe homepage, thumbnail-uri WebP, dimensiuni pe imagini, un singur analytics, HTML fără cache de o lună</td><td>1–2 zile</td><td><span class="tag t-med">Mediu</span></td><td><span class="tag t-med">Parțial</span> Doar Analytics.</td></tr>
+<tr><td>18</td><td>Google Business Profile: cereți recenzii reale clienților, adăugați fotografii și postări cu mașini noi. Afișați pe site recenzii reale (cu autor și dată)</td><td>Continuu</td><td><span class="tag t-high">Mare (interogările locale sunt principala sursă de trafic)</span></td><td><span class="tag t-g">De verificat</span> În afara codului.</td></tr>
+<tr><td>18b</td><td>Pagina de leasing (<code>leasing.php</code>, ~2.000 de clicuri): text clar și verificabil (parteneri, documente necesare, exemplu de calcul cu DAE reală, condiții pentru PF/PJ), fără „0%” acolo unde nu e adevărat; autor sau firmă și dată de actualizare; link spre articolul-ghid și invers</td><td>3–4 h</td><td><span class="tag t-high">Mare</span></td><td><span class="tag t-high">Deschis</span></td></tr>
+<tr><td>19</td><td>Corectură pe homepage și pe paginile statice; scoateți placeholder-ul „Reclama ta poate fi aici” și promisiunea de „0% dobândă”, care contrazice dobânzile afișate</td><td>2 h</td><td><span class="tag t-low">Mic–mediu</span></td><td><span class="tag t-high">Deschis</span></td></tr>
+<tr><td>19b</td><td>URL-uri prietenoase pentru mașini: <code>/masini/marca-model-an-ID</code>, fără schimbări în baza de date, cu 301 de la URL-urile vechi (vezi 9.15). Categoriile, eventual, într-o etapă ulterioară</td><td>4–6 h</td><td><span class="tag t-med">Mediu</span></td><td><span class="tag t-high">Deschis</span></td></tr>
+<tr><td>21</td><td><strong>Național</strong> (vezi 9.16): pagina „Cumpărați de la distanță, cu livrare în toată România”, titluri naționale pentru homepage, Autoutilitare, Leasing și Garanție, pagini pe nișe (frigorifice, platforme, transport persoane), pagina „Leasing pentru firme nou înființate”, profil Autovit/OLX complet</td><td>2–4 zile, plus continuu</td><td><span class="tag t-crit">Foarte mare</span></td><td><span class="tag t-high">Deschis</span></td></tr>
+<tr><td>20</td><td>Proces de deploy cu verificare locală (<code>php -l</code> pe fișierele modificate) înainte de urcare, ca să nu se mai repete erorile fatale din nov 2025 – feb 2026</td><td>1 h</td><td><span class="tag t-low">Prevenție</span></td><td><span class="tag t-med">Parțial</span> Codul e în git, iar fiecare modificare e verificată cu <code>php -l</code> și local.</td></tr>
 </tbody></table></div>
 
 <p><strong>Ce să așteptați:</strong> după pașii 1–3, efectul apare de obicei în 2–6 săptămâni. Dacă există o acțiune manuală, după corectare trimiteți o cerere de reconsiderare din GSC. Dacă scăderea ține de spam update-ul algoritmic, recuperarea vine de regulă la următorul update, după ce problemele au fost corectate. Partea care ține de piață (−15%) nu poate fi recuperată prin SEO.</p>
@@ -1082,7 +1148,221 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 </ul>
 
 <!-- ============================================================ -->
-<h2 id="neverificat">10. Ce nu am putut verifica</h2>
+
+<h3 id="national">9.16 Extinderea la nivel național (clienți din toată România) <span class="tag t-crit">prioritate, alături de 9.1</span></h3>
+<p><strong>Context nou (15.10.2026):</strong> conducerea spune că majoritatea clienților vin din toată țara, puțini din Iași. Site-ul se prezintă însă ca un parc auto local:</p>
+<ul>
+<li>„Iași” apare în titlul și descrierea de pe homepage, de la Autoutilitare, de pe pagina de leasing și de pe cea de garanție;</li>
+<li>livrarea în toată țara apare doar în textul lung de pe homepage și nu are o pagină proprie.</li>
+</ul>
+<p>Datele arată că o parte importantă din trafic e deja națională: „fiat doblo maxi xl” (124 de clicuri), „opel vivaro 6 locuri” (100), „parcuri auto romania” (86), „leasing auto fara avans persoane juridice” (84), „autoutilitare in rate” (79). Profilul Google Business apare și la „parcuri auto romania” (414 afișări) și „used cars romania” (357).</p>
+<p><strong>Principiul: Iașiul rămâne adresa, România devine piața.</strong> SEO-ul local (9.1) rămâne important pentru „parc auto Iași”. Creșterea vine însă din căutările naționale pe tipuri de vehicul și pe finanțare.</p>
+
+<p><strong>1. Nu creați pagini copiate pe orașe.</strong> „Parc auto Cluj”, „Parc auto Timișoara” etc., cu același text în care se schimbă doar orașul, sunt <em>doorway pages</em>, interzise explicit de regulile anti-spam Google. Spam update-urile din 2026 le-au vizat. Riscul e o penalizare pe tot site-ul.</p>
+
+<p><strong>2. Pagina „Cumpărați de la distanță, cu livrare în toată România”.</strong> O singură pagină, cu pașii reali:</p>
+<ol>
+<li>video sau apel video cu mașina;</li>
+<li>rezervarea (avans, durată);</li>
+<li>finanțarea cu documente trimise online;</li>
+<li>contractul;</li>
+<li>transportul (platformă sau condusă, termen, cost orientativ pe zone);</li>
+<li>înmatricularea în județul clientului;</li>
+<li>garanția, valabilă în orice service autorizat RAR din țară;</li>
+<li>„am livrat în [N] județe”;</li>
+<li>recenzii de la clienți din alte orașe;</li>
+<li>întrebări frecvente.</li>
+</ol>
+<p>Pagina se leagă din meniu, de pe homepage și de pe fiecare pagină de mașină.</p>
+
+<p><strong>3. Titluri și descrieri naționale</strong> pentru paginile care nu sunt despre locație:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Pagină</th><th>Titlu acum</th><th>Propunere</th></tr></thead>
+<tbody>
+<tr><td>Homepage</td><td>Vânzări Mașini Rulate, Second Hand și Noi cu Garanție | Iași | Autoland România</td><td>Parc auto second hand din Iași, cu livrare în toată România | Autoland România</td></tr>
+<tr><td>Autoutilitare</td><td>Autoutilitare | Second Hand Iași | Autoland România</td><td>Autoutilitare second hand în rate, livrare în toată țara | Autoland România</td></tr>
+<tr><td>Leasing</td><td>Leasing/Credit Auto Iași | Finanțare cu Avans 0% | Autoland România</td><td>Leasing auto second hand, avans de la 0%, și pentru firme noi | Autoland România</td></tr>
+<tr><td>Garanție</td><td>Garanție Auto 12 Luni Iași | Autoland România</td><td>Garanție auto [12 luni], valabilă în orice service RAR din țară | Autoland România</td></tr>
+</tbody></table></div>
+<p>Pentru paginile de mașini („– Second Hand Iași”), decideți după o lună de date GA4 pe orașe (Analytics colectează corect de la 14.10). Alternativa e „– livrare în toată țara”. În descrierea fiecărei mașini se poate adăuga automat „Livrare în toată România, garanție valabilă în orice service RAR”.</p>
+
+<p><strong>4. Pagini pe nișe, cu text propriu</strong>, unde concurența locală nu contează, iar cumpărătorul e o firmă care cumpără și de la distanță. Stoc actual:</p>
+<ul>
+<li>autoutilitare frigorifice: 22;</li>
+<li>utilitare mari L2H2–L3H2: 48;</li>
+<li>autoșasiuri, platforme și basculabile: ~60;</li>
+<li>transport persoane, 7–9 locuri: 24;</li>
+<li>SUV și 4x4: ~115;</li>
+<li>utilaje.</li>
+</ul>
+<p>Fiecare pagină are o adresă curată (etapa 2 din 9.15), un paragraf de introducere scris de voi, finanțarea și întrebări frecvente proprii.</p>
+
+<p><strong>5. Pagina „Leasing pentru firme nou înființate”.</strong> Căutarea e națională, aduce deja clicuri, iar oferta e rară: condiții reale, documente, exemplu de calcul.</p>
+
+<p><strong>6. În afara site-ului:</strong></p>
+<ul>
+<li>profil de dealer complet pe Autovit și OLX, cu „livrare în toată țara” și link spre site;</li>
+<li>recenzii de la clienți din alte orașe, cu orașul menționat;</li>
+<li>articole în presa națională auto și de afaceri (un dealer de autoutilitare din Cluj folosește deja această metodă);</li>
+<li>listele de dealeri ale partenerilor de leasing;</li>
+<li>video pe YouTube pentru mașini.</li>
+</ul>
+<p>Detalii despre efectul în asistenții AI: <code>raport-ai-autoland-oct-2026.html</code>, secțiunea 7.</p>
+
+<!-- ============================================================ -->
+
+<h2 id="cercetare">10. Ce funcționează acum în Google și în AI (cercetare, octombrie 2026)</h2>
+<p>Rezumatul unei cercetări pe surse publice (documentația Google și OpenAI, studii Ahrefs, Seer, Whitespark, BrightLocal, Similarweb, presa de specialitate și date de piață din România), făcută pe 15.10.2026. Afirmațiile venite de la firme care vând servicii sau instrumente sunt marcate <span class="tag t-med">vânzător</span>. Sursele complete sunt în secțiunea 13.</p>
+
+<div class="card summary">
+<p><strong>Primele date GA4 (14–20.10.2026, doar vizitatorii care au acceptat cookie-urile)</strong></p>
+<div class="table-wrap"><table>
+<thead><tr><th>Canal</th><th>Utilizatori noi</th><th>Sesiuni</th><th>% din sesiuni</th></tr></thead>
+<tbody>
+<tr><td>Organic Search (Google, Bing)</td><td>146</td><td>159</td><td>~70%</td></tr>
+<tr><td>Direct</td><td>23</td><td>43</td><td>~19%</td></tr>
+<tr><td><strong>AI Assistant</strong> (ChatGPT, Gemini, Perplexity etc.)</td><td><strong>18</strong></td><td><strong>24</strong></td><td><strong>~11%</strong></td></tr>
+</tbody></table></div>
+<ul>
+<li><strong>Asistenții AI aduc ~11% din vizite</strong>, de aproape 10 ori peste media din studiile internaționale (~1%). Datele confirmă ce a observat conducerea în septembrie: pentru Autoland, AI e deja un canal real de clienți.</li>
+<li>Nu apar vizite din Autovit, OLX, Facebook sau reclame. Clienții de pe aceste platforme sună direct din anunț, fără să treacă prin site, deci se pot număra doar întrebând la telefon „De unde ați aflat de noi?”.</li>
+<li>Perioada e scurtă (6 zile) și include doar vizitatorii care au apăsat „Accept”. Cifrele absolute sunt mai mari în realitate, iar proporțiile sunt orientative. Reverificați după o lună.</li>
+</ul>
+</div>
+
+<h3>10.1 Piața auto, toamna 2026</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Ce</th><th>Cifra</th><th>Ce înseamnă pentru Autoland</th></tr></thead>
+<tbody>
+<tr><td>Înmatriculări de mașini second hand</td><td>august −14,5%, septembrie −14,7%, ian–sep −13,6% față de 2025 (ACAROM)</td><td>Piața scade pentru toată lumea. Se câștigă cotă de piață, nu volum.</td></tr>
+<tr><td>Importuri second hand vs. mașini deja înmatriculate în RO</td><td>vara 2026: importuri −17%, mașini din RO −5,4% (Autovit / DRPCIV)</td><td>Cumpărătorii aleg mai des stoc gata disponibil în țară, cum e al vostru, decât să importe singuri.</td></tr>
+<tr><td>Vehicule comerciale ușoare noi</td><td>~+5% de la început de an (APIA, august)</td><td>Cererea de autoutilitare e mai sănătoasă decât cea de autoturisme. Nișa voastră e cea bună.</td></tr>
+<tr><td>Autovit</td><td>~7,5 mil. vizite pe lună. Lunile de vârf în 2025: martie, <strong>septembrie, octombrie</strong>. Campania „Black November” a rulat în 2025 pe 7–21 noiembrie, cu 83% oferte second hand</td><td>Autovit e primul loc unde caută cumpărătorii din toată țara, iar noiembrie are o campanie dedicată. Ediția 2026 nu e anunțată încă.</td></tr>
+<tr><td>Avansul obișnuit la leasing</td><td>10–15%, pe 3–5 ani (blog Autovit, nov. 2025)</td><td>„Avans de la 0%” iese clar în evidență. De aceea a funcționat în ChatGPT.</td></tr>
+<tr><td>Rabla 2026</td><td>doar pentru mașini noi, fără diesel, până la 31.12 sau epuizarea bugetului</td><td>Atrage o parte din cumpărătorii cu buget mic spre mașini noi. Nu afectează autoutilitarele second hand.</td></tr>
+</tbody></table></div>
+
+<h3>10.2 Google: ce contează acum</h3>
+<ul>
+<li><strong>Update-uri.</strong> În 2026 au fost două core update-uri (martie și mai) și trei spam update-uri (iunie, august, septembrie). Google spune că recuperarea după un core update „poate dura câteva luni” și se vede de obicei la următorul. Riscurile principale pentru un site cu stoc mare sunt <em>conținutul generat în masă</em> și paginile copiate pe orașe (vezi 9.16).</li>
+<li><strong>AI Overviews și AI Mode.</strong> AI Mode e disponibil în română din octombrie 2025. Când apare un AI Overview, primul rezultat primește cu ~58% mai puține clicuri (Ahrefs, 300.000 de căutări, feb. 2026). Pierderea e mare la căutările informative („ce acte trebuie pentru leasing”) și mai mică la cele de cumpărare („fiat doblo maxi second hand”). Firmele <em>citate</em> în AI Overview primesc cu ~35% mai multe clicuri organice (Seer, corelație).</li>
+<li><strong>Cum ajungi citat în AI Overviews și AI Mode.</strong> Google spune oficial că nu e nevoie de nimic special: pagina trebuie indexată, cu informația importantă scrisă ca text, legături interne bune și date structurate care corespund conținutului vizibil. AI-ul face mai multe căutări înrudite pentru o singură întrebare (<em>query fan-out</em>). O pagină care răspunde bine la o sub-întrebare precisă poate fi citată chiar dacă nu e pe primul loc la căutarea principală.</li>
+<li><strong>Pentru stocul de mașini.</strong> Datele structurate <code>Vehicle listing</code> nu mai afișează rezultate speciale din iunie 2025 (în România nu au funcționat niciodată). Funcția „Vehicule de vânzare” din Google Business Profile a fost oprită pe 12.11.2025. Reclamele pentru vehicule (Vehicle Ads) <strong>nu sunt disponibile în România</strong> (doar SUA, UK, Australia, Spania, Italia, Germania, Japonia) și nu acoperă autoutilitarele. Ce funcționează: pagini de categorie cu text propriu, legături interne spre fiecare mașină, detalii unice pe fiecare mașină și indexare rapidă a stocului nou (sitemap cu dată reală – făcut).</li>
+<li><strong>SEO local.</strong> Pentru harta Google contează în primul rând categoria principală, distanța, adresa în orașul căutat, ratingul și numărul de recenzii cu text (Whitespark 2026, sondaj cu 47 de experți). Recenziile recente contează și pentru clienți: 74% vor recenzii din ultimele 3 luni și 31% aleg doar firme cu nota 4,5 sau mai mare (BrightLocal, feb. 2026, SUA). Răspunsurile la recenzii și postările ajută puțin la poziție, dar mult la încredere. Pentru clienții din toată țara, profilul Google aduce mai ales Iașiul și căutările pe numele firmei. Restul vine din rezultatele organice, Autovit/OLX și AI.</li>
+</ul>
+
+<h3>10.3 Asistenții AI: cum aleg ce recomandă</h3>
+<ul>
+<li><strong>ChatGPT</strong> caută pe web doar la o parte din întrebări. Ahrefs a măsurat 14% din răspunsuri pe versiunea gratuită (66 de milioane de răspunsuri, aug–sep 2026), alte studii mult mai mult. Când caută, folosește robotul propriu <code>OAI-SearchBot</code>, Bing, rezultate Google, Google Maps și surse locale. Cererile lui conțin tot mai des cuvintele <strong>„oficial”</strong> și <strong>„preț”</strong>. Concret: caută site-ul oficial al firmei și prețuri sau condiții exacte.</li>
+<li><strong>Gemini și Google AI Mode</strong> folosesc indexul Google, Google Maps și recenziile din Maps. Profilul Google Business contează direct.</li>
+<li><strong>Copilot</strong> folosește Bing. Bing Webmaster Tools are din 2026 un raport „AI Performance”, care arată când e citat site-ul în Copilot. <strong>Claude</strong> folosește Brave Search. <strong>Perplexity</strong> are propriul robot (blocat acum pe autolandromania.ro, vezi raportul AI).</li>
+<li><strong>Ce e citat cel mai des:</strong>
+  <ul>
+    <li>YouTube, Reddit și Wikipedia la nivel general;</li>
+    <li>paginile recente: cele citate de AI sunt cu ~26% mai noi decât rezultatele obișnuite (Ahrefs, 17 milioane de citări);</li>
+    <li>articolele de tip „cei mai buni…”, deși ChatGPT le filtrează tot mai mult pe cele scrise de firme despre ele însele.</li>
+  </ul></li>
+<li><strong>Mențiunile contează mai mult decât linkurile.</strong> Cel mai puternic semnal măsurat pentru apariția în AI Overviews sunt mențiunile numelui firmei pe alte site-uri (Ahrefs, 75.000 de branduri), mai puternic decât backlink-urile. Seer a găsit că pozițiile bune în Google sunt asociate cu mai multe recomandări în modelele AI.</li>
+<li><strong>Răspunsurile se schimbă de la o zi la alta.</strong> Aceeași întrebare pusă de mai multe ori dă aceeași listă de firme în mai puțin de 1% din cazuri (SparkToro, ~3.000 de întrebări). Vizibilitatea în AI se măsoară ca frecvență pe mai multe întrebări repetate, nu ca „poziție”.</li>
+<li><strong>Valoarea traficului din AI.</strong> În studiile internaționale e mic ca volum (~1% din vizite, majoritatea din ChatGPT), dar convertește mai bine decât traficul organic. <strong>La Autoland e ~11% din sesiuni</strong> (GA4, 14–20.10.2026, canalul standard „AI Assistant”), mult peste medie.</li>
+<li><strong>Mituri.</strong> <code>llms.txt</code> nu a avut efect măsurabil asupra citărilor (studiu pe ~300.000 de domenii), iar 97% din aceste fișiere nu au primit nicio vizită de la roboți (Ahrefs, mai 2026). Datele structurate nu au crescut citările în ChatGPT sau în AI Overviews într-un test controlat (Ahrefs, mai 2026). Asistenții citesc textul vizibil din pagină. Datele structurate rămân utile pentru Google.</li>
+</ul>
+
+<h3>10.4 Ce aduce rezultate repede (2–6 săptămâni) și ce durează luni</h3>
+<div class="grid2">
+<div class="card"><strong>Repede</strong>
+<ul>
+<li>Autovit și OLX: tot stocul listat, profil de dealer complet, promovarea anunțurilor potrivite, campania de noiembrie</li>
+<li>Google Ads Search cu apel direct din reclamă, pe nișele voastre</li>
+<li>Reclame Meta cu mesaj direct pe WhatsApp sau formular</li>
+<li>Răspuns la cereri în sub 5 minute: firmele care răspund într-o oră au de ~7 ori mai multe șanse să califice clientul (HBR)</li>
+<li>Contactarea clienților vechi care au dat acordul</li>
+<li>Titluri, texte și pagini pentru căutările care au deja afișări</li>
+<li>Recenzii noi</li>
+</ul></div>
+<div class="card"><strong>Durează luni</strong>
+<ul>
+<li>Recuperarea după un core update</li>
+<li>Mențiuni în presă, liste „cei mai buni dealeri” și autoritatea site-ului</li>
+<li>Pagini pe nișe care urcă în Google</li>
+<li>Prezența constantă în răspunsurile AI</li>
+<li>Volumul de recenzii</li>
+</ul></div>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="plan30">11. Plan pentru următoarele 30 de zile: trafic, apeluri și cereri (15 octombrie – 15 noiembrie 2026)</h2>
+
+<div class="card summary">
+<p><strong>Scopul:</strong> mai multe apeluri și cereri calificate în 30 de zile, din toată țara, cu accent pe ce v-a adus clienți și până acum: <strong>autoutilitare</strong>, <strong>avans de la 0%</strong>, <strong>leasing pentru firme, inclusiv nou înființate</strong> și <strong>livrare în toată România</strong>.</p>
+<p><strong>Ce să așteptați, realist:</strong></p>
+<ul>
+<li>Canalele plătite (Autovit/OLX promovat, Google Ads, Meta) pot aduce apeluri în câteva zile de la pornire.</li>
+<li>Schimbările de pe site (titluri, pagini noi) și din AI se văd în 2–8 săptămâni.</li>
+<li>Scăderea pieței (~−15%) nu se recuperează prin marketing. Se poate însă lua o parte mai mare din piața rămasă.</li>
+</ul>
+<p>Planul de mai jos e o recomandare. Bugetele și ofertele le decideți voi, iar fiecare canal se evaluează după <strong>costul pe apel sau cerere calificată</strong>, nu după clicuri.</p>
+</div>
+
+<h3>Săptămâna 1 (15–21 octombrie): măsurare și bazele</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>#</th><th>Acțiune</th><th>Cine</th><th>De ce acum</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>Măsurarea cererilor.</strong> În GTM, evenimente pentru click pe telefon (<code>tel:</code>), click pe WhatsApp (<code>wa.me</code>) și formulare trimise, marcate ca „evenimente cheie” în GA4. Acum site-ul nu măsoară niciuna</td><td>GTM (eu pot pregăti pașii)</td><td>Fără asta nu știți ce canal aduce apeluri și nu puteți optimiza reclamele</td></tr>
+<tr><td>2</td><td><strong>„De unde ați aflat de noi?”</strong> la fiecare apel, notat într-un tabel simplu: Google, ChatGPT/AI, Autovit, OLX, Facebook, recomandare, client vechi. Plus județul clientului</td><td>Vânzări</td><td>Multe apeluri din AI și din Autovit nu lasă urme în Analytics</td></tr>
+<tr><td>3</td><td><strong>Răspuns în sub 5 minute</strong> la orice cerere (formular, WhatsApp, Autovit, OLX): o persoană responsabilă în program și mesaje rapide pregătite în WhatsApp Business. În afara programului, un mesaj automat cu ora la care se revine</td><td>Vânzări</td><td>E cea mai ieftină creștere de conversie. Doar ~49% din dealeri răspund în 5 minute</td></tr>
+<tr><td>4</td><td><strong>Autovit și OLX:</strong> verificați că tot stocul e listat, cu prețul, „avans de la 0%” (unde se aplică), „livrare în toată țara” și link spre site. Întrebați reprezentantul Autovit despre <strong>Black November 2026</strong> și despre promovarea anunțurilor de autoutilitare</td><td>Marketing</td><td>Autovit e locul unde caută cumpărătorii din toată țara, iar octombrie e lună de vârf</td></tr>
+<tr><td>5</td><td><strong>Acces pentru roboți:</strong> deblocați Perplexity și adăugați în whitelist IP-urile OpenAI (raportul AI, 4.1–4.2). Creați contul Bing Webmaster Tools, cu sitemap, IndexNow și raportul „AI Performance”</td><td>cPanel / marketing</td><td>ChatGPT și Copilot citesc și din Bing; stocul trebuie să fie la zi acolo</td></tr>
+<tr><td>6</td><td><strong>Titlurile cu finanțare</strong> („…, în rate, avans 0%”) și puterea motorului, deja pregătite în cod. Le urcați pe server dacă nu sunt încă</td><td>Gata în cod</td><td>Readuc în H1 și în titlu mesajul care a adus apeluri din ChatGPT</td></tr>
+</tbody></table></div>
+
+<h3>Săptămâna 2 (22–28 octombrie): campanii și paginile cu cea mai mare valoare</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>#</th><th>Acțiune</th><th>Cine</th><th>De ce</th></tr></thead>
+<tbody>
+<tr><td>7</td><td><strong>Google Ads Search, la nivel național</strong>, cu apel direct din reclamă și număr de urmărire Google:
+<ul>
+<li>(a) autoutilitare second hand în rate / leasing;</li>
+<li>(b) leasing pentru firme noi, rate fără avans;</li>
+<li>(c) campanie pe numele firmei, ca să nu pierdeți clienții care vă caută după nume.</li>
+</ul>
+Buget de test stabilit de voi, evaluat după 2 săptămâni pe costul per apel calificat</td><td>Marketing / agenție</td><td>Vehicle Ads nu există în România, deci Search cu apel direct e varianta de bază. La dealeri, ~2/3 din conversiile din Google Ads sunt apeluri (studiu SUA)</td></tr>
+<tr><td>8</td><td><strong>Reclame Meta</strong> (Facebook/Instagram) cu mesaj direct pe WhatsApp și formular cu 2–3 întrebări de calificare: persoană fizică sau firmă, avans disponibil, tip de vehicul. Cu 5–10 autoutilitare reale și condițiile reale de avans 0%. Țintire: toată țara, proprietari de firme mici, transport, construcții, HoReCa</td><td>Marketing</td><td>Aduce cereri repede pentru un mesaj clar. Testați dacă reclamele automate din catalog auto sunt disponibile în contul vostru</td></tr>
+<tr><td>9</td><td><strong>Pagina de leasing rescrisă:</strong> tabelul cu condiții reale pe tipuri de clienți (raportul AI, 6.2), un exemplu de calcul, „Actualizat: octombrie 2026” și un <strong>formular scurt de pre-aprobare online</strong>. Scoateți „dobândă de la 0%”</td><td>Text: voi. Formular: cod</td><td>Pagina are ~2.000 de clicuri. 48% din cumpărători vor să aplice online pentru finanțare (Cox, SUA). Clienții veniți din ChatGPT cu „avans 0” trebuie să găsească aici exact condițiile</td></tr>
+<tr><td>10</td><td><strong>Homepage:</strong> primul paragraf rescris (raportul AI, 6.2), titlu național („…cu livrare în toată România”), bloc „Ultimele mașini intrate” și buton spre leasing</td><td>Text: voi. Bloc: cod</td><td>Pagina cu cele mai multe vizite</td></tr>
+</tbody></table></div>
+
+<h3>Săptămâna 3 (29 octombrie – 4 noiembrie): încredere și cumpărare de la distanță</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>#</th><th>Acțiune</th><th>Cine</th><th>De ce</th></tr></thead>
+<tbody>
+<tr><td>11</td><td><strong>Pagina „Cumpărați de la distanță, cu livrare în toată România”</strong> (9.16), cu pașii reali, costul transportului, „am livrat în [N] județe” și recenzii din alte orașe</td><td>Text: voi. Pagină: cod</td><td>Majoritatea clienților sunt din afara Iașului. E pagina care răspunde la întrebarea lor principală</td></tr>
+<tr><td>12</td><td><strong>Pagina „Leasing pentru firme nou înființate”</strong></td><td>Text: voi. Pagină: cod</td><td>Căutare națională cu clicuri deja, ofertă rară, potrivită pentru AI</td></tr>
+<tr><td>13</td><td><strong>Recenzii:</strong> link de recenzie Google trimis pe WhatsApp clienților din ultimele 6–12 luni (3–5 pe săptămână, nu toate odată), cerând să menționeze orașul și livrarea. Răspuns personal la fiecare recenzie</td><td>Vânzări</td><td>Recenziile recente contează pentru Google, pentru AI și pentru clienți</td></tr>
+<tr><td>14</td><td><strong>Clienți vechi</strong> (doar cei cu acord de marketing): mesaj pe WhatsApp sau SMS cu oferta de noiembrie și o recomandare plătită (de exemplu o reducere sau un bonus pentru un client adus). Verificați cu juristul regulile GDPR</td><td>Vânzări</td><td>Cel mai ieftin canal. Clienții firme cumpără des a doua autoutilitară</td></tr>
+<tr><td>15</td><td><strong>Video pentru 15–20 de vehicule</strong> (cele mai căutate autoutilitare și mașinile cu avans 0%): 30–60 de secunde, cu motorul pornit, caroseria, interiorul și bordul cu km. Pe YouTube (legat pe pagina mașinii), TikTok și în reclamele Meta</td><td>Vânzări / marketing</td><td>Cumpărătorul de la distanță vrea să vadă mașina. YouTube e și o sursă citată des de AI</td></tr>
+</tbody></table></div>
+
+<h3>Săptămâna 4 (5–15 noiembrie): campania de noiembrie și evaluarea</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>#</th><th>Acțiune</th><th>Cine</th><th>De ce</th></tr></thead>
+<tbody>
+<tr><td>16</td><td><strong>Campania de noiembrie:</strong> participare la Black November pe Autovit (dacă are loc) și aceeași ofertă pe site (banner pe homepage și pe leasing), în Google Ads și în Meta. O ofertă reală și limitată în timp, de exemplu un pachet de înmatriculare inclus sau o garanție extinsă</td><td>Conducere / marketing</td><td>Noiembrie e luna în care cumpărătorii așteaptă oferte</td></tr>
+<tr><td>17</td><td><strong>Mesaj pentru firme, înainte de final de an:</strong> „autoutilitare disponibile imediat, livrare în toată țara, leasing și pentru firme noi”. Aspectele fiscale (amortizare, TVA) doar după verificarea cu contabilul</td><td>Marketing</td><td>Firmele cumpără des înainte de 31 decembrie</td></tr>
+<tr><td>18</td><td><strong>Evaluare pe 15 noiembrie:</strong> apeluri și cereri pe canal (tabelul de la pasul 2 și evenimentele GA4), cost per cerere calificată, vânzări. Mutați bugetul spre ce funcționează și refaceți testul lunar în ChatGPT, Perplexity și Gemini</td><td>Conducere</td><td>Decizii pe date, nu pe impresii</td></tr>
+</tbody></table></div>
+
+<h3>Ce NU faceți în această perioadă</h3>
+<ul>
+<li>Pagini „Parc auto [oraș]” cu același text: penalizare Google (9.16).</li>
+<li>Zeci de articole sau pagini generate automat cu AI: Google le consideră spam („scaled content abuse”).</li>
+<li>Ratinguri sau recenzii false, sau recenzii cumpărate: Google le șterge și poate sancționa profilul.</li>
+<li>„Dobândă 0%” sau „finanțare garantată” fără condiții: promisiuni financiare neverificabile, tratate sever de Google și repetate greșit de AI.</li>
+<li>Mutarea categoriilor care aduc trafic pe adrese noi (de exemplu Autoutilitare) înainte de campania de noiembrie.</li>
+</ul>
+
+<!-- ============================================================ -->
+<h2 id="neverificat">12. Ce nu am putut verifica</h2>
 <ul>
   <li><strong>Dacă dump-urile <code>.sql</code>, <code>error_log</code> și fișierele <code>.old</code> se pot descărca acum de pe site-ul live.</strong> Ele există în backup, iar noul <code>robots.txt</code> blochează <code>*.sql</code>, dar robots.txt nu împiedică descărcarea. Testați în browser: <code>https://autolandromania.ro/error_log</code> și <code>https://autolandromania.ro/autolan1_autos1ww1a.sql</code>. Răspunsul corect este 403 sau 404.</li>
   <li>Dacă mașinile cu <code>stare_anunt=0</code> se comportă la fel pe live. Codul din backup arată că da, dar nu am avut un ID de mașină dezactivată pe care să-l testez.</li>
@@ -1093,7 +1373,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 </ul>
 
 <!-- ============================================================ -->
-<h2 id="surse">11. Surse</h2>
+<h2 id="surse">13. Surse</h2>
+<h3>Cercetare octombrie 2026 (secțiunile 10–11)</h3>
+<ul>
+<li>Google: <a href="https://developers.google.com/search/docs/appearance/ai-features">AI features and your website</a>; <a href="https://developers.google.com/search/docs/appearance/core-updates">Core updates</a>; <a href="https://developers.google.com/search/docs/essentials/spam-policies">Spam policies</a>; <a href="https://developers.google.com/search/blog/2025/06/simplifying-search-results">Simplifying search results (iun. 2025)</a>; <a href="https://developers.google.com/search/docs/crawling-indexing/crawling-managing-faceted-navigation">Faceted navigation</a></li>
+<li>Update-uri 2026: <a href="https://searchengineland.com/google-may-2026-core-update-rollout-is-now-complete-479119">SEL – May 2026 core</a>; <a href="https://www.seroundtable.com/google-september-2026-spam-update-42163.html">SER – September 2026 spam</a>; <a href="https://developers.google.com/search/blog/2026/08/update-site-reputation-policy">Site reputation policy (aug. 2026)</a></li>
+<li>AI Mode în română: <a href="https://www.romania-insider.com/google-ai-mode-searches-romanian-2025">Romania Insider</a>, <a href="https://economedia.ro/google-anunta-disponibilitatea-in-romania-si-pentru-limba-romana-a-modului-ai.html">Economedia</a></li>
+<li>Clicuri și AI Overviews: <a href="https://ahrefs.com/blog/ai-overviews-reduce-clicks-update/">Ahrefs (feb. 2026)</a>; <a href="https://www.seerinteractive.com/insights/aio-impact-on-google-ctr-2026-update">Seer – actualizare 2026</a>; <a href="https://searchengineland.com/google-zero-click-searches-2026-study-479717">SEL – zero-click 2026</a></li>
+<li>Layout SEE: <a href="https://www.searchenginejournal.com/google-rolls-out-redesigned-search-results-across-the-eea/588870/">SEJ (sep. 2026)</a></li>
+<li>Vehicule: <a href="https://searchlabdigital.com/blog/google-is-deprecating-vehicles-for-sale/">„Vehicles for sale” oprit în GBP</a>; <a href="https://ppc.land/google-vehicle-ads-reach-spain-italy-and-germany-what-dealers-must-know/">Vehicle Ads – țări disponibile</a>; <a href="https://support.google.com/merchants/answer/10412534">Merchant Center changelog</a></li>
+<li>SEO local: <a href="https://whitespark.ca/local-search-ranking-factors/">Whitespark 2026</a>; <a href="https://www.brightlocal.com/research/local-consumer-review-survey/">BrightLocal 2026</a></li>
+<li>AI: <a href="https://developers.openai.com/api/docs/bots">OpenAI – roboți</a>; <a href="https://help.openai.com/en/articles/9237897-chatgpt-search">ChatGPT search</a>; <a href="https://docs.peec.ai/research/chatgpt-search-result-providers">Peec – surse ChatGPT</a> <span class="tag t-med">vânzător</span>; <a href="https://ahrefs.com/blog/query-fan-out-chatgpt/">Ahrefs – query fan-out ChatGPT (oct. 2026)</a>; <a href="https://ahrefs.com/blog/ai-overview-brand-correlation/">Ahrefs – mențiuni de brand</a>; <a href="https://ahrefs.com/blog/do-ai-assistants-prefer-to-cite-fresh-content/">Ahrefs – prospețime</a>; <a href="https://searchengineland.com/ai-recommendation-lists-rarely-repeat-study-468076">SparkToro – liste instabile</a>; <a href="https://searchengineland.com/bing-webmaster-tools-testing-new-ai-performance-report-468039">Bing – AI Performance</a>; <a href="https://www.searchenginejournal.com/llms-txt-shows-no-clear-effect-on-ai-citations-based-on-300k-domains/">llms.txt fără efect (300k domenii)</a>; <a href="https://www.searchenginejournal.com/schema-markup-didnt-move-ai-citations-ahrefs-test/574568/">Schema și citările AI (test Ahrefs)</a>; <a href="https://ahrefs.com/blog/ai-search-traffic-conversions-ahrefs/">Conversia traficului din AI</a></li>
+<li>Piață și marketing: <a href="https://www.revistabiz.ro/cum-au-cumparat-romanii-masini-in-vara-lui-2026/">Revista Biz – Autovit, vara 2026</a> <span class="tag t-med">vânzător</span>; <a href="https://www.forbes.ro/?p=483780">Forbes RO – Autovit 2025</a>; <a href="https://economedia.ro/?p=369419">Economedia – ACAROM</a>; <a href="https://www.autovit.ro/blog/leasing-credit-auto-ce-varianta-mai-buna-pentru-cumpara-masina-second-hand">Autovit – avansul la leasing</a>; <a href="https://hbr.org/2011/03/the-short-life-of-online-sales-leads">HBR – viteza de răspuns</a>; <a href="https://www.autoremarketing.com/ar/analysis/study-car-dealers-are-best-effective-lead-follow/">Conversica – dealeri și răspuns</a> <span class="tag t-med">vânzător</span>; <a href="https://www.autosuccessonline.com/cox-automotive-2025-car-buyer-journey-study/">Cox 2025 Car Buyer Journey</a>; <a href="https://support.google.com/google-ads/answer/2453991">Google Ads – urmărirea apelurilor</a></li>
+</ul>
+
 <h3>Update-uri Google</h3>
 <ul>
   <li><a href="https://status.search.google.com/products/rGHU1u87FJnkP6W2GwMi/history">Google Search Status Dashboard – istoric ranking</a></li>

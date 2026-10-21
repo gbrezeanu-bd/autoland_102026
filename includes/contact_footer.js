@@ -67,6 +67,10 @@
                 ignore: ".ignore",
                 rules: {
                     firstname: "required",
+                    name: {
+                        required: true,
+                        minlength: 2
+                    },
                     nume: {
                         required: true,
                         minlength: 2
@@ -95,13 +99,23 @@
                     },
                 },
                 messages: {
-                    nume: {
-                        required: "Va rugam sa introduceti numele",
-                        minlength: "Numele trebuie sa aiba minim 3 caractere"
+                    name: {
+                        required: "Introdu numele tău",
+                        minlength: "Numele trebuie să aibă minimum 2 caractere"
                     },
-                    email: "Va rugam sa introduceti o adresa de email valida",
-                    telefon: "Va rugam sa introduceti subiectul mesajului",
-                    mesaj: "Mesajul nu poate fi mai scurt de 50 de caractere",
+                    nume: {
+                        required: "Introdu numele tău",
+                        minlength: "Numele trebuie să aibă minimum 2 caractere"
+                    },
+                    email: "Introdu o adresă de e-mail validă",
+                    subiect: {
+                        required: "Introdu subiectul mesajului",
+                        minlength: "Subiectul trebuie să aibă minimum 3 caractere"
+                    },
+                    mesaj: {
+                        required: "Scrie un mesaj",
+                        minlength: "Mesajul trebuie să aibă minimum 10 caractere"
+                    },
                     hiddenRecaptcha: "",
                     agree: "Trebuie sa fiti de acord cu termenii si conditiile"
                 },

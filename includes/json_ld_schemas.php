@@ -28,6 +28,11 @@ define('JSONLD_LOGO_HEIGHT', 60);
 define('JSONLD_PHONE', '+40 742 377 001');
 define('JSONLD_EMAIL', 'office@autolandromania.ro');
 
+// Date firmă (identice cu pagina de contact)
+define('JSONLD_LEGAL_NAME', 'S.C. Autoland S.R.L.');
+define('JSONLD_VAT_ID', 'RO21834696');
+define('JSONLD_REG_COM', 'J22/1605/2007');
+
 // Adresă (format identic cu Google Business Profile pentru NAP consistency)
 define('JSONLD_STREET', 'Strada Luca Arbore nr. 3');  // Format profesional
 define('JSONLD_CITY', 'Iași');  // Cu diacritice corecte
@@ -125,6 +130,24 @@ function getOrganizationSchema() {
         "image" => JSONLD_LOGO_URL,
         "telephone" => JSONLD_PHONE,
         "email" => JSONLD_EMAIL,
+        "legalName" => JSONLD_LEGAL_NAME,
+        "vatID" => JSONLD_VAT_ID,
+        "taxID" => JSONLD_VAT_ID,
+        "foundingDate" => "2007",
+        "identifier" => [
+            "@type" => "PropertyValue",
+            "name" => "Număr de înregistrare la Registrul Comerțului",
+            "value" => JSONLD_REG_COM
+        ],
+        "contactPoint" => [
+            "@type" => "ContactPoint",
+            "contactType" => "customer service",
+            "telephone" => JSONLD_PHONE,
+            "email" => JSONLD_EMAIL,
+            "areaServed" => "RO",
+            "availableLanguage" => "ro",
+            "hoursAvailable" => getOpeningHours()
+        ],
         "priceRange" => "€€",
         "address" => getAddress(),
         "geo" => getGeoCoordinates(),

@@ -20,6 +20,7 @@ if (isset($_SERVER['REQUEST_METHOD'])) {
 chdir(__DIR__); // include-urile relative funcționează și din cron
 
 include_once './includes/config.php';
+include_once './includes/pagini_sectiuni.php';
 
 $base_url     = 'https://autolandromania.ro';
 $sitemap_file = __DIR__ . '/sitemap.xml';
@@ -102,6 +103,14 @@ if ($res) {
     while ($a = $res->fetch_assoc()) {
         $lastmod = !empty($a['data_actualizarii']) ? $a['data_actualizarii'] : $a['data_publicarii'];
         $add_url($base_url . '/articole/' . rawurlencode($a['slug']), $lastmod);
+    }
+}
+
+// --- Pagini de conținut publicate (ex. /finantare/credit-auto/) ---
+$res = @$connection->query("SELECT sectiune, slug, data_actualizarii FROM pagini WHERE status = 'published' ORDER BY sectiune, ordine, id");
+if ($res) {
+    while ($p = $res->fetch_assoc()) {
+        $add_url($base_url . '/' . pagini_cale($p['sectiune'], $p['slug']), $p['data_actualizarii']);
     }
 }
 

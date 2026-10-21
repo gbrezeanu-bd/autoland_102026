@@ -10,6 +10,11 @@
  */
 // get config file;
 include_once './includes/config.php';
+include_once './includes/pagini_sectiuni.php';
+
+// Bara laterală a secțiunii Finanțare (pagina principală, fără slug)
+$sectiune = 'finantare';
+$slug = '';
 
 // /////////////////////////////////////////////////////////////////////////////
 // try to get content
@@ -18,9 +23,10 @@ $query_text = "SELECT id, leasing FROM texte WHERE id = 1";
 $result = $connection->query($query_text) or db_fail($connection);
 $row = $result->fetch_assoc();
 
-$page_title = "Leasing auto second hand, avans de la 0%, și pentru firme noi | Autoland România";
+$page_title = "Leasing auto second hand, avans de la 0% | Autoland România";
+$banner_title = "Leasing și rate pentru mașini second hand, pentru persoane fizice și firme";
 $page_subtitle = '';
-$content = is_null($row) ? "Content is missing" : $row['leasing'];
+$content = is_null($row) ? "Content is missing" : pagini_linkuri_interne($row['leasing']);
 
 // Set SEO meta tags
 require_once './includes/meta_tags.php';
@@ -52,6 +58,7 @@ $service_schemas = [
     getOrganizationSchema(),
     getWebPageSchema($canonical_url, $page_title, $meta_description ?? '')
 ];
+$header_scripts .= '<link rel="stylesheet" href="' . BASE_PATH . 'themes/automotive/css/pagini.css">' . "\n";
 $header_scripts .= getJsonLdString($service_schemas);
 
 // /////////////////////////////////////////////////////////////////////////////
@@ -62,7 +69,12 @@ include './themes/automotive/template_parts/header.php';
 <section class="content">
     <div class="container">
         <div class="inner-page">
-            <?php print $content; ?>
+            <div class="ap-layout">
+                <?php include './themes/automotive/template_parts/pagina_sidebar.php'; ?>
+                <div class="ap-main">
+                    <?php print $content; ?>
+                </div>
+            </div>
             
             <div class="clearfix"></div>
         </div>

@@ -1,0 +1,152 @@
+/*
+ * Specificații tehnice pe fișa mașinii: plăcuțe în două coloane, pliabile.
+ * Înlocuiește tabelul lung de pe o coloană; suprascrie stilurile vechi ale temei (.car-spec-*).
+ */
+details.car-specs-box {
+    margin-bottom: 20px;
+    background: #fff;
+    border: 1px solid #d9e0e5;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(15, 35, 45, .06);
+}
+details.car-specs-box:hover { box-shadow: 0 1px 4px rgba(15, 35, 45, .06); }
+
+/* Antet: titlu, rezumat și săgeată */
+details.car-specs-box > summary.car-specs-header {
+    display: flex; align-items: center; flex-wrap: wrap; gap: 2px 10px;
+    padding: 14px 44px 14px 16px;
+    background: #fff;
+    border-bottom: 1px solid #e3e8eb;
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+}
+details.car-specs-box > summary.car-specs-header::-webkit-details-marker { display: none; }
+details.car-specs-box > summary.car-specs-header:hover { background: #f6f9fa; }
+details.car-specs-box:not([open]) > summary.car-specs-header { border-bottom: 0; }
+details.car-specs-box > summary.car-specs-header::after {
+    content: ""; position: absolute; right: 18px; top: 50%; width: 8px; height: 8px; margin-top: -6px;
+    border-right: 2px solid #475b66; border-bottom: 2px solid #475b66;
+    transform: rotate(45deg); transition: transform .15s ease;
+}
+details.car-specs-box[open] > summary.car-specs-header::after { transform: rotate(225deg); margin-top: -2px; }
+details.car-specs-box .car-specs-title {
+    display: block; margin: 0; padding: 0;
+    color: #12303b; font-size: 15px; font-weight: 800; letter-spacing: .02em; text-transform: none; line-height: 1.3;
+}
+details.car-specs-box .car-specs-peek { color: #6b7a83; font-size: 12.5px; font-weight: 400; }
+
+/* Conținut: plăcuțe separate prin linii fine */
+details.car-specs-box .car-specs-content { padding: 0; background: #fff; }
+details.car-specs-box table.car-specs-table,
+details.car-specs-box table.car-specs-table tbody { display: block; width: 100%; margin: 0; }
+details.car-specs-box table.car-specs-table tbody {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: #e8edf0;
+}
+details.car-specs-box table.car-specs-table tr.car-spec-row {
+    display: flex; flex-direction: column; justify-content: center;
+    min-width: 0; margin: 0; padding: 10px 14px 11px;
+    background: #fff !important; border: 0 !important;
+}
+details.car-specs-box table.car-specs-table tr.car-spec-row:last-child:nth-child(odd) { grid-column: 1 / -1; }
+details.car-specs-box table.car-specs-table td.car-spec-label {
+    display: block; width: auto !important; padding: 0 !important;
+    color: #7b8a93; font-size: 11px !important; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+}
+details.car-specs-box table.car-specs-table td.car-spec-value {
+    display: block; width: auto !important; padding: 2px 0 0 !important;
+    color: #12303b; font-size: 14.5px !important; font-weight: 700; line-height: 1.35; overflow-wrap: anywhere;
+}
+
+@media (max-width: 767px) {
+    details.car-specs-box { margin-bottom: 16px; }
+    details.car-specs-box > summary.car-specs-header { padding: 13px 42px 13px 14px; }
+    details.car-specs-box table.car-specs-table tr.car-spec-row { padding: 9px 12px 10px; }
+    details.car-specs-box table.car-specs-table td.car-spec-value { font-size: 14px !important; }
+}
+
+/* Pe telefon, butoanele "mașina anterioară / următoare" stau pe același rând */
+@media (max-width: 767px) {
+    .car-nav-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .car-nav-buttons .car-nav-btn { margin: 0; padding-left: 8px; padding-right: 8px; font-size: 13.5px; text-align: center; }
+}
+
+/* ===== Pictograme și prezentare modernă (generat) ===== */
+
+/* Specificații: pictogramă în cerc, la stânga fiecărei plăcuțe */
+details.car-specs-box table.car-specs-table tr.car-spec-row { position: relative; padding-left: 56px; min-height: 58px; }
+details.car-specs-box table.car-specs-table tr.car-spec-row::before,
+details.car-specs-box table.car-specs-table tr.car-spec-row::after {
+    content: ""; position: absolute; left: 13px; top: 50%; width: 30px; height: 30px; margin-top: -15px; border-radius: 50%;
+}
+details.car-specs-box table.car-specs-table tr.car-spec-row::before { background: #e4f1f5; }
+details.car-specs-box table.car-specs-table tr.car-spec-row::after {
+    background: #0e7490; border-radius: 0; width: 16px; height: 16px; left: 20px; margin-top: -8px;
+    -webkit-mask: var(--ico) center / contain no-repeat; mask: var(--ico) center / contain no-repeat;
+}
+details.car-specs-box tr.car-spec-origin { --ico: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18'/%3E%3C/svg%3E"); }
+details.car-specs-box tr.car-spec-year { --ico: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3.5' y='5' width='17' height='15' rx='2'/%3E%3Cpath d='M3.5 10h17M8 3v4M16 3v4'/%3E%3C/svg%3E"); }
+details.car-specs-box tr.car-spec-engine { --ico: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 9h3l1.5-2h6L16 9h4v7h-3l-1.5 2H9L7.5 16H4z'/%3E%3Cpath d='M2 12v2M22 12v2'/%3E%3C/svg%3E"); }
+details.car-specs-box tr.car-spec-power { --ico: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M13 2L5 13h6l-1 9 8-11h-6z'/%3E%3C/svg%3E"); }
+details.car-specs-box tr.car-spec-km { --ico: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 17a8 8 0 1 1 16 0'/%3E%3Cpath d='M12 17l4-5'/%3E%3Ccircle cx='12' cy='17' r='1'/%3E%3C/svg%3E"); }
+details.car-specs-box tr.car-spec-euro { --ico: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 4C10 4 5 9 5 15c0 2 .5 3.5 1 5 1-3 3-6 7-8-3 3-4.5 5.5-5 8 8 0 13-5 12-16z'/%3E%3C/svg%3E"); }
+details.car-specs-box tr.car-spec-fuel { --ico: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='3' width='9' height='18' rx='1.5'/%3E%3Cpath d='M4 9h9M13 8h3l2 2v8a1.5 1.5 0 0 0 3 0v-6l-3-3'/%3E%3C/svg%3E"); }
+details.car-specs-box tr.car-spec-gearbox { --ico: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3Cpath d='M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1'/%3E%3C/svg%3E"); }
+details.car-specs-box tr.car-spec-drive { --ico: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3v18M3 12h18M8 7l4-4 4 4M8 17l4 4 4-4'/%3E%3C/svg%3E"); }
+details.car-specs-box tr.car-spec-doors { --ico: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 21V4h9l3 3v14z'/%3E%3Ccircle cx='14' cy='13' r='1'/%3E%3C/svg%3E"); }
+details.car-specs-box tr.car-spec-seats { --ico: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 3h5a2 2 0 0 1 2 2v7H8z'/%3E%3Cpath d='M8 12v4a2 2 0 0 0 2 2h8v3M5 13l3 8'/%3E%3C/svg%3E"); }
+details.car-specs-box tr.car-spec-color { --ico: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z'/%3E%3C/svg%3E"); }
+details.car-specs-box tr.car-spec-body { --ico: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 15v-3l2.5-5h13L21 12v3'/%3E%3Cpath d='M3 15h18v3H3zM7 18v2M17 18v2'/%3E%3C/svg%3E"); }
+details.car-specs-box tr.car-spec-registered { --ico: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M8 12.5l3 3 5-6'/%3E%3C/svg%3E"); }
+details.car-specs-box tr.car-spec-variant { --ico: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 12V4h8l10 10-8 8z'/%3E%3Ccircle cx='7.5' cy='8.5' r='1'/%3E%3C/svg%3E"); }
+details.car-specs-box tr.car-spec-weight { --ico: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 8l8-4 8 4v9l-8 4-8-4zM4 8l8 4 8-4M12 12v9'/%3E%3C/svg%3E"); }
+details.car-specs-box tr.car-spec-other { --ico: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/svg%3E"); }
+
+/* Descriere și dotări */
+.car-desc-card {
+    float: none; width: 100%; margin: 0 0 20px; padding: 20px 22px 18px;
+    background: #fff; border: 1px solid #d9e0e5; border-radius: 10px; box-shadow: 0 1px 4px rgba(15, 35, 45, .06);
+}
+.car-desc-card .car-desc-title { margin: 0 0 14px; padding: 0 0 12px; border-bottom: 1px solid #e3e8eb; color: #12303b; font-size: 19px; font-weight: 800; line-height: 1.3; }
+.car-desc-body { color: #2b3a42; font-size: 15px; line-height: 1.6; }
+.car-desc ul { margin: 0; padding: 0; list-style: none; }
+.car-desc .car-desc-highlights { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; }
+.car-desc .car-desc-highlights li {
+    position: relative; padding: 7px 14px 7px 32px; border: 1px solid #bfe3cd; border-radius: 999px;
+    background: #e9f7ef; color: #176b3a; font-size: 14px; font-weight: 700; line-height: 1.3;
+}
+.car-desc .car-desc-highlights li::before { content: "✓"; position: absolute; left: 13px; top: 7px; font-weight: 800; }
+.car-desc .car-desc-count { margin: 0 0 4px; color: #7b8a93; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.car-desc ul.car-desc-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; }
+.car-desc ul.car-desc-list li {
+    position: relative; padding: 9px 0 9px 26px; border-bottom: 1px solid #eef2f5;
+    color: #2b3a42; font-size: 14.5px; line-height: 1.45; overflow-wrap: anywhere;
+}
+.car-desc ul.car-desc-list li::before { content: "✓"; position: absolute; left: 4px; top: 9px; color: #0e7490; font-weight: 800; }
+.car-desc details.car-feat-more { margin: 0; }
+.car-desc details.car-feat-more > summary { display: none; }
+.car-desc details.car-feat-more[open] > summary { display: none; }
+
+/* Butoanele de navigare, cu săgeți */
+.car-nav-buttons .car-nav-btn-prev:not(.car-nav-btn-disabled)::before { content: "‹ "; font-size: 1.15em; }
+.car-nav-buttons .car-nav-btn-next:not(.car-nav-btn-disabled)::after { content: " ›"; font-size: 1.15em; }
+
+@media (max-width: 767px) {
+    .car-desc-card { padding: 16px 14px 14px; border-radius: 8px; }
+    .car-desc-card .car-desc-title { font-size: 17px; margin-bottom: 12px; padding-bottom: 10px; }
+    .car-desc ul.car-desc-list { grid-template-columns: 1fr; }
+    .car-desc ul.car-desc-list li { padding: 8px 0 8px 24px; font-size: 14.5px; }
+    .car-desc ul.car-desc-list li::before { top: 8px; }
+    .car-desc details.car-feat-more:not([open]) > summary {
+        display: block; margin: 10px 0 0; padding: 11px 12px; border: 1px solid #0e7490; border-radius: 4px;
+        color: #0e7490; font-size: 14px; font-weight: 700; text-align: center; list-style: none; cursor: pointer;
+    }
+    .car-desc details.car-feat-more > summary::-webkit-details-marker { display: none; }
+    details.car-specs-box table.car-specs-table tr.car-spec-row { padding-left: 50px; min-height: 54px; }
+    details.car-specs-box table.car-specs-table tr.car-spec-row::before { left: 10px; width: 28px; height: 28px; margin-top: -14px; }
+    details.car-specs-box table.car-specs-table tr.car-spec-row::after { left: 16px; width: 16px; height: 16px; margin-top: -8px; }
+}

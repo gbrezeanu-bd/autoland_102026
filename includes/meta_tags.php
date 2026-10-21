@@ -12,7 +12,7 @@
 function setHomePageMeta() {
     global $meta_description, $meta_keywords, $og_type;
     
-    $meta_description = "AutoLand România - dealer auto second hand autorizat în Iași. Oferim mașini second hand și autoutilitare verificate tehnic, cu garanție 12 luni în scris. Servicii complete: finanțare auto (leasing, rate cu avans zero), înmatriculări, evaluare vehicule la schimb. Stoc permanent actualizat. Livrare în toată România, garanție valabilă în orice service RAR.";
+    $meta_description = "Parc auto din Iași, din 2007: mașini verificate în service autorizat, garanție în scris, finanțare și livrare în toată România. Cere o ofertă.";
     $meta_keywords = "dealer auto Iași, mașini second hand Iași, autoturisme second hand, autoutilitare, garanție auto 12 luni, leasing auto, finanțare auto, credit auto, înmatriculări auto, dealer autorizat, mașini verificate tehnic";
     $og_type = "website";
 }
@@ -23,7 +23,7 @@ function setHomePageMeta() {
 function setContactPageMeta() {
     global $meta_description, $meta_keywords, $og_type;
     
-    $meta_description = "Contactează AutoLand România - dealer auto second hand în Iași. Strada Luca Arbore nr. 3, Iași, 700440. Telefon: +40 742 377 001. Program: Luni-Vineri 10:00-18:00. Vino să vezi mașinile noastre sau sună pentru informații. Livrare în toată România, garanție valabilă în orice service RAR.";
+    $meta_description = "Autoland România, Iași: str. Luca Arbore nr. 3 (incinta KIA Iași). Livrare în toată țara. Telefon și WhatsApp 0742 377 001, luni–vineri 10:00–18:00.";
     $meta_keywords = "contact dealer auto Iași, AutoLand România contact, dealer auto Strada Luca Arbore, telefon dealer auto, program dealer auto Iași";
     $og_type = "website";
 }
@@ -73,7 +73,7 @@ function setCarDetailMeta($car_name, $year, $price, $image_url = null, $db_keywo
 function setLeasingPageMeta() {
     global $meta_description, $meta_keywords, $og_type;
     
-    $meta_description = "Leasing și finanțare auto la AutoLand România, Iași. Soluții personalizate: leasing operațional, leasing financiar, credit auto cu avans zero, rate cu dobanda fixa. Finanțare rapidă pentru mașini second hand și autoutilitare. Contactează-ne pentru ofertă. Livrare în toată România, garanție valabilă în orice service RAR.";
+    $meta_description = "Finanțare auto second hand pentru persoane fizice și firme: rate sau leasing, avans de la 0% în funcție de profil, 1–5 ani. Cere oferta online.";
     $meta_keywords = "leasing auto Iași, finanțare auto, credit auto, rate auto, leasing operațional, leasing financiar, credit cu avans zero, rate cu dobanda fixa, finanțare mașini second hand";
     $og_type = "website";
 }
@@ -84,7 +84,7 @@ function setLeasingPageMeta() {
 function setWarrantyPageMeta() {
     global $meta_description, $meta_keywords, $og_type;
     
-    $meta_description = "Garanție auto extinsă de 12 luni în scris la toate mașinile second hand de la AutoLand România, Iași. Acoperire completă, transparență totală. Cumpără cu încredere - garanție reală și asistență post-vânzare. Livrare în toată România, garanție valabilă în orice service RAR.";
+    $meta_description = "Garanție auto de la 12 luni / 10.000 km până la 3 ani / 40.000 km, valabilă în orice service autorizat RAR din România. Vezi ce acoperă, cât costă și cum o folosești.";
     $meta_keywords = "garanție auto 12 luni, garanție mașini second hand, garanție extinsă auto, garanție în scris, dealer cu garanție Iași, mașini cu garanție";
     $og_type = "website";
 }
@@ -106,7 +106,7 @@ function setRegistrationPageMeta() {
 function setRoadsideAssistancePageMeta() {
     global $meta_description, $meta_keywords, $og_type;
     
-    $meta_description = "Asistență rutieră 24/7 de la AutoLand România, Iași. Tractare auto, depanare, ajutor tehnic de urgență. Intervenții rapide în caz de pană, accident sau problemă tehnică. Suntem aici pentru tine non-stop. Livrare în toată România, garanție valabilă în orice service RAR.";
+    $meta_description = "Asistență rutieră Autoland România: 3 pachete anuale cu tractare, depanare și repornire baterie, în România sau și în UE. Tarife de la 45 EUR + TVA.";
     $meta_keywords = "asistență rutieră Iași, tractare auto, depanare auto, ajutor rutier 24/7, service mobil, intervenție urgență auto";
     $og_type = "website";
 }

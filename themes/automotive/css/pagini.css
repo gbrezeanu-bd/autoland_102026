@@ -1,0 +1,692 @@
+/*
+ * Pagini de conținut (pagina.php, hub-ul Finanțare din leasing.php).
+ * Conținutul din admin folosește doar clasele de mai jos, fără stiluri inline.
+ * Aspect sobru, ca o fișă de produs financiar: text pe coloană, tabele cu linii fine,
+ * meniul secțiunii și datele de contact pe lateral.
+ */
+
+/* ---- Așezare: text + bară laterală ---- */
+.inner-page .ap-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 44px;
+    padding: 18px 0 30px;
+}
+.inner-page .ap-main { flex: 1 1 auto; min-width: 0; }
+.inner-page .ap-aside { flex: 0 0 290px; width: 290px; position: sticky; top: 20px; }
+
+/* ---- Text ---- */
+.inner-page .ap {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #2b3a42;
+    font-size: 16px;
+    line-height: 1.7;
+}
+.inner-page .ap p { margin: 0 0 14px; color: #2b3a42; }
+.inner-page .ap li { color: #2b3a42; }
+.inner-page .ap strong { color: #12303b; font-weight: 600; }
+.inner-page .ap a { color: #0e7490; text-decoration: underline; text-underline-offset: 2px; }
+.inner-page .ap a:hover { color: #155e75; }
+
+.inner-page .ap h2 {
+    color: #12303b;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 38px 0 12px;
+    padding: 0 0 8px;
+    border-bottom: 1px solid #d9e0e5;
+}
+.inner-page .ap > h2:first-child { margin-top: 0; }
+.inner-page .ap h3 {
+    color: #12303b;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 4px;
+}
+
+/* Răspunsul de la începutul paginii */
+.inner-page .ap .ap-lead {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #12303b;
+    margin: 0 0 20px;
+}
+.inner-page .ap .ap-lead { font-weight: 400; }
+.inner-page .ap .ap-lead strong { font-weight: 700; }
+
+/* Cifrele esențiale, ca într-o fișă de produs */
+.inner-page .ap .ap-facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1px;
+    background: #d9e0e5;
+    border: 1px solid #d9e0e5;
+    margin: 0 0 22px;
+}
+.inner-page .ap .ap-facts div { background: #f6f8f9; padding: 11px 16px 12px; }
+.inner-page .ap .ap-facts span {
+    display: block;
+    color: #5b6b74;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+}
+.inner-page .ap .ap-facts strong { display: block; color: #12303b; font-size: 17px; font-weight: 700; line-height: 1.35; }
+
+/* ---- Butoane ---- */
+.inner-page .ap a.ap-btn,
+.inner-page .ap-aside a.ap-btn {
+    display: inline-block;
+    background: #0e7490;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 11px 22px;
+    border-radius: 3px;
+    margin: 0 10px 10px 0;
+}
+.inner-page .ap a.ap-btn:hover,
+.inner-page .ap-aside a.ap-btn:hover { background: #155e75; color: #fff; }
+.inner-page .ap a.ap-btn-ghost { background: transparent; color: #0e7490; box-shadow: inset 0 0 0 1px #0e7490; }
+.inner-page .ap a.ap-btn-ghost:hover { background: #f1f7f9; color: #155e75; }
+.inner-page .ap .ap-actions { margin: 0 0 6px; }
+
+/* ---- Lista produselor (hub) ---- */
+.inner-page .ap .ap-cards { margin: 6px 0 4px; border-top: 1px solid #d9e0e5; }
+.inner-page .ap a.ap-card {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    padding: 13px 28px 13px 2px;
+    border-bottom: 1px solid #d9e0e5;
+    text-decoration: none;
+    color: #2b3a42;
+    position: relative;
+}
+.inner-page .ap a.ap-card::after { content: "\203A"; position: absolute; right: 8px; top: 9px; font-size: 22px; color: #0e7490; }
+.inner-page .ap a.ap-card strong { flex: 0 0 210px; color: #0e7490; font-size: 16px; font-weight: 600; }
+.inner-page .ap a.ap-card span { flex: 1; font-size: 15px; color: #5b6b74; }
+.inner-page .ap a.ap-card:hover { background: #f6f8f9; }
+.inner-page .ap a.ap-card:hover strong { text-decoration: underline; }
+
+/* ---- Tabele ---- */
+.inner-page .ap .ap-table { overflow-x: auto; margin: 14px 0 22px; border-top: 2px solid #12303b; }
+.inner-page .ap .ap-table table { width: 100%; border-collapse: collapse; font-size: 15px; margin: 0; }
+.inner-page .ap .ap-table th {
+    color: #5b6b74;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 10px 14px 8px 0;
+    border-bottom: 1px solid #b9c4cb;
+    vertical-align: bottom;
+}
+.inner-page .ap .ap-table td {
+    padding: 10px 14px 10px 0;
+    border-bottom: 1px solid #e3e8eb;
+    vertical-align: top;
+    text-align: left;
+}
+.inner-page .ap .ap-table td:first-child { color: #12303b; font-weight: 600; width: 26%; }
+.inner-page .ap .ap-table td ul { margin: 0; padding-left: 18px; }
+.inner-page .ap .ap-table td li { margin-bottom: 3px; font-weight: 400; }
+
+/* ---- Pași ---- */
+.inner-page .ap ol.ap-steps { list-style: none; margin: 10px 0 20px; padding: 0; border-top: 1px solid #d9e0e5; }
+.inner-page .ap ol.ap-steps li { padding: 12px 0; border-bottom: 1px solid #d9e0e5; margin: 0; }
+
+/* ---- Liste ---- */
+.inner-page .ap ul { padding-left: 20px; margin: 0 0 16px; }
+.inner-page .ap ul li { margin-bottom: 5px; }
+
+/* ---- Întrebări frecvente: panou separat, fiecare întrebare într-un rând propriu ---- */
+.inner-page .ap .ap-faq {
+    background: #eef3f5;
+    border-top: 3px solid #12303b;
+    padding: 4px 26px 16px;
+    margin: 42px 0 0;
+    counter-reset: faq;
+}
+.inner-page .ap .ap-faq h2 { border-bottom: 0; margin: 20px 0 14px; padding: 0; }
+.inner-page .ap .ap-faq h3 {
+    counter-increment: faq;
+    background: #fff;
+    border: 1px solid #d9e0e5;
+    border-bottom: 0;
+    padding: 14px 18px 3px;
+    margin: 0;
+    font-size: 16px;
+}
+.inner-page .ap .ap-faq h3::before { content: counter(faq) ". "; color: #0e7490; }
+.inner-page .ap .ap-faq p {
+    background: #fff;
+    border: 1px solid #d9e0e5;
+    border-top: 0;
+    padding: 0 18px 14px 36px;
+    margin: 0 0 10px;
+}
+
+/* ---- Pagini înrudite ---- */
+.inner-page .ap .ap-related {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 22px;
+    margin: 26px 0 0;
+    padding: 14px 20px;
+    border: 1px solid #d9e0e5;
+    background: #fff;
+    font-size: 15px;
+}
+.inner-page .ap .ap-related span { color: #12303b; font-size: 12.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; margin: 0; }
+.inner-page .ap .ap-related a { margin: 0; text-decoration: none; font-weight: 600; }
+.inner-page .ap .ap-related a::after { content: " \203A"; }
+.inner-page .ap .ap-related a:hover { text-decoration: underline; }
+
+/* ---- Încheiere cu apel la acțiune (pagina principală) ---- */
+.inner-page .ap .ap-closing {
+    background: #12303b;
+    color: #dbe6ea;
+    padding: 24px 28px;
+    margin-top: 36px;
+}
+.inner-page .ap .ap-closing a { color: #fff; }
+.inner-page .ap .ap-closing a.ap-btn { background: #fff; color: #12303b; margin-right: 16px; }
+.inner-page .ap .ap-closing a.ap-btn:hover { background: #e3edf0; color: #12303b; }
+
+/* ---- Note și data actualizării ---- */
+.inner-page .ap .ap-note { color: #6b7a83; font-size: 13.5px; }
+.inner-page .ap-updated { color: #6b7a83; font-size: 13.5px; margin: 22px 0 0; padding-top: 12px; border-top: 1px solid #e3e8eb; }
+.inner-page .ap mark { background: #fff1c2; color: #6b4e00; padding: 0 3px; }
+
+/* ---- Bara laterală ---- */
+.inner-page .ap-side-title {
+    background: #12303b;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    padding: 11px 16px;
+}
+.inner-page .ap-sidenav,
+.inner-page .ap-contact { border: 1px solid #d9e0e5; background: #fff; margin-bottom: 20px; }
+.inner-page .ap-sidenav ul { list-style: none; margin: 0; padding: 0; }
+.inner-page .ap-sidenav li { border-top: 1px solid #e3e8eb; }
+.inner-page .ap-sidenav li:first-child { border-top: 0; }
+.inner-page .ap-sidenav a { display: block; padding: 10px 16px; color: #2b3a42; font-size: 15px; text-decoration: none; }
+.inner-page .ap-sidenav a:hover { background: #f6f8f9; color: #0e7490; }
+.inner-page .ap-navbtn { display: none; }
+.inner-page .ap-sidenav li.current a { font-weight: 700; color: #12303b; background: #f6f8f9; box-shadow: inset 3px 0 0 #0e7490; }
+.inner-page .ap-contact { padding-bottom: 6px; }
+.inner-page .ap-contact .ap-contact-line { margin: 0; padding: 14px 16px 4px; font-size: 14.5px; color: #5b6b74; line-height: 1.6; }
+.inner-page .ap-contact a.ap-btn { display: block; text-align: center; margin: 10px 16px 0; padding: 12px 14px; }
+.inner-page .ap-contact a.ap-btn i { margin-right: 6px; }
+.inner-page .ap-contact a.ap-call { font-size: 17px; }
+.inner-page .ap-contact a.ap-wa { background: #1f9d55; }
+.inner-page .ap-contact a.ap-wa:hover { background: #17824a; }
+.inner-page .ap-contact a.ap-form { background: #fff; color: #12303b; box-shadow: inset 0 0 0 1.5px #12303b; margin-bottom: 10px; }
+.inner-page .ap-contact a.ap-form:hover { background: #12303b; color: #fff; }
+
+/* ---- Bara de acțiuni fixă, doar pe mobil ---- */
+.ap-mobilebar { display: none; }
+
+/* ---- Tablete și telefoane ---- */
+@media (max-width: 991px) {
+    .inner-page .ap-layout { display: flex; flex-direction: column; gap: 0; padding: 14px 20px 26px; }
+    .inner-page .ap-aside { display: contents; }
+    .inner-page .ap-sidenav { order: 1; margin: 0 0 18px; width: 100%; min-width: 0; max-width: 100%; }
+    .inner-page .ap-main { order: 2; }
+    .inner-page .ap-contact { order: 3; margin-top: 30px; }
+
+    /* meniul secțiunii: un buton care arată pagina curentă și deschide lista completă */
+    .inner-page .ap-sidenav .ap-side-title { display: none; }
+    .inner-page .ap-navbtn {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0;
+        padding: 10px 16px;
+        background: #fff;
+        border: 1px solid #b9c4cb;
+        border-left: 4px solid #0e7490;
+        color: #12303b;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        line-height: 1.3;
+        list-style: none;
+    }
+    .inner-page .ap-navbtn small {
+        display: block;
+        color: #5b6b74;
+        font-size: 11.5px;
+        font-weight: 700;
+        letter-spacing: .05em;
+        text-transform: uppercase;
+    }
+    .inner-page .ap-navbtn::after {
+        content: "";
+        flex: 0 0 auto;
+        width: 9px;
+        height: 9px;
+        margin-left: 12px;
+        border-right: 2px solid #12303b;
+        border-bottom: 2px solid #12303b;
+        transform: rotate(45deg) translate(-2px, -2px);
+        transition: transform .15s ease;
+    }
+    .inner-page .ap-navbox[open] > .ap-navbtn::after { transform: rotate(225deg) translate(-2px, -2px); }
+    .inner-page .ap-navbtn::-webkit-details-marker { display: none; }
+    .inner-page .ap-sidenav ul { border: 1px solid #b9c4cb; border-top: 0; background: #fff; }
+    .inner-page .ap-sidenav a { padding: 12px 16px; font-size: 15.5px; }
+
+    /* contact: butoanele pe un rând, pe tablete */
+    .inner-page .ap-contact { display: flex; flex-wrap: wrap; padding: 0 16px 16px; }
+    .inner-page .ap-contact .ap-side-title { flex: 0 0 calc(100% + 32px); margin: 0 -16px; }
+    .inner-page .ap-contact .ap-contact-line { flex: 0 0 100%; padding: 14px 0 2px; }
+    .inner-page .ap-contact a.ap-btn { flex: 1 1 200px; margin: 10px 8px 0 0; }
+}
+
+@media (max-width: 767px) {
+    .inner-page .ap-layout { padding: 10px 16px 20px; }
+    .inner-page .ap { font-size: 15.5px; line-height: 1.65; }
+    .inner-page .ap h2 { font-size: 20px; margin-top: 30px; }
+    .inner-page .ap .ap-lead { font-size: 17px; }
+    .inner-page .ap .ap-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .inner-page .ap .ap-facts span { font-size: 11px; letter-spacing: .02em; overflow-wrap: anywhere; }
+    .inner-page .ap .ap-facts strong { font-size: 16px; }
+    .inner-page .ap a.ap-btn { display: block; text-align: center; margin-right: 0; }
+    .inner-page .ap a.ap-card { display: block; }
+    .inner-page .ap a.ap-card strong { display: block; }
+
+    /* tabele mai compacte */
+    .inner-page .ap .ap-table table { font-size: 14px; }
+    .inner-page .ap .ap-table th { font-size: 11.5px; padding: 9px 8px 7px 0; }
+    .inner-page .ap .ap-table td { padding: 9px 8px 9px 0; }
+    .inner-page .ap .ap-table td:first-child { width: auto; }
+
+    /* întrebări frecvente și încheiere */
+    .inner-page .ap .ap-faq { padding: 2px 12px 8px; }
+    .inner-page .ap .ap-faq p { padding-left: 18px; }
+    .inner-page .ap .ap-closing { padding: 20px 18px; }
+    .inner-page .ap .ap-closing a.ap-btn { margin-bottom: 12px; }
+    .inner-page .ap-contact a.ap-btn { flex: 1 1 100%; margin-right: 0; }
+
+    /* acțiuni mereu la îndemână */
+    .ap-mobilebar {
+        display: flex;
+        position: fixed;
+        left: 0; right: 0; bottom: 0;
+        z-index: 1000;
+        background: #fff;
+        border-top: 1px solid #d9e0e5;
+        box-shadow: 0 -2px 10px rgba(15, 35, 45, .12);
+        padding: 8px 10px calc(8px + env(safe-area-inset-bottom, 0px));
+        gap: 8px;
+    }
+    .ap-mobilebar a {
+        flex: 1 1 0;
+        text-align: center;
+        padding: 11px 6px;
+        border-radius: 3px;
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1.2;
+        text-decoration: none;
+        color: #fff;
+    }
+    .ap-mobilebar i { margin-right: 4px; }
+    .ap-mobilebar .ap-mb-call { background: #0e7490; }
+    .ap-mobilebar .ap-mb-wa { background: #1f9d55; }
+    .ap-mobilebar .ap-mb-form { background: #fff; color: #12303b; box-shadow: inset 0 0 0 1.5px #12303b; }
+    body { padding-bottom: 66px; }
+}
+
+@media (max-width: 380px) {
+    .inner-page .ap-layout { padding-left: 14px; padding-right: 14px; }
+
+    .inner-page .ap h2 { font-size: 19px; }
+    .ap-mobilebar a { font-size: 14px; }
+}
+
+.inner-page .ap .ap-table th a { text-decoration: none; color: #0e7490; }
+
+/* ---- Componente pentru homepage și paginile de prezentare ---- */
+
+/* Ultimele mașini */
+.inner-page .ap .ap-cars {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 18px;
+    margin: 14px 0 10px;
+}
+.inner-page .ap a.ap-car {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid #d9e0e5;
+    border-radius: 4px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #2b3a42;
+    box-shadow: 0 1px 2px rgba(15, 35, 45, .05);
+    transition: box-shadow .15s ease, border-color .15s ease;
+}
+.inner-page .ap a.ap-car:hover { border-color: #9fb3bd; box-shadow: 0 8px 20px rgba(15, 35, 45, .10); }
+.inner-page .ap a.ap-car img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; background: #e9eef1; }
+.inner-page .ap a.ap-car span { display: block; padding: 0 14px; }
+.inner-page .ap a.ap-car .ap-car-name { padding-top: 12px; color: #12303b; font-weight: 600; font-size: 15px; line-height: 1.35; min-height: 3.2em; }
+.inner-page .ap a.ap-car .ap-car-specs { color: #5b6b74; font-size: 13.5px; padding-top: 2px; padding-bottom: 10px; }
+.inner-page .ap a.ap-car .ap-car-price {
+    margin-top: auto;
+    padding-top: 10px;
+    padding-bottom: 12px;
+    border-top: 1px solid #e3e8eb;
+    color: #0b5e73;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/* Categorii, cu poză reală */
+.inner-page .ap .ap-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 14px 0 8px; }
+.inner-page .ap a.ap-tile { position: relative; display: block; overflow: hidden; border-radius: 4px; aspect-ratio: 4 / 3; background: #12303b; text-decoration: none; }
+.inner-page .ap a.ap-tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease; }
+.inner-page .ap a.ap-tile:hover img { transform: scale(1.04); }
+.inner-page .ap a.ap-tile .ap-tile-text {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 34px 16px 14px;
+    background: linear-gradient(to top, rgba(10, 30, 40, .88), rgba(10, 30, 40, 0));
+}
+.inner-page .ap a.ap-tile .ap-tile-name { display: block; color: #fff; font-size: 18px; font-weight: 700; line-height: 1.2; }
+.inner-page .ap a.ap-tile .ap-tile-count { display: block; color: #cfe0e6; font-size: 13.5px; margin-top: 2px; }
+
+/* Coloane cu beneficii */
+.inner-page .ap .ap-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; margin: 14px 0 8px; }
+.inner-page .ap .ap-cols > div { background: #fff; border: 1px solid #d9e0e5; border-top: 3px solid #12303b; padding: 18px 20px 8px; }
+.inner-page .ap .ap-cols h3 { margin: 0 0 8px; font-size: 17px; }
+.inner-page .ap .ap-cols p { margin-bottom: 10px; font-size: 15px; }
+
+/* Pachete cu preț (asistență rutieră, garanție) */
+.inner-page .ap .ap-plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin: 14px 0 10px; }
+.inner-page .ap .ap-plan { background: #fff; border: 1px solid #d9e0e5; border-top: 3px solid #12303b; padding: 18px 20px 10px; }
+.inner-page .ap .ap-plan h3 { margin: 0; font-size: 13px; letter-spacing: .07em; text-transform: uppercase; color: #5b6b74; }
+.inner-page .ap .ap-plan .ap-plan-price { margin: 6px 0 0; color: #12303b; font-size: 30px; font-weight: 700; line-height: 1.15; }
+.inner-page .ap .ap-plan .ap-plan-price small { display: block; margin-top: 2px; color: #5b6b74; font-size: 13px; font-weight: 400; }
+.inner-page .ap .ap-plan .ap-plan-for { margin: 10px 0 8px; padding-bottom: 10px; border-bottom: 1px solid #e3e8eb; color: #12303b; font-weight: 600; font-size: 15px; }
+.inner-page .ap .ap-plan ul { list-style: none; padding: 0; margin: 0 0 10px; }
+.inner-page .ap .ap-plan li { position: relative; padding-left: 22px; margin-bottom: 7px; font-size: 14.5px; line-height: 1.5; }
+.inner-page .ap .ap-plan li::before { content: "✓"; position: absolute; left: 0; top: 0; color: #1f8a4c; font-weight: 700; }
+
+/* Acoperit / neacoperit */
+.inner-page .ap .ap-yesno { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 14px 0 8px; }
+.inner-page .ap .ap-yesno > div { background: #fff; border: 1px solid #d9e0e5; padding: 16px 20px 6px; }
+.inner-page .ap .ap-yesno .ap-yes { border-top: 3px solid #1f8a4c; }
+.inner-page .ap .ap-yesno .ap-no { border-top: 3px solid #b9c4cb; }
+.inner-page .ap .ap-yesno h3 { margin: 0 0 8px; font-size: 16px; }
+.inner-page .ap .ap-yesno ul { list-style: none; padding: 0; margin: 0 0 8px; }
+.inner-page .ap .ap-yesno li { position: relative; padding-left: 24px; margin-bottom: 8px; font-size: 15px; }
+.inner-page .ap .ap-yesno li::before { position: absolute; left: 0; top: 0; font-weight: 700; }
+.inner-page .ap .ap-yesno .ap-yes li::before { content: "✓"; color: #1f8a4c; }
+.inner-page .ap .ap-yesno .ap-no li::before { content: "✕"; color: #8a97a0; }
+
+/* Păreri ale clienților (fără italic: fontul site-ului nu are diacriticele în italic) */
+.inner-page .ap .ap-reviews { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin: 14px 0 8px; }
+.inner-page .ap blockquote.ap-review {
+    margin: 0;
+    padding: 16px 20px 18px;
+    background: #fff;
+    border: 1px solid #d9e0e5;
+    border-top: 3px solid #0e7490;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.inner-page .ap blockquote.ap-review::before { content: "“"; display: block; color: #0e7490; font-size: 44px; line-height: .8; font-family: Georgia, serif; margin-bottom: 4px; }
+.inner-page .ap blockquote.ap-review p { margin: 0 0 12px; font-size: 15px; font-style: normal; font-weight: 400; line-height: 1.6; color: #2b3a42; }
+.inner-page .ap blockquote.ap-review .ap-review-by { display: block; margin-top: auto; padding-top: 10px; border-top: 1px solid #e3e8eb; color: #12303b; font-size: 14px; font-weight: 600; }
+
+/* Adresă și hartă */
+.inner-page .ap .ap-where { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; margin: 12px 0; }
+.inner-page .ap .ap-where .ap-table { margin: 0; }
+.inner-page .ap .ap-where td:first-child { width: 28%; }
+.inner-page .ap iframe.ap-map { display: block; width: 100%; height: 320px; border: 1px solid #d9e0e5; background: #e9eef1; }
+
+/* Încheiere cu apel la acțiune */
+.inner-page .ap .ap-closing p { margin: 0 0 12px; color: #dbe6ea; }
+.inner-page .ap .ap-closing p:last-child { margin-bottom: 0; }
+.inner-page .ap .ap-closing strong { display: block; margin-bottom: 4px; color: #fff; font-size: 21px; font-weight: 700; line-height: 1.3; }
+.inner-page .ap .ap-closing a.ap-btn-ghost { background: transparent; color: #fff; box-shadow: inset 0 0 0 1.5px #fff; }
+.inner-page .ap .ap-closing a.ap-btn-ghost:hover { background: rgba(255, 255, 255, .12); color: #fff; }
+
+/* pagini de servicii: acces direct la formularul de sub text (înmatriculări) */
+.inner-page .ap-main > section.row.container { width: auto; padding: 0; margin: 10px 0 0; }
+
+@media (max-width: 767px) {
+    .inner-page .ap .ap-cars { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .inner-page .ap a.ap-car .ap-car-name { font-size: 14px; padding-top: 10px; }
+    .inner-page .ap a.ap-car span { padding: 0 11px; }
+    .inner-page .ap a.ap-car .ap-car-price { font-size: 16px; }
+    .inner-page .ap .ap-tiles { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .inner-page .ap a.ap-tile .ap-tile-name { font-size: 16px; }
+    .inner-page .ap .ap-yesno { grid-template-columns: 1fr; }
+    .inner-page .ap .ap-where { grid-template-columns: 1fr; gap: 14px; }
+    .inner-page .ap iframe.ap-map { height: 260px; }
+    .inner-page .ap .ap-closing strong { font-size: 19px; }
+}
+
+.inner-page .ap > h3 { margin: 26px 0 8px; }
+
+/* evită depășirea orizontală pe ecrane foarte înguste */
+.inner-page .ap { overflow-wrap: break-word; }
+.inner-page .ap .ap-facts > div, .inner-page .ap .ap-plans > div { min-width: 0; }
+.inner-page .ap .ap-plans { grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); }
+@media (max-width: 991px) {
+    .inner-page .ap-layout > .ap-main { width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box; }
+    .inner-page .ap-main .ap-table, .inner-page .ap-main .ap-plans, .inner-page .ap-main .ap-facts { max-width: 100%; }
+}
+@media (max-width: 991px) {
+    .inner-page .ap-layout { align-items: stretch; }
+}
+
+/* pagina de păreri: două coloane, ca textele lungi să rămână ușor de citit */
+.inner-page .ap .ap-reviews.ap-reviews-wide { grid-template-columns: repeat(auto-fit, minmax(min(330px, 100%), 1fr)); align-items: start; }
+
+/* ---- Formular de contact ---- */
+.inner-page .ap .ap-form fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.inner-page .ap .ap-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 20px; }
+.inner-page .ap .ap-field { min-width: 0; }
+.inner-page .ap .ap-field-full { grid-column: 1 / -1; }
+.inner-page .ap .ap-field label {
+    display: block;
+    margin: 0 0 6px;
+    color: #12303b;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+}
+.inner-page .ap .ap-form input.form-control,
+.inner-page .ap .ap-form textarea.form-control {
+    display: block;
+    width: 100%;
+    height: 48px;
+    margin: 0;
+    padding: 10px 14px;
+    color: #12303b;
+    font-size: 15.5px;
+    background: #fff;
+    border: 1px solid #b9c4cb;
+    border-radius: 3px;
+    box-shadow: none;
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+.inner-page .ap .ap-form textarea.form-control { height: auto; min-height: 150px; resize: vertical; }
+.inner-page .ap .ap-form input.form-control:focus,
+.inner-page .ap .ap-form textarea.form-control:focus {
+    border-color: #0e7490;
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(14, 116, 144, .18);
+}
+.inner-page .ap .ap-form label.error,
+.inner-page .ap .ap-form em.error { display: block; margin: 5px 0 0; color: #b42318; font-size: 13px; font-weight: 400; font-style: normal; }
+.inner-page .ap .ap-form input.error,
+.inner-page .ap .ap-form textarea.error { border-color: #b42318; }
+.inner-page .ap .ap-recaptcha { margin: 20px 0 8px; }
+.inner-page .ap .ap-recaptcha em.error, .inner-page .ap .ap-recaptcha label.error { display: block; margin-top: 6px; color: #b42318; font-size: 13px; font-style: normal; }
+.inner-page .ap input.ap-submit {
+    display: inline-block;
+    width: auto;
+    margin: 6px 0 0;
+    padding: 13px 30px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    background: #0e7490;
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.inner-page .ap input.ap-submit:hover { background: #155e75; }
+.inner-page .ap #result .success,
+.inner-page .ap #result .error { margin: 0 0 18px; padding: 14px 18px; border-radius: 3px; font-size: 15px; line-height: 1.6; }
+.inner-page .ap #result .success { background: #eaf6ee; border: 1px solid #b7dfc4; color: #1d5e36; }
+.inner-page .ap #result .error { background: #fdecea; border: 1px solid #f3c1bb; color: #8f1d12; }
+@media (max-width: 767px) {
+    .inner-page .ap .ap-form-grid { grid-template-columns: 1fr; gap: 14px; }
+    .inner-page .ap input.ap-submit { width: 100%; }
+}
+
+/* Eticheta câmpurilor: anulează stilul global al temei pentru <label> (poziționat absolut, cu casetă bifabilă) */
+.inner-page .ap .ap-field label {
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    display: block;
+    margin: 0 0 6px !important;
+    padding: 0;
+    width: auto;
+}
+.inner-page .ap .ap-field label::before,
+.inner-page .ap .ap-field label::after { content: none !important; display: none !important; }
+.inner-page .ap.ap-form-section > h2:first-child { margin-top: 42px; }
+
+/* ---- Homepage: ierarhie vizuală (doar .ap-home) ---- */
+.inner-page .ap.ap-home h2 {
+    font-size: 26px;
+    line-height: 1.25;
+    margin: 56px 0 16px;
+    padding: 2px 0 2px 14px;
+    border-bottom: 0;
+    border-left: 5px solid #0e7490;
+}
+.inner-page .ap.ap-home > h2:first-child { margin-top: 0; }
+
+/* Introducere: panou închis, cu cifre mari */
+.inner-page .ap.ap-home .ap-lead {
+    background: #12303b;
+    color: #dbe6ea;
+    font-size: 19px;
+    line-height: 1.6;
+    padding: 26px 30px;
+    margin: 0;
+    border-bottom: 4px solid #0e7490;
+}
+.inner-page .ap.ap-home .ap-lead strong { color: #fff; }
+.inner-page .ap.ap-home .ap-facts { background: #0e7490; border: 0; margin: 0 0 24px; }
+.inner-page .ap.ap-home .ap-facts div { background: #0e7490; padding: 16px 18px 18px; border-left: 1px solid rgba(255, 255, 255, .25); }
+.inner-page .ap.ap-home .ap-facts div:first-child { border-left: 0; }
+.inner-page .ap.ap-home .ap-facts span { color: #cdeaf2; }
+.inner-page .ap.ap-home .ap-facts strong { color: #fff; font-size: 22px; line-height: 1.25; }
+.inner-page .ap.ap-home .ap-actions .ap-btn { padding: 14px 28px; font-size: 16px; }
+
+/* Pașii: trei casete numerotate */
+.inner-page .ap.ap-home ol.ap-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; border-top: 0; counter-reset: pas; margin: 18px 0 8px; }
+.inner-page .ap.ap-home ol.ap-steps li {
+    counter-increment: pas;
+    position: relative;
+    background: #fff;
+    border: 1px solid #d9e0e5;
+    border-top: 3px solid #0e7490;
+    padding: 56px 20px 18px;
+}
+.inner-page .ap.ap-home ol.ap-steps li::before {
+    content: counter(pas);
+    position: absolute; left: 20px; top: 14px;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: #0e7490; color: #fff;
+    font-size: 17px; font-weight: 700; line-height: 32px; text-align: center;
+}
+.inner-page .ap.ap-home ol.ap-steps li strong { display: block; font-size: 17px; margin-bottom: 6px; }
+
+/* Riscuri vs. soluții */
+.inner-page .ap.ap-home .ap-vs { border-top: 0; }
+.inner-page .ap.ap-home .ap-vs th { background: #12303b; color: #fff; padding: 12px 16px; border: 0; }
+.inner-page .ap.ap-home .ap-vs th:last-child { background: #0e7490; }
+.inner-page .ap.ap-home .ap-vs td { padding: 12px 16px 12px 44px; position: relative; }
+.inner-page .ap.ap-home .ap-vs td:first-child { width: 42%; color: #6b7a83; font-weight: 400; background: #f6f8f9; }
+.inner-page .ap.ap-home .ap-vs td:first-child::before { content: "✕"; position: absolute; left: 16px; color: #b42318; font-weight: 700; }
+.inner-page .ap.ap-home .ap-vs td:last-child { color: #12303b; font-weight: 600; }
+.inner-page .ap.ap-home .ap-vs td:last-child::before { content: "✓"; position: absolute; left: 16px; color: #1f8a4c; font-weight: 700; }
+
+/* Garanție: cifra în față */
+.inner-page .ap.ap-home .ap-callout { display: flex; background: #eef6f9; border: 1px solid #cfe3ea; margin: 14px 0 8px; }
+.inner-page .ap.ap-home .ap-callout-num { flex: 0 0 190px; display: flex; flex-direction: column; justify-content: center; background: #0e7490; color: #fff; padding: 22px 16px; text-align: center; font-size: 44px; font-weight: 700; line-height: 1.05; }
+.inner-page .ap.ap-home .ap-callout-num small { display: block; margin-top: 8px; font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #cdeaf2; }
+.inner-page .ap.ap-home .ap-callout-text { flex: 1; padding: 22px 26px 8px; }
+
+/* Finanțare: coloane cu antet colorat */
+.inner-page .ap.ap-home .ap-compare { border-top: 0; }
+.inner-page .ap.ap-home .ap-compare th { background: #12303b; color: #fff; padding: 12px 14px; border: 0; }
+.inner-page .ap.ap-home .ap-compare th a { color: #fff; }
+.inner-page .ap.ap-home .ap-compare th:nth-child(3) { background: #0e7490; }
+.inner-page .ap.ap-home .ap-compare td { padding: 11px 14px; }
+.inner-page .ap.ap-home .ap-compare td:first-child { background: #f6f8f9; }
+
+/* Bandă deschisă (firme) și bloc închis (mașini la comandă) */
+.inner-page .ap.ap-home .ap-band { background: #f1f6f8; border-top: 3px solid #12303b; padding: 6px 28px 14px; margin: 56px 0 0; }
+.inner-page .ap.ap-home .ap-band h2 { margin-top: 24px; }
+.inner-page .ap.ap-home .ap-feature { background: #12303b; color: #dbe6ea; padding: 6px 30px 22px; margin: 56px 0 0; border-bottom: 4px solid #0e7490; }
+.inner-page .ap.ap-home .ap-feature h2 { margin-top: 24px; color: #fff; border-left-color: #5fc3dc; }
+.inner-page .ap.ap-home .ap-feature p,
+.inner-page .ap.ap-home .ap-feature li { color: #dbe6ea; }
+.inner-page .ap.ap-home .ap-feature strong { color: #fff; }
+.inner-page .ap.ap-home .ap-feature a { color: #fff; font-weight: 600; }
+.inner-page .ap.ap-home .ap-feature ul { list-style: none; padding: 0; margin: 14px 0 16px; }
+.inner-page .ap.ap-home .ap-feature li { position: relative; padding-left: 26px; margin-bottom: 9px; }
+.inner-page .ap.ap-home .ap-feature li::before { content: "✓"; position: absolute; left: 0; color: #5fc3dc; font-weight: 700; }
+
+/* Servicii: plăcuțe numerotate */
+.inner-page .ap.ap-home .ap-services { counter-reset: serv; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+.inner-page .ap.ap-home .ap-services > div { counter-increment: serv; position: relative; border-top: 3px solid #0e7490; background: #f6f8f9; padding: 18px 20px 8px 66px; }
+.inner-page .ap.ap-home .ap-services > div::before {
+    content: counter(serv);
+    position: absolute; left: 18px; top: 18px;
+    width: 34px; height: 34px; border-radius: 50%;
+    background: #12303b; color: #fff;
+    font-size: 16px; font-weight: 700; line-height: 34px; text-align: center;
+}
+.inner-page .ap.ap-home .ap-services h3 { font-size: 16px; line-height: 1.3; margin-bottom: 6px; }
+.inner-page .ap.ap-home .ap-services p { font-size: 14.5px; line-height: 1.55; }
+
+@media (max-width: 991px) {
+    .inner-page .ap.ap-home .ap-services { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+    .inner-page .ap.ap-home h2 { font-size: 22px; margin-top: 44px; }
+    .inner-page .ap.ap-home .ap-lead { font-size: 17px; padding: 20px 18px; }
+    .inner-page .ap.ap-home .ap-facts div:nth-child(odd) { border-left: 0; }
+    .inner-page .ap.ap-home ol.ap-steps,
+    .inner-page .ap.ap-home .ap-services { grid-template-columns: 1fr; }
+    .inner-page .ap.ap-home .ap-callout { flex-direction: column; }
+    .inner-page .ap.ap-home .ap-callout-num { flex-basis: auto; font-size: 38px; }
+    .inner-page .ap.ap-home .ap-callout-text { padding: 18px 18px 6px; }
+    .inner-page .ap.ap-home .ap-band,
+    .inner-page .ap.ap-home .ap-feature { padding-left: 18px; padding-right: 18px; }
+    .inner-page .ap.ap-home .ap-vs td { padding-left: 38px; }
+    .inner-page .ap.ap-home .ap-vs td:first-child { width: auto; }
+}

@@ -137,7 +137,9 @@ tinyMCE_GZ.init({
 <script language="javascript" type="text/javascript">
 tinyMCE.init({
 	theme_advanced_buttons1_add : "fontselect,fontsizeselect,forecolor",
-	mode : "textareas"
+	mode : "textareas",
+	body_class : "inner-page",
+	content_css : "../themes/automotive/css/pagini.css"
 });
 </script>
 ';

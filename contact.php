@@ -9,6 +9,12 @@
  */
 // get config file;
 include_once './includes/config.php';
+include_once './includes/pagini_sectiuni.php';
+include_once './includes/home_blocks.php';
+
+// Aspectul cu meniu lateral (secțiunea Despre Autoland)
+$sectiune = 'pagini';
+$slug = 'contact';
 
 // /////////////////////////////////////////////////////////////////////////////
 // try to get content
@@ -18,7 +24,8 @@ $result = $connection->query($query_text) or db_fail($connection);
 $row = $result->fetch_assoc();
 
 // Set optimized page title (direct in file for easier maintenance)
-$page_title = "Contact Dealer Auto Iași | Autoland România";
+$page_title = "Contact, adresă și program, parc auto Iași | Autoland România";
+$banner_title = "Contact Autoland România: adresă, program, telefon";
 $page_subtitle = '';
 
 // Set SEO meta tags
@@ -31,7 +38,7 @@ $footer_scripts .= "<script type='text/javascript' src='/themes/automotive/js/ad
 
 $footer_scripts .= "<script type='text/javascript' async>" . file_get_contents("./includes/contact_footer.js") . "</script>";
 
-$content = is_null($row) ? "Content is missing" : $row['contact'];
+$content = is_null($row) ? "Content is missing" : home_inlocuieste_marcaje(pagini_linkuri_interne($row['contact']), $connection);
 
 // Add JSON-LD structured data for SEO (LocalBusiness + Breadcrumbs)
 require_once './includes/json_ld_schemas.php';
@@ -40,11 +47,27 @@ $breadcrumbs = [
     ['name' => 'Contact', 'url' => BASE_PATH . 'contact.php']
 ];
 $canonical_url = BASE_PATH . 'contact.php';
+// Firma (AutoDealer) cu denumire legală, CUI, program și punct de contact, plus pagina de contact și întrebările frecvente din text
 $contact_schemas = [
-    getLocalBusinessSchema(),
+    getOrganizationSchema(),
+    [
+        "@context" => "https://schema.org",
+        "@type" => "ContactPage",
+        "@id" => $canonical_url . "#contactpage",
+        "url" => $canonical_url,
+        "name" => $page_title,
+        "description" => isset($meta_description) ? $meta_description : '',
+        "inLanguage" => "ro-RO",
+        "about" => ["@id" => JSONLD_BASE_URL . "#organization"],
+        "mainEntity" => ["@id" => JSONLD_BASE_URL . "#organization"],
+    ],
     getBreadcrumbSchema($breadcrumbs),
-    getWebPageSchema($canonical_url, $page_title, $meta_description ?? '')
 ];
+$contact_faq = pagini_extrage_faq($content);
+if ($contact_faq) {
+    $contact_schemas[] = ['@context' => 'https://schema.org', '@type' => 'FAQPage', 'mainEntity' => $contact_faq];
+}
+$header_scripts .= '<link rel="stylesheet" href="' . BASE_PATH . 'themes/automotive/css/pagini.css">' . "\n";
 $header_scripts .= getJsonLdString($contact_schemas);
 
 // /////////////////////////////////////////////////////////////////////////////
@@ -55,54 +78,58 @@ include './themes/automotive/template_parts/header.php';
 <section class="content">
     <div class="container">
         <div class="inner-page">
-            
-            <div class="col-md-12 padding-none">
-                <!--MAP-->
-                <div class="find_map row clearfix">
-                    <h2 class="margin-bottom-25 margin-top-none">SUNTEM AICI</h2>
-                    <div class="map margin-vertical-30">
-                        <iframe style='height: 390px' id='google-map-listing' class="contact" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1356.170548429924!2d27.543852130163575!3d47.1707578635384!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cae4b8f493025f%3A0x9e0b250521007dad!2sAutoland+Romania!5e0!3m2!1sro!2sro!4v1544009637536" width="100%" height="390px" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <div class="ap-layout">
+                <?php include './themes/automotive/template_parts/pagina_sidebar.php'; ?>
+                <div class="ap-main">
+                    <?php print $content; ?>
+
+                    <div class="ap ap-form-section">
+                        <h2 id="formular">Trimite-ne un mesaj</h2>
+                        <p><strong>Completează formularul și revenim către tine în programul de lucru.</strong> Pentru o întrebare urgentă, sună la <a href="tel:+40742377001">0742 377 001</a>.</p>
+
+                        <div id="result"></div>
+                        <form id="formular-contact" class="ap-form" method="post" action="">
+                            <fieldset id="contact_form">
+                                <input type="hidden" name="form_title" value="Mesaj din formularul de contact">
+                                <div class="ap-form-grid">
+                                    <div class="ap-field">
+                                        <label for="contact-name">Nume și prenume</label>
+                                        <input type="text" id="contact-name" name="name" class="form-control" autocomplete="name">
+                                    </div>
+                                    <div class="ap-field">
+                                        <label for="contact-telefon">Telefon</label>
+                                        <input type="tel" id="contact-telefon" name="telefon" class="form-control" autocomplete="tel" placeholder="de exemplu 0742123456">
+                                    </div>
+                                    <div class="ap-field">
+                                        <label for="contact-email">E-mail</label>
+                                        <input type="email" id="contact-email" name="email" class="form-control" autocomplete="email">
+                                    </div>
+                                    <div class="ap-field">
+                                        <label for="contact-subiect">Subiect</label>
+                                        <input type="text" id="contact-subiect" name="subiect" class="form-control">
+                                    </div>
+                                    <div class="ap-field ap-field-full">
+                                        <label for="contact-mesaj">Mesaj</label>
+                                        <textarea id="contact-mesaj" name="mesaj" class="form-control contact_textarea" rows="6"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="ap-recaptcha">
+                                    <div class="g-recaptcha" data-sitekey="6LcbK38UAAAAAMAFTZuUcAh346Pp7PDT_YTO-Veq"></div>
+                                    <input type="hidden" class="hiddenRecaptcha required" name="hiddenRecaptcha" id="hiddenRecaptcha">
+                                </div>
+
+                                <p class="ap-note">Prin trimiterea mesajului ești de acord cu <a href="<?php echo BASE_PATH; ?>politica_de_confidentialitate.php">politica de confidențialitate</a>.</p>
+                                <input id="submit_btn" class="ap-submit" type="submit" value="Trimite mesajul">
+                            </fieldset>
+                        </form>
                     </div>
                 </div>
-                <!--MAP-->
-                <!--CONTACT INFORMATION-->
-                <div class="row contacts margin-top-25">
-                    <?php print $content;  ?>
-                    <!--RIGHT INFORMATION-->
-                    <div class="col-md-4 col-lg-offset-1 col-md-offset-1 padding-right-none xs-padding-left-none sm-padding-left-none xs-margin-top-30">
-                        <div class="contact_wrapper information_head">
-                            <h3 class="margin-bottom-25 margin-top-none">FORMULAR DE CONTACT</h3>
-                            <div class="form_contact margin-bottom-20">
-                                <div id="result"></div>
-                                <form id="formular-contact" method="post" action="">
-                                    <fieldset id="contact_form">
-                                        <input type="hidden" name="form_title" value="Mesaj din formularul de contact">
-                                        <input type="text" name="name" class="form-control margin-bottom-25" placeholder="Nume si prenume" />
- 					<input type="tel" name="telefon" class="form-control margin-bottom-25" placeholder="Telefon"/>
-                                        <input type="email" name="email" class="form-control margin-bottom-25" placeholder="Email" />
-                                        <input type="text" name="subiect" class="form-control margin-bottom-25" placeholder="Subiect" />
-                                        <textarea name="mesaj" class="form-control margin-bottom-25 contact_textarea" placeholder="Mesaj" rows="7"></textarea>
-
-                                        <div class="form-group row">
-                                            <div class="g-recaptcha pull-left" data-sitekey="6LcbK38UAAAAAMAFTZuUcAh346Pp7PDT_YTO-Veq"></div>
-                                            <input type="hidden" class="hiddenRecaptcha required" name="hiddenRecaptcha" id="hiddenRecaptcha">
-                                        </div>
-
-                                        <input id="submit_btn" type="submit" value="Trimite mesaj">
-                                    </fieldset>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <!--RIGHT INFORMATION-->
-
-                </div>
-                <!---CONTACT INFORMATION-->
             </div>
             <div class="clearfix"></div>
         </div>
     </div>
-    <!--container ends--> 
+    <!--container ends-->
 </section>
 <!--content ends-->
 

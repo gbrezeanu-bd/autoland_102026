@@ -1,0 +1,137 @@
+/*
+ * Calculator de rată (leasing), model orientativ, compact.
+ * .ap-calc-wrap = bara pliată de pe fișa mașinii (arată rata estimată); .ap-calc = cardul propriu-zis.
+ */
+
+/* ---- Bara pliată (fișa mașinii): culoare plină, ca să se observe ---- */
+details.ap-calc-wrap {
+    margin: 0 0 16px;
+    border: 1px solid #0b5e73;
+    border-radius: 6px;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(11, 94, 115, .22);
+}
+details.ap-calc-wrap > summary {
+    display: flex; align-items: center; gap: 10px;
+    padding: 13px 14px; cursor: pointer; list-style: none; color: #fff;
+    background: linear-gradient(135deg, #0e7490 0%, #12303b 100%);
+    font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    transition: filter .15s ease;
+}
+details.ap-calc-wrap > summary::-webkit-details-marker { display: none; }
+details.ap-calc-wrap > summary:hover { filter: brightness(1.12); }
+details.ap-calc-wrap > summary::after {
+    content: ""; flex: 0 0 auto; width: 8px; height: 8px; margin-left: 2px;
+    border-right: 2px solid #fff; border-bottom: 2px solid #fff; transform: rotate(45deg) translate(-2px, -2px); transition: transform .15s ease;
+}
+details.ap-calc-wrap[open] > summary::after { transform: rotate(225deg) translate(-2px, -2px); }
+details.ap-calc-wrap > summary .ap-calc-sum-icon { flex: 0 0 auto; width: 30px; height: 30px; border-radius: 50%; background: rgba(255, 255, 255, .18); font-size: 15px; line-height: 30px; text-align: center; }
+details.ap-calc-wrap > summary .ap-calc-sum-title { font-size: 14.5px; font-weight: 700; line-height: 1.25; }
+details.ap-calc-wrap > summary .ap-calc-sum-title small { display: block; margin-top: 1px; color: rgba(255, 255, 255, .78); font-size: 11.5px; font-weight: 400; }
+details.ap-calc-wrap > summary .ap-calc-sum-rate { margin-left: auto; color: rgba(255, 255, 255, .85); font-size: 12.5px; text-align: right; white-space: nowrap; }
+details.ap-calc-wrap > summary .ap-calc-sum-rate strong { display: block; color: #fff; font-size: 19px; font-weight: 800; line-height: 1.1; }
+details.ap-calc-wrap > .ap-calc { border: 0; border-radius: 0; box-shadow: none; max-width: none; background: #f2f8fa; }
+details.ap-calc-wrap .ap-calc .ap-calc-stepper { background: #fff; }
+details.ap-calc-wrap .ap-calc .ap-calc-tag { background: #dcecf1; }
+
+/* ---- Cardul ---- */
+.ap-calc {
+    box-sizing: border-box;
+    max-width: 360px;
+    margin: 0 auto;
+    padding: 16px 16px 12px;
+    background: #fff;
+    border: 1px solid #d9e0e5;
+    border-radius: 6px;
+    box-shadow: 0 6px 18px rgba(15, 35, 45, .08);
+    text-align: left;
+    color: #2b3a42;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.4;
+}
+.ap-calc *, .ap-calc *::before, .ap-calc *::after { box-sizing: border-box; }
+
+.ap-calc .ap-calc-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin: 0 0 10px; }
+.ap-calc .ap-calc-title { color: #12303b; font-size: 14px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.ap-calc .ap-calc-tag { padding: 2px 8px; border-radius: 999px; background: #eef4f6; color: #5b6b74; font-size: 11px; font-weight: 600; white-space: nowrap; }
+
+.ap-calc .ap-calc-price { margin: 0 0 10px; }
+.ap-calc .ap-calc-price label { display: block !important; position: static !important; margin: 0 0 4px !important; color: #12303b; font-size: 12.5px; font-weight: 600; }
+.ap-calc .ap-calc-price label::before { content: none !important; display: none !important; }
+.ap-calc .ap-calc-price input {
+    width: 100%; height: 40px; padding: 6px 10px; border: 1px solid #b9c4cb; border-radius: 4px;
+    color: #12303b; font-size: 16px; font-weight: 700; background: #fff; box-shadow: none;
+}
+.ap-calc .ap-calc-price input:focus { border-color: #0e7490; outline: 0; box-shadow: 0 0 0 3px rgba(14, 116, 144, .18); }
+
+.ap-calc .ap-calc-main { margin: 0 0 12px; }
+.ap-calc .ap-calc-rate { display: flex; align-items: baseline; gap: 6px; color: #12303b; line-height: 1.05; }
+.ap-calc .ap-calc-rate strong { font-size: 32px; font-weight: 800; letter-spacing: -.01em; }
+.ap-calc .ap-calc-rate .ap-calc-cur { color: #5b6b74; font-size: 13.5px; font-weight: 700; text-transform: uppercase; }
+.ap-calc .ap-calc-note { margin-top: 2px; color: #7b8a93; font-size: 12.5px; }
+
+.ap-calc .ap-calc-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 0 0 12px; }
+.ap-calc .ap-calc-ctl { min-width: 0; }
+.ap-calc .ap-calc-label { display: block; margin-bottom: 4px; color: #7b8a93; font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.ap-calc .ap-calc-stepper { display: flex; align-items: stretch; border: 1px solid #c9d3d9; border-radius: 4px; overflow: hidden; background: #fff; }
+.ap-calc .ap-calc-stepper output { flex: 1 1 auto; min-width: 0; padding: 0 2px; color: #12303b; font-size: 14px; font-weight: 800; line-height: 32px; text-align: center; white-space: nowrap; }
+.ap-calc .ap-calc-stepper button {
+    flex: 0 0 auto; width: 32px; height: 32px; padding: 0; border: 0; border-radius: 0;
+    background: #f1f5f7; color: #12303b; font-size: 18px; line-height: 1; cursor: pointer;
+    transition: background .15s ease, color .15s ease;
+}
+.ap-calc .ap-calc-stepper button:first-child { border-right: 1px solid #c9d3d9; }
+.ap-calc .ap-calc-stepper button:last-child { border-left: 1px solid #c9d3d9; }
+.ap-calc .ap-calc-stepper button:hover { background: #0e7490; color: #fff; }
+.ap-calc .ap-calc-stepper button:focus-visible { outline: 3px solid rgba(14, 116, 144, .35); outline-offset: -3px; }
+
+.ap-calc .ap-calc-first { margin: 0 0 10px; padding: 9px 10px 8px; border: 1px solid #dfe8ec; border-radius: 4px; background: #f7fafb; }
+.ap-calc .ap-calc-first-title { margin: 0 0 4px; color: #5b6b74; font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.ap-calc .ap-calc-first dl.ap-calc-list { margin: 0; padding: 0; border: 0; }
+.ap-calc .ap-calc-first .ap-calc-total { margin-top: 4px; padding-top: 5px; border-top: 1px solid #cfd9de; }
+.ap-calc .ap-calc-first .ap-calc-total dt, .ap-calc .ap-calc-first .ap-calc-total dd { color: #12303b; font-size: 14px; font-weight: 800; }
+.ap-calc .ap-calc-first-note { margin: 6px 0 0; color: #7b8a93; font-size: 11.5px; line-height: 1.4; }
+details.ap-calc-wrap .ap-calc .ap-calc-first { background: #fff; }
+.ap-calc dl.ap-calc-list { margin: 0 0 12px; padding: 8px 0 0; border-top: 1px solid #e3e8eb; }
+.ap-calc dl.ap-calc-list.ap-calc-list-rate { margin: 0 0 12px; padding: 0; border: 0; }
+.ap-calc dl.ap-calc-list > div { display: flex; justify-content: space-between; gap: 8px; padding: 2px 0; font-size: 12.5px; }
+.ap-calc dl.ap-calc-list dt { margin: 0; color: #5b6b74; font-weight: 400; }
+.ap-calc dl.ap-calc-list dd { margin: 0; color: #12303b; font-weight: 700; text-align: right; }
+
+.ap-calc a.ap-calc-cta {
+    display: block; margin: 0; padding: 10px 12px; border-radius: 4px;
+    background: #0e7490; color: #fff; font-size: 15px; font-weight: 700; text-align: center; text-decoration: none;
+}
+.ap-calc a.ap-calc-cta:hover { background: #155e75; color: #fff; }
+.ap-calc a.ap-calc-wa { display: block; margin: 8px 0 0; color: #0e7490; font-size: 12.5px; text-align: center; text-decoration: underline; }
+
+.ap-calc .ap-calc-disclaimer { margin: 10px 0 0; color: #8a97a0; font-size: 11.5px; line-height: 1.45; text-align: center; }
+.ap-calc details.ap-calc-more { margin: 4px 0 0; text-align: center; }
+.ap-calc details.ap-calc-more > summary { display: inline-block; list-style: none; color: #5b6b74; font-size: 11.5px; text-decoration: underline; cursor: pointer; }
+.ap-calc details.ap-calc-more > summary::-webkit-details-marker { display: none; }
+.ap-calc details.ap-calc-more p { margin: 6px 0 0; color: #8a97a0; font-size: 11.5px; line-height: 1.45; text-align: left; }
+
+@media (max-width: 420px) {
+    .ap-calc { padding: 14px 12px 10px; }
+    .ap-calc .ap-calc-rate strong { font-size: 30px; }
+}
+
+/* ---- Pe paginile cu stilul .ap (Calculator rată): păstrează aspectul propriu ---- */
+.inner-page .ap .ap-calc p { color: inherit; margin: 0; }
+.inner-page .ap .ap-calc .ap-calc-disclaimer { margin: 10px 0 0; color: #8a97a0; font-size: 11.5px; }
+.inner-page .ap .ap-calc details.ap-calc-more p { margin: 6px 0 0; color: #8a97a0; font-size: 11.5px; }
+.inner-page .ap .ap-calc a.ap-calc-cta { color: #fff; text-decoration: none; }
+.inner-page .ap .ap-calc a.ap-calc-wa { color: #0e7490; text-decoration: underline; }
+.inner-page .ap .ap-calc dl { margin: 0 0 12px; }
+.inner-page .ap .ap-calc .ap-calc-price label { margin: 0 0 4px; }
+.inner-page .ap .ap-calc { margin-left: 0; }
+
+/* Tema aplică float câmpurilor de text: aici rămân pe propriul rând */
+.ap-calc .ap-calc-price input { float: none !important; }
+.ap-calc .ap-calc-price::after { content: ""; display: table; clear: both; }
+
+/* În caseta de preț, bara se aliniază cu restul elementelor (garanție, butoane) */
+.car-price-cta-box .car-rate-calculator { margin: 16px 24px 0; }
+.car-price-cta-box .car-rate-calculator details.ap-calc-wrap { margin: 0; }
+@media (max-width: 767px) { .car-price-cta-box .car-rate-calculator { margin: 14px 20px 0; } }

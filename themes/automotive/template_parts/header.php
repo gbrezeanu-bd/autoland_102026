@@ -59,8 +59,8 @@
         $basename = basename($current_page);
 
         // Skip canonical URL generation for articles - it's handled in articol.php and articole.php
-        if ($basename == 'articol.php' || $basename == 'articole.php') {
-            // Canonical URL will be set by articol.php/articole.php via $header_scripts
+        if ($basename == 'articol.php' || $basename == 'articole.php' || $basename == 'pagina.php') {
+            // Canonical URL will be set by articol.php/articole.php/pagina.php via $header_scripts
             $canonical_url = ''; // Empty, will be set by the respective file
         }
         // Homepage
@@ -374,7 +374,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="container">
                 <div class="row">
                     <div class="pull-right padding-right-20">
-                        <h1><?php echo $page_title; ?></h1>
+                        <h1><?php echo !empty($banner_title) ? htmlspecialchars($banner_title) : $page_title; ?></h1>
                         <?php
                         if (!empty($page_subtitle)) {
                             echo "<h2 class='float-right'>$page_subtitle</h2>";

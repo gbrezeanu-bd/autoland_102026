@@ -1,6 +1,11 @@
 <?php
 // get config file;
 include_once './includes/config.php';
+include_once './includes/pagini_sectiuni.php';
+
+// Aspectul cu meniu lateral (secțiunea Despre Autoland)
+$sectiune = 'pagini';
+$slug = 'recenzii';
 
 // /////////////////////////////////////////////////////////////////////////////
 // try to get content
@@ -10,7 +15,8 @@ $result = $connection->query($query_text) or db_fail($connection);
 $result_number=$result->num_rows;
 //$row = mysqli_fetch_assoc($result);
 
-$page_title = "Recenzii Clienți Autoland România | Iași";
+$page_title = "Păreri clienți și recenzii | Autoland România";
+$banner_title = "Păreri ale clienților Autoland România";
 $page_subtitle = '';
 //$content = is_null($row) ? "<h3>Nu avem recezii</h3>" : '';
 
@@ -24,6 +30,7 @@ $breadcrumbs = [
     ['name' => 'Acasă', 'url' => BASE_PATH],
     ['name' => 'Păreri Clienți', 'url' => BASE_PATH . 'impresii.php']
 ];
+$header_scripts .= '<link rel="stylesheet" href="' . BASE_PATH . 'themes/automotive/css/pagini.css">' . "\n";
 $header_scripts .= '<script type="application/ld+json">' . json_encode(getOrganizationSchema(), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . '</script>';
 $header_scripts .= '<script type="application/ld+json">' . json_encode(getBreadcrumbSchema($breadcrumbs), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . '</script>';
 
@@ -32,46 +39,62 @@ include './themes/automotive/template_parts/header.php';
 $footer_scripts .= '';
 ?>
 
+<?php
+// Profilul Google Business al firmei (recenziile Google se citesc direct acolo)
+$google_profil = defined('JSONLD_GOOGLE_BUSINESS') ? JSONLD_GOOGLE_BUSINESS : 'https://maps.app.goo.gl/cuxVc4u2BkxwVWXt6';
+$ultimul_an = '';
+$recenzii_site = [];
+while ($row = mysqli_fetch_assoc($result)) {
+    $recenzii_site[] = $row;
+}
+if ($recenzii_site) {
+    $ultimul_an = date('Y', strtotime($recenzii_site[0]['data_recenzie']));
+}
+?>
+
 <section class="content">
     <div class="container">
-        <div class="inner-page row">
-            <!-- Sidebar START Here -->
-            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 padding-right-none sm-padding-left-none xs-padding-left-none padding-bottom-40 scroll_effect fadeInUp" data-wow-delay='.2s' style="z-index:100">
-                <?php
-                require_once './themes/automotive/template_parts/sidebar_left.php';
-                ?>
-            </div>
-            <!-- Sidebar END Here -->
+        <div class="inner-page">
+            <div class="ap-layout">
+                <?php include './themes/automotive/template_parts/pagina_sidebar.php'; ?>
+                <div class="ap-main">
+                    <div class="ap">
+                        <h2>Recenzii pe Google</h2>
+                        <p><strong>Recenziile din profilul Autoland România sunt publice pe Google.</strong> Le poți citi acolo, în ordinea dorită, și poți lăsa propria recenzie după ce cumperi o mașină.</p>
+                        <p><a href="<?php echo htmlspecialchars($google_profil); ?>" target="_blank" rel="noopener">Deschide profilul Autoland România pe Google</a></p>
 
+                        <h2>Păreri trimise pe site</h2>
+                        <?php if (!$recenzii_site): ?>
+                            <p>Momentan nu avem păreri publicate pe site.</p>
+                        <?php else: ?>
+                            <div class="ap-reviews ap-reviews-wide">
+                                <?php foreach ($recenzii_site as $r): ?>
+                                    <?php
+                                    $text = trim(preg_replace('/\s+/u', ' ', strip_tags($r['recenzie'])));
+                                    $autor = trim(trim($r['prenume']) . ' ' . mb_substr(trim($r['nume']), 0, 1, 'UTF-8') . '.');
+                                    ?>
+                                    <blockquote class="ap-review">
+                                        <p><?php echo htmlspecialchars($text); ?></p>
+                                        <span class="ap-review-by"><?php echo htmlspecialchars($autor); ?></span>
+                                    </blockquote>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
 
-            <div class="with-sidebar col-lg-9 col-md-9 col-sm-12 col-xs-12 welcome padding-left-none md-padding-left-25 padding-bottom-40 scroll_effect fadeInUp information_head welcome-wrap">
-                <div class="content-wrap car_listings">
-                    <?php
-                                    
-                                    
-                    if($result_number==0){
-                        ?><h3>Nu avem recenzii</h3><?php
-                    } else {
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            ?>
-                        <div class="testimonial margin-bottom-100 scroll_effect fadeInUp" data-wow-delay="0.5s">
-                            <blockquote class="style1">
-                                <span><?php echo $row['recenzie']; ?></span>
-                                <strong><?php echo $row['prenume'] . ' ' . substr($row['nume'], 0,1) . '.'; ?></strong>
-                            </blockquote>
-                            
-                        </div>
-                            <?php
-                        }
-                    }
-                    ?>
+                        <p class="ap-related"><span>Vezi și:</span>
+                            <a href="<?php echo BASE_PATH; ?>despre-noi/">Despre Autoland</a>
+                            <a href="<?php echo BASE_PATH; ?>garantie.php">Garanție</a>
+                            <a href="<?php echo BASE_PATH; ?>leasing.php">Leasing și rate</a>
+                            <a href="<?php echo BASE_PATH; ?>contact.php">Contact</a>
+                        </p>
+                    </div>
                 </div>
             </div>
-            <!--welcome ends-->
+            <div class="clearfix"></div>
         </div>
     </div>
-
 </section>
+
 
 <?php
 include './themes/automotive/template_parts/footer.php';

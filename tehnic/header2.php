@@ -56,6 +56,7 @@ function checkDelete(){
 	<li class="lnk"><a href="editor_rent.php">rent-a-car</a></li>
         <li class="lnk"><a href="editor_cond_rent.php">conditii inchiriere </a></li>
         <li class="lnk"><a href="editor_leasing.php" target="_self">leasing</a></li>
+        <li class="lnk"><a href="editor_pagini.php" target="_self">pagini (finantare, garantie)</a></li>
 		<li class="lnk"><a href="editor_asistenta_rutiera.php" target="_self">asistenta rutiera</a></li>
 		<li class="lnk"><a href="editor_garantie.php" target="_self">garantie</a></li>
 		<li class="lnk"><a href="editor_inmatriculari.php" target="_self">inmatriculari</a></li>
