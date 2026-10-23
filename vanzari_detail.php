@@ -697,7 +697,7 @@ if ($is_valid && !empty($structured_data['name']) && !empty($structured_data['br
     // Build breadcrumbs for car detail page
     $breadcrumbs = [
         ['name' => 'Acasă', 'url' => BASE_PATH],
-        ['name' => 'Stoc Auto', 'url' => BASE_PATH . 'vanzari.php'],
+        ['name' => 'Oferte Auto', 'url' => BASE_PATH . 'vanzari.php'],
         ['name' => $car_name, 'url' => $car_url]
     ];
     

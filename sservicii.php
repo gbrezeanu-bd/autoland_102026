@@ -29,42 +29,73 @@ $footer_scripts .= "<script type='text/javascript'>" . file_get_contents("./incl
 
 // send the funcking message now
 
-$message_body = "";
-$message_body .= "Subsemnatul " . $_POST['t1'] . "<br />";
-$message_body .= "din judetul " . $_POST['t3'] . "<br />";
-$message_body .= "In calitate de " . $_POST['t10'] . "<br />";
-$message_body .= "din judetul " . $_POST['t11'] . "<br />";
-$message_body .= "solicit ofertarea in vederea unei posibile achizitii ulterioare prin intermediul S.C. Autoland S.R.L. Iasi, a unui " . $_POST['t12'] . "<br />";
-$message_body .= "marca " . $_POST['t13'] . "<br />";
-$message_body .= "model " . $_POST['t14'] . "<br />";
-$message_body .= "specificatii tehnice: " . $_POST['t15'] . "<br />";
-$message_body .= "Tipul caroseriei: " . $_POST['t16'] . "<br />";
-$message_body .= "an fabricatie minim: " . $_POST['t17'] . "<br />";
-$message_body .= "an fabricatie maxim: " . $_POST['t18'] . "<br />";
-$message_body .= "Motor: " . $_POST['t19'] . "<br />";
-$message_body .= "capacitate (aproximativ): " . $_POST['t20'] . "<br />";
-$message_body .= "Cutie de viteze: " . $_POST['t21'] . "<br />";
-$message_body .= "Tractiune: " . $_POST['t22'] . "<br />";
-$message_body .= "Km parcursi - maxim: " . $_POST['t23'] . "<br />";
-$message_body .= "culoare: " . $_POST['t24'] . "<br />";
-$message_body .= "numar usi: " . $_POST['t25'] . "<br />";
-$message_body .= "alte dotari solicitate: " . $_POST['t26'] . "<br />";
-$message_body .= "Doresc achizitia in: " . $_POST['t27'] . "<br />";
-$message_body .= "iar pretul in tara: " . $_POST['t28'] . "<br />";
-$message_body .= "sa fie intre (euro): " . $_POST['t29'] . "<br />";
-$message_body .= "si (euro): " . $_POST['t30'] . "<br />";
-$message_body .= "Telefon: " . $_POST['tel'] . "<br />";
-$message_body .= "Email: " . $_POST['email'] . "<br />";
-$message_body .= "Mobil: " . $_POST['mobil'] . "<br />";
-$message_body .= "ClientIP: " . $_POST['client_ip'] . "<br />";
+// Emailul către firmă: câmpurile completate, grupate pe secțiuni, într-un tabel simplu (Arial), cu diacritice corecte (UTF-8)
+$sectiuni = array(
+    'Date personale' => array(
+        't1'  => 'Nume și prenume',
+        't3'  => 'Județul',
+        't10' => 'În calitate de',
+        't11' => 'Firma este plătitoare de TVA',
+    ),
+    'Mașina dorită' => array(
+        't12' => 'Tip de vehicul',
+        't13' => 'Marca',
+        't14' => 'Modelul',
+        't15' => 'Specificații dorite',
+        't16' => 'Tipul caroseriei',
+        't17' => 'An fabricație minim',
+        't18' => 'Preț până la (EUR)',
+        't19' => 'Combustibil',
+        't20' => 'Capacitate cilindrică',
+        't21' => 'Cutie de viteze',
+        't23' => 'Rulaj maxim (km)',
+        't26' => 'Alte dotări solicitate',
+    ),
+    'Buget și finanțare' => array(
+        't27' => 'Doresc achiziția în',
+        't28' => 'Prețul în țară',
+    ),
+    'Contact' => array(
+        'tel'       => 'Telefon',
+        'email'     => 'Email',
+        'client_ip' => 'IP client',
+    ),
+);
+$esc = function ($v) { return htmlspecialchars($v, ENT_QUOTES, 'UTF-8'); };
+$message_body = '<div style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; line-height: 1.5; color: #222222;">'
+    . '<h2 style="margin: 0 0 14px; font-size: 20px; color: #222222;">Solicitare de ofertă personalizată</h2>';
+$message_text = "Solicitare de ofertă personalizată\n";
+foreach ($sectiuni as $titlu => $campuri) {
+    $randuri = '';
+    $text = '';
+    foreach ($campuri as $nume => $eticheta) {
+        $valoare = isset($_POST[$nume]) && is_string($_POST[$nume]) ? trim($_POST[$nume]) : '';
+        if ($valoare === '' || $valoare === 'selecteaza') {
+            continue;
+        }
+        $randuri .= '<tr><td style="padding: 5px 18px 5px 0; color: #666666; vertical-align: top; white-space: nowrap;">' . $esc($eticheta) . '</td>'
+            . '<td style="padding: 5px 0; font-weight: bold; vertical-align: top;">' . nl2br($esc($valoare)) . '</td></tr>';
+        $text .= $eticheta . ': ' . $valoare . "\n";
+    }
+    if ($randuri === '') {
+        continue;
+    }
+    $message_body .= '<h3 style="margin: 18px 0 6px; padding-bottom: 4px; border-bottom: 1px solid #dddddd; font-size: 16px; color: #2b7a96;">' . $esc($titlu) . '</h3>'
+        . '<table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;">' . $randuri . '</table>';
+    $message_text .= "\n" . $titlu . "\n" . $text;
+}
+$message_body .= '</div>';
 
 $to = $email_address;
-$subject = "Solicitare oferta de la " . $_POST['t1'];
-
+$nume_client = isset($_POST['t1']) && is_string($_POST['t1']) ? trim($_POST['t1']) : '';
+$subject = "Solicitare ofertă de la " . $nume_client;
 $mail = new PHPMailer(TRUE);
 $error = FALSE;
 
 try {
+    // fără aceste două setări PHPMailer trimite în ISO-8859-1 și diacriticele apar stricate
+    $mail->CharSet = 'UTF-8';
+    $mail->Encoding = 'base64';
     $mail->SMTPDebug = 0;
     $mail->isSMTP();
     $mail->Host = $email_host;
@@ -74,7 +105,6 @@ try {
         $mail->Password = $email_password;
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
-        $body .= "Acest mesaj a folosit autentificare SMTP";
     }
 
     $mail->setFrom($email_address, $subject);
@@ -83,8 +113,8 @@ try {
 
     $mail->isHTML(true);
     $mail->Subject = $subject;
-    $mail->Body = $message_body . PHP_EOL . $body;
-
+    $mail->Body = $message_body;
+    $mail->AltBody = $message_text;
     $mail->send();
     $error = FALSE;
 } catch (Exception $e) {

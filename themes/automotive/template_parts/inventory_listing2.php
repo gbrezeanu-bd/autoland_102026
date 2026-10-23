@@ -11,7 +11,7 @@
                 <ul style="margin-left: 20px; margin-bottom: 20px;">
                     <li><strong>Completezi formularul</strong> cu detaliile mașinii pe care o cauți, fix așa cum ai vrea să fie.</li>
                     <li><strong>Vei fi contactat telefonic</strong> pentru a discuta mai multe detalii și a înțelege exact ce îți dorești;</li>
-                    <li><strong>Verificăm în stocuri mașinile disponibile, selectăm cele mai bune variante</strong> iar tu primești în scurt timp o ofertă personalizată completă.</li>
+                    <li><strong>Căutăm printre ofertele disponibile sau aducem mașina la comandă, selectăm cele mai bune variante</strong> iar tu primești în scurt timp o ofertă personalizată completă.</li>
                     <li><strong>Stabilim împreună cu tine</strong> cea mai bună variantă de finanțare (poți opta pentru dobandă de la 0%, avans de la zero%, un credit pentru venituri din străinătate, pentru firme noi, recent înființate sau un leasing super avantajos dacă ai firmă).</li>
 		    <li><strong>Te ajutăm să conduci mașina de care ai nevoie!</strong></li>
                 </ul>
@@ -20,7 +20,7 @@
                         <i class="fa fa-file-text"></i> Completează Formularul Aici
                     </a>
                 </div>
-                <p style="text-align: center; color: #666; font-style: italic;">💡 Sau modifică criteriile de căutare din formular pentru a vedea alte mașini disponibile în stoc.</p>
+                <p style="text-align: center; color: #666; font-style: italic;">💡 Sau modifică criteriile de căutare din formular pentru a vedea alte oferte disponibile.</p>
             </section>
             <?php
         }

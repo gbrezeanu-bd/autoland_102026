@@ -16,7 +16,7 @@
 // Informații Business
 define('JSONLD_COMPANY_NAME', 'Autoland România');
 define('JSONLD_COMPANY_NAME_ALT', 'Autoland Romania');
-define('JSONLD_COMPANY_DESCRIPTION', 'Autoland România - dealer auto autorizat în Iași din 2007, cu peste 18 ani experiență. Specializat în vânzare autoturisme, autoutilitare, autospecializate rulate, second hand și noi, import direct din Europa. Oferim garanție comercială în scris, de la 1 an până la 3 ani, verificare tehnică 100% în service autorizat, finanțare auto cu avans 0% (leasing și rate), servicii complete de înmatriculare, RAR și omologare. Stoc permanent actualizat, transparență totală și asistență post-vânzare pentru persoane fizice și juridice.');
+define('JSONLD_COMPANY_DESCRIPTION', 'Autoland România - dealer auto autorizat în Iași din 2007, cu peste 18 ani experiență. Specializat în vânzare autoturisme, autoutilitare, autospecializate rulate, second hand și noi, import direct din Europa. Oferim garanție comercială în scris, de la 1 an până la 3 ani, verificare tehnică 100% în service autorizat, finanțare auto cu avans 0% (leasing și rate), servicii complete de înmatriculare, RAR și omologare. Oferte permanent actualizate, transparență totală și asistență post-vânzare pentru persoane fizice și juridice.');
 
 // URL-uri
 define('JSONLD_BASE_URL', 'https://autolandromania.ro/');
@@ -184,8 +184,8 @@ function getOrganizationSchema() {
         "makesOffer" => [
             [
                 "@type" => "Offer",
-                "name" => "Garanție 12 luni",
-                "description" => "Toate autovehiculele sunt vândute cu garanție de 12 luni în scris"
+                "name" => "Garanție 1–3 ani",
+                "description" => "Toate autovehiculele sunt vândute cu garanție de 1–3 ani în scris"
             ],
             [
                 "@type" => "Offer",

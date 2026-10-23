@@ -13,7 +13,7 @@ function setHomePageMeta() {
     global $meta_description, $meta_keywords, $og_type;
     
     $meta_description = "Parc auto din Iași, din 2007: mașini verificate în service autorizat, garanție în scris, finanțare și livrare în toată România. Cere o ofertă.";
-    $meta_keywords = "dealer auto Iași, mașini second hand Iași, autoturisme second hand, autoutilitare, garanție auto 12 luni, leasing auto, finanțare auto, credit auto, înmatriculări auto, dealer autorizat, mașini verificate tehnic";
+    $meta_keywords = "dealer auto Iași, mașini second hand Iași, autoturisme second hand, autoutilitare, garanție auto 1-3 ani, leasing auto, finanțare auto, credit auto, înmatriculări auto, dealer autorizat, mașini verificate tehnic";
     $og_type = "website";
 }
 
@@ -35,11 +35,11 @@ function setListingsPageMeta($marca = null) {
     global $meta_description, $meta_keywords, $og_type;
     
     if ($marca) {
-        $meta_description = "Stoc complet {$marca} second hand la AutoLand România, Iași. Mașini {$marca} verificate tehnic cu garanție 12 luni. Prețuri avantajoase, finanțare disponibilă. Descoperă ofertele noastre de {$marca} second hand. Livrare în toată România, garanție valabilă în orice service RAR.";
+        $meta_description = "Oferte {$marca} second hand la AutoLand România, Iași. Mașini {$marca} verificate tehnic cu garanție 1–3 ani. Prețuri avantajoase, finanțare disponibilă. Descoperă ofertele noastre de {$marca} second hand. Livrare în toată România, garanție valabilă în orice service RAR.";
         $meta_keywords = "{$marca} second hand Iași, {$marca} second hand, mașini {$marca}, {$marca} cu garanție, {$marca} rate, dealer {$marca} Iași";
     } else {
-        $meta_description = "Stoc complet de mașini second hand și autoutilitare la AutoLand România, Iași. Toate mărcile disponibile cu garanție 12 luni. Autoturisme și autoutilitare verificate tehnic. Prețuri competitive, finanțare și rate disponibile. Livrare în toată România, garanție valabilă în orice service RAR.";
-        $meta_keywords = "stoc auto second hand, mașini second hand Iași, autoturisme second hand, autoutilitare second hand, toate mărcile, parc auto Iași";
+        $meta_description = "Oferte de mașini second hand și autoutilitare la AutoLand România, Iași. Toate mărcile disponibile cu garanție 1–3 ani. Autoturisme și autoutilitare verificate tehnic. Prețuri competitive, finanțare și rate disponibile. Livrare în toată România, garanție valabilă în orice service RAR.";
+        $meta_keywords = "oferte auto second hand, mașini second hand Iași, autoturisme second hand, autoutilitare second hand, toate mărcile, parc auto Iași";
     }
     $og_type = "website";
 }
@@ -51,7 +51,7 @@ function setCarDetailMeta($car_name, $year, $price, $image_url = null, $db_keywo
     global $meta_description, $meta_keywords, $og_type, $og_image;
     
     $km_text = $km ? ", " . number_format($km, 0, ',', '.') . " km," : "";
-    $meta_description = "{$car_name} din {$year}{$km_text} la {$price} EUR. Mașină second hand verificată tehnic cu garanție 12 luni în scris. Disponibil la AutoLand România, Iași. Finanțare și înmatriculări disponibile. Contactează-ne pentru mai multe detalii. Livrare în toată România, garanție valabilă în orice service RAR.";
+    $meta_description = "{$car_name} din {$year}{$km_text} la {$price} EUR. Mașină second hand verificată tehnic cu garanție 1–3 ani în scris. Disponibil la AutoLand România, Iași. Finanțare și înmatriculări disponibile. Contactează-ne pentru mai multe detalii. Livrare în toată România, garanție valabilă în orice service RAR.";
     
     // Use keywords from database if available, otherwise generate default ones
     if (!empty($db_keywords)) {
@@ -85,7 +85,7 @@ function setWarrantyPageMeta() {
     global $meta_description, $meta_keywords, $og_type;
     
     $meta_description = "Garanție auto de la 12 luni / 10.000 km până la 3 ani / 40.000 km, valabilă în orice service autorizat RAR din România. Vezi ce acoperă, cât costă și cum o folosești.";
-    $meta_keywords = "garanție auto 12 luni, garanție mașini second hand, garanție extinsă auto, garanție în scris, dealer cu garanție Iași, mașini cu garanție";
+    $meta_keywords = "garanție auto 1-3 ani, garanție mașini second hand, garanție extinsă auto, garanție în scris, dealer cu garanție Iași, mașini cu garanție";
     $og_type = "website";
 }
 
@@ -117,7 +117,7 @@ function setRoadsideAssistancePageMeta() {
 function setSpecialOffersPageMeta() {
     global $meta_description, $meta_keywords, $og_type;
     
-    $meta_description = "Oferte speciale la mașini second hand - AutoLand România, Iași. Prețuri reduse, promoții exclusive, reduceri la autoturisme și autoutilitare. Garanție 12 luni inclusă. Profită acum de ofertele noastre limitate! Livrare în toată România, garanție valabilă în orice service RAR.";
+    $meta_description = "Oferte speciale la mașini second hand - AutoLand România, Iași. Prețuri reduse, promoții exclusive, reduceri la autoturisme și autoutilitare. Garanție 1–3 ani inclusă. Profită acum de ofertele noastre limitate! Livrare în toată România, garanție valabilă în orice service RAR.";
     $meta_keywords = "oferte speciale auto, promoții mașini second hand, reduceri auto, mașini ieftine, oferte limitate auto Iași, prețuri reduse autoturisme";
     $og_type = "website";
 }

@@ -167,16 +167,16 @@ foreach ($vz_rows as $car) {
 $item_list_schema = [
     "@context" => "https://schema.org",
     "@type" => "ItemList",
-    "name" => "Stoc Auto Second Hand",
+    "name" => "Oferte Auto Second Hand",
     "description" => "Lista completă de autovehicule second hand disponibile la Autoland România",
     "numberOfItems" => count($item_list_elements),
     "itemListElement" => $item_list_elements
 ];
 
 // Add breadcrumbs
-$breadcrumb_name = 'Stoc Auto';
+$breadcrumb_name = 'Oferte Auto';
 if (isset($_GET['marca']) && !empty($_GET['marca'])) {
-    $breadcrumb_name = 'Stoc ' . urldecode($_GET['marca']);
+    $breadcrumb_name = 'Oferte ' . urldecode($_GET['marca']);
 }
 $breadcrumbs = [
     ['name' => 'Acasă', 'url' => BASE_PATH],

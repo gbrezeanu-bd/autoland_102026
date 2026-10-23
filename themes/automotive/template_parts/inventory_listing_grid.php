@@ -134,20 +134,20 @@ $vz_i = 0;
         ?>
         <?php if (!empty($vz_f['oferta']) && !$vz_chips): ?>
             <h3>🚗 Momentan nu avem oferte speciale active</h3>
-            <p>Ofertele se schimbă des, așa că revino curând. Până atunci, poți vedea toate mașinile din stoc sau ne poți spune ce cauți, iar îți pregătim noi o ofertă personalizată.</p>
-            <p><a class="vz-reset-btn" href="<?php echo BASE_PATH; ?>vanzari.php">Vezi toate mașinile din stoc</a></p>
+            <p>Ofertele se schimbă des, așa că revino curând. Până atunci, poți vedea toate ofertele auto sau ne poți spune ce cauți, iar îți pregătim noi o ofertă personalizată.</p>
+            <p><a class="vz-reset-btn" href="<?php echo BASE_PATH; ?>vanzari.php">Vezi toate ofertele auto</a></p>
         <?php elseif ($vz_brand !== '' && $vz_brand_total == 0): ?>
             <h3>🚗 Momentan nu avem anunțuri pentru <?php echo $vz_h($vz_brand); ?></h3>
-            <p>Stocul se schimbă des și nu avem acum nicio mașină <?php echo $vz_h($vz_brand); ?> disponibilă. Spune-ne ce îți dorești și o căutăm noi pentru tine, iar tu primești o ofertă personalizată.</p>
-            <p><a class="vz-reset-btn" href="<?php echo vz_url(array()); ?>">Vezi toate mașinile din stoc</a></p>
+            <p>Nu avem acum nicio ofertă <?php echo $vz_h($vz_brand); ?> publicată, dar putem aduce mașina la comandă. Spune-ne ce îți dorești și o căutăm noi pentru tine, iar tu primești o ofertă personalizată.</p>
+            <p><a class="vz-reset-btn" href="<?php echo vz_url(array()); ?>">Vezi toate ofertele auto</a></p>
         <?php elseif ($vz_brand !== ''): ?>
             <h3>🚗 Nu avem <?php echo $vz_h($vz_brand); ?> cu aceste criterii</h3>
-            <p>Avem <?php echo $vz_brand_total; ?> <?php echo $vz_brand_total == 1 ? 'anunț' : 'anunțuri'; ?> <?php echo $vz_h($vz_brand); ?> în stoc, dar niciunul nu se potrivește cu toate filtrele alese. Încearcă să relaxezi unul dintre ele.</p>
+            <p>Avem <?php echo $vz_brand_total; ?> <?php echo $vz_brand_total == 1 ? 'ofertă' : 'oferte'; ?> <?php echo $vz_h($vz_brand); ?>, dar nici una nu se potrivește cu toate filtrele alese. Încearcă să relaxezi unul dintre ele.</p>
             <p><a class="vz-reset-btn" href="<?php echo vz_url(array('marca' => $vz_brand)); ?>">Vezi toate mașinile <?php echo $vz_h($vz_brand); ?></a></p>
         <?php else: ?>
             <h3>🚗 Nu am găsit mașini pentru criteriile alese</h3>
             <?php if ($vz_chips): ?>
-                <p><a class="vz-reset-btn" href="<?php echo vz_url(array()); ?>">Vezi toate mașinile din stoc</a></p>
+                <p><a class="vz-reset-btn" href="<?php echo vz_url(array()); ?>">Vezi toate ofertele auto</a></p>
             <?php endif; ?>
         <?php endif; ?>
         <p><strong>Avem o veste bună:</strong> poți primi gratuit o ofertă personalizată, exact așa cum o vrei, special pentru tine!</p>
@@ -155,7 +155,7 @@ $vz_i = 0;
         <ul>
             <li><strong>Completezi formularul</strong> cu detaliile mașinii pe care o cauți.</li>
             <li><strong>Vei fi contactat telefonic</strong> pentru a discuta detaliile și a înțelege exact ce îți dorești.</li>
-            <li><strong>Verificăm în stocuri</strong> mașinile disponibile, selectăm cele mai bune variante, iar tu primești în scurt timp o ofertă personalizată completă.</li>
+            <li><strong>Căutăm printre ofertele disponibile</strong> sau aducem mașina la comandă, selectăm cele mai bune variante, iar tu primești în scurt timp o ofertă personalizată completă.</li>
             <li><strong>Stabilim împreună cu tine</strong> cea mai bună variantă de finanțare (dobândă de la 0%, avans de la zero, credit pentru venituri din străinătate, pentru firme noi sau un leasing avantajos dacă ai firmă).</li>
         </ul>
         <p class="vz-empty-cta"><a href="<?php echo BASE_PATH; ?>cerere_oferta.php" class="vz-btn"><i class="fa fa-file-text"></i> Completează formularul aici</a></p>

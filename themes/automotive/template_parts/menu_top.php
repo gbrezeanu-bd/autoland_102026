@@ -180,7 +180,7 @@ $isArticlePage = ($currentPage == '/articole.php' || $currentPage == '/articol.p
                         ?>
                         <li class="dropdown <?php echo $active_masini ? 'active' : ''; ?>"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Mașini second hand <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li class="<?php echo $is_stoc_toate ? 'active' : ''; ?>"><a href="<?php echo BASE_PATH; ?>vanzari.php">Tot stocul</a></li>
+                                <li class="<?php echo $is_stoc_toate ? 'active' : ''; ?>"><a href="<?php echo BASE_PATH; ?>vanzari.php">Toate ofertele</a></li>
                                 <li class="<?php echo $is_autoturisme ? 'active' : ''; ?>"><a href="<?php echo BASE_PATH; ?>vanzari.php?users=Autoturisme&subcateg=3&marcat=10">Autoturisme</a></li>
                                 <li class="<?php echo $is_autoutilitare ? 'active' : ''; ?>"><a href="<?php echo BASE_PATH; ?>vanzari.php?users=Autoutilitare&subcateg=12&marcat=100">Autoutilitare</a></li>
                                 <li class="<?php echo $is_autospecializate ? 'active' : ''; ?>"><a href="<?php echo BASE_PATH; ?>vanzari.php?users=Autospecializate&subcateg=33&marcat=102">Autospecializate</a></li>

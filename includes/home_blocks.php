@@ -4,8 +4,8 @@
  * Blocuri dinamice pentru textele din admin (homepage, Despre noi).
  * În text se scrie un marcaj, iar aici se înlocuiește cu conținut actual din baza de date:
  *   {NR_MASINI}         numărul de vehicule active, rotunjit în jos la zeci (ex. 480)
- *   {ULTIMELE_MASINI}   ultimele 8 vehicule intrate în stoc, cu link spre fiecare
- *   {CATEGORII}         plăcuțe cu poză și număr de vehicule pe categorii
+ *   {ULTIMELE_MASINI}   ultimele 8 oferte adăugate, cu link spre fiecare
+ *   {CATEGORII}         plăcuțe cu poză pe categorii (fără număr de vehicule)
  *   {HARTA}             harta Google cu adresa parcului
  *   {CALCULATOR}        calculatorul de rată (model orientativ), cu câmp pentru preț
  *   {DOBANDA} {TAXA_MANAGEMENT} {COMISION_LUNAR} {CHELTUIELI_SERVICII}   valorile din includes/calculator_rata_config.php
@@ -101,7 +101,7 @@ function home_recenzii($connection, $limit = 3)
 }
 
 /**
- * Categoriile de vehicule, ca plăcuțe cu poză reală (ultima mașină din categorie) și numărul de vehicule active
+ * Categoriile de vehicule, ca plăcuțe cu poză reală (ultima mașină din categorie)
  */
 function home_categorii($connection)
 {
@@ -110,7 +110,7 @@ function home_categorii($connection)
         'Autoutilitare'    => 'vanzari.php?users=Autoutilitare&subcateg=12&marcat=100',
         'Autospecializate' => 'vanzari.php?users=Autospecializate&subcateg=33&marcat=102',
     ];
-    $res = $connection->query("SELECT cat, COUNT(*) AS n, MAX(id) AS last_id FROM masini WHERE stare_anunt = 1 GROUP BY cat");
+    $res = $connection->query("SELECT cat, MAX(id) AS last_id FROM masini WHERE stare_anunt = 1 GROUP BY cat");
     $info = [];
     while ($res && ($r = $res->fetch_assoc())) {
         $info[$r['cat']] = $r;
@@ -136,11 +136,9 @@ function home_categorii($connection)
             continue;
         }
         $photo = isset($photos[$info[$name]['last_id']]) ? $photos[$info[$name]['last_id']] : 'image-not-found.png';
-        $n = (int)$info[$name]['n'];
         $html .= '<a class="ap-tile" href="' . BASE_PATH . htmlspecialchars($url) . '">'
             . '<img src="' . BASE_PATH . 'foto/' . htmlspecialchars($photo) . '" alt="' . htmlspecialchars($name) . ' second hand" loading="lazy" width="300" height="200">'
-            . '<span class="ap-tile-text"><span class="ap-tile-name">' . htmlspecialchars($name) . '</span>'
-            . '<span class="ap-tile-count">' . $n . ($n === 1 ? ' vehicul' : ' vehicule') . '</span></span></a>';
+            . '<span class="ap-tile-text"><span class="ap-tile-name">' . htmlspecialchars($name) . '</span></span></a>';
     }
     return $html . '</div>';
 }

@@ -59,7 +59,7 @@ $sb_field = function ($id, $caption, $first_label, $options_html, $current, $ful
                 $o = ''; foreach ($sb_marci as $m => $n) { $o .= $sb_option($m, $m, $n, $sb['marca']); }
                 echo $sb_field('marca', 'Marca', 'Toate mărcile', $o, $sb['marca'], true);
 
-                // la zero rezultate câmpul nu dispare: arătăm toate tipurile de caroserie din stoc
+                // la zero rezultate câmpul nu dispare: arătăm toate tipurile de caroserie din oferte
                 if (!$sb_caroserii) { $sb_caroserii = vz_facet(vz_blank_filters(), 'caroserie'); }
                 if ($sb_caroserii || $sb['caroserie'] !== '') {
                     if ($sb['caroserie'] !== '' && !isset($sb_caroserii[$sb['caroserie']])) { $sb_caroserii[$sb['caroserie']] = 0; }

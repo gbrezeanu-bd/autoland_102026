@@ -98,6 +98,8 @@ include './themes/automotive/template_parts/header.php';
 $footer_scripts .= "<script type='text/javascript' src='" . BASE_PATH . "themes/automotive/js/jquery.validate.min.js' defer></script>";
 $footer_scripts .= "<script type='text/javascript' src='" . BASE_PATH . "themes/automotive/js/additional-methods.min.js' defer></script>";
 $footer_scripts .= "<script type='text/javascript'>" . file_get_contents("./includes/validate_cerere_oferta.js") . "</script>";
+// întrebarea despre TVA are sens doar pentru PFA / II și societăți
+$footer_scripts .= "<script type='text/javascript'>(function(){var sel=document.getElementById('t10'),box=document.getElementById('cr-tva');if(!sel||!box){return;}function upd(){var show=(sel.value==='PFA / II'||sel.value==='Societate');box.hidden=!show;Array.prototype.forEach.call(box.querySelectorAll('input'),function(i){i.disabled=!show;});}sel.addEventListener('change',upd);upd();})();</script>";
 ?>
 
 <section class="content">
@@ -147,9 +149,12 @@ $footer_scripts .= "<script type='text/javascript'>" . file_get_contents("./incl
                                         <option value="Societate">Societate</option>
                                     </select>
                                 </div>
-                                <div class="cr-field c6">
-                                    <label class="cr-label" for="t11">Județul sediului</label>
-                                    <input type="text" name="t11" id="t11" placeholder="doar dacă ești firmă">
+                                <div class="cr-field c6" id="cr-tva" hidden>
+                                    <span class="cr-label" id="cr-tva-l">Firma este plătitoare de TVA?</span>
+                                    <div class="cr-seg" role="radiogroup" aria-labelledby="cr-tva-l">
+                                        <input type="radio" name="t11" id="t11_da" value="DA" disabled><label for="t11_da">DA</label>
+                                        <input type="radio" name="t11" id="t11_nu" value="NU" disabled><label for="t11_nu">NU</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -175,8 +180,9 @@ $footer_scripts .= "<script type='text/javascript'>" . file_get_contents("./incl
                                     <input type="text" name="t14" id="t14" placeholder="ex. Tiguan">
                                 </div>
                                 <div class="cr-field c12" style="grid-column: span 12;">
-                                    <label class="cr-label" for="t15">Specificații tehnice dorite</label>
-                                    <input type="text" name="t15" id="t15" placeholder="ex. 2.0 TDI, 150 CP, 4x4">
+                                    <label class="cr-label" for="t15">Specificații dorite</label>
+                                    <input type="text" name="t15" id="t15" placeholder="ex. 2.0 TDI, 150 CP, 4x4, culoare gri, 5 uși">
+                                    <span class="cr-hint">Motor, putere, tracțiune, culoare, număr de uși sau orice altceva contează pentru tine.</span>
                                 </div>
                                 <div class="cr-field c6">
                                     <label class="cr-label" for="t16">Tipul caroseriei</label>
@@ -187,8 +193,13 @@ $footer_scripts .= "<script type='text/javascript'>" . file_get_contents("./incl
                                     <input data-rule-range="1980,<?php echo date('Y'); ?>" type="text" inputmode="numeric" name="t17" id="t17" placeholder="ex. 2018">
                                 </div>
                                 <div class="cr-field c3 half">
-                                    <label class="cr-label" for="t18">An fabricație maxim</label>
-                                    <input data-rule-range="1980,<?php echo date('Y'); ?>" type="text" inputmode="numeric" name="t18" id="t18" placeholder="ex. 2023">
+                                    <label class="cr-label" for="t18">Preț până la</label>
+                                    <select name="t18" id="t18">
+                                        <option value="" disabled selected="selected">Alege</option>
+                                        <?php foreach (range(5000, 30000, 5000) as $vz_pret): ?>
+                                        <option value="<?php echo $vz_pret; ?>"><?php echo number_format($vz_pret, 0, ',', '.'); ?> €</option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>
                                 <div class="cr-field c3 half">
                                     <label class="cr-label" for="t19">Combustibil</label>
@@ -214,25 +225,13 @@ $footer_scripts .= "<script type='text/javascript'>" . file_get_contents("./incl
                                     </select>
                                 </div>
                                 <div class="cr-field c3 half">
-                                    <label class="cr-label" for="t22">Tracțiune</label>
-                                    <select data-msg="Te rugăm selectează" name="t22" class="form_cerere" id="t22">
+                                    <label class="cr-label" for="t23">Rulaj maxim</label>
+                                    <select name="t23" id="t23">
                                         <option value="" disabled selected="selected">Alege</option>
-                                        <option value="fata">Față</option>
-                                        <option value="spate">Spate</option>
-                                        <option value="integrala">Integrală</option>
+                                        <?php foreach (range(50000, 300000, 50000) as $vz_km): ?>
+                                        <option value="<?php echo $vz_km; ?>"><?php echo number_format($vz_km, 0, ',', '.'); ?> km</option>
+                                        <?php endforeach; ?>
                                     </select>
-                                </div>
-                                <div class="cr-field c4 half">
-                                    <label class="cr-label" for="t23">Kilometri maximi</label>
-                                    <input type="text" inputmode="numeric" name="t23" id="t23" placeholder="ex. 150000">
-                                </div>
-                                <div class="cr-field c4 half">
-                                    <label class="cr-label" for="t24">Culoare</label>
-                                    <input type="text" name="t24" id="t24" placeholder="ex. gri, negru">
-                                </div>
-                                <div class="cr-field c4 half">
-                                    <label class="cr-label" for="t25">Număr de uși</label>
-                                    <input type="text" inputmode="numeric" name="t25" id="t25" placeholder="ex. 5">
                                 </div>
                                 <div class="cr-field" style="grid-column: span 12;">
                                     <label class="cr-label" for="t26">Alte dotări solicitate</label>
@@ -243,6 +242,7 @@ $footer_scripts .= "<script type='text/javascript'>" . file_get_contents("./incl
 
                         <div class="cr-section">
                             <h3><span class="cr-num">3</span> Buget și finanțare</h3>
+                            <input type="hidden" name="client_ip" value="<?php echo getClientIP(); ?>">
                             <div class="cr-grid">
                                 <div class="cr-field c6">
                                     <label class="cr-label" for="t27">Doresc achiziția în</label>
@@ -260,15 +260,6 @@ $footer_scripts .= "<script type='text/javascript'>" . file_get_contents("./incl
                                         <option value="inclusiv TVA">Inclusiv TVA</option>
                                         <option value="fara TVA">Fără TVA</option>
                                     </select>
-                                </div>
-                                <div class="cr-field c6 half">
-                                    <label class="cr-label" for="t29">Buget minim (euro)</label>
-                                    <input type="text" inputmode="numeric" name="t29" id="t29" placeholder="ex. 8000">
-                                </div>
-                                <div class="cr-field c6 half">
-                                    <label class="cr-label" for="t30">Buget maxim (euro)</label>
-                                    <input type="text" inputmode="numeric" name="t30" id="t30" placeholder="ex. 15000">
-                                    <input type="hidden" name="client_ip" value="<?php echo getClientIP(); ?>">
                                 </div>
                             </div>
                         </div>
