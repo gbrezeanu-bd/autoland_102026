@@ -23,7 +23,7 @@ $query_text = "SELECT id, garantie FROM texte WHERE id = 1";
 $result = $connection->query($query_text) or db_fail($connection);
 $row = $result->fetch_assoc();
 
-$page_title = "Garanție auto 12–36 luni, în orice service RAR | Autoland";
+$page_title = "Garanție auto 1–3 ani, în orice service RAR | Autoland";
 $banner_title = "Garanția Autoland România: ce acoperă, cât ține și cât costă";
 $page_subtitle = "";
 $content = is_null($row) ? "Content is missing" : pagini_linkuri_interne($row['garantie']);

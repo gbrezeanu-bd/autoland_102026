@@ -1,0 +1,147 @@
+/*
+ * Pagina de stoc (vanzari.php): carduri în grilă, bară de sortare, filtre active, paginare.
+ * Marcajul e în themes/automotive/template_parts/inventory_listing_grid.php.
+ */
+
+.vz-list { --vz-red: #c7081b; --vz-accent: #2b7a96; --vz-accent-dark: #22627a; --vz-accent-soft: #eaf3f7; --vz-ink: #1f2a33; --vz-muted: #6b7782; --vz-line: #e3e8ec; --vz-soft: #f2f5f7; --vz-teal: #0e7490; color: var(--vz-ink); }
+
+/* ---- Categorii ---- */
+.vz-list .vz-cats { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 14px; }
+.vz-list .vz-cat {
+    display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border: 1px solid var(--vz-line); border-radius: 999px;
+    background: #fff; color: var(--vz-ink); font-size: 14px; font-weight: 600; line-height: 1.2; text-decoration: none;
+}
+.vz-list .vz-cat span { color: var(--vz-muted); font-weight: 400; font-size: 12.5px; }
+.vz-list .vz-cat:hover { border-color: var(--vz-ink); color: var(--vz-ink); }
+.vz-list .vz-cat.is-active { background: var(--vz-ink); border-color: var(--vz-ink); color: #fff; }
+.vz-list .vz-cat.is-active span { color: rgba(255, 255, 255, .75); }
+
+/* ---- Bara cu număr de rezultate și sortare ---- */
+.vz-list .vz-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin: 0 0 12px; padding: 10px 14px; background: var(--vz-soft); border-radius: 8px; }
+.vz-list .vz-count { font-size: 15px; }
+.vz-list .vz-count strong { font-size: 17px; }
+.vz-list .vz-count-range { color: var(--vz-muted); font-size: 13px; }
+.vz-list .vz-sort { display: flex; align-items: center; gap: 8px; margin: 0 0 0 auto; }
+.vz-list .vz-sort-label { margin: 0; font-size: 13.5px; font-weight: 600; color: var(--vz-muted); white-space: nowrap; }
+.vz-list .vz-sort select { width: auto; min-width: 0; height: 36px; padding: 0 28px 0 10px; border: 1px solid #cfd6dc; border-radius: 6px; background-color: #fff; font-size: 14px; color: var(--vz-ink); }
+
+.vz-list .vz-perpage.vz-sort-label { margin-left: 10px; }
+.vz-list select.vz-perpage { width: 72px; padding-right: 22px; }
+.vz-list #vz-sort-select { min-width: 170px; }
+
+.vz-list .vz-trust { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0 0 14px; padding: 0; list-style: none; color: #3d4a55; font-size: 13px; }
+.vz-list .vz-trust i { margin-right: 4px; color: #1b8a5a; }
+
+/* ---- Filtre active ---- */
+.vz-list .vz-active { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0 0 14px; }
+.vz-list .vz-chip { display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px; background: var(--vz-accent-soft); border: 1px solid #bcd8e3; color: var(--vz-accent-dark); font-size: 13px; font-weight: 600; text-decoration: none; }
+.vz-list .vz-chip span { font-size: 16px; line-height: 1; }
+.vz-list .vz-chip:hover { background: var(--vz-accent); border-color: var(--vz-accent); color: #fff; }
+.vz-list .vz-reset { font-size: 13px; color: var(--vz-muted); text-decoration: underline; }
+
+/* ---- Grila de carduri ---- */
+.vz-list .vz-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+.vz-list .vz-card {
+    position: relative; display: flex; flex-direction: column; overflow: hidden; background: #fff;
+    border: 1px solid var(--vz-line); border-radius: 8px; transition: box-shadow .15s ease, transform .15s ease, border-color .15s ease;
+}
+.vz-list .vz-card:hover { border-color: #cfd6dc; box-shadow: 0 8px 22px rgba(18, 48, 59, .13); transform: translateY(-2px); }
+.vz-list .vz-media { position: relative; display: block; aspect-ratio: 3 / 2; background: var(--vz-soft); }
+.vz-list .vz-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.vz-list .vz-badges { position: absolute; top: 8px; left: 8px; display: flex; flex-wrap: wrap; gap: 5px; }
+.vz-list .vz-badge { padding: 3px 8px; border-radius: 4px; background: var(--vz-ink); color: #fff; font-size: 11.5px; font-weight: 700; line-height: 1.3; box-shadow: 0 1px 3px rgba(0, 0, 0, .25); }
+.vz-list .vz-badge-offer { background: var(--vz-red); }
+
+.vz-list .vz-body { display: flex; flex: 1; flex-direction: column; padding: 12px 14px 14px; }
+.vz-list .vz-name { margin: 0 0 8px; min-height: 2.6em; font-size: 16px; font-weight: 700; line-height: 1.3; letter-spacing: 0; text-transform: none; }
+.vz-list .vz-name a {
+    display: -webkit-box; overflow: hidden; -webkit-line-clamp: 2; -webkit-box-orient: vertical; color: var(--vz-ink); text-decoration: none;
+}
+.vz-list .vz-name a::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
+.vz-list .vz-card:hover .vz-name a { color: var(--vz-accent); }
+
+.vz-list .vz-specs { display: flex; flex-wrap: wrap; gap: 5px; margin: 0 0 12px; padding: 0; list-style: none; }
+.vz-list .vz-specs li.is-key { background: #e6f2f6; color: var(--vz-teal); font-weight: 700; }
+.vz-list .vz-engine { margin: 0 0 10px; color: var(--vz-muted); font-size: 12.5px; line-height: 1.4; }
+.vz-list .vz-meta { margin-top: 8px; color: #55626d; font-size: 12px; }
+.vz-list .vz-specs li { padding: 2px 8px; border-radius: 4px; background: var(--vz-soft); color: #3d4a55; font-size: 12.5px; line-height: 1.5; }
+
+.vz-list .vz-buy { display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; margin-top: auto; padding-top: 10px; border-top: 1px solid var(--vz-line); }
+.vz-list .vz-price { display: flex; flex-direction: column; }
+.vz-list .vz-price-old { color: var(--vz-muted); font-size: 13px; text-decoration: line-through; }
+.vz-list .vz-price-now { font-size: 21px; font-weight: 800; line-height: 1.15; }
+.vz-list .vz-price-now.is-offer { color: var(--vz-red); }
+.vz-list .vz-rate { margin-top: 2px; color: var(--vz-teal); font-size: 12px; font-weight: 600; }
+.vz-list .vz-more { flex: 0 0 auto; color: var(--vz-accent); font-size: 13px; font-weight: 700; white-space: nowrap; }
+.vz-list .vz-more i { margin-left: 2px; }
+
+/* ---- Vederea pe categorii (fără filtre): un rând de mașini + buton spre categorie ---- */
+.vz-list .vz-section { margin: 0 0 8px; }
+.vz-list .vz-section-title { margin: 22px 0 12px; padding-left: 10px; border-left: 4px solid var(--vz-accent); font-size: 21px; font-weight: 800; line-height: 1.2; letter-spacing: 0; text-transform: none; }
+.vz-list .vz-section:first-child .vz-section-title { margin-top: 6px; }
+/* 3 mașini pe un rând; unde grila are 2 coloane (tabletă, ecrane medii) se arată 4, ca rândurile să fie pline */
+.vz-list .vz-grid-preview .vz-card:nth-child(n+4) { display: none; }
+@media (min-width: 576px) and (max-width: 1199px) { .vz-list .vz-grid-preview .vz-card:nth-child(4) { display: flex; } }
+.vz-list .vz-section-more { margin: 16px 0 0; text-align: center; }
+.vz-list .vz-btn-outline {
+    display: inline-block; padding: 10px 24px; border: 2px solid var(--vz-red); border-radius: 6px; background: #fff;
+    color: var(--vz-red); font-size: 14.5px; font-weight: 700; text-decoration: none; transition: background .15s ease, color .15s ease;
+}
+.vz-list .vz-btn-outline:hover { background: var(--vz-red); color: #fff; }
+.vz-list .vz-btn-outline i { margin-left: 4px; }
+
+/* ---- Paginare ---- */
+.vz-list .vz-pager { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px; margin: 26px 0 8px; }
+.vz-list .vz-page-link {
+    display: inline-flex; align-items: center; justify-content: center; min-width: 40px; height: 40px; padding: 0 12px;
+    border: 1px solid var(--vz-line); border-radius: 6px; background: #fff; color: var(--vz-ink); font-size: 14px; font-weight: 600; text-decoration: none;
+}
+.vz-list a.vz-page-link:hover { border-color: var(--vz-ink); }
+.vz-list .vz-page-link.is-current { background: var(--vz-accent); border-color: var(--vz-accent); color: #fff; }
+.vz-list .vz-page-gap { padding: 0 4px; color: var(--vz-muted); }
+
+/* ---- Fără rezultate ---- */
+.vz-list .vz-empty { padding: 22px; border: 1px solid var(--vz-line); border-radius: 8px; background: #fff; }
+.vz-list .vz-empty h3 { margin-top: 0; font-size: 22px; font-weight: 800; line-height: 1.3; }
+.vz-list .vz-empty ul { margin: 0 0 16px 20px; }
+.vz-list .vz-reset-btn, .vz-list .vz-btn { display: inline-block; padding: 11px 22px; border-radius: 6px; background: var(--vz-accent); color: #fff; font-weight: 700; text-decoration: none; }
+.vz-list .vz-empty-cta { margin: 24px 0 0; text-align: center; }
+
+/* ---- Formularul de căutare ---- */
+
+/* ---- Telefon și tabletă: lista urcă deasupra reclamelor din sidebar ---- */
+@media (max-width: 991px) {
+    .vz-page { display: flex; flex-direction: column; }
+    .vz-page::before, .vz-page::after { display: none; }
+    .vz-page > .col-lg-3 { display: contents; }
+    /* :not(#vz-x) ridică specificitatea peste regulile temei pentru .active, ca marginile laterale să rămână */
+    .vz-page > .col-lg-3 > *:not(#vz-x) { order: 5; width: calc(100% - 30px) !important; margin-left: 15px !important; margin-right: 15px !important; box-sizing: border-box; }
+    .vz-page > .col-lg-3 > .mobile-search-toggle:not(#vz-x) { order: 1; }
+    .vz-page > .col-lg-3 > .search-inventory:not(#vz-x) { order: 2; }
+    .vz-page > .with-sidebar { order: 3; flex: 0 0 100%; max-width: 100%; }
+    .vz-page > .col-lg-3 > .tbi-toggle-button:not(#vz-x) { order: 4; margin-top: 20px !important; }
+}
+
+/* Telefon: card orizontal, ca să se vadă mai multe mașini pe ecran */
+@media (max-width: 575px) {
+    .vz-list .vz-toolbar { padding: 8px 10px; }
+    .vz-list .vz-count-range { display: none; }
+    .vz-list .vz-perpage { display: none; }
+    .vz-list .vz-trust { display: none; }
+    .vz-list .vz-meta { display: none; }
+    .vz-list .vz-grid { grid-template-columns: 1fr; gap: 10px; }
+    .vz-list .vz-card { flex-direction: row; }
+    .vz-list .vz-media { flex: 0 0 42%; align-self: stretch; aspect-ratio: auto; min-height: 128px; }
+    .vz-list .vz-media img { position: absolute; top: 0; left: 0; }
+    .vz-list .vz-badges { top: 6px; left: 6px; }
+    .vz-list .vz-badge { padding: 2px 6px; font-size: 10.5px; }
+    .vz-list .vz-body { padding: 10px 12px; }
+    .vz-list .vz-name { min-height: 0; margin-bottom: 6px; font-size: 15px; }
+    .vz-list .vz-specs { margin-bottom: 8px; gap: 4px; }
+    .vz-list .vz-specs li { padding: 1px 6px; font-size: 12px; }
+    .vz-list .vz-buy { padding-top: 6px; }
+    .vz-list .vz-price-now { font-size: 18px; }
+    .vz-list .vz-more { display: none; }
+    .vz-list .vz-page-link { min-width: 36px; height: 38px; padding: 0 8px; }
+    .vz-list .vz-page-prev span, .vz-list .vz-page-next span { display: none; }
+}

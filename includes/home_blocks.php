@@ -18,7 +18,7 @@
 
 function home_nr_masini($connection)
 {
-    $res = $connection->query("SELECT COUNT(*) FROM masini WHERE stare_anunt = 1");
+    $res = $connection->query("SELECT COUNT(*) FROM masini WHERE stare_anunt = 1 AND COALESCE(cat,'') NOT LIKE 'Utilaje%'");
     $row = $res ? $res->fetch_row() : null;
     $n = $row ? (int)$row[0] : 0;
     return $n >= 10 ? (string)(floor($n / 10) * 10) : (string)$n;
@@ -30,7 +30,7 @@ function home_ultimele_masini($connection, $limit = 8)
     $res = $connection->query(
         "SELECT m.id, m.marca, m.tip, m.an, m.pret, m.cat, m.combustibil, c.kilometraj
          FROM masini m LEFT JOIN for_csv c ON c.id = m.id
-         WHERE m.stare_anunt = 1 ORDER BY m.id DESC LIMIT " . $limit
+         WHERE m.stare_anunt = 1 AND COALESCE(m.cat,'') NOT LIKE 'Utilaje%' ORDER BY m.id DESC LIMIT " . $limit
     );
     if (!$res) {
         return '';
@@ -109,7 +109,6 @@ function home_categorii($connection)
         'Autoturisme'      => 'vanzari.php?users=Autoturisme&subcateg=3&marcat=10',
         'Autoutilitare'    => 'vanzari.php?users=Autoutilitare&subcateg=12&marcat=100',
         'Autospecializate' => 'vanzari.php?users=Autospecializate&subcateg=33&marcat=102',
-        'Utilaje'          => 'vanzari.php?users=Utilaje',
     ];
     $res = $connection->query("SELECT cat, COUNT(*) AS n, MAX(id) AS last_id FROM masini WHERE stare_anunt = 1 GROUP BY cat");
     $info = [];

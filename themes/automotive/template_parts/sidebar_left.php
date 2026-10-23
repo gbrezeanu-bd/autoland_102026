@@ -1,138 +1,99 @@
 <?php
-// Setează valori default pentru filtru
-$_GET['combustibil'] = "";
-$_GET['an'] = "";
-$_GET['pret'] = "";
-$_GET['prov_enienta'] = "";
-?>
-<?php
-// Get all unique makes directly from the masini table
-$query_makes = "SELECT DISTINCT(marca) FROM masini ORDER BY marca ASC";
-$makes_result = $connection->query($query_makes) or db_fail($connection);
-?>
-<!-- Removed old JavaScript code -->
+require_once __DIR__ . '/../../../includes/vanzari_catalog.php';
+// Pe vanzari.php formularul își păstrează valorile alese; pe celelalte pagini pornește gol
+$sb = isset($vz_f) ? $vz_f : vz_blank_filters();
+$sb_h = function ($v) { return htmlspecialchars((string)$v, ENT_QUOTES, 'UTF-8'); };
+// toate mărcile cu anunțuri active, nu doar cele rămase după celelalte filtre
+$sb_marci = vz_facet(vz_blank_filters(), 'marca', true);
+$sb_caroserii = vz_facet($sb, 'caroserie');
+$sb_combustibili = vz_facet($sb, 'combustibil');
+$sb_cutii = vz_facet($sb, 'cutie');
+$sb_prov = vz_facet($sb, 'prov_enienta');
+$sb_fuel_labels = array('benzina' => 'Benzină', 'motorina' => 'Motorină', 'hybrid' => 'Hybrid', 'electric' => 'Electric');
+$sb_active = count(vz_active_chips($sb)) - ($sb['users'] !== '' ? 1 : 0);
 
+// <option>; opțiunea aleasă rămâne mereu în listă
+$sb_option = function ($value, $label, $count, $current) use ($sb_h) {
+    $selected = ((string)$value === (string)$current) ? ' selected="selected"' : '';
+    return '<option value="' . $sb_h($value) . '"' . $selected . '>' . $sb_h($label) . '</option>';
+};
+// un câmp: etichetă mică deasupra și selectul; "is-set" îl evidențiază când are o valoare aleasă
+$sb_field = function ($id, $caption, $first_label, $options_html, $current, $full) use ($sb_h) {
+    $set = ($current !== '' && $current !== 0 && $current !== null);
+    return '<div class="vz-field' . ($full ? ' vz-full' : '') . '">'
+        . '<span class="vz-flabel" id="' . $id . '-l">' . $sb_h($caption) . '</span>'
+        . '<select name="' . $id . '" id="' . $id . '" class="vz-select' . ($set ? ' is-set' : '') . '" aria-labelledby="' . $id . '-l">'
+        . '<option value="">' . $sb_h($first_label) . '</option>' . $options_html . '</select></div>';
+};
+?>
+<link rel="stylesheet" href="<?php echo BASE_PATH; ?>themes/automotive/css/sidebar-cauta.css?v=<?php echo @filemtime(__DIR__ . '/../css/sidebar-cauta.css'); ?>">
 <!-- Mobile Search Toggle Button (visible only on mobile) -->
-<button class="mobile-search-toggle" onclick="toggleMobileSearch()" aria-label="Toggle search form">
-    <span class="icon">🔍</span>
-    <span class="text">Caută mașina</span>
-    <span class="arrow">▼</span>
+<button class="mobile-search-toggle vz-toggle" type="button" onclick="toggleMobileSearch()" aria-label="Deschide căutarea">
+    <span class="icon"><i class="fa fa-search" aria-hidden="true"></i></span>
+    <span class="text">Caută mașina<small><?php echo $sb_active > 0 ? $sb_active . ($sb_active == 1 ? ' filtru activ' : ' filtre active') : 'Marcă, preț, an, caroserie…'; ?></small></span>
+    <span class="arrow"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
 </button>
 
 <!-- InventoryBox START Here -->
-<div class="search-inventory">
-    <h4 class="margin-bottom-25 margin-top-none"><strong>CAUTĂ</strong> MAŞINI</h4>
-    <div class="search-form margin-top-20 padding-vertical-20">
-        <form action="vanzari.php" method="get" name="form2" target="_self" id="form2">
-            <div class="select-wrapper clearfix">
-                <div class="col-md-12 about_team margin-bottom-10">
-                    <div class="my-dropdowns">
-                    <input name="txtsrc" type="text" class="vanzari_box" id="txtsrc" placeholder="Caută după marcă sau model" value="">
-                    </div>
-                </div>
+<div class="search-inventory vz-side">
+    <div class="search-form">
+        <form action="vanzari.php" method="get" name="form2" target="_self" id="form2" onsubmit="return vzCleanForm(this)">
+            <?php if ($sb['sort'] !== VZ_DEFAULT_SORT): ?><input type="hidden" name="sort" value="<?php echo $sb_h($sb['sort']); ?>"><?php endif; ?>
+            <?php if ($sb['pp'] !== VZ_PER_PAGE): ?><input type="hidden" name="pp" value="<?php echo (int)$sb['pp']; ?>"><?php endif; ?>
+
+            <div class="vz-side-head">
+                <span class="vz-side-title"><i class="fa fa-sliders" aria-hidden="true"></i> Caută mașina</span>
+                <?php if ($sb_active > 0 || $sb['users'] !== ''): ?>
+                <a class="vz-side-reset" href="<?php echo BASE_PATH; ?>vanzari.php">Resetează</a>
+                <?php endif; ?>
             </div>
 
-            <!-- Category selector -->
-            <!-- <div class="select-wrapper clearfix">
-                <div class="col-md-12">
-                    <div>Categorie: </div>
-                    <select name="users" class="vanzari_box" id="users">
-                        <option value="" <?php if (!isset($_GET['users']) || empty($_GET['users'])) {echo 'selected="selected"';} ?>>Toate categoriile</option>
-                        <option value="Autoturisme" <?php if (isset($_GET['users']) && $_GET['users'] == 'Autoturisme') {echo 'selected="selected"';} ?>>Autoturisme</option>
-                        <option value="Autoutilitare" <?php if (isset($_GET['users']) && $_GET['users'] == 'Autoutilitare') {echo 'selected="selected"';} ?>>Autoutilitare</option>
-                        <option value="Autospecializate" <?php if (isset($_GET['users']) && $_GET['users'] == 'Autospecializate') {echo 'selected="selected"';} ?>>Autospecializate</option>
-                        <option value="Utilaje" <?php if (isset($_GET['users']) && $_GET['users'] == 'Utilaje') {echo 'selected="selected"';} ?>>Utilaje</option>
-                    </select>
-                </div>
-            </div> -->
-            
-            <div class="select-wrapper clearfix">
-                <div class="col-md-12">
-                    <div>Marca: </div>
-                    <select name="marca" class="vanzari_box" id="marca">
-                        <option value="" <?php if (!isset($_GET['marca']) || empty($_GET['marca'])) {echo 'selected="selected"';} ?>>Toate mărcile</option>
-                        <?php
-                        while ($row_marca = mysqli_fetch_assoc($makes_result)) {
-                            // Using the actual marca string value instead of ID
-                            echo '<option value="' . $row_marca['marca'] . '"';
-                            if (isset($_GET['marca']) && $row_marca['marca'] == $_GET['marca']) {
-                                echo ' selected="selected"';
-                            }
-                            echo '>' . $row_marca['marca'] . '</option>';
-                        }
-                        ?>
-                    </select>
-                </div>
+            <div class="vz-search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input name="txtsrc" type="text" id="txtsrc" placeholder="Marcă sau model" aria-label="Caută după marcă sau model" value="<?php echo $sb_h($sb['txtsrc']); ?>" autocomplete="off">
             </div>
 
-            <div class="select-wrapper clearfix">
-                <div class="col-md-12">
-                    <div>Combustibil:</div>
-                    <select name="combustibil" class="vanzari_box" id="combustibil">
-                                                  <option value="fara" <?php if (!isset($_GET['combustibil']) || empty($_GET['combustibil']) || $_GET['combustibil'] == 'fara') {echo "selected=\"selected\"";} ?>>selectati</option> 
-                                                  <option value="benzina" <?php if (isset($_GET['combustibil']) && $_GET['combustibil'] == 'benzina') {echo "selected=\"selected\"";} ?>>benzina</option>
-                                                  <option value="motorina" <?php if (isset($_GET['combustibil']) && $_GET['combustibil'] == 'motorina') {echo "selected=\"selected\"";} ?>>motorina</option>
-                                                  <option value="electric" <?php if (isset($_GET['combustibil']) && $_GET['combustibil'] == 'electric') {echo "selected=\"selected\"";} ?>>electric</option>
-                                                </select>
-                </div>
-            </div>
-            
-            <div class="select-wrapper clearfix">
-                <div class="col-md-12">
-                    <div>An fabricatie :</div>
-                    <select name="an" class="vanzari_box" id="an">
-                        <option value="" <?php if (!isset($_GET['an']) || empty($_GET['an'])) {echo 'selected="selected"';} ?>>selectati</option>      
-<?php 
+            <div class="vz-fields">
+                <?php
+                if ($sb['marca'] !== '' && !isset($sb_marci[$sb['marca']])) { $sb_marci[$sb['marca']] = 0; }
+                $o = ''; foreach ($sb_marci as $m => $n) { $o .= $sb_option($m, $m, $n, $sb['marca']); }
+                echo $sb_field('marca', 'Marca', 'Toate mărcile', $o, $sb['marca'], true);
 
-for ($i = 15; $i >= 0; $i--)  
-  {
-    $data_pv = date("Y")-$i;
-     echo '<option value="'.$data_pv.'"'; 
-     if (!(strcmp($data_pv, $_GET['an']))) {echo 'selected="selected"';} 
-     echo ">".$data_pv." sau mai nou</option>";
-    }                                                
-?>                                                      
-                                                      
-                                                    </select>
-                </div>
-            </div>
-            
-            <div class="select-wrapper clearfix">
-                <div class="col-md-12">
-                    <div>Pret:</div>
-                    <select name="pret" class="vanzari_box" id="pret">
-                                                  <option value="14000000" <?php if (!isset($_GET['pret']) || empty($_GET['pret']) || $_GET['pret'] == '14000000') {echo "selected=\"selected\"";} ?>>selectati</option>
-                                                  <option value="5000" <?php if (isset($_GET['pret']) && $_GET['pret'] == '5000') {echo "selected=\"selected\"";} ?>>sub 5.000 euro</option>
-                                                  <option value="8000" <?php if (isset($_GET['pret']) && $_GET['pret'] == '8000') {echo "selected=\"selected\"";} ?>>sub 8.000 euro</option>
-                                                  <option value="13000" <?php if (isset($_GET['pret']) && $_GET['pret'] == '13000') {echo "selected=\"selected\"";} ?>>sub 13.000 euro</option>
-                                                  <option value="20000" <?php if (isset($_GET['pret']) && $_GET['pret'] == '20000') {echo "selected=\"selected\"";} ?>>sub 20.000 euro</option>
-                                                </select>
-                </div>
-            </div>
-            
-            <div class="select-wrapper clearfix">
-                <div class="col-md-12">
-                    <div>Provenienta:</div>
-                    <select name="prov_enienta" class="vanzari_box" id="prov_enienta">
-                                                  <option value="fara" <?php if (!isset($_GET['prov_enienta']) || empty($_GET['prov_enienta']) || $_GET['prov_enienta'] == 'fara') {echo "selected=\"selected\"";} ?>>selectati</option>
-                                                  <option value="Romania" <?php if (isset($_GET['prov_enienta']) && $_GET['prov_enienta'] == 'Romania') { echo "selected=\"selected\""; } ?>>Romania</option>
-                                                  <option value="Import" <?php if (isset($_GET['prov_enienta']) && $_GET['prov_enienta'] == 'Import') { echo "selected=\"selected\""; } ?>>Import</option>                                                  
-                                                </select>
-                </div>
-            </div>
-            
-            
-            <div class="select-wrapper clearfix">
+                // la zero rezultate câmpul nu dispare: arătăm toate tipurile de caroserie din stoc
+                if (!$sb_caroserii) { $sb_caroserii = vz_facet(vz_blank_filters(), 'caroserie'); }
+                if ($sb_caroserii || $sb['caroserie'] !== '') {
+                    if ($sb['caroserie'] !== '' && !isset($sb_caroserii[$sb['caroserie']])) { $sb_caroserii[$sb['caroserie']] = 0; }
+                    $o = ''; foreach ($sb_caroserii as $c => $n) { $o .= $sb_option($c, vz_label_caroserie($c), $n, $sb['caroserie']); }
+                    echo $sb_field('caroserie', 'Caroserie', 'Toate', $o, $sb['caroserie'], true);
+                }
 
-                <div class="form-element pull-right">
-                    <input type="submit" value="Găseşte-mi maşina" class="find_new_vehicle md-button pull-right">
-                </div>
+                if ($sb['combustibil'] !== '' && !isset($sb_combustibili[$sb['combustibil']])) { $sb_combustibili[$sb['combustibil']] = 0; }
+                $o = ''; foreach ($sb_combustibili as $c => $n) { $o .= $sb_option($c, isset($sb_fuel_labels[$c]) ? $sb_fuel_labels[$c] : ucfirst($c), $n, $sb['combustibil']); }
+                echo $sb_field('combustibil', 'Combustibil', 'Toate', $o, $sb['combustibil'], false);
 
+                $o = $sb_option('automata', 'Automată', 0, $sb['cutie']) . $sb_option('manuala', 'Manuală', 0, $sb['cutie']);
+                echo $sb_field('cutie', 'Cutie', 'Oricare', $o, $sb['cutie'], false);
+
+                $o = ''; for ($i = 1; $i <= 15; $i++) { $y = (int)date('Y') - $i; $o .= $sb_option($y, 'din ' . $y, null, $sb['an']); }
+                echo $sb_field('an', 'An fabricație', 'Oricare', $o, $sb['an'], false);
+
+                $o = ''; foreach (array(5000, 8000, 10000, 13000, 15000, 20000, 30000) as $p) { $o .= $sb_option($p, 'sub ' . number_format($p, 0, ',', '.') . ' €', null, $sb['pret']); }
+                echo $sb_field('pret', 'Preț maxim', 'Oricare', $o, $sb['pret'], false);
+
+                $o = ''; foreach (array(50000, 100000, 150000, 200000, 250000) as $k) { $o .= $sb_option($k, 'sub ' . number_format($k, 0, ',', '.'), null, $sb['km']); }
+                echo $sb_field('km', 'Km maxim', 'Oricare', $o, $sb['km'], false);
+
+                $o = $sb_option('Romania', 'România', 0, $sb['prov_enienta']) . $sb_option('Import', 'Import', 0, $sb['prov_enienta']);
+                echo $sb_field('prov_enienta', 'Proveniență', 'Oricare', $o, $sb['prov_enienta'], false);
+                ?>
             </div>
+
+            <button type="submit" class="vz-submit"><i class="fa fa-search" aria-hidden="true"></i> Găsește-mi mașina</button>
         </form>
     </div>
 </div>
 <!-- InventoryBox END Here -->
+
 
 <!-- disable due to security risk 
 <div class="search-form margin-top-20 padding-vertical-20 padding-left-20 padding-right-20 scroll_effect fadeInLeft">
@@ -143,14 +104,14 @@ for ($i = 15; $i >= 0; $i--)
 -->
 
 <!-- TBI Bank Toggle Button -->
-<button class="tbi-toggle-button" onclick="toggleTBIBank()" aria-label="Descoperă oferta TBI Bank">
-    <span class="icon">🎉</span>
-    <span class="text">1 tonă de carburant pe zi — campanie TBI Bank!</span>
-    <span class="arrow">▼</span>
+<button class="tbi-toggle-button vz-toggle-tbi" type="button" onclick="toggleTBIBank()" aria-label="Descoperă finanțarea TBI Bank">
+    <span class="icon"><i class="fa fa-credit-card" aria-hidden="true"></i></span>
+    <span class="text">Finanțare auto TBI Bank<small>Rate fără avans · aprobare în câteva minute</small></span>
+    <span class="arrow"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
 </button>
 
 <!-- TBI Bank Content (collapsible) -->
-<div class="search-form margin-top-20 padding-vertical-20 padding-left-20 padding-right-20 scroll_effect fadeInLeft sidebar-tbi-bank">
+<div class="search-form margin-top-20 padding-vertical-20 padding-left-20 padding-right-20 scroll_effect fadeInLeft sidebar-tbi-bank vz-card">
     <a href="https://tbibank.ro/" target="_blank" title="">
         <img class="center-block" src="<?= BASE_PATH ?>images/tbi_bank.jpeg" alt="TBI Bank" data-hoverimg="<?= BASE_PATH ?>images/tbi_bank.jpeg">
     </a>
@@ -172,13 +133,13 @@ for ($i = 15; $i >= 0; $i--)
 </div>
 
 <!-- Vadrexim reclama START Here -->
-<div class="search-form margin-top-20 padding-vertical-20 padding-left-20 padding-right-20 scroll_effect rotateIn sidebar-vadrexim">
+<div class="search-form margin-top-20 padding-vertical-20 padding-left-20 padding-right-20 scroll_effect rotateIn sidebar-vadrexim vz-card">
     <a style="font-weight: bold;color: red" href="https://www.vadrexim.ro/anvelope-iarna.html" target="_blank" rel="sponsored noopener">ANVELOPE IARNA</a> Ieftine & Jante la Vadrexim!
 </div>
 <!-- Vadrexim reclama END Here -->
 
 <!-- Reclama START Here -->
-<div class="search-form margin-top-20 padding-vertical-60 padding-left-20 padding-right-20 scroll_effect fadeInLeft sidebar-generic-ad">
+<div class="search-form margin-top-20 padding-vertical-60 padding-left-20 padding-right-20 scroll_effect fadeInLeft sidebar-generic-ad vz-card">
 
     <div class="featured">
         <h5>Spatiu reclama</h5>
@@ -221,7 +182,7 @@ if ($past_exchange && !empty($past_exchange['EUR'])) {
 }
 ?>
 
-<div id="curs-valutar-widget" class="search-form margin-top-20 padding-vertical-20 padding-left-20 padding-right-20 scroll_effect rotateIn">
+<div id="curs-valutar-widget" class="search-form margin-top-20 padding-vertical-20 padding-left-20 padding-right-20 scroll_effect rotateIn vz-card">
     <table class="table table-responsive table-hover col-md-12">
         <thead>
         <th class="text-center" colspan="4">Curs valutar <?php echo date("d.m.Y", strtotime($current_exchange['date'])); ?></th>
@@ -281,6 +242,20 @@ $trnd = ($diferenta_PLN < 0) ? 'fa-chevron-down' : 'fa-chevron-up';
 <!-- Mobile Search Toggle Script -->
 <script>
     // Function to clean empty parameters from form submission
+    // Trimite doar câmpurile completate (adrese curate) și aplică filtrele imediat, la fiecare schimbare
+    function vzCleanForm(form) {
+        Array.prototype.forEach.call(form.elements, function(el) {
+            if (el.name && el.type !== 'submit' && (el.value === '' || el.value === 'fara')) { el.disabled = true; }
+        });
+        return true;
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        var form = document.getElementById('form2');
+        if (!form) { return; }
+        form.addEventListener('change', function(e) {
+            if (e.target && e.target.tagName === 'SELECT') { vzCleanForm(form); form.submit(); }
+        });
+    });
     function cleanEmptyParams(form) {
         var inputs = form.querySelectorAll('input, select');
         inputs.forEach(function(input) {

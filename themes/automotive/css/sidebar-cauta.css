@@ -1,0 +1,123 @@
+/*
+ * Bara din stânga: formularul de căutare, butoanele de pe mobil (Caută mașina, TBI Bank) și cardurile de sub ele.
+ * Marcajul e în themes/automotive/template_parts/sidebar_left.php. Comportamentul (deschidere pe mobil,
+ * trimiterea formularului) rămâne în scriptul din același fișier.
+ */
+
+/* Open Sans în versiunea nouă: ș și ț au virgula dedesubt, ca în română (fișierele vechi din temă le desenează cu sedilă). Găzduit local, fără cereri către Google. */
+@font-face {
+    font-family: 'Open Sans Ro'; font-style: normal; font-weight: 400 800; font-display: swap;
+    src: url('../fonts/opensans-ro-latin-ext.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+    font-family: 'Open Sans Ro'; font-style: normal; font-weight: 400 800; font-display: swap;
+    src: url('../fonts/opensans-ro-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+.vz-list, .vz-side, .vz-card, .sidebar-tbi-bank,
+button.mobile-search-toggle.vz-toggle, button.tbi-toggle-button.vz-toggle-tbi {
+    font-family: 'Open Sans Ro', 'Open Sans', -apple-system, 'Segoe UI', Arial, sans-serif;
+}
+.vz-list input, .vz-list select, .vz-list button, .vz-side input, .vz-side select, .vz-side button { font-family: inherit; }
+/* ---- Formularul de căutare ---- */
+.search-inventory.vz-side { --vz-accent: #2b7a96; --vz-accent-dark: #22627a; --vz-accent-soft: #eaf3f7; --vz-ink: #1f2a33; --vz-muted: #6b7782; --vz-line: #dfe5ea; --vz-teal: #0e7490; }
+.search-inventory.vz-side .search-form {
+    margin: 20px 0 0; padding: 16px; background: #fff; border: 1px solid var(--vz-line); border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(18, 48, 59, .06); font-size: 14px;
+}
+.vz-side .vz-side-head { display: flex; align-items: center; justify-content: space-between; margin: 0 0 12px; }
+.vz-side .vz-side-title { color: var(--vz-ink); font-size: 17px; font-weight: 800; letter-spacing: 0; }
+.vz-side .vz-side-title i { margin-right: 6px; color: var(--vz-accent); }
+.vz-side .vz-side-reset { color: var(--vz-accent-dark); font-size: 13px; font-weight: 600; text-decoration: underline; }
+
+/* Tema dă float câmpurilor de formular: aici trebuie să stea în flux */
+.vz-side input, .vz-side select, .vz-side button { float: none; }
+.vz-side .vz-search { position: relative; display: flow-root; margin: 0 0 12px; }
+.vz-side .vz-search i { position: absolute; top: 50%; left: 12px; transform: translateY(-50%); color: var(--vz-muted); font-size: 14px; pointer-events: none; }
+.vz-side .vz-search input {
+    box-sizing: border-box; width: 100%; height: 42px; margin: 0; padding: 0 12px 0 34px; border: 1px solid #cfd6dc; border-radius: 8px;
+    background: #f7f9fa; color: var(--vz-ink); font-size: 14px; box-shadow: none;
+}
+.vz-side .vz-search input:focus { outline: none; border-color: var(--vz-accent); background: #fff; box-shadow: 0 0 0 3px rgba(43, 122, 150, .18); }
+
+.vz-side .vz-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 0 0 14px; }
+.vz-side .vz-field { min-width: 0; }
+.vz-side .vz-field.vz-full { grid-column: 1 / -1; }
+.vz-side .vz-flabel { display: block; margin: 0 0 4px; color: var(--vz-muted); font-size: 11.5px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; }
+.vz-side .vz-select {
+    -webkit-appearance: none; -moz-appearance: none; appearance: none; box-sizing: border-box; display: block; width: 100%; height: 40px; margin: 0;
+    padding: 0 28px 0 10px; border: 1px solid #cfd6dc; border-radius: 8px; color: var(--vz-ink); font-size: 14px; line-height: 1.2; text-overflow: ellipsis; cursor: pointer;
+    background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%236b7782' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 11px center;
+    box-shadow: none;
+}
+.vz-side .vz-select:hover { border-color: #aab5be; }
+.vz-side .vz-select:focus { outline: none; border-color: var(--vz-accent); box-shadow: 0 0 0 3px rgba(43, 122, 150, .18); }
+.vz-side .vz-select.is-set { border-color: var(--vz-accent); background-color: var(--vz-accent-soft); font-weight: 600; }
+
+.vz-side .vz-submit {
+    display: block; width: 100%; height: 46px; margin: 0; padding: 0 16px; border: 0; border-radius: 8px; background: var(--vz-accent);
+    color: #fff; font-size: 15px; font-weight: 700; cursor: pointer; transition: background .15s ease, transform .15s ease; box-shadow: 0 3px 8px rgba(43, 122, 150, .3);
+}
+.vz-side .vz-submit:hover { background: var(--vz-accent-dark); }
+.vz-side .vz-submit:active { transform: translateY(1px); }
+.vz-side .vz-submit i { margin-right: 6px; }
+
+/* ---- Cardurile de sub formular (TBI, reclame, curs valutar) ---- */
+.vz-card.search-form { background: #fff; border: 1px solid #dfe5ea; border-radius: 10px; box-shadow: 0 2px 10px rgba(18, 48, 59, .05); overflow: hidden; }
+.sidebar-tbi-bank .featured h5 { color: #1f2a33; font-weight: 800; }
+.sidebar-tbi-bank .featured a.default-btn, .sidebar-tbi-bank .default-btn { display: inline-block; padding: 9px 20px; border-radius: 6px; background: #f26b32 !important; border: 0 !important; color: #fff !important; font-weight: 700; text-decoration: none; }
+.sidebar-tbi-bank .featured a.default-btn:hover, .sidebar-tbi-bank .default-btn:hover { background: #d95a24 !important; }
+
+/* ---- Telefon și tabletă: butoanele care deschid formularul și oferta TBI ---- */
+@media (max-width: 991px) {
+    button.mobile-search-toggle.vz-toggle,
+    button.tbi-toggle-button.vz-toggle-tbi {
+        display: flex !important; align-items: center; gap: 12px; box-sizing: border-box; margin-top: 0 !important; margin-bottom: 10px !important;
+        padding: 10px 14px !important; border: 0 !important; border-radius: 10px !important; text-align: left !important; cursor: pointer;
+        font-size: 16px !important; font-weight: 700 !important; line-height: 1.2; transition: box-shadow .15s ease, transform .15s ease !important;
+    }
+    button.mobile-search-toggle.vz-toggle .icon,
+    button.tbi-toggle-button.vz-toggle-tbi .icon {
+        display: inline-flex; flex: 0 0 auto; align-items: center; justify-content: center; width: 38px; height: 38px; margin: 0 !important;
+        border-radius: 50%; font-size: 17px !important; animation: none !important;
+    }
+    button.mobile-search-toggle.vz-toggle .text,
+    button.tbi-toggle-button.vz-toggle-tbi .text { flex: 1 1 auto; min-width: 0; }
+    button.mobile-search-toggle.vz-toggle .text small,
+    button.tbi-toggle-button.vz-toggle-tbi .text small { display: block; margin-top: 2px; font-size: 12px; font-weight: 400; opacity: .85; }
+    button.mobile-search-toggle.vz-toggle .arrow,
+    button.tbi-toggle-button.vz-toggle-tbi .arrow { float: none !important; flex: 0 0 auto; font-size: 20px !important; line-height: 1; transition: transform .25s ease !important; }
+    button.mobile-search-toggle.vz-toggle:active,
+    button.tbi-toggle-button.vz-toggle-tbi:active { transform: translateY(1px) !important; }
+
+    /* Caută mașina: bară teal, aceeași ca la calculatorul de rată */
+    button.mobile-search-toggle.vz-toggle {
+        background: linear-gradient(135deg, #2b7a96 0%, #1b3340 100%) !important; color: #fff !important; box-shadow: 0 4px 12px rgba(27, 51, 64, .3) !important;
+    }
+    button.mobile-search-toggle.vz-toggle:hover { transform: none !important; box-shadow: 0 6px 16px rgba(18, 48, 59, .38) !important; }
+    button.mobile-search-toggle.vz-toggle .icon { background: rgba(255, 255, 255, .18); }
+    button.mobile-search-toggle.vz-toggle.active .arrow { transform: rotate(180deg) !important; }
+
+    /* TBI Bank: card alb cu accent portocaliu, ca să nu semene cu butonul de căutare */
+    button.tbi-toggle-button.vz-toggle-tbi {
+        background: #fff !important; color: #1f2a33 !important; border: 1px solid #f1d9cc !important; border-left: 5px solid #f26b32 !important;
+        box-shadow: 0 2px 8px rgba(18, 48, 59, .08) !important;
+    }
+    button.tbi-toggle-button.vz-toggle-tbi:hover { transform: none !important; box-shadow: 0 4px 12px rgba(242, 107, 50, .22) !important; }
+    button.tbi-toggle-button.vz-toggle-tbi .icon { background: #fdeee6; color: #f26b32; }
+    button.tbi-toggle-button.vz-toggle-tbi .arrow { color: #f26b32; }
+    button.tbi-toggle-button.vz-toggle-tbi.active .arrow { transform: rotate(180deg) !important; }
+
+    /* Oferta TBI deschisă: text lizibil (tema îl micșorase mult pe telefon) */
+    .col-lg-3 .search-form.sidebar-tbi-bank.active { padding: 14px !important; }
+    .sidebar-tbi-bank .featured h5 { font-size: 16px !important; line-height: 1.35 !important; }
+    .sidebar-tbi-bank .featured p { font-size: 14px !important; line-height: 1.5 !important; }
+
+    /* Formularul deschis: mai puțin spațiu, ca să încapă pe ecran */
+    .search-inventory.vz-side .search-form { margin-top: 0; padding: 14px !important; }
+    .vz-side .vz-side-title { display: none; }
+    .vz-side .vz-side-head { justify-content: flex-end; margin-bottom: 8px; }
+    .vz-side .vz-side-head:not(:has(.vz-side-reset)) { display: none; }
+    .vz-side .vz-select, .vz-side .vz-search input { font-size: 16px; } /* 16px: iOS nu mai face zoom la atingerea câmpului */
+}

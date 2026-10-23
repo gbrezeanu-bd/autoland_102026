@@ -6,7 +6,7 @@ $pagina_curenta="ANUNTURI";
 include 'head.php';
 include 'meniu_mobile.php';
 
-$query = $query = "SELECT COUNT(*) FROM masini WHERE stare_anunt LIKE 1 and oferta_speciala='1'";
+$query = $query = "SELECT COUNT(*) FROM masini WHERE stare_anunt LIKE 1 and oferta_speciala='1' AND COALESCE(cat,'') NOT LIKE 'Utilaje%'";
 $result = mysql_query($query) or die(mysql_error());
 $num_rows = mysql_fetch_row($result);
 
@@ -18,7 +18,7 @@ $pages->paginate();
 echo $pages->display_pages();
 echo "<span class=\"\">".$pages->display_jump_menu().$pages->display_items_per_page()."</span>";
 
-$query = "SELECT * FROM masini WHERE stare_anunt LIKE 1 and oferta_speciala='1' order by id desc $pages->limit";
+$query = "SELECT * FROM masini WHERE stare_anunt LIKE 1 and oferta_speciala='1' AND COALESCE(cat,'') NOT LIKE 'Utilaje%' order by id desc $pages->limit";
 $result = mysql_query($query) or die(mysql_error());
 
 echo "<br/><br/>";

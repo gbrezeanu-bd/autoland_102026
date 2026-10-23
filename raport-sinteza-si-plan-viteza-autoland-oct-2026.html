@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Sinteză și plan de viteză – Autoland</title>
+<style>
+:root{--bg:#fff;--fg:#1c2530;--muted:#5b6776;--line:#d9dfe7;--card:#f5f7fa;--accent:#0b5cad;--ok:#17703a;--okbg:#e4f4ea;--warn:#8a5a00;--warnbg:#fff1d6;--bad:#a3261b;--badbg:#fde6e3;--code:#eef1f5}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12171d;--fg:#e6ebf1;--muted:#9aa7b6;--line:#2c3643;--card:#1a212a;--accent:#6db1ff;--ok:#6fd397;--okbg:#17301f;--warn:#f0c15d;--warnbg:#33290f;--bad:#ff958a;--badbg:#3a1a17;--code:#212a35}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:24px 16px 80px}
+h1{font-size:1.9rem;line-height:1.2;margin:.2em 0}
+h2{font-size:1.4rem;margin:2.2em 0 .6em;padding-top:.6em;border-top:2px solid var(--line)}
+h3{font-size:1.1rem;margin:1.6em 0 .4em}
+p,li{max-width:75ch}
+.meta{color:var(--muted);font-size:.92rem}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 18px;margin:20px 0}
+nav.toc ol{margin:.3em 0;padding-left:1.2em;columns:2}
+@media(max-width:640px){nav.toc ol{columns:1}}
+a{color:var(--accent)}
+table{border-collapse:collapse;width:100%;margin:.8em 0 1.4em;font-size:.93rem;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:var(--card)}
+code{background:var(--code);padding:1px 5px;border-radius:4px;font-size:.88em}
+pre{background:var(--code);padding:12px 14px;border-radius:8px;overflow-x:auto;font-size:.85rem;line-height:1.45}
+.tag{display:inline-block;padding:1px 8px;border-radius:99px;font-size:.78rem;font-weight:600;white-space:nowrap}
+.ok{background:var(--okbg);color:var(--ok)}.warn{background:var(--warnbg);color:var(--warn)}.bad{background:var(--badbg);color:var(--bad)}.info{background:var(--card);color:var(--muted);border:1px solid var(--line)}
+.box{border-left:4px solid var(--accent);background:var(--card);padding:10px 16px;margin:1em 0;border-radius:0 8px 8px 0}
+.box.warn{border-color:var(--warn);background:var(--warnbg);color:var(--fg)}
+.box.bad{border-color:var(--bad);background:var(--badbg);color:var(--fg)}
+.box.ok{border-color:var(--ok);background:var(--okbg);color:var(--fg)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:1em 0}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.kpi b{display:block;font-size:1.5rem}
+.kpi span{color:var(--muted);font-size:.85rem}
+.old{color:var(--bad)}.new{color:var(--ok)}
+@media print{nav.toc{display:none}h2{break-after:avoid}table{display:table;font-size:.8rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Sinteză și plan de viteză – autolandromania.ro</h1>
+<p class="meta">Raport din 23 octombrie 2026 · Surse: rapoartele SEO, AI și strategia IA din 13–21.10.2026, baza de date (<code>autoland_autos1ww1a (5).sql</code>) și codul din repository (inclusiv modificările necomise). Starea de pe serverul live nu a fost verificată; „deschis" înseamnă deschis în cod sau în raportul din 20.10.</p>
+
+<nav class="toc"><strong>Cuprins</strong>
+<ol>
+<li><a href="#rezumat">Rezumat</a></li>
+<li><a href="#facut">Ce s-a implementat</a></li>
+<li><a href="#texte">Texte: placeholdere, contradicții, greșeli</a></li>
+<li><a href="#reformulari">Reformulări propuse</a></li>
+<li><a href="#pagini">Pagini care lipsesc</a></li>
+<li><a href="#tehnic">Tehnic: ce rămâne deschis</a></li>
+<li><a href="#extern">În afara site-ului</a></li>
+<li><a href="#nu">Ce nu se face + calendar</a></li>
+<li><a href="#viteza">Plan de viteză</a></li>
+<li><a href="#flicker">Cauza „flipăitului" CSS</a></li>
+<li><a href="#faze">Planul pe faze</a></li>
+<li><a href="#test">Verificare: ce nu trebuie să se strice</a></li>
+</ol></nav>
+
+<h2 id="rezumat">1. Rezumat</h2>
+<div class="cols">
+<div class="kpi"><b>−10%</b><span>clicuri față de anul trecut (piața: −15%)</span></div>
+<div class="kpi"><b>0</b><span>acțiuni manuale sau probleme de securitate în Search Console (13.10)</span></div>
+<div class="kpi"><b>~11%</b><span>din sesiuni vin din asistenți AI (GA4, 14–20.10)</span></div>
+<div class="kpi"><b>poz. 5 → 9</b><span>„parc auto iasi": singura pierdere SEO reală</span></div>
+</div>
+<p>Nu există penalizare. Scăderea vine mai ales din cererea mai mică și din căutările pe numele firmei. Problemele tehnice grave din audit sunt aproape toate rezolvate în cod. Ce a rămas: (1) texte publice cu marcaje neterminate și cifre care se contrazic, (2) pagini promise în meniu dar nescrise, (3) curățenie de securitate pe server, (4) viteza și încărcarea CSS, (5) munca din afara site-ului (recenzii, Autovit/OLX, măsurarea apelurilor, răspunsul rapid).</p>
+<div class="box warn"><strong>Realist:</strong> nimeni nu poate garanta recuperarea. Combinația cea mai bună este site corect și rapid, SEO local, canale cu apel direct (Autovit, OLX, Google Ads, Meta) și răspuns în sub 5 minute.</div>
+
+<h2 id="facut">2. Ce s-a implementat</h2>
+<table>
+<tr><th>Zonă</th><th>Rezultat</th><th>Stare</th></tr>
+<tr><td>Rating pus în cod (4,3 / 31)</td><td>Scos de pe fișe și listări</td><td><span class="tag ok">Rezolvat</span></td></tr>
+<tr><td>Mașini șterse / vândute</td><td>410 pentru șterse, 404 pentru ID invalid, pagină „vândută" cu noindex și SoldOut pentru dezactivate; listările arată doar mașini active</td><td><span class="tag ok">Rezolvat</span></td></tr>
+<tr><td>SQL injection</td><td>Închis pe id, listări, recenzii, AJAX; erorile SQL nu mai sunt afișate</td><td><span class="tag ok">Rezolvat</span></td></tr>
+<tr><td>Duplicate de URL</td><td><code>&amp;pic=</code> și <code>totalRows_vanzare</code> scoase; canonical din listă fixă; noindex,follow pe filtre</td><td><span class="tag ok">Rezolvat</span></td></tr>
+<tr><td>Sitemap</td><td>Cron zilnic la 04:00, ~510 adrese, dată reală, include paginile din tabelul <code>pagini</code></td><td><span class="tag ok">Rezolvat</span></td></tr>
+<tr><td>Meta și titluri</td><td>Un singur meta robots; 404/410 noindex; titluri noi pe mașini; „Pagina N" pe paginare</td><td><span class="tag ok">Rezolvat</span></td></tr>
+<tr><td>Schema</td><td>Listări: doar ItemList + BreadcrumbList; fără livrare/retur/priceValidUntil inventate</td><td><span class="tag ok">Rezolvat</span></td></tr>
+<tr><td>Analytics</td><td>GA4 prin GTM, o singură dată, cu consimțământ transmis; colectează din 14.10</td><td><span class="tag ok">Rezolvat</span></td></tr>
+<tr><td>Conținut finanțare</td><td>6 pagini noi: credit auto, leasing financiar, leasing operațional, calculator, acte necesare, avans minim (rute <code>/finantare/…</code>)</td><td><span class="tag ok">Făcut</span> <span class="tag warn">cu placeholdere</span></td></tr>
+<tr><td>Homepage și pagini de serviciu</td><td>Text local și național, pași, garanție, FAQ, program, hartă; „Despre noi"; contact; asistență; înmatriculări; ultimele mașini</td><td><span class="tag ok">Făcut</span> <span class="tag warn">cu placeholdere</span></td></tr>
+<tr><td>Redesign listări (în lucru)</td><td><code>vanzari_catalog.php</code>, <code>inventory_listing_grid.php</code>, <code>sidebar-cauta.css</code>, <code>vanzari-lista.css</code>, fonturi locale Open Sans</td><td><span class="tag info">Necomis</span></td></tr>
+</table>
+
+<h2 id="texte">3. Texte: placeholdere, contradicții, greșeli</h2>
+<h3>3.1 Marcaje neterminate vizibile public (urgent)</h3>
+<table>
+<tr><th>Unde</th><th>Ce apare</th><th>Ce trebuie aflat de la patron</th></tr>
+<tr><td>Home + Despre noi</td><td>Car Vertical: „inclus și gratuit" lângă „[de confirmat: gratuit, la toate mașinile?]"</td><td>E gratuit la toate mașinile?</td></tr>
+<tr><td>Home, tabel finanțare</td><td>„[de confirmat: avans 0% pentru firme cu vechime peste 1 an]"</td><td>Se aplică sau nu?</td></tr>
+<tr><td>Leasing operațional</td><td>TVA, ce se întâmplă la final, avans și dobândă: „[de confirmat]"</td><td>Condițiile finanțatorului</td></tr>
+<tr><td>Leasing financiar, Avans minim, Credit auto</td><td>Firme noi: „[de confirmat]", „[de confirmat avansul exact]", vechime firmă „[de confirmat]"</td><td>Condiții exacte pentru firme noi</td></tr>
+<tr><td>Acte necesare</td><td>Canal de trimitere „[e-mail / formular / WhatsApp]"; lista pentru firme noi</td><td>Cum trimit clienții actele?</td></tr>
+<tr><td>Asistență rutieră</td><td>„[de completat: număr dispecerat, disponibil 24/7]" și titlul „24/7"</td><td>Numărul real. Până atunci, fără „24/7" în titlu</td></tr>
+<tr><td>Înmatriculări</td><td>„[de completat: actele necesare și durata obișnuită]"</td><td>Acte și termen</td></tr>
+<tr><td>Despre noi</td><td>„Mașini vândute [de completat]", „Recenzii Google [număr și notă]", „[de confirmat: sursele principale]", „Termenul de livrare … [de confirmat]"</td><td>Cifre reale</td></tr>
+<tr><td>Credit auto / Home</td><td>Durata aprobării la rate: „[X zile]" vs. „24–48 de ore" pe homepage</td><td>Un singur termen</td></tr>
+</table>
+<div class="box bad">Până sunt completate, fie se scot propozițiile respective, fie paginile se trec temporar pe <code>draft</code> în tabelul <code>pagini</code>. O promisiune neconfirmată face mai mult rău decât lipsa ei, mai ales la finanțare (domeniu YMYL).</div>
+
+<h3>3.2 Contradicții între pagini</h3>
+<table>
+<tr><th>Subiect</th><th>Variante găsite</th><th>Recomandare</th></tr>
+<tr><td>Garanție</td><td>„1–3 ani" (titlu, home); „standard 1 an, extensibilă" (text); „12 luni / 10.000 km" (FAQ); „12–36 de luni" (Despre noi)</td><td>O singură formulare: „Garanție standard 1 an / 10.000 km, extensibilă până la 3 ani / 40.000 km, în contract separat", peste tot, inclusiv în Google Business</td></tr>
+<tr><td>Titlu leasing</td><td>„Leasing auto second hand, avans de la 0%", dar leasingul are avans 15–50%; 0% e doar la rate</td><td>„Rate și leasing auto second hand | avans de la 0% la rate | Autoland"</td></tr>
+<tr><td>Fiscalitate</td><td>„Recuperezi TVA-ul integral", „rate 100% deductibile"</td><td>La autoturisme folosite și în scop personal se aplică, de regulă, limita de 50%. Reformulare după confirmarea contabilului: „pentru vehicule folosite exclusiv în activitatea firmei; altfel se aplică limitele din Codul fiscal"</td></tr>
+<tr><td>Home</td><td>„plus o serie de oferte care nu sunt mereu afișate"</td><td>Se scoate sau se înlocuiește cu „și le putem aduce la comandă"</td></tr>
+<tr><td>Aprobare</td><td>24–48 h (home) vs. 2–3 zile (leasing) vs. [X] (credit)</td><td>Rate: X; leasing: 2–3 zile; scris identic peste tot</td></tr>
+</table>
+
+<h3>3.3 Greșeli de scris</h3>
+<table>
+<tr><th>Acum</th><th>Corect</th></tr>
+<tr><td>Dacă insă</td><td>Dacă însă</td></tr>
+<tr><td>împreuna</td><td>împreună</td></tr>
+<tr><td>reprezină</td><td>reprezintă</td></tr>
+<tr><td>Preturile incep de la de la</td><td>Prețurile încep de la</td></tr>
+<tr><td>Romania cât și U.E.</td><td>România și UE</td></tr>
+<tr><td>o mașina din altă parte</td><td>o mașină din altă parte</td></tr>
+<tr><td>reprezentața mărcii</td><td>reprezentanța mărcii</td></tr>
+<tr><td>se aplică o limita de 200 EUR</td><td>se aplică o limită de 200 EUR</td></tr>
+<tr><td>Cum aflii avansul</td><td>Cum afli avansul</td></tr>
+<tr><td>„Autoland Romania" (fără diacritice) în garanție și asistență</td><td>Autoland România</td></tr>
+<tr><td>E-mailul pentru recenzii (<code>email_recenzii</code>): fără diacritice, foarte lung</td><td>Scurtat la 3–4 întrebări, cu diacritice</td></tr>
+</table>
+
+<h2 id="reformulari">4. Reformulări propuse</h2>
+<h3>Home – „Mașini la comandă" (acum o singură propoziție de ~80 de cuvinte)</h3>
+<div class="box">„Nu găsești în stoc modelul dorit? Îl căutăm la partenerii noștri autorizați și îl analizăm împreună cu tine. Dacă oferta e potrivită și îți dai acordul de principiu, ne ocupăm să-l aducem la comandă, cu verificările și documentele rezolvate înainte de livrare."</div>
+<h3>Asistență rutieră – introducere</h3>
+<div class="box">„Asistența rutieră Autoland este un abonament anual, în trei pachete, de la 45 EUR + TVA, valabil în România sau în România și UE. Acoperă tractarea și depanarea după o defecțiune sau un accident, plus intervenții la fața locului: repornirea bateriei, schimbarea unei roți, alimentarea după o pană de carburant și deblocarea cheii rămase în mașină."</div>
+<h3>Garanție – titlu și cifre</h3>
+<div class="box">Titlu: „Garanție auto 1 an, extensibilă la 3 ani | Autoland". Casetă pe homepage: „Garanție în scris: 1 an, extensibilă la 3".</div>
+<h3>Înmatriculări – titlu național</h3>
+<div class="box">„Înmatriculare auto în toată țara, rezolvată de Autoland" (doar dacă serviciul se face efectiv și pentru alte județe).</div>
+
+<h2 id="pagini">5. Pagini care lipsesc</h2>
+<p><code>.htaccess</code> are rute pentru <code>/buy-back/</code>, <code>/masini-la-comanda/</code> și <code>/livrare-in-toata-tara/</code>, dar în tabelul <code>pagini</code> există doar <code>despre-noi</code>. Cele trei adrese dau acum 404, deci nu le puneți în meniu până nu au conținut.</p>
+<table>
+<tr><th>Pagină</th><th>De ce e nevoie</th><th>Informații necesare</th></tr>
+<tr><td>Livrare în toată România</td><td>Majoritatea clienților sunt din afara Iașului; e răspunsul la întrebarea lor principală</td><td>Pașii cumpărării la distanță, costul transportului pe zone, termen, în câte județe s-a livrat</td></tr>
+<tr><td>Buy-back / schimb</td><td>Ofertă prezentă în strategie</td><td>Ce înseamnă exact: preluare la schimb sau răscumpărare garantată; cum se stabilește prețul</td></tr>
+<tr><td>Mașini la comandă</td><td>Există text pe home, dar nu și o pagină proprie</td><td>Termene (home spune 2 săptămâni, maximum o lună), ce include prețul</td></tr>
+<tr><td>Hub /finantare/ + FAQ general</td><td>Pagină părinte pentru cele 6 subpagini</td><td>Se construiește din textele existente</td></tr>
+<tr><td>Leasing pentru firme noi</td><td>Căutare națională cu clicuri deja</td><td>Condiții reale, documente, exemplu de calcul</td></tr>
+</table>
+
+<h2 id="tehnic">6. Tehnic: ce rămâne deschis</h2>
+<table>
+<tr><th>Zonă</th><th>Problema</th><th>Prioritate</th></tr>
+<tr><td>Securitate</td><td><code>test.php</code>, <code>thumb.php</code>, <code>vanzari.bak.php</code>, <code>vanzari.php_backup_02_jul_2025</code>, <code>vanzari3.php</code>, <code>index (copie)--.php</code>, folderul <code>mobile/</code>, dump-uri .sql, <code>*.old</code>/<code>*.backup</code> din <code>template_parts</code> încă există. Lipsesc <code>Options -Indexes</code> și <code>AcceptPathInfo Off</code>. Parolele DB/e-mail: schimbare necunoscută</td><td><span class="tag bad">Mare</span></td></tr>
+<tr><td>Redirecturi</td><td>Lanț <code>http://www</code> → <code>https://www</code> → <code>https://</code> (2 pași): regula HTTPS folosește <code>%{SERVER_NAME}</code>, apoi vine regula www. <code>mail.autolandromania.ro</code> afișează site-ul</td><td><span class="tag warn">Medie</span></td></tr>
+<tr><td>Conținut mașini</td><td>43 de mașini active vizitate de Google dar neindexate; fără descrieri unice</td><td><span class="tag bad">Mare</span></td></tr>
+<tr><td>Imagini</td><td>57–60 de fișiere cu spații/caractere speciale; <code>rawurlencode()</code> nefolosit</td><td><span class="tag warn">Medie</span></td></tr>
+<tr><td>Sidebar</td><td>„Reclama ta poate fi aici pentru doar 50 euro / an" în <code>sidebar_left.php</code></td><td><span class="tag warn">Medie</span></td></tr>
+<tr><td>Cod necomis</td><td>Modificările din <code>vanzari.php</code> (−238 de linii), <code>vanzari_detail.php</code>, <code>header.php</code> ating canonical, noindex, 410 și JSON-LD. Se verifică înainte de urcare (secțiunea 12)</td><td><span class="tag bad">Mare</span></td></tr>
+<tr><td>Măsurare</td><td>Click pe telefon, WhatsApp și formulare nemăsurate în GTM/GA4</td><td><span class="tag bad">Mare</span></td></tr>
+<tr><td>Viteză</td><td>Vezi secțiunile 9–12</td><td><span class="tag bad">Mare</span></td></tr>
+</table>
+
+<h2 id="extern">7. În afara site-ului</h2>
+<ul>
+<li><strong>Google Business Profile:</strong> 3–5 recenzii noi pe lună cu răspuns la fiecare, postări cu mașini noi, fotografii reale, categorie principală „Dealer de mașini second hand", aceleași NAP (nume, adresă, telefon) ca pe site.</li>
+<li><strong>Autovit și OLX:</strong> tot stocul listat, profil complet, „avans de la 0%" și „livrare în toată țara", link spre site; întrebare către Autovit despre campania din noiembrie (în 2025: 7–21 nov).</li>
+<li><strong>Imunify360:</strong> deblocat PerplexityBot (406), whitelist IP-uri OpenAI; firewall-ul blochează IP-uri după ~20 de cereri/minut.</li>
+<li><strong>Bing Webmaster Tools + Bing Places:</strong> ChatGPT și Copilot caută prin Bing.</li>
+<li><strong>GTM/GA4:</strong> evenimente pentru <code>tel:</code>, <code>wa.me</code>, formulare, marcate ca evenimente cheie.</li>
+<li><strong>Răspuns în sub 5 minute</strong> la orice cerere; mesaje pregătite în WhatsApp Business.</li>
+<li><strong>„De unde ați aflat de noi?"</strong> la fiecare apel, notat într-un tabel.</li>
+<li><strong>Reclame cu apel direct:</strong> Google Ads Search (autoutilitare în rate, leasing pentru firme noi, campanie pe nume) și Meta cu WhatsApp. Bugetul îl decid patronii; evaluare după costul pe cerere calificată.</li>
+<li><strong>Director și mențiuni:</strong> Pagini Aurii, Cylex, Termene.ro etc., cu date identice; un articol în presa locală.</li>
+</ul>
+
+<h2 id="nu">8. Ce nu se face + calendar</h2>
+<ul>
+<li>Pagini „Parc auto [oraș]" cu același text (doorway pages, risc de penalizare).</li>
+<li>Recenzii false sau cumpărate.</li>
+<li>„Dobândă 0%" sau „finanțare garantată" fără condiții.</li>
+<li>Descrieri de mașini generate în masă cu AI (scaled content abuse).</li>
+<li>Mutarea categoriei Autoutilitare pe URL nou înainte de noiembrie.</li>
+<li>URL-uri prietenoase pentru mașini înainte ca restul să fie stabil.</li>
+</ul>
+<table>
+<tr><th>Dată</th><th>Pas</th></tr>
+<tr><td>Săptămâna 23–30 oct.</td><td>Placeholdere scoase, contradicții aliniate, fișiere expuse șterse, GTM evenimente, Bing, Imunify</td></tr>
+<tr><td>Până la 7 nov.</td><td>Faza 1–2 din planul de viteză; pagina de livrare; campanii pregătite</td></tr>
+<tr><td>7–21 nov. (de confirmat)</td><td>Campania Autovit „November"; oferta aceeași pe site și în reclame</td></tr>
+<tr><td>~10 nov.</td><td>Reverificare Search Console: „Pagină cu redirecționare", „Pagină alternativă cu etichetă canonică"</td></tr>
+<tr><td>15 nov.</td><td>Evaluare: apeluri pe canal, cost per cerere calificată</td></tr>
+</table>
+
+<h2 id="viteza">9. Plan de viteză: situația actuală</h2>
+<p>Raportul din Search Console arată un timp mediu de răspuns de <strong>767 ms</strong> (ținta: sub 300 ms), iar Google cheltuie 79% din crawl pe imagini. Numerele de mai jos sunt estimate din dimensiunile fișierelor din repository; înainte de orice modificare se face o măsurătoare de referință (secțiunea 11, Faza 0).</p>
+<table>
+<tr><th>Constatare în cod</th><th>Efect</th></tr>
+<tr><td><code>includes/config.php:11</code>: <code>session_start()</code> pe toate paginile. Nicio pagină publică nu folosește <code>$_SESSION</code> (căutat în tot codul în afara <code>tehnic/</code>)</td><td>Serverul trimite <code>Cache-Control: no-store</code>: paginile nu se păstrează în cache, nu intră în cache-ul LiteSpeed și nici în back/forward cache. Crește TTFB</td></tr>
+<tr><td>CSS pe pagină ≈ 700 KB necomprimat (bootstrap 103, style 134, mobile 61, scustomizer 172, ts 59, animate 57, settings 30, FontAwesome 31, pagini 32 etc.), în ~14 cereri. Există versiuni <code>.min.css</code> neutilizate pentru style, mobile, ts, scustomizer (base + responsive)</td><td>Descărcare și parsare inutil de mari; multe cereri</td></tr>
+<tr><td>9 foi de stil (între ele <code>scustomizer.css</code>, cea mai mare) se încarcă asincron cu <code>preload</code> + <code>onload</code></td><td>Cauza principală a „flipăitului" (secțiunea 10)</td></tr>
+<tr><td>JS ≈ 580 KB necomprimat: jQuery 2.1.0 (2014), Bootstrap, Revolution Slider (tools 110 KB + revolution 65 KB), flexslider, bxslider, fancybox, main.js 35 KB etc.</td><td>Blocare și execuție pe mobil</td></tr>
+<tr><td>Revolution Slider se încarcă pe aproape toate paginile, dar nicio pagină PHP nu mai generează <code>.tp-banner</code>; <code>main.js</code> îl pornește doar dacă elementul există</td><td>~175 KB JS + <code>settings.css</code> (30 KB) + un script de „protecție" – cod mort</td></tr>
+<tr><td>Fonturi: Open Sans încărcat din Google (TTF) + subset local woff2 pentru ș/ț; FontAwesome 4.7 complet (31 KB CSS + font)</td><td>Cereri către alt domeniu, text care se mută la schimbarea fontului</td></tr>
+<tr><td>Imagini: cardurile (300×200) folosesc fotografia originală din <code>foto/</code>. Folderul are ~7.800 de fișiere, 490 MB, 13 peste 500 KB, 0 WebP</td><td>Cea mai mare parte din bytes și din LCP</td></tr>
+<tr><td><code>getCarFirstPicture()</code> face o interogare SQL pentru fiecare mașină din listă</td><td>20–50 de interogări în plus per pagină</td></tr>
+<tr><td>Fișierele CSS/JS nu au versiune în URL (<code>?v=</code>), dar <code>.htaccess</code> le dă cache de 1 an pentru CSS</td><td>După o modificare, vizitatorii care au vizitat site-ul înainte pot vedea CSS vechi cu HTML nou (altă sursă de „suprascriere")</td></tr>
+<tr><td><code>DEBUG = TRUE</code> în config: încarcă fișierele separate, nu bundle-ul din <code>public/build/</code> (din 2019, depășit)</td><td>Se păstrează <code>TRUE</code>; bundle-ul vechi pierde modificările de CSS</td></tr>
+<tr><td>Header <code>Vary: User-Agent</code> din <code>.htaccess</code>-ul părinte</td><td>Strică cache-ul; site-ul e responsive</td></tr>
+</table>
+
+<h3>Măsurătoare de referință (23.10.2026, copia locală XAMPP)</h3>
+<p>Am descărcat fiecare pagină și toate fișierele ei locale (CSS, JS, imagini, fonturi). Lighthouse/Chrome nu a putut fi pornit din acest mediu, deci <strong>lipsesc LCP, CLS și INP</strong>; ele se măsoară în Faza 0, pe site-ul live, cu PageSpeed Insights. Apache local nu comprimă, deci cifrele sunt „brute"; pe server, compresia reduce text-ul cu 70–80%.</p>
+<table>
+<tr><th>Pagină</th><th>Cereri</th><th>Total brut</th><th>CSS</th><th>JS</th><th>Imagini</th><th>HTML</th></tr>
+<tr><td>Homepage</td><td>43</td><td>2.099 KB</td><td>15 fișiere, 700 KB</td><td>16 fișiere, 558 KB</td><td>8, 594 KB</td><td>83 KB</td></tr>
+<tr><td>Listă (Autoutilitare)</td><td>50</td><td>2.661 KB</td><td>15, 679 KB</td><td>16, 558 KB</td><td>15, 1.165 KB</td><td>89 KB</td></tr>
+<tr><td>Fișă mașină (id 1673)</td><td>49</td><td>2.261 KB</td><td>15, 682 KB</td><td>17, 439 KB</td><td>13, 841 KB</td><td>109 KB</td></tr>
+<tr><td>Leasing</td><td>36</td><td>1.488 KB</td><td>14, 691 KB</td><td>16, 558 KB</td><td>2, 46 KB</td><td>56 KB</td></tr>
+</table>
+<ul>
+<li><strong>Toate paginile:</strong> <code>Cache-Control: no-store, no-cache, must-revalidate</code> (efectul <code>session_start()</code>) și 10 foi de stil asincrone.</li>
+<li><strong>CSS + JS = ~1,25 MB brut pe orice pagină</strong>, inclusiv pe leasing, care nu are galerie sau slider.</li>
+<li><strong>Homepage:</strong> imaginea <code>images/tbi_bank.jpeg</code> (251 KB, logo partener) e cea mai mare imagine din pagină. Un logo se poate reduce la 5–15 KB. Câștig rapid.</li>
+<li><strong>Fișa mașinii:</strong> 23 din 24 de imagini nu au <code>width</code>/<code>height</code> (risc de CLS).</li>
+<li><strong>Imagini în carduri:</strong> 95–120 KB pe fotografie, pentru un card de 300×200 (cu miniaturi WebP ar fi ~15–30 KB).</li>
+<li>Timpul de răspuns local al HTML-ului (57–107 ms) nu e comparabil cu cel de pe hosting (767 ms în Search Console); se măsoară pe live.</li>
+</ul>
+
+<h2 id="flicker">10. Cauza „flipăitului" CSS</h2>
+<p>Din <code>themes/automotive/template_parts/header.php</code>, ordinea de randare este:</p>
+<ol>
+<li>sincron (blochează): <code>bootstrap.min.css</code>, <code>theme_fonts.css</code>, <code>style.css</code>, <code>mobile.css</code>;</li>
+<li><strong>asincron</strong> (<code>rel="preload" … onload="this.rel='stylesheet'"</code>): <code>font-awesome</code>, <code>flexslider</code>, <code>bxslider</code>, <code>fancybox</code>, <code>selectbox</code>, <code>settings</code>, <code>animate</code>, <code>ts</code> și <strong><code>scustomizer.css</code></strong> (172 KB, conține majoritatea personalizărilor temei);</li>
+<li>sincron: <code>pagini.css</code> / <code>vanzari-lista.css</code> / <code>sidebar-cauta.css</code> (din <code>$header_scripts</code>).</li>
+</ol>
+<div class="box warn">Browserul desenează prima dată pagina doar cu foile din pasul 1 și 3. Când sosesc foile asincrone (în special <code>scustomizer.css</code> și <code>ts.css</code>), regulile lor se aplică peste: culori, spații, meniu, iconițe. Asta se vede ca o pagină care „se schimbă" în prima secundă. Ordinea în cascadă e corectă (după poziția în DOM), dar momentul aplicării nu e.</div>
+<p>Alți factori care adaugă la efect:</p>
+<ul>
+<li>FontAwesome vine asincron: iconițele apar târziu sau ca pătrate.</li>
+<li>Open Sans se schimbă după încărcare (<code>font-display: swap</code>) și mută textul.</li>
+<li>Cache-ul de 1 an pentru CSS, fără versiune în URL (CSS vechi cu HTML nou).</li>
+<li>Imagini fără <code>width</code>/<code>height</code> în galerie (mașina 1654: 12 imagini) → salt de layout (CLS).</li>
+</ul>
+
+<h2 id="faze">11. Planul pe faze</h2>
+<p>Principiu: se schimbă un singur lucru pe rând, fiecare cu rollback imediat (fișierul vechi rămâne), iar logica PHP, formularele și scripturile temei nu se modifică. Fiecare fază se testează cu lista din secțiunea 12.</p>
+
+<h3>Faza 0 – Măsurare și plasă de siguranță (1–2 h)</h3>
+<ul>
+<li>Backup al <code>header.php</code>, <code>footer.php</code>, <code>config.php</code>, <code>.htaccess</code>; totul e în git, deci un commit separat pentru fiecare fază.</li>
+<li>Măsurători „înainte" pe 4 pagini: homepage, <code>vanzari.php?users=Autoutilitare…</code>, o fișă de mașină, <code>leasing.php</code>. Instrumente: PageSpeed Insights (mobil), Chrome DevTools → Performance cu „Slow 4G / CPU 4× slowdown", WebPageTest. Se notează LCP, CLS, INP, TTFB, greutate totală, număr de cereri.</li>
+<li>Ținte: LCP &lt; 2,5 s, CLS &lt; 0,1, INP &lt; 200 ms, TTFB &lt; 300 ms.</li>
+</ul>
+
+<h3>Faza 1 – Câștiguri fără risc funcțional (½ zi)</h3>
+<table>
+<tr><th>#</th><th>Acțiune</th><th>Efect</th><th>Risc</th></tr>
+<tr><td>1.1</td><td>Funcție <code>asset($path)</code> care adaugă <code>?v=filemtime</code> și folosită pentru toate CSS/JS din header și footer</td><td>Elimină CSS vechi din cache; permite cache lung în siguranță</td><td>Foarte mic</td></tr>
+<tr><td>1.2</td><td>Fonturi: găzduit local Open Sans (woff2 latin + latin-ext, deja prezente în <code>themes/automotive/fonts/</code>), preload doar pentru 1–2 fonturi folosite deasupra pliului; scoase preload-urile către <code>fonts.gstatic.com</code> (TTF) și preconnect-ul aferent</td><td>Mai puține domenii, mai puține mutări de text</td><td>Mic (se verifică ș/ț)</td></tr>
+<tr><td>1.3</td><td>Scos <code>Header append Vary User-Agent</code> din <code>.htaccess</code>-ul din folderul părinte (cere acces cPanel)</td><td>Cache mai bun</td><td>Mic</td></tr>
+<tr><td>1.4</td><td>Activat în <code>.htaccess</code> compresia pentru fonturi și <code>application/javascript</code> (acum comentate); verificat dacă hostul oferă Brotli</td><td>−15–25% bytes pe JS/fonturi</td><td>Foarte mic</td></tr>
+<tr><td>1.5</td><td>Adăugat <code>width</code>/<code>height</code> la imaginile din galerie (fișa mașinii) și la logo</td><td>CLS aproape de 0</td><td>Mic</td></tr>
+<tr><td>1.6</td><td><code>preconnect</code>/<code>dns-prefetch</code> doar pentru originile folosite (GTM); scos <code>www.google-analytics.com</code> și <code>gstatic</code> dacă nu mai sunt necesare</td><td>Mai puține resurse competitoare</td><td>Foarte mic</td></tr>
+</table>
+
+<h3>Faza 2 – Eliminarea flipăitului CSS (1 zi)</h3>
+<ol>
+<li><strong>Un singur fișier CSS sincron</strong>, <code>site.min.css</code>, creat prin concatenarea foilor în exact aceeași ordine ca în DOM-ul de acum: <code>bootstrap.min</code> → <code>theme_fonts</code> → <code>style</code> → <code>mobile</code> → <code>font-awesome.min</code> → <code>jquery.selectbox</code> → <code>animate.min</code> → <code>ts</code> → <code>scustomizer</code>. Ordinea identică garantează aceeași cascadă. Se folosesc fișierele <code>.min.css</code> care există deja, iar pentru restul se rulează un minificator (gulpfile.js e deja în proiect; alternativ <code>csso</code> sau <code>clean-css</code>).</li>
+<li>Foile folosite doar pe anumite pagini rămân separate și se încarcă doar acolo: <code>flexslider</code> și <code>fancybox</code> (fișa mașinii), <code>bxslider</code> (unde există carusel de recenzii), <code>calculator-rata</code>, <code>pagini</code>, <code>vanzari-lista</code>, <code>sidebar-cauta</code>, <code>specificatii-masina</code>.</li>
+<li>Scoase din toate paginile: <code>settings.css</code> (Revolution Slider, nefolosit) și <code>animate.min.css</code> dacă un test arată că animațiile WOW nu se mai folosesc (altfel se păstrează).</li>
+<li>Se păstrează eventual fallback-ul <code>&lt;noscript&gt;</code>; se elimină scriptul loadCSS (nu mai e nevoie dacă nu mai există încărcare asincronă).</li>
+<li>Test vizual: comparație ecran-cu-ecran (înainte/după) la 3 lățimi: 375, 768, 1366 px, pe homepage, listă, fișă, leasing, contact.</li>
+</ol>
+<div class="box ok"><strong>Rezultat așteptat:</strong> prima randare conține deja stilurile finale (fără salt de culori, spații, meniu sau iconițe). Greutatea CSS scade de la ~700 KB la ~450–500 KB necomprimat, iar numărul de cereri de la ~14 la 2–3.</div>
+<div class="box warn"><strong>Observație:</strong> un fișier CSS sincron mare întârzie prima afișare cu câteva zeci de milisecunde, dar fără salturi. Pentru îmbunătățire ulterioară, Faza 6 extrage CSS-ul critic.</div>
+
+<h3>Faza 3 – JavaScript (1 zi)</h3>
+<table>
+<tr><th>#</th><th>Acțiune</th><th>Efect</th><th>Risc</th></tr>
+<tr><td>3.1</td><td>Scos Revolution Slider (<code>jquery.themepunch.tools.min.js</code>, <code>jquery.themepunch.revolution.min.js</code>, scriptul de „protecție" cssText, <code>settings.css</code>) din <code>footer.php</code>. Codul din <code>main.js</code> (<code>.tp-banner</code>) e deja condiționat de existența elementului. Înainte: <code>grep</code> pe baza de date și pe șabloane după <code>tp-banner</code>/<code>rev_slider</code> (în SQL nu apare)</td><td>−175 KB JS, −30 KB CSS, mai puțin timp pe firul principal</td><td>Mic (rollback = readăugare)</td></tr>
+<tr><td>3.2</td><td>Încărcat doar pe paginile care le folosesc: <code>flexslider</code>, <code>bxslider</code>, <code>fancybox</code>, <code>wow</code>, <code>mixitup</code>, prin variabile setate înainte de footer (de exemplu <code>$needs_gallery</code>), ca la <code>IS_CAR_DETAIL_PAGE</code>. Inițializările din <code>main.js</code> sunt deja condiționate de elemente</td><td>−100–200 KB pe homepage și listări</td><td>Mediu (test pe fiecare tip de pagină)</td></tr>
+<tr><td>3.3</td><td>jQuery: se păstrează temporar 2.1.0 și se încarcă cu <code>defer</code> pus înaintea celorlalte (ordinea deferred e păstrată). Dacă scripturile inline din pagină folosesc <code>$</code> înainte de load, se mută în <code>DOMContentLoaded</code></td><td>Nu mai blochează parsarea</td><td>Mediu</td></tr>
+<tr><td>3.4</td><td>Minificat <code>main.js</code> (există <code>main.min.js</code>, 17 KB față de 35 KB; se verifică dacă e la zi cu <code>main.js</code>), <code>custom.js</code>, <code>jquery.fancybox</code> (există <code>.min</code>), <code>jquery.bxslider</code> (există <code>.min</code>)</td><td>−60 KB</td><td>Mic, dacă versiunile .min sunt la zi</td></tr>
+<tr><td>3.5</td><td>Scripturile GTM și cookie banner rămân neatinse; GTM se încarcă după <code>window.load</code> doar dacă nu afectează măsurarea (se testează în GTM Preview)</td><td>Mai puțin INP/TBT</td><td>Mediu (afectează măsurarea; se face ultimul)</td></tr>
+</table>
+
+<h3>Faza 4 – Imagini (1–2 zile, cel mai mare câștig la LCP)</h3>
+<ol>
+<li><strong>Miniaturi generate, originalele rămân neatinse.</strong> Un script de rulare unică (și apoi la încărcarea unei mașini noi în admin) generează în <code>foto/_t/</code> variante WebP de 400 și 800 px lățime din fiecare fotografie folosită ca prima poză sau în carduri. Nu se șterge și nu se redenumește nimic din <code>foto/</code>.</li>
+<li><strong>Șabloanele aleg miniatura dacă există</strong> (<code>file_exists</code>), altfel originalul. Dacă lipsește miniatura, site-ul funcționează ca acum.</li>
+<li><code>&lt;picture&gt;</code> sau <code>srcset</code>/<code>sizes</code> în <code>inventory_listing_grid.php</code> și în cardurile de pe homepage; imaginea LCP (prima mașină, logo) cu <code>fetchpriority="high"</code> și fără <code>loading="lazy"</code>; restul <code>loading="lazy"</code> și <code>decoding="async"</code>.</li>
+<li><code>getCarFirstPicture()</code>: o singură interogare pentru toate id-urile din pagină (<code>WHERE oferta IN (…)</code>, id-uri castate la <code>(int)</code>) în loc de câte una pe mașină; sau cache în memorie în cursul cererii.</li>
+<li>Fotografiile mari din fișa mașinii: WebP la 1200 px pentru galerie, cu originalul ca link „vezi la dimensiune completă".</li>
+<li>Fișiere cu caractere speciale: <code>rawurlencode()</code> la afișare (rezolvă și og:image și JSON-LD din audit).</li>
+</ol>
+<div class="box ok"><strong>Rezultat așteptat:</strong> un card trece de la sute de KB la ~15–40 KB; pagina de listă scade cu mai mulți MB. Google va cheltui mai puțin crawl pe imagini mari.</div>
+
+<h3>Faza 5 – Server și cache (½–1 zi)</h3>
+<ol>
+<li><strong>Sesiuni doar acolo unde sunt necesare.</strong> <code>session_start()</code> se mută din <code>config.php</code> în <code>tehnic/</code> (admin) și în <code>pagina.php</code> / <code>vanzari_detail.php</code> doar dacă formularele de acolo folosesc sesiunea. Înainte se caută în tot codul <code>$_SESSION</code>, <code>session_</code>, CAPTCHA, token CSRF. Verificare după: antetul <code>Cache-Control</code> nu mai conține <code>no-store</code>.</li>
+<li><strong>HTML:</strong> în <code>.htaccess</code>, <code>ExpiresByType text/html "access plus 0 seconds"</code> (altfel regula <code>ExpiresDefault 1 month</code> se aplică paginilor odată ce sesiunea dispare și clienții ar vedea mașini vândute).</li>
+<li><strong>LiteSpeed Cache</strong> pentru pagini publice, cache de 10 minute; excludere pentru <code>tehnic/</code>, formulare POST, <code>cerere_oferta.php</code>, <code>recenzii</code>. Trebuie ca răspunsurile să nu seteze cookie-uri (de aici pasul 1).</li>
+<li><strong>PHP:</strong> OPcache activ (verificare în cPanel), versiunea PHP la zi, în limita compatibilității cu codul (serverul e pe 7.0; migrarea la 8.x e un proiect separat și necesită test pe toate paginile).</li>
+<li><strong>Baza de date:</strong> <code>EXPLAIN</code> pe interogările din listări, index pe <code>stare_anunt</code>, <code>cat</code>, <code>subcateg</code>, <code>pret</code>, <code>id</code> din <code>fotov(oferta)</code>. Fără modificări de structură înainte de backup.</li>
+<li>Cache pentru blocul „ultimele mașini" de pe homepage (fișier sau APCu, 5–10 minute).</li>
+<li><strong>Fișiere statice:</strong> <code>Cache-Control: public, max-age=31536000, immutable</code> pentru CSS/JS/fonturi (sigur doar după pasul 1.1, cu versiune în URL); imagini 1 lună.</li>
+</ol>
+
+<h3>Faza 6 – Optimizări avansate (după campania din noiembrie)</h3>
+<ul>
+<li><strong>CSS critic inline</strong> (~10–15 KB) pentru deasupra pliului, restul în fișierul principal; elimină complet randarea blocantă.</li>
+<li><strong>Curățare CSS neutilizat</strong> (PurgeCSS/Chrome Coverage) din <code>scustomizer.css</code>, <code>style.css</code> și <code>bootstrap</code>; fiecare regulă eliminată se verifică pe șabloane și pe textele din baza de date.</li>
+<li><strong>jQuery 3.7</strong> cu <code>jquery-migrate</code> la început; cere test pe selectbox, fancybox, flexslider, bxslider, validare formulare. Se face doar dacă măsurătorile arată câștig și există timp de test.</li>
+<li><strong>FontAwesome:</strong> subset doar cu iconițele folosite (SVG sprite sau font personalizat), în loc de întregul set 4.7.</li>
+<li><strong>HTTP/2 sau HTTP/3</strong> la host (verificare cu <code>curl -I --http2</code>); <strong>Brotli</strong> dacă e disponibil.</li>
+<li><strong>CDN</strong> (Cloudflare, plan gratuit) pentru imagini și fișiere statice; atenție la regulile de firewall și la consimțământul GDPR.</li>
+<li><strong>Prefetch</strong> la hover pentru fișele de mașină (opțional).</li>
+<li><strong>bfcache:</strong> după scoaterea <code>no-store</code> și a <code>unload</code> handlers, butonul Înapoi devine instant.</li>
+</ul>
+
+<h3>Efect estimat și riscuri</h3>
+<table>
+<tr><th>Fază</th><th>Câștig principal</th><th>Efort</th><th>Risc funcțional</th></tr>
+<tr><td>1</td><td>Cache corect, mai puține domenii, CLS</td><td>½ zi</td><td><span class="tag ok">Foarte mic</span></td></tr>
+<tr><td>2</td><td>Fără flipăit, ~11 cereri mai puține</td><td>1 zi</td><td><span class="tag ok">Mic</span> (ordinea CSS păstrată)</td></tr>
+<tr><td>3</td><td>−300–450 KB JS pe majoritatea paginilor</td><td>1 zi</td><td><span class="tag warn">Mediu</span></td></tr>
+<tr><td>4</td><td>LCP și greutate pagină, cel mai mare efect</td><td>1–2 zile</td><td><span class="tag ok">Mic</span> (cu fallback pe original)</td></tr>
+<tr><td>5</td><td>TTFB de la ~767 ms spre &lt;300 ms, cache de pagină, bfcache</td><td>½–1 zi</td><td><span class="tag warn">Mediu</span> (sesiuni)</td></tr>
+<tr><td>6</td><td>Finisaj; CSS critic, curățare, jQuery</td><td>2–4 zile</td><td><span class="tag warn">Mediu–mare</span></td></tr>
+</table>
+<p class="meta">Cifrele sunt estimări din dimensiunile fișierelor; rezultatele reale se confirmă cu măsurătorile din Faza 0 și din Search Console (Statistici crawl → durata medie de răspuns, în 2–3 săptămâni).</p>
+
+<h2 id="test">12. Verificare: ce nu trebuie să se strice</h2>
+<p>După fiecare fază, pe local și apoi pe server, cu cache-ul browserului golit și cu DevTools deschis (consola fără erori noi):</p>
+<table>
+<tr><th>Zonă</th><th>Test</th></tr>
+<tr><td>Meniu și antet</td><td>Meniu desktop și mobil, dropdown-uri, bara de sus (telefon, e-mail, adresă), logo</td></tr>
+<tr><td>Căutare / filtre</td><td>Cutia de căutare din sidebar, selectoarele de marcă/model (<code>getmake.php</code>, <code>selectmake.js</code>), filtre an/preț</td></tr>
+<tr><td>Listări</td><td>Categorii, paginare, „Pagina N" în titlu, carduri, badge „Ofertă specială", imagine lipsă</td></tr>
+<tr><td>Fișa mașinii</td><td>Galerie și miniaturi (flexslider), fancybox, video, formular „Cere mai multe informații", calculator rată, butoane Sună / WhatsApp, anterior/următor, mașină vândută (200 + noindex)</td></tr>
+<tr><td>Formulare</td><td><code>cerere_oferta.php</code>, contact, înmatriculări, recenzii (validare + trimitere e-mail)</td></tr>
+<tr><td>Cookie banner + GTM</td><td>Banner, acceptare/refuz, evenimentele din GTM Preview, consimțământ transmis la GA4</td></tr>
+<tr><td>SEO</td><td>Canonical, un singur meta robots, <code>noindex</code> pe filtre, 410 pe <code>?id=999999</code>, 404 pe <code>?id=abc</code>, JSON-LD (Rich Results Test), sitemap</td></tr>
+<tr><td>Pagini din baza de date</td><td><code>/finantare/…</code>, <code>/despre-noi/</code>, <code>garantie.php</code>, <code>leasing.php</code>, <code>asistenta-rutiera.php</code></td></tr>
+<tr><td>Vizual</td><td>Comparație înainte/după la 375, 768, 1366 px; zero salt de layout la încărcare (DevTools → Performance → Layout Shift)</td></tr>
+<tr><td>Cod</td><td><code>php -l</code> pe fiecare fișier PHP modificat (serverul e pe PHP 7.0: fără sintaxă 7.1+), commit separat per fază</td></tr>
+</table>
+
+<div class="box"><strong>Ordinea recomandată:</strong> 1) texte și placeholdere (azi) → 2) Faza 0–2 (elimină flipăitul, câștig imediat) → 3) fișiere expuse și redirecturi → 4) Faza 4 (imagini) → 5) Faza 3 și 5 → 6) pagina de livrare și restul paginilor noi → 7) Faza 6, după noiembrie.</div>
+
+<p class="meta">Document intern de lucru · Autoland România · 23 octombrie 2026</p>
+</div>
+</body>
+</html>

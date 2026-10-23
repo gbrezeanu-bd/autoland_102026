@@ -112,16 +112,19 @@
                 $canonical_url .= '?' . implode('&', $canonical_params);
             }
 
-            // Căutări și combinații de filtre: utile vizitatorilor, dar nu le indexăm.
-            // Când e setată o categorie validă, vanzari.php ignoră filtrele, deci pagina e chiar categoria.
+            // Căutări, combinații de filtre și sortări: utile vizitatorilor, dar nu le indexăm.
+            // Filtrele se aplică și peste o categorie, deci o categorie filtrată nu mai e pagina de categorie.
             $has_category = isset($category_urls[$users]) || $users === 'Utilaje';
-            $is_filtered = !$has_category && (
-                $get_str('txtsrc') !== ''
+            $is_filtered = $get_str('txtsrc') !== ''
                 || !in_array($get_str('marca'), ['', '%'], true)
                 || !in_array($get_str('an'), ['', '1995'], true)
                 || !in_array($get_str('pret'), ['', '14000000'], true)
                 || !in_array($get_str('combustibil'), ['', '%', 'fara'], true)
-            );
+                || !in_array($get_str('caroserie'), ['', '%', 'fara'], true)
+                || $get_str('cutie') !== ''
+                || $get_str('km') !== ''
+                || $get_str('sort') !== '' || $get_str('pp') !== ''
+                || ($has_category && in_array($get_str('prov_enienta'), ['Import', 'Romania'], true));
             if (($is_filtered || isset($_GET['message'])) && !isset($robots_meta)) {
                 $robots_meta = 'noindex,follow';
             }

@@ -64,6 +64,13 @@ if (mysqli_num_rows($vanzare) == 0) {
 }
 $row_vanzare = $vanzare->fetch_assoc();
 
+// Utilajele nu se mai afișează pe site
+if (stripos((string)$row_vanzare['cat'], 'Utilaje') === 0) {
+    $http_status = 410;
+    include './404.php';
+    exit();
+}
+
 // Mașină dezactivată / vândută: pagina rămâne pentru vizitatori, dar nu se indexează
 $is_sold = ((string)$row_vanzare['stare_anunt'] !== '1');
 if ($is_sold) {
@@ -106,12 +113,6 @@ $car_pictures = getCarPictures($row_vanzare['id'], $connection);
 $car_videos = getCarVideos($row_vanzare['id'], $connection);
 
 
-// get the next and previous id of published cars
-$prev_query = sprintf("SELECT id FROM `masini` WHERE id<%d AND `stare_anunt`='1' ORDER BY id DESC LIMIT 1", $row_vanzare['id']);
-$next_query = sprintf("SELECT id  FROM `masini` WHERE id > %d AND `stare_anunt`='1' ORDER BY id ASC LIMIT 1 ", $row_vanzare['id']);
-$prev_id = mysqli_fetch_assoc($connection->query($prev_query))['id'];
-$next_id = mysqli_fetch_assoc($connection->query($next_query))['id'];
-//var_dump($prev_id, $next_id);exit;
 $page_subtitle = "An fabricaţie: " . $row_vanzare['an'];
 
 
@@ -1227,9 +1228,6 @@ include './themes/automotive/template_parts/header.php';
                         
                                 
                                 <div class="car-action-buttons">
-                                    <a href="#vehicle" class="car-action-btn">
-                                        <span class="car-action-btn-text">Vezi Descrierea</span>
-                                    </a>
                                     <a href="<?= BASE_PATH ?>cerere_oferta.php" class="car-action-btn">
                                         <span class="car-action-btn-text">Ofertă Personalizată</span>
                                     </a>
@@ -1237,28 +1235,6 @@ include './themes/automotive/template_parts/header.php';
                             </div>
                         </div>
 
-                        <!-- Navigation Buttons -->
-                        <div class="car-nav-buttons">
-                            <?php if (!is_null($prev_id)): ?>
-                                <a href="<?php echo BASE_PATH . 'vanzari_detail.php?id=' . $prev_id; ?>" class="car-nav-btn car-nav-btn-prev">
-                                    Masina anterioara
-                                </a>
-                            <?php else: ?>
-                                <span class="car-nav-btn car-nav-btn-disabled">
-                                    Masina anterioara
-                                </span>
-                            <?php endif; ?>
-                            <?php if (!is_null($next_id)): ?>
-                                <a href="<?php echo BASE_PATH . 'vanzari_detail.php?id=' . $next_id; ?>" class="car-nav-btn car-nav-btn-next">
-                                    Masina urmatoare
-                                </a>
-                            <?php else: ?>
-                                <span class="car-nav-btn car-nav-btn-disabled">
-                                    Masina urmatoare
-                                </span>
-                            <?php endif; ?>
-                        </div>
-                        
                         <!-- Specifications Professional Table -->
                         <details class="car-specs-box" open>
                             <?php
@@ -1498,11 +1474,18 @@ include './themes/automotive/template_parts/header.php';
 
 <script>
 // Move sidebar to mobile placeholder on small screens
+var sidebarIsMobile = null;
 function reorganizeLayoutForMobile() {
     var sidebar = document.querySelector('.right-content');
     var placeholder = document.querySelector('.mobile-sidebar-placeholder');
-    
-    if (window.innerWidth <= 767) {
+
+    // Pe mobil, scroll-ul declanșează resize (bara browserului); reconstruim doar la schimbarea pragului,
+    // altfel calculatorul de rată deschis se închide și își pierde valorile.
+    var isMobile = window.innerWidth <= 767;
+    if (isMobile === sidebarIsMobile) { return; }
+    sidebarIsMobile = isMobile;
+
+    if (isMobile) {
         if (sidebar && placeholder) {
             // Clear placeholder first
             placeholder.innerHTML = '';

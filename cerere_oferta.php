@@ -21,6 +21,7 @@ $cerere_oferta_schemas = [
     getWebPageSchema($canonical_url, $page_title, $meta_description ?? '')
 ];
 $header_scripts .= getJsonLdString($cerere_oferta_schemas);
+$header_scripts .= '<link rel="stylesheet" href="' . BASE_PATH . 'themes/automotive/css/cerere-oferta.css?v=' . @filemtime(__DIR__ . '/themes/automotive/css/cerere-oferta.css') . '">' . PHP_EOL;
 
 // Load reCAPTCHA when form becomes visible (Intersection Observer) - Optimized for performance
 $footer_scripts .= "<script>
@@ -112,199 +113,197 @@ $footer_scripts .= "<script type='text/javascript'>" . file_get_contents("./incl
 
 
             <div class="with-sidebar col-lg-9 col-md-9 col-sm-12 col-xs-12 welcome padding-left-none md-padding-left-25 padding-bottom-40 scroll_effect fadeInUp">
+                <div class="cr-page">
 
-                <?php
-                // get car listing (all or just a part)
-                //require_once './themes/automotive/template_parts/inventory_listing2.php';
-                ?>
-                <div class="information_head margin-top-45">
-                    <h3 class="margin-bottom-45">Solicitare de oferta</h3>
-                    <form class="cerere-oferta" id="cerere-oferta" name="cerere-oferta" method="POST" action="sservicii.php">
+                    <div class="cr-intro">
+                        <h2>Cere o ofertă personalizată</h2>
+                        <p>Spune-ne ce mașină cauți și ce buget ai. Completează doar ce știi, restul stabilim împreună la telefon.</p>
+                        <ul class="cr-trust">
+                            <li><i class="fa fa-check-circle" aria-hidden="true"></i> Ofertă gratuită</li>
+                            <li><i class="fa fa-check-circle" aria-hidden="true"></i> Mașini verificate, cu garanție 1–3 ani</li>
+                            <li><i class="fa fa-check-circle" aria-hidden="true"></i> Leasing, rate sau cash</li>
+                        </ul>
+                    </div>
 
-                        <div class="row">
-                            <p>
-                                Prezentul formular reprezinta un angajament prin care S.C.  AUTOLAND  S.R.L. se obliga sa furnizeze gratuit solicitantului in cel mai scurt timp  posibil cel putin o oferta care sa intruneasca specificatiile solicitate de  catre acesta. <!-- In cazul in care una dintre oferte va fi acceptata, prezentul  formular completat impreuna cu oferta aleasa vor reprezenta anexe ale  contractului de vanzare - cumparare. -->
-                            </p>
-                            <p>
-                                Campuri obligatorii<br>
-                            </p>
-                            <p></p>
-                        </div>
+                    <form class="cerere-oferta" id="cerere-oferta" name="cerere-oferta" method="POST" action="sservicii.php" novalidate>
 
-                        <div class="row">
-                            <div class="col col-lg-6">
-                                <input type="text" name="t1" id="t1" class="form-control margin-bottom-25" placeholder="Subsemnatul">
-                            </div>
-                            <div class="col col-lg-6">
-                                <input type="text" name="t3" id="t3" class="form-control margin-bottom-25" placeholder="din judetul">
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col col-lg-6">
-                                <select  data-msg="Te rugam selecteaza" name="t10" class="form_cerere form-control" id="t10">
-                                    <option value="selecteaza" disabled selected="selected">In calitate de </option>
-                                    <option value="persoana fizica">Persoana fizica</option>
-                                    <option value="PFA / II">PFA / II</option>
-                                    <option value="Societate">Societate</option>
-                                </select>
-                            </div>
-                            <div class="col col-lg-6">
-                                <input type="text" name="t11" id="t11" class="form-control margin-bottom-25" placeholder="din judetul">
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <p>
-                                solicit ofertarea in vederea unei posibile achizitii ulterioare prin intermediul S.C. Autoland S.R.L. Iasi, a unui
-                            </p>
-                            <div class="col col-lg-6">
-                                <input type="text" name="t12" id="t12" class="form-control margin-bottom-25" placeholder="Autoturism / Autoutilitar / Autospeciala">
-                            </div>
-                            <div class="col col-lg-3">
-                                <input type="text" name="t13" id="t13" class="form-control margin-bottom-25" placeholder="marca">
-                            </div>
-                            <div class="col col-lg-3">
-                                <input type="text" name="t14" id="t14" class="form-control margin-bottom-25" placeholder="model">
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <p>
-                                cu urmatoarele caracteristici:
-                            <div class="col col-lg-12">
-                                <input type="text" name="t15" id="t15" class="form-control margin-bottom-25" placeholder="specificatii tehnice">
-                            </div>
-                            </p>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <input type="text" name="t16" id="t16" class="form-control margin-bottom-25" placeholder="Tipul caroseriei">
-                            </div>
-                            <div class="col col-lg-3">
-                                <input  data-rule-range="1980,2019" type="text" name="t17" id="t17" class="form-control margin-bottom-25" placeholder="an fabricatie minim">
-                            </div>
-                            <div class="col col-lg-3">
-                                <input  data-rule-range="1980,2019" type="text" name="t18" id="t18" class="form-control margin-bottom-25" placeholder="an fabricatie maxim">
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col col-lg-3">
-                                <select  data-msg="Te rugam selecteaza" name="t19" class="form_cerere form-control" id="t19">
-                                    <option value="" disabled selected="selected">Motor</option>
-                                    <option value="diesel">Diesel</option>
-                                    <option value="benzina">Benzina</option>
-                                    <option value="GPL">GPL</option>
-                                    <option value="GPL">Electric</option>
-                                    <option value="GPL">Hibrid</option>
-                                </select>
-                            </div>
-                            <div class="col col-lg-3">
-                                <input  type="text" name="t20" id="t20" class="form-control margin-bottom-25" placeholder="capacitate (aproximativ)">
-                            </div>
-                            <div class="col col-lg-3">
-                                <select  data-msg="Te rugam selecteaza" name="t21" class="form_cerere form-control" id="t21">
-                                    <option value="" disabled selected="selected">Cutie de viteze</option>
-                                    <option value="manuala">manuala</option>
-                                    <option value="automata">automata</option>
-                                </select>
-                            </div>
-                            <div class="col col-lg-3">
-                                <select  data-msg="Te rugam selecteaza" name="t22" class="form_cerere form-control" id="t22">
-                                    <option value="" disabled selected="selected">Tractiune</option>
-                                    <option value="fata">fata</option>
-                                    <option value="spate">spate</option>
-                                    <option value="integrala">integrala</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col col-lg-4">
-                                <input  type="text" name="t23" id="t23" class="form-control margin-bottom-25" placeholder="Km parcursi - maxim">
-                            </div>
-                            <div class="col col-lg-4">
-                                <input  type="text" name="t24" id="t24" class="form-control margin-bottom-25" placeholder="culoare">
-                            </div>
-                            <div class="col col-lg-4">
-                                <input  type="text" name="t25" id="t25" class="form-control margin-bottom-25" placeholder="numar usi">
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col col-lg-12">
-                                <input  type="text" name="t26" id="t26" class="form-control margin-bottom-25" placeholder="alte dotari solicitate">
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col col-lg-3">
-                                <select  data-msg="Te rugam selecteaza" name="t27" class="form_cerere form-control" id="t27">
-                                    <option value="" disabled selected="selected">Doresc achizitia in</option>
-                                    <option value="leasing">leasing</option>
-                                    <option value="rate">rate</option>
-                                    <option value="cash">cash</option>
-                                </select>
-                            </div>
-
-                            <div class="col col-lg-3">
-                                <select  data-msg="Te rugam selecteaza" name="t28" class="form_cerere form-control" id="t28">
-                                    <option value="" disabled selected="selected">iar pretul in tara</option>
-                                    <option value="inclusiv TVA">inclusiv TVA</option>
-                                    <option value="fara TVA">fara TVA</option>
-                                </select>
-                            </div>
-
-                            <div class="col col-lg-3">
-                                <input  type="text" name="t29" id="t29" class="form-control margin-bottom-25" placeholder="sa fie intre (euro)">
-                            </div>
-                            <div class="col col-lg-3">
-                                <input  type="text" name="t30" id="t30" class="form-control margin-bottom-25" placeholder="si (euro)">
-                                <input type="hidden" name="client_ip" value="<?php echo getClientIP(); ?>">
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <p>
-                                Date de contact in vederea primirii ofertei:
-                            </p>
-                            <div class="row">
-                                <div class="col col-lg-4">
-                                    <input type="tel" name="tel" id="tel" class="ignore form-control margin-bottom-25" placeholder="Telefon">
+                        <div class="cr-section">
+                            <h3><span class="cr-num">1</span> Despre tine</h3>
+                            <div class="cr-grid">
+                                <div class="cr-field c6">
+                                    <label class="cr-label" for="t1">Nume și prenume <span class="cr-req">*</span></label>
+                                    <input type="text" name="t1" id="t1" required autocomplete="name" placeholder="ex. Ion Popescu">
                                 </div>
-                                <div class="col col-lg-4">
-                                    <input  data-rule-email type="text" name="email" id="email" class="form-control margin-bottom-25" placeholder="Email">
+                                <div class="cr-field c6">
+                                    <label class="cr-label" for="t3">Județul tău</label>
+                                    <input type="text" name="t3" id="t3" autocomplete="address-level1" placeholder="ex. Iași">
                                 </div>
-<!--
-                                <div class="col col-lg-4">
-                                    <input  data-rule-phoneUK data-msg="Te rugam sa introduci un numar de telefon valid" type="text" name="mobil" id="mobil" class="form-control margin-bottom-25" placeholder="Mobil">
+                                <div class="cr-field c6">
+                                    <label class="cr-label" for="t10">În calitate de</label>
+                                    <select data-msg="Te rugăm selectează" name="t10" class="form_cerere" id="t10">
+                                        <option value="selecteaza" disabled selected="selected">Alege</option>
+                                        <option value="persoana fizica">Persoană fizică</option>
+                                        <option value="PFA / II">PFA / II</option>
+                                        <option value="Societate">Societate</option>
+                                    </select>
                                 </div>
--->                                
+                                <div class="cr-field c6">
+                                    <label class="cr-label" for="t11">Județul sediului</label>
+                                    <input type="text" name="t11" id="t11" placeholder="doar dacă ești firmă">
+                                </div>
                             </div>
                         </div>
 
-                        <div class="my-dropdown form-group row">
-                            <div class="g-recaptcha pull-left" data-sitekey="6LcbK38UAAAAAMAFTZuUcAh346Pp7PDT_YTO-Veq"></div>
-                            <input type="hidden" class="hiddenRecaptcha " name="hiddenRecaptcha" id="hiddenRecaptcha">
-                        </div>
-                                                
-                        <div class="row">
-                            <input class="pull-left margin-top-25" id="submit_btn" type="submit" value="Trimite">
+                        <div class="cr-section">
+                            <h3><span class="cr-num">2</span> Mașina pe care o cauți</h3>
+                            <div class="cr-grid">
+                                <div class="cr-field c6">
+                                    <label class="cr-label" for="t12">Tip de vehicul</label>
+                                    <select name="t12" id="t12">
+                                        <option value="" disabled selected="selected">Alege</option>
+                                        <option value="Autoturism">Autoturism</option>
+                                        <option value="Autoutilitar">Autoutilitar</option>
+                                        <option value="Autospecializat">Autospecializat</option>
+                                    </select>
+                                </div>
+                                <div class="cr-field c3 half">
+                                    <label class="cr-label" for="t13">Marca</label>
+                                    <input type="text" name="t13" id="t13" placeholder="ex. Volkswagen">
+                                </div>
+                                <div class="cr-field c3 half">
+                                    <label class="cr-label" for="t14">Modelul</label>
+                                    <input type="text" name="t14" id="t14" placeholder="ex. Tiguan">
+                                </div>
+                                <div class="cr-field c12" style="grid-column: span 12;">
+                                    <label class="cr-label" for="t15">Specificații tehnice dorite</label>
+                                    <input type="text" name="t15" id="t15" placeholder="ex. 2.0 TDI, 150 CP, 4x4">
+                                </div>
+                                <div class="cr-field c6">
+                                    <label class="cr-label" for="t16">Tipul caroseriei</label>
+                                    <input type="text" name="t16" id="t16" placeholder="ex. SUV, break, hatchback, van">
+                                </div>
+                                <div class="cr-field c3 half">
+                                    <label class="cr-label" for="t17">An fabricație minim</label>
+                                    <input data-rule-range="1980,<?php echo date('Y'); ?>" type="text" inputmode="numeric" name="t17" id="t17" placeholder="ex. 2018">
+                                </div>
+                                <div class="cr-field c3 half">
+                                    <label class="cr-label" for="t18">An fabricație maxim</label>
+                                    <input data-rule-range="1980,<?php echo date('Y'); ?>" type="text" inputmode="numeric" name="t18" id="t18" placeholder="ex. 2023">
+                                </div>
+                                <div class="cr-field c3 half">
+                                    <label class="cr-label" for="t19">Combustibil</label>
+                                    <select data-msg="Te rugăm selectează" name="t19" class="form_cerere" id="t19">
+                                        <option value="" disabled selected="selected">Alege</option>
+                                        <option value="diesel">Diesel</option>
+                                        <option value="benzina">Benzină</option>
+                                        <option value="GPL">GPL</option>
+                                        <option value="electric">Electric</option>
+                                        <option value="hibrid">Hibrid</option>
+                                    </select>
+                                </div>
+                                <div class="cr-field c3 half">
+                                    <label class="cr-label" for="t20">Capacitate cilindrică</label>
+                                    <input type="text" name="t20" id="t20" placeholder="ex. 2.0 sau 1998 cmc">
+                                </div>
+                                <div class="cr-field c3 half">
+                                    <label class="cr-label" for="t21">Cutie de viteze</label>
+                                    <select data-msg="Te rugăm selectează" name="t21" class="form_cerere" id="t21">
+                                        <option value="" disabled selected="selected">Alege</option>
+                                        <option value="manuala">Manuală</option>
+                                        <option value="automata">Automată</option>
+                                    </select>
+                                </div>
+                                <div class="cr-field c3 half">
+                                    <label class="cr-label" for="t22">Tracțiune</label>
+                                    <select data-msg="Te rugăm selectează" name="t22" class="form_cerere" id="t22">
+                                        <option value="" disabled selected="selected">Alege</option>
+                                        <option value="fata">Față</option>
+                                        <option value="spate">Spate</option>
+                                        <option value="integrala">Integrală</option>
+                                    </select>
+                                </div>
+                                <div class="cr-field c4 half">
+                                    <label class="cr-label" for="t23">Kilometri maximi</label>
+                                    <input type="text" inputmode="numeric" name="t23" id="t23" placeholder="ex. 150000">
+                                </div>
+                                <div class="cr-field c4 half">
+                                    <label class="cr-label" for="t24">Culoare</label>
+                                    <input type="text" name="t24" id="t24" placeholder="ex. gri, negru">
+                                </div>
+                                <div class="cr-field c4 half">
+                                    <label class="cr-label" for="t25">Număr de uși</label>
+                                    <input type="text" inputmode="numeric" name="t25" id="t25" placeholder="ex. 5">
+                                </div>
+                                <div class="cr-field" style="grid-column: span 12;">
+                                    <label class="cr-label" for="t26">Alte dotări solicitate</label>
+                                    <textarea name="t26" id="t26" rows="3" placeholder="ex. navigație, cameră de mers înapoi, scaune încălzite"></textarea>
+                                </div>
+                            </div>
                         </div>
 
+                        <div class="cr-section">
+                            <h3><span class="cr-num">3</span> Buget și finanțare</h3>
+                            <div class="cr-grid">
+                                <div class="cr-field c6">
+                                    <label class="cr-label" for="t27">Doresc achiziția în</label>
+                                    <select data-msg="Te rugăm selectează" name="t27" class="form_cerere" id="t27">
+                                        <option value="" disabled selected="selected">Alege</option>
+                                        <option value="leasing">Leasing</option>
+                                        <option value="rate">Rate</option>
+                                        <option value="cash">Cash</option>
+                                    </select>
+                                </div>
+                                <div class="cr-field c6">
+                                    <label class="cr-label" for="t28">Prețul în țară</label>
+                                    <select data-msg="Te rugăm selectează" name="t28" class="form_cerere" id="t28">
+                                        <option value="" disabled selected="selected">Alege</option>
+                                        <option value="inclusiv TVA">Inclusiv TVA</option>
+                                        <option value="fara TVA">Fără TVA</option>
+                                    </select>
+                                </div>
+                                <div class="cr-field c6 half">
+                                    <label class="cr-label" for="t29">Buget minim (euro)</label>
+                                    <input type="text" inputmode="numeric" name="t29" id="t29" placeholder="ex. 8000">
+                                </div>
+                                <div class="cr-field c6 half">
+                                    <label class="cr-label" for="t30">Buget maxim (euro)</label>
+                                    <input type="text" inputmode="numeric" name="t30" id="t30" placeholder="ex. 15000">
+                                    <input type="hidden" name="client_ip" value="<?php echo getClientIP(); ?>">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cr-section">
+                            <h3><span class="cr-num">4</span> Cum te contactăm <small>telefonul este obligatoriu</small></h3>
+                            <div class="cr-grid">
+                                <div class="cr-field c6">
+                                    <label class="cr-label" for="tel">Telefon <span class="cr-req">*</span></label>
+                                    <input type="tel" name="tel" id="tel" required autocomplete="tel" placeholder="ex. 07xx xxx xxx">
+                                </div>
+                                <div class="cr-field c6">
+                                    <label class="cr-label" for="email">Email</label>
+                                    <input data-rule-email type="text" name="email" id="email" autocomplete="email" placeholder="ex. nume@email.ro">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cr-send">
+                            <p class="cr-agreement">Prezentul formular reprezintă un angajament prin care S.C. AUTOLAND S.R.L. se obligă să furnizeze gratuit solicitantului, în cel mai scurt timp posibil, cel puțin o ofertă care să întrunească specificațiile solicitate de către acesta.</p>
+                            <div class="cr-captcha my-dropdown form-group">
+                                <div class="g-recaptcha" data-sitekey="6LcbK38UAAAAAMAFTZuUcAh346Pp7PDT_YTO-Veq"></div>
+                                <input type="hidden" class="hiddenRecaptcha " name="hiddenRecaptcha" id="hiddenRecaptcha">
+                            </div>
+                            <input id="submit_btn" type="submit" value="Trimite cererea">
+                            <p class="cr-legal">Prin trimiterea formularului ești de acord ca datele introduse să fie folosite pentru a te contacta în legătură cu solicitarea ta. Mai multe în <a href="<?php echo BASE_PATH; ?>politica_de_confidentialitate.php">Politica de confidențialitate</a>.</p>
+                        </div>
 
                     </form>
                 </div>
-
-
             </div>
             <!--welcome ends-->
         </div>
     </div>
 
 </section>
-
 <?php
 include './themes/automotive/template_parts/footer.php';

@@ -185,12 +185,6 @@ $isArticlePage = ($currentPage == '/articole.php' || $currentPage == '/articol.p
                                 <li class="<?php echo $is_autoutilitare ? 'active' : ''; ?>"><a href="<?php echo BASE_PATH; ?>vanzari.php?users=Autoutilitare&subcateg=12&marcat=100">Autoutilitare</a></li>
                                 <li class="<?php echo $is_autospecializate ? 'active' : ''; ?>"><a href="<?php echo BASE_PATH; ?>vanzari.php?users=Autospecializate&subcateg=33&marcat=102">Autospecializate</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li class="dropdown-header">Utilaje</li>
-                                <li class="<?php echo $is_utilaje_constructii ? 'active' : ''; ?>"><a href="<?php echo BASE_PATH; ?>vanzari.php?users=Utilaje&subcateg=Constructii">Utilaje de construcții</a></li>
-                                <li class="<?php echo $is_utilaje_agricole ? 'active' : ''; ?>"><a href="<?php echo BASE_PATH; ?>vanzari.php?users=Utilaje&subcateg=Agricole">Utilaje agricole</a></li>
-                                <li class="<?php echo $is_utilaje_municipale ? 'active' : ''; ?>"><a href="<?php echo BASE_PATH; ?>vanzari.php?users=Utilaje&subcateg=Municipale">Utilaje municipale</a></li>
-                                <li class="<?php echo ($is_utilaje && $get_subcateg == '') ? 'active' : ''; ?>"><a href="<?php echo BASE_PATH; ?>vanzari.php?users=Utilaje">Toate utilajele</a></li>
-                                <li role="separator" class="divider"></li>
                                 <li class="<?php echo $is_romania ? 'active' : ''; ?>"><a href="<?php echo BASE_PATH; ?>vanzari.php?prov_enienta=Romania">Mașini din România</a></li>
                                 <li class="<?php echo $is_import ? 'active' : ''; ?>"><a href="<?php echo BASE_PATH; ?>vanzari.php?prov_enienta=Import">Mașini din import</a></li>
                                 <li class="<?php echo $is_oferte ? 'active' : ''; ?>"><a href="<?php echo BASE_PATH; ?>lista_oferta.php">Oferte speciale</a></li>

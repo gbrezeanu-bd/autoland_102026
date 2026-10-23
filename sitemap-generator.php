@@ -74,10 +74,6 @@ $categories = [
     'vanzari.php?users=Autoturisme&subcateg=3&marcat=10'        => "cat = 'Autoturisme'",
     'vanzari.php?users=Autoutilitare&subcateg=12&marcat=100'    => "cat = 'Autoutilitare'",
     'vanzari.php?users=Autospecializate&subcateg=33&marcat=102' => "cat = 'Autospecializate'",
-    'vanzari.php?users=Utilaje'                                 => "cat = 'Utilaje'",
-    'vanzari.php?users=Utilaje&subcateg=Constructii'            => "cat = 'Utilaje' AND subcateg = 'Constructii'",
-    'vanzari.php?users=Utilaje&subcateg=Agricole'               => "cat = 'Utilaje' AND subcateg = 'Agricole'",
-    'vanzari.php?users=Utilaje&subcateg=Municipale'             => "cat = 'Utilaje' AND subcateg = 'Municipale'",
     'vanzari.php?prov_enienta=Import'                           => "prov_enienta = 'Import'",
     'vanzari.php?prov_enienta=Romania'                          => "prov_enienta = 'Romania'",
 ];
@@ -90,7 +86,7 @@ foreach ($categories as $url => $where) {
 }
 
 // --- Mașini active, cele mai noi primele ---
-$res = $connection->query("SELECT id, data_actualizare FROM masini WHERE stare_anunt = 1 ORDER BY id DESC");
+$res = $connection->query("SELECT id, data_actualizare FROM masini WHERE stare_anunt = 1 AND COALESCE(cat,'') NOT LIKE 'Utilaje%' ORDER BY id DESC");
 if ($res) {
     while ($row = $res->fetch_assoc()) {
         $add_url($base_url . '/vanzari_detail.php?id=' . (int)$row['id'], $row['data_actualizare']);

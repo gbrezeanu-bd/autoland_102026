@@ -64,193 +64,35 @@ if ($has_empty_txtsrc) {
     }
 }
 
-$colname_selector_marca = "-1";
-if (isset($_GET['marca']) && !empty($_GET['marca'])) 
-{
-  // Properly handle URL-encoded values and special characters
-  $colname_selector_marca = urldecode($_GET['marca']);
-  // Now escape the value for SQL
-  $colname_selector_marca = $connection->real_escape_string($colname_selector_marca);
-  
-  // Now using marca directly as a string with quotes for SQL
-  $query_selector_marca = "SELECT * FROM `masini` WHERE marca LIKE '" . $colname_selector_marca . "'";
-  $selector_marca = $connection->query($query_selector_marca) or db_fail($connection);
-  $row_selector_marca = mysqli_fetch_assoc($selector_marca);
-  $totalRows_selector_marca = mysqli_num_rows($selector_marca);
-}
-/* 
-   All references to categories and subcategories have been removed 
-*/
+// Filtre, sortare și paginare: logica e în includes/vanzari_catalog.php
+require_once './includes/vanzari_catalog.php';
 
-// Subcategory logic has been removed
-
-
-$maxRows_vanzare 		= 10;
-$pageNum_vanzare 		= (isset($_GET['pageNum_vanzare'])) ? max(0, (int)$_GET['pageNum_vanzare']) : 0;
-$startRow_vanzare 		= $pageNum_vanzare * $maxRows_vanzare;
-
-
-// Category logic has been removed
-// an și pret intră în SQL fără ghilimele, deci trebuie să fie numere
-$col_an_vanzare = 1995;
-if (isset($_GET['an']) && (int)$_GET['an'] > 0) {
-  $col_an_vanzare = (int)$_GET['an'];
-}
-$col_pret_vanzare = 14000000;
-if (isset($_GET['pret']) && (int)$_GET['pret'] > 0) {
-  $col_pret_vanzare = (int)$_GET['pret'];
-}
-$col_marca_vanzare = "%";
-if (isset($_GET['marca']) && !empty($_GET['marca'])) {
-  // Using exact marca string from the form with proper handling of special characters
-  $col_marca_vanzare = urldecode($_GET['marca']);
-  $col_marca_vanzare = $connection->real_escape_string($col_marca_vanzare);
-} else if (isset($marca_auto)) {
-  $col_marca_vanzare = $connection->real_escape_string($marca_auto);
-}
-// Subcategory variable has been removed
-$col_combustibil_vanzare = "%";
-if (isset($_GET['combustibil']) && !empty($_GET['combustibil'])) {
-  $col_combustibil_vanzare = $connection->real_escape_string($_GET['combustibil']);
-}             
-$col_prov_enienta_vanzare = "%";
-if (isset($_GET['prov_enienta']) && !empty($_GET['prov_enienta'])) {
-	$col_prov_enienta_vanzare = $connection->real_escape_string($_GET['prov_enienta']);
-}
-
-// Handle users parameter for specific category filtering
-$users_filter = null;
-$subcateg_filter = null;
-if (isset($_GET['users']) && !empty($_GET['users'])) {
-	$users_input = trim($_GET['users']);
-	// Validate input - only allow specific values (whitelist approach)
-	$allowed_categories = array('Autoturisme', 'Autospecializate', 'Autoutilitare', 'Utilaje');
-	if (in_array($users_input, $allowed_categories, true)) {
-		$users_filter = $connection->real_escape_string($users_input);
-		
-		// For Utilaje, also check for subcateg filter (Constructii, Agricole, Municipale)
-		if ($users_filter === 'Utilaje' && isset($_GET['subcateg']) && !empty($_GET['subcateg'])) {
-			$subcateg_input = trim($_GET['subcateg']);
-			$allowed_subcateg = array('Constructii', 'Agricole', 'Municipale');
-			if (in_array($subcateg_input, $allowed_subcateg, true)) {
-				$subcateg_filter = $connection->real_escape_string($subcateg_input);
-			}
-		}
+$vz_f = vz_filters();
+$maxRows_vanzare 	= $vz_f['pp'];
+$pageNum_vanzare 	= (isset($_GET['pageNum_vanzare'])) ? max(0, (int)$_GET['pageNum_vanzare']) : 0;
+$totalRows_vanzare 	= vz_count($vz_f);
+$totalPages_vanzare 	= max(0, (int)ceil($totalRows_vanzare / $maxRows_vanzare) - 1);
+// O pagină inexistentă (de exemplu după schimbarea filtrelor) duce la ultima pagină, nu la o listă goală
+$pageNum_vanzare 	= min($pageNum_vanzare, $totalPages_vanzare);
+$startRow_vanzare 	= $pageNum_vanzare * $maxRows_vanzare;
+$vz_rows 		= array();
+$vz_sections 		= array();
+// Fără filtre, cu sortarea implicită, pe prima pagină: câteva mașini din fiecare categorie, cu buton spre categorie
+$vz_overview = $totalRows_vanzare > 0 && $pageNum_vanzare === 0 && !vz_active_chips($vz_f)
+	&& $vz_f['sort'] === VZ_DEFAULT_SORT && $vz_f['pp'] === VZ_PER_PAGE;
+if ($vz_overview) {
+	foreach (vz_categories() as $vz_cat) {
+		$vz_res = vz_fetch_page(array_merge($vz_f, array('users' => $vz_cat)), 0, VZ_OVERVIEW_PER_CATEGORY) or db_fail($connection);
+		while ($vz_row = mysqli_fetch_assoc($vz_res)) { $vz_sections[$vz_cat][] = $vz_row; $vz_rows[] = $vz_row; }
 	}
+	$vz_overview = count($vz_rows) > 0;
 }
-
-// Initialize textt variable (used in pagination links)
-$textt = '';
-
-// Check if we need to use the users filter (highest priority)
-if ($users_filter !== null) {
-    if ($users_filter === 'Utilaje' && $subcateg_filter !== null) {
-		// Filter by category and subcateg for Utilaje
-		$query_vanzare = sprintf("SELECT * FROM masini WHERE stare_anunt = 1 AND cat = '%s' AND subcateg = '%s' ORDER BY pret ASC", $users_filter, $subcateg_filter);
-	} else {
-		// Filter by category only
-		$query_vanzare = sprintf("SELECT * FROM masini WHERE stare_anunt = 1 AND cat = '%s' ORDER BY pret ASC", $users_filter);
-	}
+if (!$vz_overview) {
+	$vanzare 		= vz_fetch_page($vz_f, $startRow_vanzare, $maxRows_vanzare) or db_fail($connection);
+	while ($vz_row = mysqli_fetch_assoc($vanzare)) { $vz_rows[] = $vz_row; }
 }
-elseif(isset($_GET['txtsrc']) && is_string($_GET['txtsrc']) && $_GET['txtsrc'] !== ''){
-	if (!strcmp("#S10", substr($_GET['txtsrc'], 0, 4)))
-		{
-			$textt = (int)substr($_GET['txtsrc'], 4, 10);
-			$query_vanzare 	= 'SELECT * FROM masini WHERE stare_anunt LIKE 1 AND id = '.$textt.' ORDER BY pret';
-		}
-	else
-	{
-	$textt = $_GET['txtsrc'];
-	$words = explode(' ',$textt);
-	$words = array_slice($words, 0, 2);
-	$fields = array('marca', 'tip');
-	$whereText = array();
-	foreach ($words as $word) {
-		$word = $connection->real_escape_string($word);
-		$whereSubText = array();
-		foreach ($fields as $field) {
-			$whereSubText[] = ' ('.$field.' LIKE "%'.$word.'%") ';
-		}
-		$whereText[] = '('. join(' OR ', $whereSubText) .')';
-	}
-	$whereText = '('. join(' AND ',$whereText) .')';
-    
-	if (!strcmp("fara", $col_prov_enienta_vanzare))
-		{ $whereprov_enienta = ""; }
-	else
-		{ 
-		$whereprov_enienta = $col_prov_enienta_vanzare == '%' ?  '':' (prov_enienta=\''.$col_prov_enienta_vanzare.'\') AND '; 
-		}
-	$query_vanzare 	= 'SELECT * FROM masini WHERE stare_anunt LIKE 1 AND '.$whereprov_enienta.' '.$whereText.' ORDER BY pret';
-	}
-}
-else
-{
-	// Check if we have an exact marca match or need to use LIKE with wildcard
-	if ($col_marca_vanzare == "%") {
-		$marca_condition = "marca LIKE '%'";
-	} else {
-		$marca_condition = "marca LIKE '" . $col_marca_vanzare . "'";
-	}
-	
-	if ((!strcmp("fara", $col_combustibil_vanzare)) && (!strcmp("fara",$col_prov_enienta_vanzare)))
-	{ $query_vanzare = "SELECT * FROM masini WHERE stare_anunt LIKE 1 AND an>=" . $col_an_vanzare . " AND pret<=" . $col_pret_vanzare . " AND " . $marca_condition . " ORDER BY pret ASC"; }
-	elseif (!strcmp("fara", $col_combustibil_vanzare))
-	{ $query_vanzare = "SELECT * FROM masini WHERE stare_anunt LIKE 1 AND an>=" . $col_an_vanzare . " AND pret<=" . $col_pret_vanzare . " AND " . $marca_condition . " AND prov_enienta LIKE '" . $col_prov_enienta_vanzare . "' ORDER BY pret ASC"; }
-	elseif (!strcmp("fara",$col_prov_enienta_vanzare))
-	{ $query_vanzare = "SELECT * FROM masini WHERE stare_anunt LIKE 1 AND an>=" . $col_an_vanzare . " AND pret<=" . $col_pret_vanzare . " AND combustibil LIKE '" . $col_combustibil_vanzare . "' AND " . $marca_condition . " ORDER BY pret ASC"; }
-	else
-	{ $query_vanzare = "SELECT * FROM masini WHERE stare_anunt LIKE 1 AND an>=" . $col_an_vanzare . " AND pret<=" . $col_pret_vanzare . " AND combustibil LIKE '" . $col_combustibil_vanzare . "' AND " . $marca_condition . " AND prov_enienta LIKE '" . $col_prov_enienta_vanzare . "' ORDER BY pret ASC"; }
-}
+$textt 			= $vz_f['txtsrc'];
 
-$query_limit_vanzare 	= $query_vanzare . " LIMIT " . $startRow_vanzare . ", " . $maxRows_vanzare;
-$vanzare 		= $connection->query($query_limit_vanzare) or db_fail($connection);
-$row_vanzare 		= mysqli_fetch_assoc($vanzare);
-
-// totalRows_vanzare din URL nu mai e folosit: se calculează mereu.
-// COUNT(*) cu aceleași condiții, ca să nu aducem toate rândurile doar pentru a le număra.
-$count_query_vanzare = preg_replace(array('/^SELECT \* FROM/', '/ ORDER BY .*$/'), array('SELECT COUNT(*) FROM', ''), $query_vanzare);
-if (strpos($count_query_vanzare, 'SELECT COUNT(*) FROM') === 0) {
-    $count_vanzare = $connection->query($count_query_vanzare);
-    $totalRows_vanzare = $count_vanzare ? (int)$count_vanzare->fetch_row()[0] : 0;
-} else {
-    // Interogare cu altă formă: numărăm rândurile ca înainte
-    $all_vanzare = $connection->query($query_vanzare);
-    $totalRows_vanzare = $all_vanzare ? mysqli_num_rows($all_vanzare) : 0;
-}
-$totalPages_vanzare = ceil($totalRows_vanzare/$maxRows_vanzare)-1;
-
-$queryString_vanzare = "";
-if (!empty($_SERVER['QUERY_STRING'])) 
-{
-  $params 	= explode("&", $_SERVER['QUERY_STRING']);
-  $newParams 	= array();
-  $seenParams = array(); // Track which parameters we've already seen
-
-  foreach ($params as $param) 
-  {
-    // Skip pagination parameters
-    if (stristr($param, "pageNum_vanzare") == false && stristr($param, "totalRows_vanzare") == false) 
-    {
-      // Parse parameter name and value
-      $paramParts = explode("=", $param, 2);
-      $paramName = $paramParts[0];
-      $paramValue = isset($paramParts[1]) ? $paramParts[1] : '';
-      
-      // Skip empty parameters and duplicates
-      if (!empty($paramValue) && !isset($seenParams[$paramName])) 
-      {
-        array_push($newParams, $param);
-        $seenParams[$paramName] = true; // Mark this parameter as seen
-      }
-    }
-  }
-  if (count($newParams) != 0) 
-  {
-    $queryString_vanzare = "&amp;" . htmlentities(implode("&", $newParams));
-  }
-}
-// totalRows_vanzare nu mai e transmis în URL (crea duplicate pentru Google)
       
 $header_currentOption = 'vauto';
 
@@ -275,8 +117,8 @@ setListingsPageMeta($marca_filter);
 $page_subtitle = '';
 
 // Get filters
-$category = isset($_GET['users']) && !empty($_GET['users']) ? $_GET['users'] : null;
-$origin = isset($_GET['prov_enienta']) && !empty($_GET['prov_enienta']) && $_GET['prov_enienta'] != 'fara' ? $_GET['prov_enienta'] : null;
+$category = $vz_f['users'] !== '' ? $vz_f['users'] : null;
+$origin = $vz_f['prov_enienta'] !== '' ? $vz_f['prov_enienta'] : null;
 
 // Build optimized title
 $title_parts = [];
@@ -312,20 +154,13 @@ require_once './includes/json_ld_schemas.php';
 $item_list_elements = [];
 $position = $startRow_vanzare + 1;
 
-if ($totalRows_vanzare > 0) {
-    // Execute the same query again specifically for JSON-LD
-    $vanzare_jsonld = $connection->query($query_limit_vanzare);
-    if ($vanzare_jsonld) {
-        while ($car = $vanzare_jsonld->fetch_assoc()) {
-            $item_list_elements[] = [
-                "@type" => "ListItem",
-                "position" => $position++,
-                "name" => trim($car['marca'] . " " . $car['tip']),
-                "url" => BASE_PATH . "vanzari_detail.php?id=" . (int)$car['id']
-            ];
-        }
-        mysqli_free_result($vanzare_jsonld);
-    }
+foreach ($vz_rows as $car) {
+    $item_list_elements[] = [
+        "@type" => "ListItem",
+        "position" => $position++,
+        "name" => trim($car['marca'] . " " . $car['tip']),
+        "url" => BASE_PATH . "vanzari_detail.php?id=" . (int)$car['id']
+    ];
 }
 
 // Create the ItemList schema
@@ -359,6 +194,7 @@ $vanzari_schemas = array_merge(
     ]
 );
 $header_scripts .= getJsonLdString($vanzari_schemas);
+$header_scripts .= '<link rel="stylesheet" href="' . BASE_PATH . 'themes/automotive/css/vanzari-lista.css?v=' . @filemtime(__DIR__ . '/themes/automotive/css/vanzari-lista.css') . '">' . PHP_EOL;
 
 
 include './themes/automotive/template_parts/header.php';
@@ -368,7 +204,7 @@ include './themes/automotive/template_parts/header.php';
 <section class="content">
     <div class="container">
         <?php if (!empty($expired_message)) { echo $expired_message; } ?>
-        <div class="inner-page row">
+        <div class="inner-page row vz-page">
             <!-- Sidebar START Here -->
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 padding-right-none sm-padding-left-none xs-padding-left-none padding-bottom-40 scroll_effect fadeInUp" data-wow-delay='.2s' style="z-index:100">
                 <?php
@@ -381,7 +217,7 @@ include './themes/automotive/template_parts/header.php';
             <div class="with-sidebar col-lg-9 col-md-9 col-sm-12 col-xs-12 welcome padding-left-none md-padding-left-25 padding-bottom-40 scroll_effect fadeInUp">
                 <?php
                 // get car listing (all or just a part)
-                require_once './themes/automotive/template_parts/inventory_listing2.php';
+                require_once './themes/automotive/template_parts/inventory_listing_grid.php';
                 ?>
             </div>
             <!--welcome ends-->
