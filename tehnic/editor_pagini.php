@@ -1,6 +1,6 @@
 <?php require_once('../includes/config.php'); require_once('../includes/pagini_sectiuni.php'); ?>
 <?php
-// Editor pentru paginile din tabelul `pagini` (ex. subpaginile Finanțare).
+// Editor pentru paginile din tabelul `pagini` (ex. Despre noi și subpaginile Finanțare).
 // Fără id: lista paginilor. Cu ?id=N: formularul de editare.
 if (!isset($_SESSION)) {
   session_start();
@@ -112,7 +112,7 @@ include 'header.php';
     <td>&nbsp;
 <?php if (!$pagina) { ?>
       <table align="center" cellpadding="6">
-        <tr><td colspan="4" bgcolor="#CCCCCC"><strong>Pagini de continut (Finantare etc.)</strong></td></tr>
+        <tr><td colspan="4" bgcolor="#CCCCCC"><strong>Pagini de continut (Despre noi, Finantare etc.)</strong></td></tr>
         <tr><td><strong>Sectiune</strong></td><td><strong>Pagina</strong></td><td><strong>Status</strong></td><td><strong>Modificat</strong></td><td>&nbsp;</td></tr>
 <?php
   $rows = $connection->query("SELECT id, sectiune, slug, titlu, status, data_actualizarii FROM pagini ORDER BY sectiune, ordine, id");
