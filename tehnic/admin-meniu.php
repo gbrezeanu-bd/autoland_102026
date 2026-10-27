@@ -54,9 +54,7 @@ $adm_meniu = [
         ['subcateg-auto.php', 'Subcategorii auto'],
         ['subcateg-filtru.php', 'Filtru subcategorii'],
     ]],
-    'Statistici' => ['statistici', [
-        ['statistici.php', 'Statistici'],
-    ]],
+    // Statistici (statistici.php) a fost scoasa din meniu: vizitele nu se mai inregistreaza din decembrie 2018
     'Cont' => ['cont', [
         ['schimbareparola.php', 'Schimbare parolă'],
     ]],
