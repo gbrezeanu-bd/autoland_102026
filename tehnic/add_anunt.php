@@ -265,25 +265,22 @@ $headerTitle = 'Vanzari din import :: adaugare vehicul';
 $headerScripts = '';
 include 'header.php';
 ?><!-- InstanceBeginEditable name="main" --><td>
-      <form method="post" name="form1" action="<?php echo $editFormAction; ?>">
-        <table align="center" cellpadding="0" cellspacing="0">
-          <tr valign="baseline">
-            <td colspan="2" align="left" nowrap bgcolor="#CCCCCC"><strong>Adaugare vehicule in baza de date vanzari</strong> : </td>
-          </tr>
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">Provenienta:</td>
-            <td bgcolor="#EEEEEE">
+      <form method="post" name="form1" action="<?php echo $editFormAction; ?>" class="adm-form-page">
+        <h1 class="adm-page-title">Adaugă ofertă</h1>
+
+        <fieldset class="adm-sec">
+          <legend>Clasificare</legend>
+          <div class="adm-grid">
+            <label class="adm-field"><span>Proveniență</span>
                     	<select name="prov_enienta" class="add_vanz" id="prov_enienta" style="width:120px;">
 							<option value="Import">Import</option>
-							<option value="Romania">Romania</option>
+							<option value="Romania">România</option>
                     	</select>
-			</td>
-          </tr>		  
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">Cat:</td>
-            <td bgcolor="#EEEEEE"><select name="cat" class="add_vanz" id="cat">
+            </label>
+            <label class="adm-field"><span>Categorie</span>
+            <select name="cat" class="add_vanz" id="cat">
               <?php
-				do {  
+				do {
 				?>
 				<option value="<?php echo $row_categorie['den']?>"<?php if (!(strcmp($row_categorie['den'], $row_categorie['den']))) {echo "selected=\"selected\"";} ?>><?php echo $row_categorie['den']?></option>
 							  <?php
@@ -294,29 +291,25 @@ include 'header.php';
 					  $row_categorie = mysqli_fetch_assoc($categorie);
 				  }
 				?>
-            </select></td>
-          </tr>
-          <tr>
-			<td align="right" nowrap bgcolor="#EEEEEE">SubCat:</td>
-			<td>
+            </select>
+            </label>
+            <label class="adm-field"><span>Subcategorie</span>
 				<select name="subcateg" class="add_vanz" id="subcateg">
 				<?php
 				$query_subcateg = "SELECT * FROM `subcateg` ORDER BY `den` ASC";
 				$result_subcateg = $connection->query($query_subcateg) or die($connection->error);
-				
+
 				while ($row_subcateg = $result_subcateg->fetch_assoc())
 				{
 					echo "<option value=\"{$row_subcateg['den']}\">{$row_subcateg['den']}</option>";
 					}
 				?>
 				</select>
-			</td>
-          </tr>
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">Marca:</td>
-            <td bgcolor="#EEEEEE"><select name="marca" class="add_vanz" id="marca">
+            </label>
+            <label class="adm-field"><span>Marcă</span>
+            <select name="marca" class="add_vanz" id="marca">
               <?php
-				do {  
+				do {
 				?>
 				<option value="<?php echo $row_marci['den']?>"<?php if (!(strcmp($row_marci['den'], $row_marci['den']))) {echo "selected=\"selected\"";} ?>><?php echo $row_marci['den']?></option>
 			  <?php
@@ -327,175 +320,104 @@ include 'header.php';
 					  $row_marci = mysqli_fetch_assoc($marci);
 				  }
 				?>
-            </select></td>
-          </tr>
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">Model:</td>
-            <td bgcolor="#EEEEEE"><input name="model" type="text" class="add_vanz" value="" size="60"></td>
-          </tr>
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">Varianta:</td>
-            <td bgcolor="#EEEEEE"><input name="varianta" type="text" class="add_vanz" value="" size="60"></td>
-          </tr>
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">Cilindri:</td>
-            <td bgcolor="#EEEEEE"><input name="cilindri" type="text" class="add_vanz" value="" size="60"></td>
-          </tr>
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">Culoarea:</td>
-            <td bgcolor="#EEEEEE"><input name="culoarea" type="text" class="add_vanz" value="" size="60"></td>
-          </tr>
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">Caroserie:</td>
-            <td bgcolor="#EEEEEE"><input name="caroserie" type="text" class="add_vanz" value="" size="60"></td>
-          </tr>
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">Nr usi:</td>
-            <td bgcolor="#EEEEEE"><input name="nr_usi" type="text" class="add_vanz" value="" size="60"></td>
-          </tr>
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">Nr locuri:</td>
-            <td bgcolor="#EEEEEE"><input name="nr_locuri" type="text" class="add_vanz" value="" size="60"></td>
-          </tr>
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">Inmatriculata:</td>
-            <td bgcolor="#EEEEEE"><input name="inmatriculata" type="text" class="add_vanz" value="" size="60"></td>
-          </tr>
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">Transmisie:</td>
-            <td bgcolor="#EEEEEE"><input name="transmisie" type="text" class="add_vanz" value="" size="60"></td>
-          </tr>
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">Tractiune:</td>
-            <td bgcolor="#EEEEEE"><input name="tractiune" type="text" class="add_vanz" value="" size="60"></td>
-          </tr>
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">Norma Euro:</td>
-            <td bgcolor="#EEEEEE"><input name="norma_euro" type="text" class="add_vanz" value="" size="60"></td>
-          </tr>
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">Tip:</td>
-            <td bgcolor="#EEEEEE"><input name="tip" type="text" class="add_vanz" value="" size="60"></td>
-          </tr>
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">Putere Motor:</td>
-            <td bgcolor="#EEEEEE"><input name="putere_motor" type="text" class="add_vanz" value="" size="60"></td>
-          </tr>
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">Kilometraj / Ore funcționare:</td>
-            <td bgcolor="#EEEEEE"><input name="kilometraj" type="text" class="add_vanz" value="" size="60" placeholder="Mașini: km, Utilaje: ore"></td>
-          </tr>
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">Moneda:</td>
-            <td bgcolor="#EEEEEE"><input name="moneda" type="text" class="add_vanz" value="EUR" size="60"></td>
-          </tr>
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">Titlu:</td>
-            <td bgcolor="#EEEEEE"><input name="title" type="text" class="add_vanz" value="" size="60"></td>
-          </tr>
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">Descriere:</td>
-            <td bgcolor="#EEEEEE"><input name="description" type="text" class="add_vanz" value="" size="60"></td>
-          </tr>
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">Cuvinte cheie:</td>
-            <td bgcolor="#EEEEEE"><input name="keywords" type="text" class="add_vanz" value="" size="60"></td>
-          </tr>
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">Header Anunt:</td>
-            <td bgcolor="#EEEEEE"><input name="pre_anunt" type="text" class="add_vanz" value="" size="60"></td>
-          </tr>
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">Url Filme:</td>
-            <td bgcolor="#EEEEEE"><input name="url_filme" type="text" class="add_vanz" value="" size="60"></td>
-          </tr>
-		<tr valign="baseline">
-			<td align="right" nowrap bgcolor="#EEEEEE">Combustibil:</td>
-			<td bgcolor="#EEEEEE">
+            </select>
+            </label>
+            <label class="adm-field"><span>Model</span><input name="model" type="text" class="add_vanz" value="" size="60"></label>
+            <label class="adm-field"><span>Variantă</span><input name="varianta" type="text" class="add_vanz" value="" size="60"></label>
+            <label class="adm-field"><span>Tip</span><input name="tip" type="text" class="add_vanz" value="" size="60"></label>
+            <label class="adm-field"><span>An</span><input name="an" type="text" class="add_vanz" value="" size="60"></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="adm-sec">
+          <legend>Date tehnice</legend>
+          <div class="adm-grid">
+            <label class="adm-field"><span>Combustibil</span>
 				<select name="combustibil" class="add_vanz" id="combustibil">
-					<option value="fara">fara</option>
-					<option value="benzina">benzina</option>
-					<option value="motorina">motorina</option>
+					<option value="fara">fără</option>
+					<option value="benzina">benzină</option>
+					<option value="motorina">motorină</option>
 					<option value="hybrid">hybrid</option>
-					<option value="electric">electric</option>					
-				</select>            
-			</td>
-		</tr>
-		<tr valign="baseline">
-			<td align="right" nowrap bgcolor="#EEEEEE">Stare Anunt:</td>
-			<td bgcolor="#EEEEEE">
-				<select name="stare_anunt" class="add_vanz" id="combustibil">
-					<option value="1">On</option>
-					<option value="0">Off</option>
-				</select>            
-			</td>
-		</tr>
-		<tr valign="baseline">
-			<td align="right" nowrap bgcolor="#EEEEEE">Stare CSV:</td>
-			<td bgcolor="#EEEEEE">
-				<select name="stare_csv" class="add_vanz" id="combustibil">
-					<option value="0">Off</option>
-					<option value="1">On</option>
-				</select>            
-			</td>
-		</tr>
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">An:</td>
-            <td bgcolor="#EEEEEE"><input name="an" type="text" class="add_vanz" value="" size="60"></td>
-          </tr>
-<!-- Oferta Speciala -->
-                    <td nowrap align="right" nowrap bgcolor="#EEEEEE">Oferta:</td>
-                    <td bgcolor="#EEEEEE"><select name="oferta_speciala" class="add_vanz" id="oferta_speciala" style="width:120px;">
-                            <?php
-                            if(!isset($row_vehicule['oferta_speciala'])){
-                                $row_vehicule['oferta_speciala']=NULL;
-                            }
-                            ?>
-                      <option value="0" <?php if (!(strcmp("0", $row_vehicule['oferta_speciala']))) {echo "selected=\"selected\"";} ?>>fara</option>
-                      <option value="1" <?php if (!(strcmp("1", $row_vehicule['oferta_speciala']))) {echo "selected=\"selected\"";} ?>>oferta</option>                    
-                    </select></td>
-          <tr valign="baseline">
-            <td align="right" valign="top" nowrap bgcolor="#EEEEEE">Descriere:</td>
-            <td bgcolor="#EEEEEE"><textarea name="descriere" cols="50" rows="10"></textarea>            </td>
-          </tr>
-          <tr valign="baseline">
-            <td align="right" valign="top" nowrap bgcolor="#EEEEEE">Dotari:</td>
-            <td bgcolor="#EEEEEE"><textarea name="dotari" cols="50" rows="10"></textarea>            </td>
-          </tr>
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">Tonaj:</td>
-            <td bgcolor="#EEEEEE"><input name="tonaj" type="text" class="add_vanz" value="" size="60" placeholder="ex: 4tone"></td>
-          </tr>
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">Tip deplasare:</td>
-            <td bgcolor="#EEEEEE">
+					<option value="electric">electric</option>
+				</select>
+            </label>
+            <label class="adm-field"><span>Cilindri</span><input name="cilindri" type="text" class="add_vanz" value="" size="60"></label>
+            <label class="adm-field"><span>Putere motor</span><input name="putere_motor" type="text" class="add_vanz" value="" size="60"></label>
+            <label class="adm-field"><span>Normă Euro</span><input name="norma_euro" type="text" class="add_vanz" value="" size="60"></label>
+            <label class="adm-field"><span>Kilometraj / Ore funcționare</span><input name="kilometraj" type="text" class="add_vanz" value="" size="60" placeholder="Mașini: km, Utilaje: ore"></label>
+            <label class="adm-field"><span>Transmisie</span><input name="transmisie" type="text" class="add_vanz" value="" size="60"></label>
+            <label class="adm-field"><span>Tracțiune</span><input name="tractiune" type="text" class="add_vanz" value="" size="60"></label>
+            <label class="adm-field"><span>Caroserie</span><input name="caroserie" type="text" class="add_vanz" value="" size="60"></label>
+            <label class="adm-field"><span>Culoare</span><input name="culoarea" type="text" class="add_vanz" value="" size="60"></label>
+            <label class="adm-field"><span>Nr. uși</span><input name="nr_usi" type="text" class="add_vanz" value="" size="60"></label>
+            <label class="adm-field"><span>Nr. locuri</span><input name="nr_locuri" type="text" class="add_vanz" value="" size="60"></label>
+            <label class="adm-field"><span>Înmatriculată</span><input name="inmatriculata" type="text" class="add_vanz" value="" size="60"></label>
+            <label class="adm-field"><span>Tonaj <em>(utilaje)</em></span><input name="tonaj" type="text" class="add_vanz" value="" size="60" placeholder="ex: 4tone"></label>
+            <label class="adm-field"><span>Tip deplasare <em>(utilaje)</em></span>
               <select name="tip_deplasare" class="add_vanz" id="tip_deplasare" style="width:120px;">
                 <option value="">-- Selectează --</option>
                 <option value="Roti">Roti</option>
                 <option value="Senile">Senile</option>
                 <option value="Roti/Senile">Roti/Senile</option>
               </select>
-            </td>
-          </tr>
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">Pret:</td>
-            <td bgcolor="#EEEEEE"><input name="pret" type="text" class="add_vanz" value="" size="60">
-            </td>
-          </tr>
-          <tr valign="baseline">
-            <td align="right" nowrap bgcolor="#EEEEEE">Pret vechi:</td>
-            <td bgcolor="#EEEEEE"><input name="pret_vechi" type="text" class="add_vanz" value="" size="60">
-            </td>
-          </tr>
-          <tr valign="baseline">
-            <td nowrap align="right">&nbsp;</td>
-            <td><input type="submit" value="Adauga inregistrarea"></td>
-          </tr>
-        </table>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="adm-sec">
+          <legend>Preț și publicare</legend>
+          <div class="adm-grid">
+            <label class="adm-field"><span>Preț</span><input name="pret" type="text" class="add_vanz" value="" size="60"></label>
+            <label class="adm-field"><span>Preț vechi</span><input name="pret_vechi" type="text" class="add_vanz" value="" size="60"></label>
+            <label class="adm-field"><span>Monedă</span><input name="moneda" type="text" class="add_vanz" value="EUR" size="60"></label>
+            <label class="adm-field"><span>Ofertă specială</span>
+              <select name="oferta_speciala" class="add_vanz" id="oferta_speciala" style="width:120px;">
+                            <?php
+                            if(!isset($row_vehicule['oferta_speciala'])){
+                                $row_vehicule['oferta_speciala']=NULL;
+                            }
+                            ?>
+                      <option value="0" <?php if (!(strcmp("0", $row_vehicule['oferta_speciala']))) {echo "selected=\"selected\"";} ?>>fără</option>
+                      <option value="1" <?php if (!(strcmp("1", $row_vehicule['oferta_speciala']))) {echo "selected=\"selected\"";} ?>>ofertă</option>
+              </select>
+            </label>
+            <label class="adm-field"><span>Stare anunț</span>
+				<select name="stare_anunt" class="add_vanz" id="combustibil">
+					<option value="1">On</option>
+					<option value="0">Off</option>
+				</select>
+            </label>
+            <label class="adm-field"><span>Stare CSV</span>
+				<select name="stare_csv" class="add_vanz" id="combustibil">
+					<option value="0">Off</option>
+					<option value="1">On</option>
+				</select>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="adm-sec">
+          <legend>Texte anunț și SEO</legend>
+          <div class="adm-grid adm-grid-lat">
+            <label class="adm-field"><span>Titlu</span><input name="title" type="text" class="add_vanz" value="" size="60"></label>
+            <label class="adm-field"><span>Descriere (meta)</span><input name="description" type="text" class="add_vanz" value="" size="60"></label>
+            <label class="adm-field"><span>Cuvinte cheie</span><input name="keywords" type="text" class="add_vanz" value="" size="60"></label>
+            <label class="adm-field"><span>Header anunț</span><input name="pre_anunt" type="text" class="add_vanz" value="" size="60"></label>
+            <label class="adm-field"><span>Url filme</span><input name="url_filme" type="text" class="add_vanz" value="" size="60"></label>
+          </div>
+          <div class="adm-grid adm-grid-2">
+            <label class="adm-field"><span>Descriere</span><textarea name="descriere" cols="50" rows="10"></textarea></label>
+            <label class="adm-field"><span>Dotări</span><textarea name="dotari" cols="50" rows="10"></textarea></label>
+          </div>
+        </fieldset>
+
+        <div class="adm-form-actions">
+          <input type="submit" value="Adaugă înregistrarea">
+        </div>
         <input type="hidden" name="id" value="">
         <input type="hidden" name="MM_insert" value="form1">
       </form>
-    <p>&nbsp;</p></td><!-- InstanceEndEditable -->
+    </td><!-- InstanceEndEditable -->
   </tr>
 </table>
 </body>

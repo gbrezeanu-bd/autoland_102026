@@ -104,7 +104,7 @@ if ((isset($_GET['delfotoid'])) && ($_GET['delfotoid'] != "")) {
   $deleteSQL = sprintf("DELETE FROM fotov WHERE oferta=%s",
                        GetSQLValueString($_GET['delfotoid'], "int"));
                                                   
-  $Result1 = $connection->query($deleteSQL) or die(error);
+  $Result1 = $connection->query($deleteSQL) or die($connection->error);
 
   $deleteGoTo = "view_vanzare_oferta.php";
   header(sprintf("Location: %s", $deleteGoTo));
@@ -114,7 +114,12 @@ if ((isset($_GET['del'])) && ($_GET['del'] != "")) {
   $deleteSQL = sprintf("DELETE FROM masini WHERE id=%s",
                        GetSQLValueString($_GET['del'], "int"));
                                                    
-  $Result1 = query($deleteSQL) or die($connection->error);
+  $Result1 = $connection->query($deleteSQL) or die($connection->error);
+
+  $deleteSQL23 = sprintf("DELETE FROM for_csv WHERE id=%s",
+                       GetSQLValueString($_GET['del'], "int"));
+
+  $Result123 = $connection->query($deleteSQL23) or die($connection->error);
 
   $deleteGoTo = "view_vanzare_oferta.php";
   header(sprintf("Location: %s", $deleteGoTo));
@@ -147,8 +152,10 @@ $marca 		= (isset($_REQUEST['amarca'])) ? $_REQUEST['amarca'] : '';
 $subcateg	= (isset($_REQUEST['asubcateg'])) ? $_REQUEST['asubcateg'] : ''; 
 $combustibilie 	= (isset($_REQUEST['acombustibilibil'])) ? $_REQUEST['acombustibilibil'] : ''; 
 $anfabric 	= (isset($_REQUEST['aanfabricatie'])) ? $_REQUEST['aanfabricatie'] : '';
+$idanunt	= (isset($_REQUEST['aid'])) ? intval($_REQUEST['aid']) : 0;
 
 $wheresql	= " WHERE oferta_speciala='1' ";
+if( $idanunt > 0 ) $wheresql 		.= ' AND id='.$idanunt;
 if( !empty($categ) ) $wheresql 		.= ' AND cat="'.$categ.'"';
 if( !empty($marca) ) $wheresql 		.= ' AND marca="'.$marca.'"';
 if( !empty($subcateg) ) $wheresql 		.= ' AND subcateg="'.$subcateg.'"';
@@ -188,16 +195,19 @@ if (!empty($_POST) || !empty($_GET)) {
 $queryString_vehicule = sprintf("&totalRows_vehicule=%d%s", $totalRows_vehicule, $queryString_vehicule);
 
 $headerTitle = 'Vizualizare baza de date vanzari din import';
+require_once 'anunturi-admin-card.php';
+$info_anunturi = adm_info_anunturi($connection, $query_limit_vehicule);
+$headerScripts = '<link href="anunturi-admin.css" rel="stylesheet" type="text/css" />';
 include 'header.php';
-?><!-- InstanceBeginEditable name="main" --><td valign="top">
+?><!-- InstanceBeginEditable name="main" --><td valign="top" class="adm-anunturi">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td bgcolor="#eeeeee" style="border:1px solid #cccccc;"><form id="form1" name="form1" method="post" action="">
+            <td class="adm-filtre"><form id="form1" name="form1" method="post" action="">
               <table width="90%" border="0" align="center" cellpadding="5" cellspacing="0">
                 <tr>
-                  <td width="50%" align="right"><label>Cat. :
+                  <td width="50%" align="right"><label>Categorie :
                       <select name="acateg" class="add_vanz"  onchange="this.form.submit();">
-						<option value="">Selecteaza</option>
+						<option value="">Selectează</option>
                         <?php
 do {
 ?>
@@ -213,9 +223,9 @@ do {
                       </select>
 
                     </label></td>
-                  <td align="right"><label>Marca :
+                  <td align="right"><label>Marcă :
                       <select name="amarca" class="add_vanz" onchange="this.form.submit();">
-						<option value="">Selecteaza</option>
+						<option value="">Selectează</option>
                         <?php
 do {
 ?>
@@ -233,17 +243,17 @@ do {
                     </label></td>
                 </tr>
                 <tr>
-                  <td align="right"><label>combustibil. :
+                  <td align="right"><label>Combustibil :
                       <select name="acombustibilibil" class="add_vanz" onchange="this.form.submit();">
-						<option value="">Selecteaza</option>
-                        <option value="motorina" <?php if (!(strcmp("motorina", $_REQUEST['acombustibilibil']))) {echo "selected=\"selected\"";} ?>>motorina</option>
-                        <option value="benzina" <?php if (!(strcmp("benzina", $_REQUEST['acombustibilibil']))) {echo "selected=\"selected\"";} ?>>benzina</option>
-                        <option value="fara" <?php if (!(strcmp("fara", $_REQUEST['acombustibilibil']))) {echo "selected=\"selected\"";} ?>>fara</option>
+						<option value="">Selectează</option>
+                        <option value="motorina" <?php if (!(strcmp("motorina", $_REQUEST['acombustibilibil']))) {echo "selected=\"selected\"";} ?>>motorină</option>
+                        <option value="benzina" <?php if (!(strcmp("benzina", $_REQUEST['acombustibilibil']))) {echo "selected=\"selected\"";} ?>>benzină</option>
+                        <option value="fara" <?php if (!(strcmp("fara", $_REQUEST['acombustibilibil']))) {echo "selected=\"selected\"";} ?>>fără</option>
                       </select>
                     </label></td>
-                  <td align="right"><label>An fabricatie :
+                  <td align="right"><label>An fabricație :
                       <select name="aanfabricatie" class="add_vanz" onchange="this.form.submit();">
-						<option value="">Selecteaza</option>
+						<option value="">Selectează</option>
                         <option value="1997" <?php if (!(strcmp(1997, $_REQUEST['aanfabricatie']))) {echo "selected=\"selected\"";} ?>>1998 sau mai nou</option>
                         <option value="1998" <?php if (!(strcmp(1998, $_REQUEST['aanfabricatie']))) {echo "selected=\"selected\"";} ?>>1998 sau mai nou</option>
                         <option value="1999" <?php if (!(strcmp(1999, $_REQUEST['aanfabricatie']))) {echo "selected=\"selected\"";} ?>>1999 sau mai nou</option>
@@ -258,9 +268,9 @@ do {
                     </label></td>
                 </tr>
                 <tr>
-                  <td align="right">Subcateg:
+                  <td align="right">Subcategorie :
                       <select name="asubcateg" class="add_vanz" onchange="this.form.submit();">
-						<option value="">Selecteaza</option>
+						<option value="">Selectează</option>
 <?php
 while ( $row_subcateg = mysqli_fetch_assoc($result_subcateg) ) {
 ?>
@@ -270,7 +280,10 @@ while ( $row_subcateg = mysqli_fetch_assoc($result_subcateg) ) {
 ?>
                       </select>
 				</td>
-                <td>&nbsp;</td>
+                <td align="right">
+					ID anunț :
+                      <input type="text" name="aid" class="add_vanz" size="8" inputmode="numeric" value="<?php echo $idanunt > 0 ? $idanunt : ''; ?>" onchange="this.form.submit();" />
+				</td>
                 </tr>
                 <tr>
                   <td>&nbsp;</td>
@@ -280,24 +293,27 @@ while ( $row_subcateg = mysqli_fetch_assoc($result_subcateg) ) {
                   </form>        </td>
           </tr>
           <tr>
-            <td bgcolor="#eeeeee" style="border:1px solid #cccccc;"><table width="90%" border="0" align="center" cellpadding="5" cellspacing="0">
+            <td class="adm-gap">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="adm-paginare"><table width="100%" border="0" align="center" cellpadding="5" cellspacing="0">
                 <tr>
                   <td width="50%">
-                  Records <?php echo ($startRow_vehicule + 1) ?> to <?php echo min($startRow_vehicule + $maxRows_vehicule, $totalRows_vehicule) ?> of <?php echo $totalRows_vehicule ?> </td>
+                  Anunțurile <?php echo ($startRow_vehicule + 1) ?>–<?php echo min($startRow_vehicule + $maxRows_vehicule, $totalRows_vehicule) ?> din <?php echo $totalRows_vehicule ?> </td>
                   <td>
                     <table border="0" width="50%" align="center">
                       <tr>
                         <td width="23%" align="center"><?php if ($pageNum_vehicule > 0) { // Show if not first page ?>
-                            <a href="<?php printf("%s?pageNum_vehicule=%d%s", $currentPage, 0, $queryString_vehicule); ?>">First</a>
+                            <a href="<?php printf("%s?pageNum_vehicule=%d%s", $currentPage, 0, $queryString_vehicule); ?>">Prima</a>
                             <?php } // Show if not first page ?>                                                      </td>
                         <td width="31%" align="center"><?php if ($pageNum_vehicule > 0) { // Show if not first page ?>
-                            <a href="<?php printf("%s?pageNum_vehicule=%d%s", $currentPage, max(0, $pageNum_vehicule - 1), $queryString_vehicule); ?>">Previous</a>
+                            <a href="<?php printf("%s?pageNum_vehicule=%d%s", $currentPage, max(0, $pageNum_vehicule - 1), $queryString_vehicule); ?>">Anterioara</a>
                             <?php } // Show if not first page ?>                                                      </td>
                         <td width="23%" align="center"><?php if ($pageNum_vehicule < $totalPages_vehicule) { // Show if not last page ?>
-                            <a href="<?php printf("%s?pageNum_vehicule=%d%s", $currentPage, min($totalPages_vehicule, $pageNum_vehicule + 1), $queryString_vehicule); ?>">Next</a>
+                            <a href="<?php printf("%s?pageNum_vehicule=%d%s", $currentPage, min($totalPages_vehicule, $pageNum_vehicule + 1), $queryString_vehicule); ?>">Următoarea</a>
                             <?php } // Show if not last page ?>                                                      </td>
                         <td width="23%" align="center"><?php if ($pageNum_vehicule < $totalPages_vehicule) { // Show if not last page ?>
-                            <a href="<?php printf("%s?pageNum_vehicule=%d%s", $currentPage, $totalPages_vehicule, $queryString_vehicule); ?>">Last</a>
+                            <a href="<?php printf("%s?pageNum_vehicule=%d%s", $currentPage, $totalPages_vehicule, $queryString_vehicule); ?>">Ultima</a>
                             <?php } // Show if not last page ?>                                                      </td>
                       </tr>
                     </table></td>
@@ -305,62 +321,17 @@ while ( $row_subcateg = mysqli_fetch_assoc($result_subcateg) ) {
                       </table></td>
           </tr>
           <tr>
-            <td>&nbsp;</td>
+            <td class="adm-gap">&nbsp;</td>
           </tr>
+		  <?php if ($row_vehicule) { do { ?>
           <tr>
-            <td>&nbsp;</td>
-          </tr>
-		  <?php do { ?>
-          <tr>
-            <td>              <table width="570" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#EEEEEE">
-                <tr valign="baseline">
-                  <td width="50" align="left" nowrap bgcolor="#DCEAF1"><strong>ID: <span class="style4"><?php echo $row_vehicule['id']; ?></span></strong></td>
-                  <td width="70" align="right" nowrap>Marca:</td>
-                  <td align="left"><?php echo $row_vehicule['marca']; ?></td>
-                  <td width="70" align="right">Tip:</td>
-                  <td align="left"><?php echo $row_vehicule['tip']; ?></td>
-                  <td width="70" align="right">Pret :</td>
-                  <td align="left"><?php echo $row_vehicule['pret']; ?></td>
-                </tr>
-                <tr valign="baseline">
-                  <td align="right" nowrap bgcolor="#DCEAF1">&nbsp;</td>
-                  <td nowrap align="right">Cat:</td>
-                  <td align="left"><?php echo $row_vehicule['cat']; ?></td>
-                  <td align="right">combustibil:</td>
-                  <td align="left"><?php echo $row_vehicule['combustibil']; ?></td>
-                  <td align="right">An:</td>
-                  <td align="left"><?php echo $row_vehicule['an']; ?></td>
-                </tr>
-                <tr valign="baseline">
-                  <td align="right" nowrap bgcolor="#DCEAF1">&nbsp;</td>
-                  <td align="right">Subcateg:</td>
-                  <td align="left" colspan="5"><?php echo $row_vehicule['subcateg']; ?></td>
-                </tr>
-                <tr valign="baseline">
-                  <td align="right" nowrap bgcolor="#DCEAF1">&nbsp;</td>
-                  <td nowrap align="right">&nbsp;</td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-                  <td colspan="3" align="center">&nbsp;</td>
-                </tr>
-                <tr valign="baseline">
-                  <td align="left" nowrap bgcolor="#DCEAF1">&nbsp;</td>
-                  <td nowrap align="left">&nbsp;</td>
-                  <td colspan="3" align="left">[<a href="view_vanzare_oferta.php?del=<?php echo $row_vehicule['id']; ?>">sterge oferta</a>]&nbsp;&nbsp;&nbsp;&nbsp;[<a href="view_mod_vanzare2.php?id=<?php echo $row_vehicule['id']; ?>">modifica oferta</a>]</td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-                </tr>
-                <tr valign="baseline">
-                  <td align="left" nowrap bgcolor="#FFFFFF">&nbsp;</td>
-                  <td align="left" nowrap bgcolor="#FFFFFF">&nbsp;</td>
-                  <td bgcolor="#FFFFFF">&nbsp;</td>
-                  <td colspan="2" valign="middle" bgcolor="#FFFFFF">&nbsp;</td>
-                  <td bgcolor="#FFFFFF">&nbsp;</td>
-                  <td bgcolor="#FFFFFF">&nbsp;</td>
-                </tr>
-               </table>
+            <td>
+<?php adm_card($row_vehicule, $info_anunturi, "view_mod_vanzare2.php?id=" . $row_vehicule['id'], "view_vanzare_oferta.php?del=" . $row_vehicule['id']); ?>
             </td>
-          </tr><?php } while ($row_vehicule = mysqli_fetch_assoc($vehicule)); ?>
+          </tr><?php } while ($row_vehicule = mysqli_fetch_assoc($vehicule)); } else { ?>
+          <tr>
+            <td><div class="adm-empty">Nicio ofertă specială găsită pentru filtrele alese.</div></td>
+          </tr><?php } ?>
           <tr>
             <td>&nbsp;</td>
           </tr>

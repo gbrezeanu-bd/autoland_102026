@@ -1,5 +1,28 @@
+// Formatarea codului vine din tehnic/editor-continut.js (pagina care a deschis fereastra), daca e incarcat acolo
+var adminSursa = null;
+
+function adminPaginaEditor() {
+	var w = window.opener || (window.parent !== window ? window.parent : null);
+	try {
+		return w && typeof(w.adminHtmlFormateaza) == 'function' ? w : null;
+	} catch (e) {
+		return null;
+	}
+}
+
 function saveContent() {
-	tinyMCE.setContent(document.getElementById('htmlSource').value);
+	var v = document.getElementById('htmlSource').value;
+
+	if (adminSursa) {
+		// Nimic modificat: editorul ramane exact cum era
+		if (v === adminSursa.text) {
+			tinyMCE.closeWindow(window);
+			return;
+		}
+		v = adminSursa.restaureaza(v);
+	}
+
+	tinyMCE.setContent(v);
 	tinyMCE.closeWindow(window);
 }
 
@@ -10,7 +33,15 @@ function onLoadInit() {
 	if (tinyMCE.isGecko)
 		document.body.spellcheck = tinyMCE.getParam("gecko_spellcheck");
 
-	document.getElementById('htmlSource').value = tinyMCE.getContent(tinyMCE.getWindowArg('editor_id'));
+	var html = tinyMCE.getContent(tinyMCE.getWindowArg('editor_id')), pagina = adminPaginaEditor();
+
+	if (pagina) {
+		adminSursa = pagina.adminHtmlFormateaza(html);
+		html = adminSursa.text;
+		pagina.adminHtmlStilFereastra(document);
+	}
+
+	document.getElementById('htmlSource').value = html;
 
 	resizeInputs();
 

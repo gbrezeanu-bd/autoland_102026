@@ -1,0 +1,161 @@
+/*
+ * Aspectul paginilor de anunturi din admin: view_vanzare2.php, view_vanzare_new.php (lista)
+ * si view_mod_vanzare2.php, vezi_anunturi.php (editare). Totul e limitat la .adm-anunturi,
+ * ca restul sectiunii tehnic si editorul TinyMCE sa ramana neschimbate.
+ * Culorile sunt cele de pe site (themes/automotive/css/vanzari-lista.css).
+ */
+
+.adm-anunturi {
+    --adm-ink: #12303b; --adm-text: #2b3a42; --adm-muted: #6b7782; --adm-line: #e3e8ec; --adm-field: #cfd6dc;
+    --adm-soft: #f2f5f7; --adm-bg: #f6f8f9; --adm-accent: #0e7490; --adm-accent-dark: #155e75; --adm-accent-soft: #e4f1f5;
+    --adm-red: #c7081b; --adm-green: #1f8a4c;
+    padding: 20px 24px 40px; background: var(--adm-bg); color: var(--adm-text);
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 14px;
+}
+.adm-anunturi a { color: var(--adm-accent); }
+.adm-anunturi a:hover { color: var(--adm-accent-dark); }
+
+/* ---- Filtre ---- */
+.adm-anunturi .adm-filtre { padding: 16px 20px 6px; background: #fff; border: 1px solid var(--adm-line); border-radius: 8px; }
+.adm-anunturi .adm-filtre table { width: 100%; }
+.adm-anunturi .adm-filtre td { padding: 0 0 10px; color: var(--adm-muted); font-size: 13px; font-weight: 600; line-height: 34px; white-space: nowrap; }
+.adm-anunturi .adm-filtre select,
+.adm-anunturi .adm-filtre input[type="text"] {
+    width: 210px; height: 34px; margin-left: 6px; padding: 0 8px; border: 1px solid var(--adm-field); border-radius: 6px;
+    background-color: #fff; color: var(--adm-ink); font-family: inherit; font-size: 14px; vertical-align: middle; box-sizing: border-box;
+}
+.adm-anunturi .adm-filtre select:focus,
+.adm-anunturi .adm-filtre input[type="text"]:focus { border-color: var(--adm-accent); outline: 2px solid var(--adm-accent-soft); }
+
+/* ---- Bara cu numarul de rezultate si paginare ---- */
+.adm-anunturi .adm-paginare { padding: 4px 14px; background: var(--adm-soft); border-radius: 8px; color: var(--adm-ink); font-size: 14px; }
+.adm-anunturi .adm-paginare a {
+    display: inline-block; padding: 5px 12px; border: 1px solid var(--adm-field); border-radius: 6px; background: #fff;
+    color: var(--adm-ink); font-size: 13px; font-weight: 600; text-decoration: none;
+}
+.adm-anunturi .adm-paginare a:hover { border-color: var(--adm-accent); color: var(--adm-accent); }
+.adm-anunturi .adm-gap { height: 12px; font-size: 0; line-height: 0; }
+
+/* ---- Card anunt in lista ---- */
+.adm-anunturi .adm-card {
+    display: flex; align-items: stretch; margin: 0 0 12px; overflow: hidden;
+    background: #fff; border: 1px solid var(--adm-line); border-radius: 8px; transition: box-shadow .15s ease, border-color .15s ease;
+}
+.adm-anunturi .adm-card:hover { border-color: var(--adm-field); box-shadow: 0 6px 18px rgba(18, 48, 59, .10); }
+.adm-anunturi .adm-card-id {
+    display: flex; flex: 0 0 92px; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+    padding: 12px 8px; background: var(--adm-accent-soft); color: var(--adm-muted); font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+}
+.adm-anunturi .adm-card-id strong { color: var(--adm-ink); font-size: 20px; letter-spacing: 0; }
+.adm-anunturi .adm-card-main { flex: 1; min-width: 0; padding: 12px 16px; }
+.adm-anunturi .adm-card-title { margin: 0 0 8px; color: var(--adm-ink); font-size: 16px; font-weight: 700; line-height: 1.35; }
+.adm-anunturi .adm-card-title span { font-weight: 400; }
+.adm-anunturi .adm-card-meta { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 12px; }
+.adm-anunturi .adm-card-meta span { padding: 3px 9px; border-radius: 999px; background: var(--adm-soft); color: var(--adm-text); font-size: 12.5px; }
+.adm-anunturi .adm-card-meta em { color: var(--adm-muted); font-style: normal; }
+.adm-anunturi .adm-card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.adm-anunturi .adm-card-price {
+    display: flex; flex: 0 0 140px; flex-direction: column; align-items: flex-end; justify-content: center;
+    padding: 12px 18px; border-left: 1px solid var(--adm-line); color: var(--adm-muted); font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+}
+.adm-anunturi .adm-card-price strong { color: var(--adm-ink); font-size: 22px; letter-spacing: 0; white-space: nowrap; }
+.adm-anunturi .adm-card-price strong small { color: var(--adm-muted); font-size: 12px; }
+.adm-anunturi .adm-card-price del { color: var(--adm-muted); font-size: 13px; font-weight: 400; letter-spacing: 0; }
+
+/* Poza principala, cu numarul de poze si videouri */
+.adm-anunturi .adm-card-photo {
+    position: relative; display: block; flex: 0 0 168px; min-height: 120px; overflow: hidden; background: var(--adm-soft); text-decoration: none;
+}
+.adm-anunturi .adm-card-photo img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+.adm-anunturi .adm-card-nophoto {
+    position: absolute; top: 0; right: 0; bottom: 26px; left: 0; display: flex; align-items: center; justify-content: center;
+    color: var(--adm-red); font-size: 12px; font-weight: 700; text-transform: uppercase;
+}
+.adm-anunturi .adm-card-count {
+    position: absolute; left: 6px; bottom: 6px; padding: 2px 7px; border-radius: 4px; background: rgba(18, 48, 59, .82);
+    color: #fff; font-size: 11.5px; font-weight: 600; line-height: 1.5;
+}
+.adm-anunturi .adm-card-sub {
+    margin: -4px 0 8px; overflow: hidden; color: var(--adm-muted); font-size: 12.5px; text-overflow: ellipsis; white-space: nowrap;
+}
+.adm-anunturi .adm-card-warn { display: flex; flex-wrap: wrap; gap: 6px; margin: -4px 0 12px; }
+.adm-anunturi .adm-card-warn span {
+    padding: 2px 9px; border: 1px solid #f3c2c7; border-radius: 999px; background: #fdecee; color: var(--adm-red); font-size: 12px; font-weight: 600;
+}
+.adm-anunturi .adm-card.is-off .adm-card-photo img { opacity: .55; filter: grayscale(.6); }
+.adm-anunturi .adm-empty {
+    padding: 28px; border: 1px dashed var(--adm-field); border-radius: 8px;
+    background: #fff; color: var(--adm-muted); font-size: 15px; text-align: center;
+}
+
+/* ---- Etichete de stare ---- */
+.adm-anunturi .adm-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .04em; line-height: 1.5; }
+.adm-anunturi .adm-badge.is-on { background: var(--adm-green); }
+.adm-anunturi .adm-badge.is-off { background: var(--adm-muted); }
+.adm-anunturi .adm-badge.is-offer { background: var(--adm-red); }
+.adm-anunturi .adm-badge.is-csv { background: var(--adm-accent); }
+
+/* ---- Butoane si linkuri de actiune ---- */
+.adm-anunturi a.adm-btn,
+.adm-anunturi .adm-form input[name="submit"] {
+    display: inline-block; padding: 8px 18px; border: 1px solid var(--adm-accent); border-radius: 6px; background: var(--adm-accent);
+    color: #fff; font-family: inherit; font-size: 14px; font-weight: 600; line-height: 1.3; text-decoration: none; cursor: pointer;
+}
+.adm-anunturi a.adm-btn:hover,
+.adm-anunturi .adm-form input[name="submit"]:hover { border-color: var(--adm-accent-dark); background: var(--adm-accent-dark); color: #fff; }
+.adm-anunturi a.adm-btn-ghost {
+    display: inline-block; padding: 6px 14px; border: 1px solid var(--adm-accent); border-radius: 6px; background: #fff;
+    color: var(--adm-accent); font-size: 13px; font-weight: 600; text-decoration: none;
+}
+.adm-anunturi a.adm-btn-ghost:hover { background: var(--adm-accent-soft); }
+.adm-anunturi a.adm-del { color: var(--adm-red); font-size: 13px; }
+.adm-anunturi a.adm-del:hover { color: #8f0613; }
+
+/* ---- Pagina de editare ---- */
+.adm-anunturi .adm-edit-head {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+    color: var(--adm-ink); font-size: 20px; font-weight: 700; line-height: 1.3;
+}
+.adm-anunturi .adm-edit-head .adm-edit-sub { color: var(--adm-muted); font-size: 15px; font-weight: 400; }
+.adm-anunturi table.adm-form {
+    width: 100%; margin: 0; padding: 14px 18px; border: 1px solid var(--adm-line); border-radius: 8px;
+    background: #fff; border-spacing: 0 2px;
+}
+.adm-anunturi .adm-form > tbody > tr > td { padding: 5px 6px; vertical-align: middle; }
+.adm-anunturi .adm-form > tbody > tr > td[align="right"] { color: var(--adm-muted); font-size: 13px; font-weight: 600; white-space: nowrap; }
+.adm-anunturi .adm-form > tbody > tr > td[valign="top"] { vertical-align: top; padding-top: 12px; }
+.adm-anunturi .adm-form > tbody > tr > td > input[type="text"],
+.adm-anunturi .adm-form > tbody > tr > td > select,
+.adm-anunturi .adm-form > tbody > tr > td > textarea {
+    width: 100% !important; min-width: 150px; padding: 0 8px; border: 1px solid var(--adm-field); border-radius: 6px;
+    background-color: #fff; color: var(--adm-ink); font-family: inherit; font-size: 14px; box-sizing: border-box;
+}
+.adm-anunturi .adm-form > tbody > tr > td > input[type="text"],
+.adm-anunturi .adm-form > tbody > tr > td > select { height: 34px; }
+.adm-anunturi .adm-form > tbody > tr > td > textarea { padding: 8px; line-height: 1.5; }
+.adm-anunturi .adm-form > tbody > tr > td > input[type="text"]:focus,
+.adm-anunturi .adm-form > tbody > tr > td > select:focus,
+.adm-anunturi .adm-form > tbody > tr > td > textarea:focus { border-color: var(--adm-accent); outline: 2px solid var(--adm-accent-soft); }
+.adm-anunturi .adm-form table.mceLayout { width: 100% !important; }
+.adm-anunturi .adm-form hr { display: none; }
+
+/* Poze si videouri */
+.adm-anunturi .adm-form > tbody > tr > td.adm-media { padding: 10px 6px; border-top: 1px solid var(--adm-line); border-bottom: 1px solid var(--adm-line); }
+.adm-anunturi .adm-media div[id^="foto_"] {
+    margin: 0 8px 8px 0; padding: 6px 4px 4px; border: 1px solid var(--adm-line); border-radius: 6px; background: var(--adm-soft); font-size: 12px; text-align: center;
+}
+.adm-anunturi .adm-media div[id^="foto_"] img { width: 96px; height: 72px; margin: 4px 4px 2px; border: 0; border-radius: 4px; object-fit: cover; }
+.adm-anunturi .adm-media div[id^="foto_"] br + br { display: none; }
+.adm-anunturi .adm-media input[type="submit"] {
+    min-width: 24px; height: 22px; margin: 0 4px; padding: 0 6px; border: 1px solid var(--adm-field); border-radius: 4px;
+    background: #fff; color: var(--adm-ink); font-size: 13px; font-weight: 700; line-height: 1; cursor: pointer;
+}
+.adm-anunturi .adm-media input[type="submit"]:hover { border-color: var(--adm-accent); color: var(--adm-accent); }
+.adm-anunturi .adm-media a[href^="javascript:delImage"] { color: var(--adm-red); }
+
+/* Bara de salvare ramane vizibila jos cand formularul e lung */
+.adm-anunturi .adm-form > tbody > tr.adm-actions > td {
+    position: sticky; bottom: 0; z-index: 2; padding: 12px 6px; border-top: 1px solid var(--adm-line); background: #fff;
+}
+.adm-anunturi .adm-actions .adm-id { color: var(--adm-muted); font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.adm-anunturi .adm-actions .adm-id strong { color: var(--adm-ink); font-size: 18px; letter-spacing: 0; }

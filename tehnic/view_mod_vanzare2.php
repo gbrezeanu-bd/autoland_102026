@@ -314,7 +314,9 @@ if (!empty($_SERVER['QUERY_STRING'])) {
 $queryString_vehicule = sprintf("&totalRows_vehicule=%d%s", $totalRows_vehicule, $queryString_vehicule);
 
 $headerTitle = 'Vizualizare baza de date vanzari';
-$headerScripts = '<script language="javascript" type="text/javascript" src="../tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+$headerScripts = '<link href="anunturi-admin.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="../tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript" src="editor-continut.js"></script>
 <script language="javascript" type="text/javascript" src="process.js"></script>
 <script language="javascript" type="text/javascript">
 	tinyMCE.init({
@@ -344,30 +346,37 @@ $headerScripts = '<script language="javascript" type="text/javascript" src="../t
 ';
 include 'header.php';
 ?><!-- InstanceBeginEditable name="main" -->
-    <td valign="top">
+    <td valign="top" class="adm-anunturi">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td bgcolor="#eeeeee" style="border:1px solid #cccccc;">&nbsp;</td>
+            <td><?php if ($row_vehicule) { ?><div class="adm-edit-head">Editare anunț #<?php echo $row_vehicule['id']; ?>
+              <span class="adm-edit-sub"><?php echo $row_vehicule['marca']; ?> <?php echo $row_vehicule['tip']; ?></span>
+              <span class="adm-badge <?php echo $row_vehicule['stare_anunt'] == '1' ? 'is-on' : 'is-off'; ?>"><?php echo $row_vehicule['stare_anunt'] == '1' ? 'ON' : 'OFF'; ?></span>
+              <?php if ($row_vehicule['oferta_speciala'] == '1') { ?><span class="adm-badge is-offer">OFERTĂ</span><?php } ?>
+            </div><?php } ?></td>
           </tr>
           <tr>
-            <td bgcolor="#eeeeee" style="border:1px solid #cccccc;"><table width="90%" border="0" align="center" cellpadding="5" cellspacing="0">
+            <td class="adm-gap">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="adm-paginare"><table width="100%" border="0" align="center" cellpadding="5" cellspacing="0">
                 <tr>
                   <td width="50%">
-                  Records <?php echo ($startRow_vehicule + 1) ?> to <?php echo min($startRow_vehicule + $maxRows_vehicule, $totalRows_vehicule) ?> of <?php echo $totalRows_vehicule ?> </td>
+                  Anunțurile <?php echo ($startRow_vehicule + 1) ?>–<?php echo min($startRow_vehicule + $maxRows_vehicule, $totalRows_vehicule) ?> din <?php echo $totalRows_vehicule ?> </td>
                   <td>
                     <table border="0" width="50%" align="center">
                       <tr>
                         <td width="23%" align="center"><?php if ($pageNum_vehicule > 0) { // Show if not first page ?>
-                            <a href="<?php printf("%s?pageNum_vehicule=%d%s", $currentPage, 0, $queryString_vehicule); ?>">First</a>
+                            <a href="<?php printf("%s?pageNum_vehicule=%d%s", $currentPage, 0, $queryString_vehicule); ?>">Prima</a>
                             <?php } // Show if not first page ?>                                                      </td>
                         <td width="31%" align="center"><?php if ($pageNum_vehicule > 0) { // Show if not first page ?>
-                            <a href="<?php printf("%s?pageNum_vehicule=%d%s", $currentPage, max(0, $pageNum_vehicule - 1), $queryString_vehicule); ?>">Previous</a>
+                            <a href="<?php printf("%s?pageNum_vehicule=%d%s", $currentPage, max(0, $pageNum_vehicule - 1), $queryString_vehicule); ?>">Anterioara</a>
                             <?php } // Show if not first page ?>                                                      </td>
                         <td width="23%" align="center"><?php if ($pageNum_vehicule < $totalPages_vehicule) { // Show if not last page ?>
-                            <a href="<?php printf("%s?pageNum_vehicule=%d%s", $currentPage, min($totalPages_vehicule, $pageNum_vehicule + 1), $queryString_vehicule); ?>">Next</a>
+                            <a href="<?php printf("%s?pageNum_vehicule=%d%s", $currentPage, min($totalPages_vehicule, $pageNum_vehicule + 1), $queryString_vehicule); ?>">Următoarea</a>
                             <?php } // Show if not last page ?>                                                      </td>
                         <td width="23%" align="center"><?php if ($pageNum_vehicule < $totalPages_vehicule) { // Show if not last page ?>
-                            <a href="<?php printf("%s?pageNum_vehicule=%d%s", $currentPage, $totalPages_vehicule, $queryString_vehicule); ?>">Last</a>
+                            <a href="<?php printf("%s?pageNum_vehicule=%d%s", $currentPage, $totalPages_vehicule, $queryString_vehicule); ?>">Ultima</a>
                             <?php } // Show if not last page ?>                                                      </td>
                       </tr>
                     </table></td>
@@ -375,18 +384,15 @@ include 'header.php';
                       </table></td>
           </tr>
           <tr>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
+            <td class="adm-gap">&nbsp;</td>
           </tr>
 		  <?php do { ?>
           <tr>
             <td>
               <form method="post" name="form2" action="<?php echo $editFormAction; ?>">
-                <table width="570" align="center" bgcolor="#EEEEEE">
+                <table width="570" align="center" bgcolor="#EEEEEE" class="adm-form">
                   <tr valign="baseline">
-                    <td width="70" align="right" nowrap>Cat:</td>
+                    <td width="70" align="right" nowrap>Categorie:</td>
                     <td><select name="cat" id="cat" style="width:120px;">
                       <?php
 do {  
@@ -401,7 +407,7 @@ do {
   }
 ?>
                     </select></td>
-                    <td width="70" align="right">Marca:</td>
+                    <td width="70" align="right">Marcă:</td>
                     <td><select name="marca" id="marca" style="width:120px;">
                       <?php
 do {  
@@ -420,21 +426,21 @@ do {
                     <td><input name="tip" type="text" class="add_vanz" value="<?php echo $row_vehicule['tip']; ?>" size="32" style="width:120px;" /></td>
                   </tr>
                   <tr valign="baseline">
-                    <td nowrap align="right">combustibil:</td>
+                    <td nowrap align="right">Combustibil:</td>
                     <td><select name="combustibil" class="add_vanz" id="combustibil" style="width:120px;">
-                      <option value="fara" <?php if (!(strcmp("fara", $row_vehicule['combustibil']))) {echo "selected=\"selected\"";} ?>>fara</option>
-                      <option value="motorina" <?php if (!(strcmp("motorina", $row_vehicule['combustibil']))) {echo "selected=\"selected\"";} ?>>motorina</option>
-                      <option value="benzina" <?php if (!(strcmp("benzina", $row_vehicule['combustibil']))) {echo "selected=\"selected\"";} ?>>benzina</option>
+                      <option value="fara" <?php if (!(strcmp("fara", $row_vehicule['combustibil']))) {echo "selected=\"selected\"";} ?>>fără</option>
+                      <option value="motorina" <?php if (!(strcmp("motorina", $row_vehicule['combustibil']))) {echo "selected=\"selected\"";} ?>>motorină</option>
+                      <option value="benzina" <?php if (!(strcmp("benzina", $row_vehicule['combustibil']))) {echo "selected=\"selected\"";} ?>>benzină</option>
                       <option value="hybrid" <?php if (!(strcmp("hybrid", $row_vehicule['combustibil']))) {echo "selected=\"selected\"";} ?>>hybrid</option>
                       <option value="electric" <?php if (!(strcmp("electric", $row_vehicule['combustibil']))) {echo "selected=\"selected\"";} ?>>electric</option>
                     </select></td>
                     <td align="right">An:</td>
                     <td><input name="an" type="text" class="add_vanz" value="<?php echo $row_vehicule['an']; ?>" size="32" style="width:60px;"/></td>
-                    <td align="right">Pret : </td>
+                    <td align="right">Preț:</td>
                     <td><input name="pret" type="text" class="add_vanz" value="<?php echo $row_vehicule['pret']; ?>" size="32" style="width:120px;"/></td>
                   </tr>
 				<tr valign="baseline">
-	                <td nowrap align="right">Subcateg:</td>
+	                <td nowrap align="right">Subcategorie:</td>
                     <td><select name="subcateg" id="subcateg" style="width:120px;">
 <?php
 while ($row_subcateg = mysqli_fetch_assoc($result_subcateg)) {
@@ -448,25 +454,25 @@ while ($row_subcateg = mysqli_fetch_assoc($result_subcateg)) {
                     <td nowrap align="right">Oferta:</td>
                     <td>
                     	<select name="oferta_speciala" class="add_vanz" id="oferta_speciala" style="width:120px;">
-                      		<option value="0" <?php if (!(strcmp("0", $row_vehicule['oferta_speciala']))) {echo "selected=\"selected\"";} ?>>fara</option>
+                      		<option value="0" <?php if (!(strcmp("0", $row_vehicule['oferta_speciala']))) {echo "selected=\"selected\"";} ?>>fără</option>
                       		<option value="1" <?php if (!(strcmp("1", $row_vehicule['oferta_speciala']))) {echo "selected=\"selected\"";} ?>>oferta</option>                    
                     	</select>
                     </td>  
-                    <td align="right">Pret vechi: </td>
+                    <td align="right">Preț vechi:</td>
                     <td>
                     	<input name="pret_vechi" type="text" class="add_vanz" value="<?php echo $row_vehicule['pret_vechi']; ?>" size="32" style="width:120px;"/>
                     </td>
                     <td colspan="4">&nbsp;</td>						
 				</tr>
 				<tr>
-					<td nowrap align="right">Provenienta:</td>
+					<td nowrap align="right">Proveniență:</td>
 				                    <td>
                     	<select name="prov_enienta" class="add_vanz" id="prov_enienta" style="width:120px;">
 							<option value="Import" <?php if (!(strcmp("Import", $row_vehicule['prov_enienta']))) {echo "selected=\"selected\"";} ?>>Import</option>
-							<option value="Romania" <?php if (!(strcmp("Romania", $row_vehicule['prov_enienta']))) {echo "selected=\"selected\"";} ?>>Romania</option>
+							<option value="Romania" <?php if (!(strcmp("Romania", $row_vehicule['prov_enienta']))) {echo "selected=\"selected\"";} ?>>România</option>
                     	</select>
                     </td> 
-                    <td nowrap align="right">Stare Anunt:</td>
+                    <td nowrap align="right">Stare anunț:</td>
                     <td>
                     	<select name="stare_anunt" class="add_vanz" id="stare_anunt" style="width:120px;">
                       		<option value="0" <?php if (!(strcmp("0", $row_vehicule['stare_anunt']))) {echo "selected=\"selected\"";} ?>>OFF</option>
@@ -503,7 +509,7 @@ while ($row_subcateg = mysqli_fetch_assoc($result_subcateg)) {
                     <td colspan="5"><input name="keywords" type="text" class="add_vanz" value="<?php echo $row_vehicule['keywords']; ?>" style="width:480px;"/></td>
                   </tr>
                   <tr valign="baseline">
-                    <td align="right" valign="top" nowrap>Header Anunt</td>
+                    <td align="right" valign="top" nowrap>Header anunț:</td>
                     <td colspan="5"><input name="pre_anunt" type="text" class="add_vanz" value="<?php echo $row_vehicule['pre_anunt']; ?>" style="width:480px;"/></td>
                   </tr>				  
                   <tr valign="baseline">
@@ -514,15 +520,15 @@ while ($row_subcateg = mysqli_fetch_assoc($result_subcateg)) {
                     <td nowrap align="right">&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
-                    <td colspan="3" align="center">[<a href="foto_up2.php?id=<?php echo $row_vehicule['id']; ?>">asociaza foto</a>] [<a href="video_up2.php?id=<?php echo $row_vehicule['id']; ?>">asociaza video</a>] </td>
+                    <td colspan="3" align="center"><a class="adm-btn-ghost" href="foto_up2.php?id=<?php echo $row_vehicule['id']; ?>">asociază foto</a> <a class="adm-btn-ghost" href="video_up2.php?id=<?php echo $row_vehicule['id']; ?>">asociază video</a> </td>
                   </tr>
                   <tr valign="baseline">
                     <td nowrap align="right">Imagini:</td>
-                    <td colspan="5" style="border-top: 1px solid #CCCCCC;border-bottom: 1px solid #CCCCCC;"><?php include "showfoto.php"; ?></td>
+                    <td colspan="5" class="adm-media"><?php include "showfoto.php"; ?></td>
                   </tr>
                   <tr valign="baseline">
                     <td nowrap align="right">Videouri:</td>
-                    <td colspan="5" style="border-top: 1px solid #CCCCCC;border-bottom: 1px solid #CCCCCC;"><?php include "showvideo.php"; ?></td>
+                    <td colspan="5" class="adm-media"><?php include "showvideo.php"; ?></td>
                   </tr>
                   <tr valign="baseline">
                     <td nowrap align="right">&nbsp;</td>
@@ -530,10 +536,10 @@ while ($row_subcateg = mysqli_fetch_assoc($result_subcateg)) {
                     <td>&nbsp;</td>
                     <td colspan="3" align="center">&nbsp;</td>
                   </tr>
-                  <tr valign="baseline">
-                    <td nowrap align="left"><strong>ID: <span class="style4"><?php echo $row_vehicule['id']; ?></span></strong></td>
-                    <td><input name="submit" type="submit" value="Salveaza modificarile" /></td>
-                    <td colspan="2" valign="middle">[<a href="view_vanzare2.php?del=<?php echo $row_vehicule['id']; ?>" onclick="return checkDelete()">sterge complet oferta</a>]</td>
+                  <tr valign="baseline" class="adm-actions">
+                    <td nowrap align="left"><span class="adm-id">ID <strong><?php echo $row_vehicule['id']; ?></strong></span></td>
+                    <td><input name="submit" type="submit" value="Salvează modificările" /></td>
+                    <td colspan="2" valign="middle"><a class="adm-del" href="view_vanzare2.php?del=<?php echo $row_vehicule['id']; ?>" onclick="return checkDelete()">șterge complet oferta</a></td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                   </tr>

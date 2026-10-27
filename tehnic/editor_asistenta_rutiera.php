@@ -134,8 +134,9 @@ tinyMCE_GZ.init({
 	debug : false
 });
 </script>
+<script type="text/javascript" src="editor-continut.js"></script>
 <script language="javascript" type="text/javascript">
-tinyMCE.init({
+adminEditor({
 	theme_advanced_buttons1_add : "fontselect,fontsizeselect,forecolor",
 	mode : "textareas",
 	body_class : "inner-page",
@@ -147,18 +148,18 @@ include 'header.php';
 ?>    <!-- InstanceBeginEditable name="main" -->
     <td>&nbsp;
       <form method="post" name="form1" action="<?php echo $editFormAction; ?>">
-        <table align="center">
+        <table align="center" width="100%">
           <tr valign="baseline">
             <td>&nbsp;</td>
           </tr>
           <tr valign="baseline">
-            <td bgcolor="#CCCCCC"><strong>Modificare continut asistenta_rutiera:</strong> </td>
+            <td bgcolor="#CCCCCC"><strong>Modificare conținut Asistență rutieră:</strong> </td>
           </tr>
           <tr valign="baseline">
-            <td valign="top"><textarea name="home" cols="80" rows="25"><?php echo $row_continut['asistenta_rutiera']; ?></textarea></td>
+            <td valign="top"><textarea name="home" cols="80" rows="25"><?php echo htmlspecialchars($row_continut['asistenta_rutiera'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); ?></textarea></td>
           </tr>
           <tr valign="baseline">
-            <td><input type="submit" value="Update record"></td>
+            <td><input type="submit" value="Salvează"></td>
           </tr>
         </table>
         <input type="hidden" name="id" value="<?php echo $row_continut['id']; ?>">

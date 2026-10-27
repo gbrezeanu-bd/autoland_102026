@@ -96,8 +96,9 @@ tinyMCE_GZ.init({
 	debug : false
 });
 </script>
+<script type="text/javascript" src="editor-continut.js"></script>
 <script language="javascript" type="text/javascript">
-tinyMCE.init({
+adminEditor({
 	theme_advanced_buttons1_add : "fontselect,fontsizeselect,forecolor",
 	mode : "specific_textareas",
 	editor_selector : "editor_html",
@@ -137,7 +138,7 @@ include 'header.php';
       </form>
 <?php } else { ?>
       <form method="post" name="form1" action="editor_pagini.php?id=<?php echo (int)$pagina['id']; ?>">
-        <table align="center" cellpadding="4">
+        <table align="center" cellpadding="4" width="100%">
           <tr><td bgcolor="#CCCCCC"><strong>Modificare: <?php echo h($pagina['titlu']); ?></strong>
             &nbsp; <a href="editor_pagini.php">&laquo; lista</a>
             &nbsp; <a href="../<?php echo h(pagini_cale($pagina['sectiune'], $pagina['slug'])); ?>" target="_blank">vezi pagina</a>
@@ -157,7 +158,7 @@ include 'header.php';
             <textarea name="meta_description" cols="90" rows="3" maxlength="300"><?php echo h($pagina['meta_description']); ?></textarea></td></tr>
           <tr><td valign="top">Continut:<br>
             <textarea name="continut" class="editor_html" cols="80" rows="25"><?php echo h($pagina['continut']); ?></textarea></td></tr>
-          <tr><td><input type="submit" value="Update record"></td></tr>
+          <tr><td><input type="submit" value="Salvează"></td></tr>
         </table>
         <input type="hidden" name="id" value="<?php echo (int)$pagina['id']; ?>">
         <input type="hidden" name="MM_update" value="form1">
