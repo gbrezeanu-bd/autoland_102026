@@ -47,7 +47,12 @@ function car_descriere_structurata($html, $vizibile_pe_telefon = 8)
         return $out;
     };
 
-    $out = '<div class="car-desc">';
+    // Textul scris în afara listelor (ex. "Prețul este net.") se păstrează: cel de dinainte sus, restul jos.
+    $parti = preg_split('/<(ul|ol)\b[^>]*>.*?<\/\1>/is', $html);
+    $inainte = car_descriere_text_liber(array_shift($parti));
+    $dupa = car_descriere_text_liber(implode('', $parti));
+
+    $out = '<div class="car-desc">' . $inainte;
     if ($evidentiate) {
         $out .= '<ul class="car-desc-highlights">' . $li($evidentiate) . '</ul>';
     }
@@ -61,7 +66,19 @@ function car_descriere_structurata($html, $vizibile_pe_telefon = 8)
                 . '<ul class="car-desc-list">' . $li($rest) . '</ul></details>';
         }
     }
-    return $out . '</div>';
+    return $out . $dupa . '</div>';
+}
+
+/**
+ * Bucată de text liber din "detalii", afișată ca notă; întoarce '' dacă nu conține text vizibil.
+ */
+function car_descriere_text_liber($html)
+{
+    $text = html_entity_decode(strip_tags((string)$html), ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    if (trim(preg_replace('/[\x{00A0}\s]+/u', ' ', $text)) === '') {
+        return '';
+    }
+    return '<div class="car-desc-note">' . $html . '</div>';
 }
 
 /**

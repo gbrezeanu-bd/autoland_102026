@@ -128,6 +128,8 @@ details.car-specs-box tr.car-spec-other { --ico: url("data:image/svg+xml;utf8,%3
 }
 .car-desc ul.car-desc-list li::before { content: "✓"; position: absolute; left: 4px; top: 9px; color: #0e7490; font-weight: 800; }
 .car-desc details.car-feat-more { margin: 0; }
+.car-desc .car-desc-note { margin: 12px 0; }
+.car-desc .car-desc-note p { margin: 0 0 6px; }
 .car-desc details.car-feat-more > summary { display: none; }
 .car-desc details.car-feat-more[open] > summary { display: none; }
 

@@ -160,8 +160,13 @@
         <meta name="author" content="Autoland România">
         
         <!-- Favicon - Autoland Logo -->
-        <link rel="icon" type="image/x-icon" href="<?php echo BASE_PATH; ?>favicon.ico">
-        <link rel="shortcut icon" type="image/x-icon" href="<?php echo BASE_PATH; ?>favicon.ico">
+        <?php $fav_v = @filemtime(dirname(__DIR__, 3) . '/favicon.ico'); // parametru de versiune: browserele nu mai păstrează favicon-ul vechi din cache ?>
+        <link rel="icon" type="image/png" sizes="48x48" href="<?php echo BASE_PATH; ?>themes/automotive/images/favicon/favicon-48x48.png?v=<?php echo $fav_v; ?>">
+        <link rel="icon" type="image/png" sizes="96x96" href="<?php echo BASE_PATH; ?>themes/automotive/images/favicon/favicon-96x96.png?v=<?php echo $fav_v; ?>">
+        <link rel="icon" type="image/png" sizes="32x32" href="<?php echo BASE_PATH; ?>themes/automotive/images/favicon/favicon-32x32.png?v=<?php echo $fav_v; ?>">
+        <link rel="icon" type="image/x-icon" href="<?php echo BASE_PATH; ?>favicon.ico?v=<?php echo $fav_v; ?>">
+        <link rel="shortcut icon" type="image/x-icon" href="<?php echo BASE_PATH; ?>favicon.ico?v=<?php echo $fav_v; ?>">
+        <link rel="apple-touch-icon" sizes="180x180" href="<?php echo BASE_PATH; ?>themes/automotive/images/favicon/apple-touch-icon.png?v=<?php echo $fav_v; ?>">
         
         <title><?php 
             if (empty($page_title)) {
