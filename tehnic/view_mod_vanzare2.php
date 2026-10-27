@@ -313,6 +313,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
 }
 $queryString_vehicule = sprintf("&totalRows_vehicule=%d%s", $totalRows_vehicule, $queryString_vehicule);
 
+require_once 'anunturi-admin-card.php';
 $headerTitle = 'Vizualizare baza de date vanzari';
 $headerScripts = '<link href="anunturi-admin.css" rel="stylesheet" type="text/css" />
 <script language="javascript" type="text/javascript" src="../tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
@@ -349,10 +350,11 @@ include 'header.php';
     <td valign="top" class="adm-anunturi">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td><?php if ($row_vehicule) { ?><div class="adm-edit-head">Editare anunț #<?php echo $row_vehicule['id']; ?>
+            <td><?php if ($row_vehicule) { ?><div class="adm-edit-head"><a class="adm-back" href="<?php echo adm_h(adm_link_inapoi('view_vanzare2.php')); ?>">&larr; Înapoi</a>Editare anunț #<?php echo $row_vehicule['id']; ?>
               <span class="adm-edit-sub"><?php echo $row_vehicule['marca']; ?> <?php echo $row_vehicule['tip']; ?></span>
               <span class="adm-badge <?php echo $row_vehicule['stare_anunt'] == '1' ? 'is-on' : 'is-off'; ?>"><?php echo $row_vehicule['stare_anunt'] == '1' ? 'ON' : 'OFF'; ?></span>
               <?php if ($row_vehicule['oferta_speciala'] == '1') { ?><span class="adm-badge is-offer">OFERTĂ</span><?php } ?>
+              <a class="adm-btn-ghost adm-edit-site" href="<?php echo BASE_PATH . 'vanzari_detail.php?id=' . (int)$row_vehicule['id']; ?>" target="_blank" rel="noopener">Vezi anunțul pe site &#8599;</a>
             </div><?php } ?></td>
           </tr>
           <tr>
@@ -501,7 +503,7 @@ while ($row_subcateg = mysqli_fetch_assoc($result_subcateg)) {
                     <td colspan="5"><input name="title" type="text" class="add_vanz" value="<?php echo $row_vehicule['title']; ?>" style="width:480px;"/></td>
                   </tr>
                   <tr valign="baseline">
-                    <td align="right" valign="top" nowrap>Descriere:</td>
+                    <td align="right" valign="top" nowrap>Descriere SEO:</td>
                     <td colspan="5"><input name="description" type="text" class="add_vanz" value="<?php echo $row_vehicule['description']; ?>" style="width:480px;"/></td>
                   </tr>
                   <tr valign="baseline">

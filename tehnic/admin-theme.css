@@ -116,16 +116,17 @@ body.adm-body {
 }
 .adm-form-page .adm-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px 18px; }
 .adm-form-page .adm-grid-lat { grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); }
-.adm-form-page .adm-grid-2 { grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); margin-top: 14px; }
+.adm-form-page .adm-grid-editor { grid-template-columns: 1fr; margin-top: 14px; }
 .adm-form-page .adm-field { display: flex; flex-direction: column; gap: 5px; margin: 0; }
 .adm-form-page .adm-field > span { color: var(--adm-muted); font-size: 12.5px; font-weight: 600; }
 .adm-form-page .adm-field > span em { font-style: normal; font-weight: 400; }
-.adm-form-page .adm-field input[type="text"],
-.adm-form-page .adm-field select,
-.adm-form-page .adm-field textarea { width: 100% !important; box-sizing: border-box; }
-.adm-form-page .adm-field input[type="text"],
-.adm-form-page .adm-field select { height: 36px; }
-.adm-form-page .adm-field textarea { min-height: 180px; resize: vertical; line-height: 1.5; }
+/* Doar campurile formularului (copii directi), nu si listele din bara editorului de text */
+.adm-form-page .adm-field > input[type="text"],
+.adm-form-page .adm-field > select,
+.adm-form-page .adm-field > textarea { width: 100% !important; box-sizing: border-box; }
+.adm-form-page .adm-field > input[type="text"],
+.adm-form-page .adm-field > select { height: 36px; }
+.adm-form-page .adm-field > textarea { min-height: 180px; resize: vertical; line-height: 1.5; }
 .adm-form-page .adm-form-actions {
     position: sticky; bottom: 0; z-index: 2; padding: 12px 0; background: var(--adm-bg); border-top: 1px solid var(--adm-line);
 }
@@ -162,6 +163,8 @@ body.adm-body {
 .adm-layout .mceStatusbarBottom { height: 26px; background: var(--adm-soft); border-top: 1px solid var(--adm-line); }
 .adm-layout .mceStatusbarPathText,
 .adm-layout a.mcePathItem { padding: 0 8px; color: var(--adm-muted); font-family: 'Segoe UI', Roboto, Arial, sans-serif; font-size: 12px; line-height: 26px; }
+/* Calea elementului ("Path: div » p") e goala pana se da click in text si nu ajuta la editare; ramane doar coltul de redimensionare */
+.adm-layout .mceStatusbarPathText { visibility: hidden; }
 .adm-layout .mceStatusbarResize { height: 26px; background-position: 0 6px; }
 .adm-layout .mceMenu { border: 1px solid var(--adm-field); border-radius: 6px; box-shadow: 0 8px 22px rgba(18, 48, 59, .14); overflow: hidden; }
 .adm-layout .mceMenu a:hover { background-color: var(--adm-accent-soft); }

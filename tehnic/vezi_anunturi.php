@@ -379,18 +379,55 @@ if (!empty($_SERVER['QUERY_STRING'])) {
 }
 $queryString_vehicule = sprintf("&totalRows_vehicule=%d%s", $totalRows_vehicule, $queryString_vehicule);
 
+/**
+ * Valoarea unui camp (descriere, dotari) pregatita pentru editorul de text: "NULL" (salvat pentru campurile goale)
+ * se arata gol, iar textul vechi, fara HTML, isi pastreaza randurile. Ce e salvat nu se schimba pana la "Salvează".
+ */
+function adm_valoare_editor($v)
+{
+  $v = (string)$v;
+  if ($v === 'NULL') {
+    return '';
+  }
+  if (!preg_match('/<[a-z][^>]*>/i', $v)) {
+    $v = nl2br(htmlspecialchars($v, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'));
+  }
+  return htmlspecialchars($v, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+}
+
+require_once 'anunturi-admin-card.php';
 $headerTitle = 'Vizualizare baza de date vanzari';
 $headerScripts = '<link href="anunturi-admin.css" rel="stylesheet" type="text/css" />
-<script language="javascript" type="text/javascript" src="process.js"></script>';
+<script language="javascript" type="text/javascript" src="process.js"></script>
+<script type="text/javascript" src="../tinymce/jscripts/tiny_mce/tiny_mce_gzip.js"></script>
+<script type="text/javascript">
+tinyMCE_GZ.init({
+	plugins : "style,layer,table,save,advhr,advlink,emotions,iespell,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras",
+	themes : "simple,advanced",
+	languages : "en",
+	disk_cache : true,
+	debug : false
+});
+</script>
+<script type="text/javascript" src="editor-continut.js"></script>
+<script language="javascript" type="text/javascript">
+adminEditor({
+	theme_advanced_buttons1_add : "fontselect,fontsizeselect,forecolor",
+	mode : "exact",
+	elements : "descriere,dotari",
+	height : "380"
+});
+</script>';
 include 'header.php';
 ?><!-- InstanceBeginEditable name="main" -->
     <td valign="top" class="adm-anunturi">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td><?php if ($row_vehicule) { ?><div class="adm-edit-head">Editare anunț #<?php echo $row_vehicule['id']; ?>
+            <td><?php if ($row_vehicule) { ?><div class="adm-edit-head"><a class="adm-back" href="<?php echo adm_h(adm_link_inapoi('view_vanzare_new.php')); ?>">&larr; Înapoi</a>Editare anunț #<?php echo $row_vehicule['id']; ?>
               <span class="adm-edit-sub"><?php echo $row_vehicule['model'] ?: $row_vehicule['marca']; ?></span>
               <span class="adm-badge <?php echo $row_vehicule['stare_anunt'] == '1' ? 'is-on' : 'is-off'; ?>"><?php echo $row_vehicule['stare_anunt'] == '1' ? 'ON' : 'OFF'; ?></span>
               <?php if ($row_vehicule['oferta_speciala'] == '1') { ?><span class="adm-badge is-offer">OFERTĂ</span><?php } ?>
+              <a class="adm-btn-ghost adm-edit-site" href="<?php echo BASE_PATH . 'vanzari_detail.php?id=' . (int)$row_vehicule['id']; ?>" target="_blank" rel="noopener">Vezi anunțul pe site &#8599;</a>
             </div><?php } ?></td>
           </tr>
           <tr>
@@ -595,7 +632,7 @@ include 'header.php';
                     <td colspan="5"><input name="title" type="text" class="add_vanz" value="<?php echo $row_vehicule['title']; ?>" style="width:480px;"/></td>
                   </tr>
                   <tr valign="baseline">
-                    <td align="right" valign="top" nowrap>Descriere:</td>
+                    <td align="right" valign="top" nowrap>Descriere SEO:</td>
                     <td colspan="5"><input name="description" type="text" class="add_vanz" value="<?php echo $row_vehicule['description']; ?>" style="width:480px;"/></td>
                   </tr>
                   <tr valign="baseline">
@@ -608,11 +645,11 @@ include 'header.php';
                   </tr>				  
                   <tr valign="baseline">
                     <td align="right" valign="top" nowrap>Descriere:</td>
-                    <td colspan="5"><textarea name="descriere" cols="60" rows="15" style="width:500px;"><?php echo $row_vehicule['descriere']; ?></textarea></td>
+                    <td colspan="5"><textarea name="descriere" id="descriere" cols="60" rows="15" style="width:500px;"><?php echo adm_valoare_editor($row_vehicule['descriere']); ?></textarea></td>
                   </tr>
                   <tr valign="baseline">
                     <td align="right" valign="top" nowrap>Dotari:</td>
-                    <td colspan="5"><textarea name="dotari" cols="60" rows="8" style="width:500px;"><?php echo $row_vehicule['dotari']; ?></textarea></td>
+                    <td colspan="5"><textarea name="dotari" id="dotari" cols="60" rows="8" style="width:500px;"><?php echo adm_valoare_editor($row_vehicule['dotari']); ?></textarea></td>
                   </tr>
                   <tr valign="baseline">
                     <td nowrap align="right">&nbsp;</td>

@@ -77,9 +77,9 @@ if (!((isset($_SESSION['MM_Username'])) && (isAuthorized("",$MM_authorizedUsers,
   exit;
 }
 
-function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
+function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "")
 {
-  $theValue = (!get_magic_quotes_gpc()) ? addslashes($theValue) : $theValue;
+  // Escaparea o face real_escape_string mai jos; un addslashes in plus salva \' si \" in baza de date (ex. in atributele HTML din editor)
 
 global $connection;
 
@@ -104,6 +104,36 @@ global $connection;
   }
   
   return $theValue;
+}
+
+/**
+ * Descrierea vine din editorul de text, ca HTML, si devine parte din lista de dotari a anuntului (masini.detalii).
+ * Intoarce [elemente pentru lista, HTML afisat sub lista]:
+ *  - o lista din editor (<li>): elementele ei intra in lista, cu formatarea lor;
+ *  - text formatat (bold, culori, linkuri...): ramane intreg, sub lista;
+ *  - text simplu: se imparte ca inainte, dupa $separator (virgula la masini, rand nou la utilaje).
+ */
+function anunt_descriere_pentru_detalii($html, $separator)
+{
+  $html = trim((string)$html);
+  if ($html === '' || $html === 'NULL') {
+    return [[], ''];
+  }
+  if (preg_match_all('/<li\b[^>]*>(.*?)<\/li>/is', $html, $m)) {
+    return [array_values(array_filter(array_map('trim', $m[1]), 'strlen')), ''];
+  }
+  if (preg_match('/<(?!\/?(br|p|div)\b)[a-z][^>]*>/i', $html)) {
+    return [[], $html];
+  }
+  $text = preg_replace('/<br\s*\/?>|<\/(p|div)>/i', "\n", $html);
+  $text = html_entity_decode(strip_tags($text), ENT_QUOTES, 'UTF-8');
+  $elemente = [];
+  foreach (explode($separator, $text) as $val) {
+    if (trim($val) !== '') {
+      $elemente[] = $separator === "\n" ? trim($val) : $val;
+    }
+  }
+  return [$elemente, ''];
 }
 
 $editFormAction = $_SERVER['PHP_SELF'];
@@ -163,78 +193,81 @@ $for_csv = array (
 
   	// Check if this is a Utilaje (equipment) entry
 	$is_utilaje = ($for_csv['cat'] === 'Utilaje');
-	
+
+	// GetSQLValueString intoarce textul 'NULL' pentru campurile goale; pentru anuntul de pe site (masini) ele raman goale,
+	// altfel apareau pe site "Tractiune: NULL", "EuroNULL" etc.
+	$f = array_map(function ($v) { return $v === 'NULL' ? '' : $v; }, $for_csv);
+	$litri = (float)$f['cilindri'] > 0 ? round($f['cilindri']/1000, 1) : '';
+
 	if ($is_utilaje) {
-    if (!empty($for_csv['tip'])) {
-      $tip = $for_csv['model'] . ' ' . $for_csv['tip'];
+    if (!empty($f['tip'])) {
+      $tip = $f['model'] . ' ' . $f['tip'];
     } else {
-      $tip = $for_csv['model'];
+      $tip = $f['model'];
     }
 	} else {
 		// Original logic for vehicles
-		if (!empty($for_csv['norma_euro']))
+		if (!empty($f['norma_euro']))
 		{
-			$tip = $for_csv['model'].' '.$for_csv['tip'].' '.round($for_csv['cilindri']/1000, 1).' Euro'.$for_csv['norma_euro'];
+			$tip = implode(' ', array_filter([$f['model'], $f['tip'], $litri, 'Euro'.$f['norma_euro']], 'strlen'));
 		} else {
-			$tip = $for_csv['model'].' '.round($for_csv['cilindri']/1000, 1);
+			$tip = implode(' ', array_filter([$f['model'], $litri], 'strlen'));
 		}
 	}
 	
 	$det = array();
+	list($descriere_elemente, $descriere_html) = anunt_descriere_pentru_detalii($_POST['descriere'], $is_utilaje ? "\n" : ',');
 
 	if ($is_utilaje) {
 		// Build details for Utilaje
-		if (!empty($for_csv['subcateg'])) {$det[] = 'Tip: '.$for_csv['subcateg'];}
-		if (!empty($for_csv['an'])) {$det[] = 'An de fabricatie: '.$for_csv['an'];}
-		if (!empty($for_csv['combustibil'])) {$det[] = 'Motor: '.$for_csv['combustibil'];}
-		if (!empty($for_csv['putere_motor'])) {$det[] = 'Putere: '.$for_csv['putere_motor'].'CP';}
-		if (!empty($for_csv['tonaj'])) {$det[] = 'Tonaj: '.$for_csv['tonaj'];}
-		if (!empty($for_csv['tip_deplasare'])) {$det[] = 'Tip deplasare: '.$for_csv['tip_deplasare'];}
-		if (!empty($for_csv['tractiune'])) {$det[] = 'Tractiune: '.$for_csv['tractiune'];}
-		if (!empty($for_csv['kilometraj'])) {$det[] = 'Ore de functionare: '.$for_csv['kilometraj'];}
+		if (!empty($f['subcateg'])) {$det[] = 'Tip: '.$f['subcateg'];}
+		if (!empty($f['an'])) {$det[] = 'An de fabricatie: '.$f['an'];}
+		if (!empty($f['combustibil'])) {$det[] = 'Motor: '.$f['combustibil'];}
+		if (!empty($f['putere_motor'])) {$det[] = 'Putere: '.$f['putere_motor'].'CP';}
+		if (!empty($f['tonaj'])) {$det[] = 'Tonaj: '.$f['tonaj'];}
+		if (!empty($f['tip_deplasare'])) {$det[] = 'Tip deplasare: '.$f['tip_deplasare'];}
+		if (!empty($f['tractiune'])) {$det[] = 'Tractiune: '.$f['tractiune'];}
+		if (!empty($f['kilometraj'])) {$det[] = 'Ore de functionare: '.$f['kilometraj'];}
 		// Add caracteristici tehnice from descriere
-		if (!empty($for_csv['descriere'])) {
-			$desc_lines = explode("\n", $for_csv['descriere']);
-			foreach ($desc_lines as $line) {
-				$line = trim($line);
-				if (!empty($line)) {
-					$det[] = $line;
-				}
-			}
+		foreach ($descriere_elemente as $line) {
+			$det[] = $connection->real_escape_string($line);
 		}
 	} else {
 		// Original logic for vehicles
-		if (!empty($for_csv['combustibil'])) {$det[] = 'Motor '.round($for_csv['cilindri']/1000, 1).'L '.$for_csv['combustibil'].' Euro'.$for_csv['norma_euro'];}
-		if (!empty($for_csv['putere_motor'])) {$det[] = 'Putere motor: '.round($for_csv['putere_motor']*0.745699872).' kW / '.$for_csv['putere_motor'].' CP';}
-		if (!empty($for_csv['tractiune'])) {$det[] = 'Tractiune: '.$for_csv['tractiune'];}
-		if (!empty($for_csv['kilometraj'])) {$det[] = 'Km. parcursi: '.$for_csv['kilometraj'];}
-		foreach (explode(',',$for_csv['descriere']) as $val)
+		if (!empty($f['combustibil'])) {$det[] = 'Motor '.($litri !== '' ? $litri.'L ' : '').$f['combustibil'].(!empty($f['norma_euro']) ? ' Euro'.$f['norma_euro'] : '');}
+		if (!empty($f['putere_motor'])) {$det[] = 'Putere motor: '.round($f['putere_motor']*0.745699872).' kW / '.$f['putere_motor'].' CP';}
+		if (!empty($f['tractiune'])) {$det[] = 'Tractiune: '.$f['tractiune'];}
+		if (!empty($f['kilometraj'])) {$det[] = 'Km. parcursi: '.$f['kilometraj'];}
+		foreach ($descriere_elemente as $val)
 		{
-			$det[] = $val;
+			$det[] = $connection->real_escape_string($val);
 		}
 	}
-	
+
 	$detalii = '<ul><li><font size="2">'.implode(';</font></li><li><font size="2">',$det).'.</font></li></ul>';
+	if ($descriere_html !== '') {
+		$detalii .= "\n" . $connection->real_escape_string($descriere_html);
+	}
 	
 
 $masini = array (
-					'description'		=> $for_csv['description'],
-					'keywords'			=> $for_csv['keywords'],
-					'title'				=> $for_csv['title'],
-					'oferta_speciala'	=> $for_csv['oferta_speciala'],
-					'stare_anunt'		=> $for_csv['stare_anunt'],
+					'description'		=> $f['description'],
+					'keywords'			=> $f['keywords'],
+					'title'				=> $f['title'],
+					'oferta_speciala'	=> $f['oferta_speciala'],
+					'stare_anunt'		=> $f['stare_anunt'],
 					'id'				=> $id,
-					'cat'				=> $for_csv['cat'],
-					'marca'				=> $for_csv['marca'],
+					'cat'				=> $f['cat'],
+					'marca'				=> $f['marca'],
 					'tip'				=> $tip,
-					'combustibil'		=> $for_csv['combustibil'],
-					'an'				=> $for_csv['an'],
+					'combustibil'		=> $f['combustibil'],
+					'an'				=> $f['an'],
 					'detalii'			=> $detalii,
-					'pret'				=> $for_csv['pret'],
-					'pret_vechi'		=> $for_csv['pret_vechi'],
-					'prov_enienta'		=> $for_csv['prov_enienta'],
-					'subcateg'			=> $for_csv['subcateg'],
-					'pre_anunt'			=> $for_csv['pre_anunt'],
+					'pret'				=> $f['pret'],
+					'pret_vechi'		=> $f['pret_vechi'],
+					'prov_enienta'		=> $f['prov_enienta'],
+					'subcateg'			=> $f['subcateg'],
+					'pre_anunt'			=> $f['pre_anunt'],
 				);
 
 	$fm = '`' . implode('`, `',array_keys($masini)) . '`';
@@ -262,7 +295,26 @@ $row_marci = mysqli_fetch_assoc($marci);
 $totalRows_marci = mysqli_num_rows($marci);
 
 $headerTitle = 'Vanzari din import :: adaugare vehicul';
-$headerScripts = '';
+$headerScripts = '<script type="text/javascript" src="../tinymce/jscripts/tiny_mce/tiny_mce_gzip.js"></script>
+<script type="text/javascript">
+tinyMCE_GZ.init({
+	plugins : "style,layer,table,save,advhr,advlink,emotions,iespell,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras",
+	themes : "simple,advanced",
+	languages : "en",
+	disk_cache : true,
+	debug : false
+});
+</script>
+<script type="text/javascript" src="editor-continut.js"></script>
+<script language="javascript" type="text/javascript">
+adminEditor({
+	theme_advanced_buttons1_add : "fontselect,fontsizeselect,forecolor",
+	mode : "exact",
+	elements : "descriere,dotari",
+	height : "340"
+});
+</script>
+';
 include 'header.php';
 ?><!-- InstanceBeginEditable name="main" --><td>
       <form method="post" name="form1" action="<?php echo $editFormAction; ?>" class="adm-form-page">
@@ -405,9 +457,9 @@ include 'header.php';
             <label class="adm-field"><span>Header anunț</span><input name="pre_anunt" type="text" class="add_vanz" value="" size="60"></label>
             <label class="adm-field"><span>Url filme</span><input name="url_filme" type="text" class="add_vanz" value="" size="60"></label>
           </div>
-          <div class="adm-grid adm-grid-2">
-            <label class="adm-field"><span>Descriere</span><textarea name="descriere" cols="50" rows="10"></textarea></label>
-            <label class="adm-field"><span>Dotări</span><textarea name="dotari" cols="50" rows="10"></textarea></label>
+          <div class="adm-grid adm-grid-editor">
+            <div class="adm-field"><span>Descriere <em>(apare pe site în lista de dotări a anunțului)</em></span><textarea name="descriere" id="descriere" cols="50" rows="10"></textarea></div>
+            <div class="adm-field"><span>Dotări</span><textarea name="dotari" id="dotari" cols="50" rows="10"></textarea></div>
           </div>
         </fieldset>
 

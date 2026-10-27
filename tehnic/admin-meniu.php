@@ -63,6 +63,8 @@ $adm_meniu = [
 ];
 $adm_pagina_curenta = basename($_SERVER['PHP_SELF']);
 $adm_utilizator = isset($_SESSION['MM_Username']) ? $_SESSION['MM_Username'] : '';
+// Unele pagini (ex. editor_pagini.php) nu definesc $logoutAction; delogarea o face index.php
+$adm_logout = isset($logoutAction) ? $logoutAction : 'index.php?doLogout=true';
 $adm_icon = function ($nume) use ($adm_iconite) {
     return '<svg class="adm-nav-icon" viewBox="0 0 24 24" aria-hidden="true">' . $adm_iconite[$nume] . '</svg>';
 };
@@ -75,7 +77,7 @@ $adm_icon = function ($nume) use ($adm_iconite) {
       <span class="adm-top-links">
         <?php if ($adm_utilizator !== '') { ?><span class="adm-top-user"><?php echo htmlspecialchars($adm_utilizator, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); ?></span><?php } ?>
         <a href="../" target="_blank" rel="noopener">Vezi site-ul</a>
-        <a href="<?php echo $logoutAction ?>">Logout</a>
+        <a href="<?php echo $adm_logout ?>">Logout</a>
       </span>
     </td>
   </tr>
@@ -104,7 +106,7 @@ $adm_icon = function ($nume) use ($adm_iconite) {
           </ul>
         </details>
 <?php } ?>
-        <a class="adm-nav-home adm-nav-logout" href="<?php echo $logoutAction ?>"><svg class="adm-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4h4v16h-4"/><path d="M10 8l-4 4 4 4M6 12h10"/></svg>Logout</a>
+        <a class="adm-nav-home adm-nav-logout" href="<?php echo $adm_logout ?>"><svg class="adm-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4h4v16h-4"/><path d="M10 8l-4 4 4 4M6 12h10"/></svg>Logout</a>
       </div>
       <script type="text/javascript">
       (function () {

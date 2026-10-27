@@ -129,3 +129,18 @@ function adm_card($row, $info, $url_modifica, $url_sterge = null)
               </div>
 <?php
 }
+
+/**
+ * Adresa butonului "Inapoi" de pe paginile de editare: lista de anunturi din care s-a deschis anuntul,
+ * tinuta minte in sesiune ca sa ramana valabila si dupa salvare; altfel lista implicita.
+ */
+function adm_link_inapoi($implicit)
+{
+    $ref = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
+    $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '';
+    if ($ref !== '' && parse_url($ref, PHP_URL_HOST) === parse_url('//' . $host, PHP_URL_HOST)
+        && preg_match('~/tehnic/(view_vanzare2|view_vanzare_new|view_vanzare_oferta)\.php~', (string)parse_url($ref, PHP_URL_PATH))) {
+        $_SESSION['adm_lista_anunturi'] = $ref;
+    }
+    return isset($_SESSION['adm_lista_anunturi']) ? $_SESSION['adm_lista_anunturi'] : $implicit;
+}
