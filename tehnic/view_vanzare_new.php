@@ -155,8 +155,10 @@ $combustibilie 	= (isset($_REQUEST['acombustibilibil'])) ? $_REQUEST['acombustib
 $anfabric 	= (isset($_REQUEST['aanfabricatie'])) ? $_REQUEST['aanfabricatie'] : '';
 $prov		= (isset($_REQUEST['prov_enienta'])) ? $_REQUEST['prov_enienta'] : '';
 $stare	= (isset($_REQUEST['stare'])) ? $_REQUEST['stare'] : '';
+$idanunt	= (isset($_REQUEST['aid'])) ? intval($_REQUEST['aid']) : 0;
 
 $wheresql	= " WHERE id>'0' ";
+if( $idanunt > 0 ) {$wheresql 		.= ' AND id='.$idanunt;}
 if( $stare=='0' || $stare=='1' ) $wheresql 		.= ' AND stare_anunt="'.$stare.'"';
 if( !empty($prov) ) $wheresql 		.= ' AND prov_enienta="'.$prov.'"';
 if( !empty($categ) ) $wheresql 		.= ' AND cat="'.$categ.'"';
@@ -301,7 +303,8 @@ while ( $row_subcateg = mysqli_fetch_assoc($result_subcateg) ) {
                       </select>
 				</td>
                 <td align="right">
-					&nbsp;
+					ID anunt :
+                      <input type="text" name="aid" class="add_vanz" size="8" inputmode="numeric" value="<?php echo $idanunt > 0 ? $idanunt : ''; ?>" onchange="this.form.submit();" />
 				</td>
                 </tr>
 
