@@ -22,7 +22,7 @@ function car_descriere_structurata($html, $vizibile_pe_telefon = 8)
     $dotari = [];
     $evidentiate = [];
     foreach ($m[1] as $raw) {
-        $bold = (bool)preg_match('/<(strong|b)\b/i', $raw);
+        $bold = (bool)preg_match('/<(strong|b)\b|font-weight\s*:\s*(bold|[6-9]00)/i', $raw);
         $text = html_entity_decode(strip_tags($raw), ENT_QUOTES | ENT_HTML5, 'UTF-8');
         $text = preg_replace('/[\x{00A0}\s]+/u', ' ', $text);
         $text = trim($text, " \t\n\r;,.");
@@ -47,10 +47,12 @@ function car_descriere_structurata($html, $vizibile_pe_telefon = 8)
         return $out;
     };
 
-    // Textul scris în afara listelor (ex. "Prețul este net.") se păstrează: cel de dinainte sus, restul jos.
-    $parti = preg_split('/<(ul|ol)\b[^>]*>.*?<\/\1>/is', $html);
-    $inainte = car_descriere_text_liber(array_shift($parti));
-    $dupa = car_descriere_text_liber(implode('', $parti));
+    // Textul din afara rândurilor de listă (ex. "Prețul este net.") se păstrează: cel de dinainte sus, restul jos.
+    // Editorul îl poate lăsa și în interiorul <ul>, după ultimul </li>, unde apare indentat dar fără bulină.
+    $start = preg_match('/<(ul|ol)\b/i', $html, $p, PREG_OFFSET_CAPTURE) ? $p[0][1] : strlen($html);
+    $inainte = car_descriere_text_liber(substr($html, 0, $start));
+    $rest = preg_replace('/<li\b[^>]*>.*?<\/li>/is', '', substr($html, $start));
+    $dupa = car_descriere_text_liber(preg_replace('/<\/?(ul|ol)\b[^>]*>/i', '', $rest));
 
     $out = '<div class="car-desc">' . $inainte;
     if ($evidentiate) {

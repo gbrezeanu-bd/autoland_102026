@@ -255,6 +255,8 @@ do {
                         <option value="motorina" <?php if (!(strcmp("motorina", $_REQUEST['acombustibilibil']))) {echo "selected=\"selected\"";} ?>>motorină</option>
                         <option value="benzina" <?php if (!(strcmp("benzina", $_REQUEST['acombustibilibil']))) {echo "selected=\"selected\"";} ?>>benzină</option>
                         <option value="fara" <?php if (!(strcmp("fara", $_REQUEST['acombustibilibil']))) {echo "selected=\"selected\"";} ?>>fără</option>
+                        <option value="hybrid" <?php if (!(strcmp("hybrid", $_REQUEST['acombustibilibil']))) {echo "selected=\"selected\"";} ?>>hybrid</option>
+                        <option value="electric" <?php if (!(strcmp("electric", $_REQUEST['acombustibilibil']))) {echo "selected=\"selected\"";} ?>>electric</option>
                       </select>
                     </label></td>
                   <td align="right"><label>An fabricație :

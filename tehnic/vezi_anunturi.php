@@ -569,9 +569,12 @@ include 'header.php';
                   <tr valign="baseline">
                     <td nowrap align="right">Combustibil:</td>
                     <td><select name="combustibil" class="add_vanz" id="combustibil" style="width:120px;">
+                      <option value="">—</option>
                       <option value="fara" <?php if (!(strcmp("fara", $row_vehicule['combustibil']))) {echo "selected=\"selected\"";} ?>>fără</option>
                       <option value="motorina" <?php if (!(strcmp("motorina", $row_vehicule['combustibil'])) || !(strcmp("diesel", $row_vehicule['combustibil']))) {echo "selected=\"selected\"";} ?>>motorină</option>
                       <option value="benzina" <?php if (!(strcmp("benzina", $row_vehicule['combustibil']))) {echo "selected=\"selected\"";} ?>>benzină</option>
+                      <option value="hybrid" <?php if (!(strcmp("hybrid", $row_vehicule['combustibil']))) {echo "selected=\"selected\"";} ?>>hybrid</option>
+                      <option value="electric" <?php if (!(strcmp("electric", $row_vehicule['combustibil']))) {echo "selected=\"selected\"";} ?>>electric</option>
                     </select></td>
                     <td align="right">An:</td>
                     <td><input name="an" type="text" class="add_vanz" value="<?php echo $row_vehicule['an']; ?>" size="32" style="width:60px;"/></td>
@@ -608,6 +611,7 @@ include 'header.php';
 					<td nowrap align="right">Proveniență:</td>
 				                    <td>
                     	<select name="prov_enienta" class="add_vanz" id="prov_enienta" style="width:120px;">
+							<option value="">—</option>
 							<option value="Import" <?php if (!(strcmp("Import", $row_vehicule['prov_enienta']))) {echo "selected=\"selected\"";} ?>>Import</option>
 							<option value="Romania" <?php if (!(strcmp("Romania", $row_vehicule['prov_enienta']))) {echo "selected=\"selected\"";} ?>>România</option>
                     	</select>

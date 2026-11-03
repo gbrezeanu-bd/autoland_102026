@@ -32,7 +32,7 @@
 
 # Added by Gabriela Brezeanu on Aug 21 2026
 # --- Block direct access to sensitive file types ---
-<FilesMatch "(?i)\.(sql|sql\.gz|bak|old|backup|log|inc|env|ini|sh|swp|tmp|xls|xlsx|xlsm)$">
+<FilesMatch "(?i)\.(sql|sql\.gz|bak|old|backup|log|inc|env|ini|sh|swp|tmp|xls|xlsx|xlsm|md)$">
   Require all denied
 </FilesMatch>
 # Belt-and-braces for exact/legacy names and Apache < 2.4:
