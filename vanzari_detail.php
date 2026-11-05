@@ -123,7 +123,9 @@ $page_subtitle = "An fabricaţie: " . $row_vanzare['an'];
  */
 function parseVehicleDetails($html_details) {
     $details = [];
-    $text = strip_tags($html_details);
+    // Fiecare rând (li, br, p, div) pe linia lui, ca o valoare să nu se lipească de rândul următor când lipsește ";".
+    $text = strip_tags(preg_replace('/<\/?(li|ul|ol|br|p|div)\b[^>]*>/i', "\n", (string)$html_details));
+    $text = html_entity_decode($text, ENT_QUOTES | ENT_HTML5, 'UTF-8');
     
     // Parse engine displacement (e.g., "Motor 2.3L DCi EURO5;")
     if (preg_match('/Motor\s+(?:Turbo-?)?(?:DIESEL|benzina)?\s*(\d+\.?\d*)\s*L[;\s,\.]*/ui', $text, $matches)) {
@@ -140,8 +142,9 @@ function parseVehicleDetails($html_details) {
     }
     
     // Parse mileage/kilometers (e.g., "Km parcursi: 172 500;" or "Km. parcursi: 172500;")
-    if (preg_match('/Km\.?\s+parcur[şs]i[:\s]+([0-9\s]+)[;\s,\.]*/ui', $text, $matches)) {
-        $km_value = preg_replace('/\s+/', '', $matches[1]); // Remove spaces
+    // Cifrele pot fi grupate cu spațiu sau punct ("172 500", "172.500"), dar nu continuă pe rândul următor.
+    if (preg_match('/Km\.?\s+parcur[şs]i[:\s]+(\d[\d \.\x{00A0}]*)/ui', $text, $matches)) {
+        $km_value = preg_replace('/[^\d]/', '', $matches[1]);
         $details['mileage'] = (int)$km_value;
     }
     

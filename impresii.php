@@ -40,8 +40,6 @@ $footer_scripts .= '';
 ?>
 
 <?php
-// Profilul Google Business al firmei (recenziile Google se citesc direct acolo)
-$google_profil = defined('JSONLD_GOOGLE_BUSINESS') ? JSONLD_GOOGLE_BUSINESS : 'https://maps.app.goo.gl/cuxVc4u2BkxwVWXt6';
 $ultimul_an = '';
 $recenzii_site = [];
 while ($row = mysqli_fetch_assoc($result)) {
@@ -59,9 +57,7 @@ if ($recenzii_site) {
                 <?php include './themes/automotive/template_parts/pagina_sidebar.php'; ?>
                 <div class="ap-main">
                     <div class="ap">
-                        <h2>Recenzii pe Google</h2>
-                        <p><strong>Recenziile din profilul Autoland România sunt publice pe Google.</strong> Le poți citi acolo, în ordinea dorită, și poți lăsa propria recenzie după ce cumperi o mașină.</p>
-                        <p><a href="<?php echo htmlspecialchars($google_profil); ?>" target="_blank" rel="noopener">Deschide profilul Autoland România pe Google</a></p>
+                        <h2>Păreri ale clienților noștri - despre Autoland România</h2>
 
                         <h2>Păreri trimise pe site</h2>
                         <?php if (!$recenzii_site): ?>
